@@ -51,7 +51,7 @@ BLog Details Styles
                 padding: 0 10px;
             }
             p {
-                font-size: 18px;
+                font-size: 22px;
                 line-height: 30px;
                 color: rgba(29, 29, 36, 0.75);
                 margin-bottom: 40px;
@@ -151,13 +151,13 @@ BLog Details Styles
                 }
                 span {
                     color: rgba(29, 29, 36, 0.75);
-                    font-size: 14px;
+                    font-size: 18px;
                     display: block;
                     text-align: left;
                     padding-top: 10px;
                     padding-left: 110px;
                     @media #{$sm-layout} {
-                        font-size: 13px;
+                        font-size: 16px;
                         padding-left: 0;
                         margin-bottom: 23px;
                     }

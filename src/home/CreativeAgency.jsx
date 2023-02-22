@@ -10,7 +10,6 @@ import About from "../component/HomeLayout/homeOne/About";
 import CounterOne from "../elements/counters/CounterOne";
 import Testimonial from "../elements/Testimonial";
 import Team from "../elements/Team";
-import BlogContent from "../elements/blog/BlogContent";
 import BrandTwo from "../elements/BrandTwo";
 import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
@@ -24,8 +23,8 @@ const SlideList = [
     category: "",
     title: "Bulgarian Society Groningen",
     description: "",
-    buttonText: "Join",
-    buttonLink: "/contact",
+    buttonText: "Become a Member",
+    buttonLink: '',
   },
 ];
 
@@ -34,13 +33,13 @@ const list = [
     image: "image-1",
     category: "Bulgarian Dinner",
     title:
-      "Our first event that introduced the society to our traditional cuisine",
+      "Try our traditional cuisine",
   },
   {
     image: "image-2",
     category: "Trifon Zarezan",
     title:
-      "The Valentine's Day of Bulgaria realted as the 'The Day of the Wine'",
+      "No valantine - wine is always there for us ",
   },
   {
     image: "image-3",
@@ -49,9 +48,20 @@ const list = [
   },
 ];
 
+const PostList = [
+  {
+    images: "01",
+    category: "Development",
+    title: "Barista Courses",
+  },
+  {
+    images: "02",
+    category: "Development",
+    title: "Barista Courses",
+  },
+];
 class CreativeAgency extends Component {
   render() {
-    const PostList = BlogContent;
     return (
       <Fragment>
         <Helmet pageTitle="Home" />
@@ -105,7 +115,17 @@ class CreativeAgency extends Component {
           </Parallax>
         </div>
         {/* End Slider Area   */}
-
+ {/* Start Sponsor Area */}
+ <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <BrandTwo />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End Sponsor Area */}
         {/* Start About Area */}
         <div className="about-area ptb--120">
           <About />
@@ -213,62 +233,47 @@ class CreativeAgency extends Component {
 
         {/* Start Blog Area */}
         <div className="rn-blog-area pt--120 pb--140 bg_color--5">
-          <div className="container">
-            <div className="row align-items-end">
-              <div className="col-lg-6">
-                <div className="section-title text-left">
-                  <h2>Expect soon</h2>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration.
-                  </p>
+          <div className="rn-slick-dot">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-6">
+                  <div className="section-title text-left">
+                    <h2>Expect soon</h2>
+                    <p>More information about incoming - Better stay tuned!</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <Slider {...slickDot}>
-                  {PostList.map((value, i) => (
-                    <div className="blog blog-style--1" key={i}>
-                      <div className="thumbnail">
-                        <a href="/blog-details">
-                          <img
-                            src={`/assets/images/blog/blog-${value.images}.jpg`}
-                            alt="Blog Images"
-                          />
-                        </a>
-                      </div>
-                      <div className="content">
-                        <p className="blogtype">{value.category}</p>
-                        <h4 className="title">
-                          <a href="/blog-details">{value.title}</a>
-                        </h4>
-                        <div className="blog-btn">
-                          <a className="rn-btn text-white">
-                            Read More
+              <br />
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="slick-space-gutter--15 slickdot--20">
+                    <Slider {...slickDot}>
+                      <div className="blog blog-style--1">
+                        <div className="thumbnail">
+                          <a href="/blog-details">
+                            <img
+                              src={`/assets/images/blog/blog-${PostList[0].images}.jpg`}
+                              alt="Blog Images"
+                            />
                           </a>
                         </div>
+                        <div className="content">
+                          <h4 className="title">
+                            <a href="/blog-details">{PostList[0].title}</a>
+                          </h4>
+                          <div className="blog-btn">
+                            <a className="rn-btn text-white" href="/blog-details">Read More</a>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </Slider>
+                    </Slider>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         {/* End Blog Area */}
-
-        {/* Start Sponsor Area */}
-        <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <BrandTwo />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* End Sponsor Area */}
 
         {/* Start Footer Style  */}
         <FooterTwo />

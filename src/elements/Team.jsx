@@ -70,7 +70,7 @@ let TeamContent = [
     designation: [
       "Study: MSc Medicine",
       "Age: 21",
-      "Interests: Tennis, Music, Painitng",
+      "Interests: Tennis, Music, Painting",
     ],
     socialNetwork: [
       {
@@ -107,7 +107,7 @@ let TeamContent = [
     ],
   },
   {
-    images: "03",
+    images: "04",
     title: "Dimitar (Treasurer)",
     designation: [
       "Study: BA International Business",
@@ -130,7 +130,7 @@ let TeamContent = [
     ],
   },
   {
-    images: "04",
+    images: "03",
     title: "Konstantin (External Relations)",
     designation: [
       "Study: BA CMGT",
