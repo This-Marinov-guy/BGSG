@@ -51,10 +51,10 @@ const list = [
 
 class CreativeAgency extends Component {
   render() {
-    const PostList = BlogContent.slice(0, 5);
+    const PostList = BlogContent;
     return (
       <Fragment>
-        <Helmet pageTitle="Creative Agency" />
+        <Helmet pageTitle="Home" />
         <Header logo="light" />
         {/* Start Slider Area   */}
         <div className="slider-activation slider-creative-agency">
@@ -86,6 +86,7 @@ class CreativeAgency extends Component {
                         {value.buttonText ? (
                           <div className="slide-btn">
                             <a
+                              style={{ fontSize: "24px" }}
                               className="rn-button-style--2 btn-primary-color"
                               href={`${value.buttonLink}`}
                             >
@@ -224,7 +225,7 @@ class CreativeAgency extends Component {
                 </div>
               </div>
             </div>
-            <div className="row mt--55 mt_sm--30 rn-slick-dot slick-space-gutter--15 slickdot--20 row--0">
+            <div className="row">
               <div className="col-lg-12">
                 <Slider {...slickDot}>
                   {PostList.map((value, i) => (
@@ -243,7 +244,7 @@ class CreativeAgency extends Component {
                           <a href="/blog-details">{value.title}</a>
                         </h4>
                         <div className="blog-btn">
-                          <a className="rn-btn text-white" href="/blog-details">
+                          <a className="rn-btn text-white">
                             Read More
                           </a>
                         </div>

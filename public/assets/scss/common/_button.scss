@@ -52,12 +52,12 @@ button {
         &:hover {
             border: 2px solid $theme-color;
             transform: translateY(-3px);
-            color: #ffffff;
+            color: #faf9f6;
             background: $theme-color;
         }
         &.btn-white {
-            border: 2px solid #ffffff;
-            color: #ffffff;
+            border: 2px solid #faf9f6;
+            color: #faf9f6;
             &:hover {
                 border-color: $theme-color;
             }
@@ -104,14 +104,14 @@ a {
             &:hover {
                 border: 2px solid $theme-color;
                 background: $theme-color;
-                color: #ffffff;
+                color: #faf9f6;
             }
         }
 
         &.btn-solid {
             border: 2px solid $theme-color;
             background: $theme-color;
-            color: #ffffff;
+            color: #faf9f6;
         }
 
         &.btn-solid-border {
@@ -121,7 +121,7 @@ a {
             &:hover{
                 border: 2px solid $theme-color;
                 background: $theme-color;
-                color: #ffffff;
+                color: #faf9f6;
                 transform: translateY(-5px);
             }
         }
@@ -135,7 +135,7 @@ a {
 
         &.btn-solid {
             background: $theme-color;
-            color: #ffffff;
+            color: #faf9f6;
         }
 
         &:hover{
@@ -220,14 +220,14 @@ button {
             background: $theme-color;
             border-color: $theme-color;
             &::before{
-                border-left: 15px solid #ffffff;
+                border-left: 15px solid #faf9f6;
             }
         }
         &.black-color {
             background: #000000;
             border-color: #000000;
             &::before{
-                border-left: 15px solid #ffffff;
+                border-left: 15px solid #faf9f6;
             }
         }
     }

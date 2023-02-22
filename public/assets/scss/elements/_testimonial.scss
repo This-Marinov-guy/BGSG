@@ -54,7 +54,7 @@ Testimonial Styles
                 padding: 0;
             } 
             @media #{$sm-layout} {
-                font-size: 17px !important;
+                font-size: 28px !important;
                 line-height: 30px !important;
                 padding: 0;
                 font-weight: 400;
@@ -106,13 +106,13 @@ Testimonial Styles
             margin-bottom: 30px;
         }
         h6 {
-            font-size: 18px;
+            font-size: 22px;
             line-height: 50px;
             color: #8c8c8c;
             font-weight: 300;
             @media #{$sm-layout} {
                 line-height: 20px;
-                font-size: 14px;
+                font-size: 20px;
             }
             span{
                 color: #18181b;

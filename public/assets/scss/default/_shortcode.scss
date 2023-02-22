@@ -155,10 +155,10 @@ font-family: 'Poppins', sans-serif;
 }
 
 p {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 30px;
     @media #{$sm-layout} {
-        font-size: 16px !important;
+        font-size: 22px !important;
         line-height: 28px !important;
     }
 }

@@ -10,10 +10,10 @@ class Testimonial extends Component{
                             <TabPanel>
                                 <div className="rn-testimonial-content text-center">
                                     <div className="inner">
-                                        <p>Aklima The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
+                                        <p>Best society ever</p>
                                     </div>
                                     <div className="author-info">
-                                        <h6><span>Aklima </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
+                                        <h6><span>Victor, 20 </span>- BSc Business Management</h6>
                                     </div>
                                 </div>
                             </TabPanel>
@@ -21,41 +21,20 @@ class Testimonial extends Component{
                             <TabPanel>
                                 <div className="rn-testimonial-content text-center">
                                     <div className="inner">
-                                        <p>Fatima Asrafy standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
+                                        <p>I have never imagined that I will be able to connect to Bulgaria from so far away</p>
                                     </div>
                                     <div className="author-info">
-                                        <h6><span>Fatima Asrafy </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
+                                        <h6><span>Any, 23 </span>- BSc Business Management</h6>
                                     </div>
                                 </div>
                             </TabPanel>
                             <TabPanel>
                                 <div className="rn-testimonial-content text-center">
                                     <div className="inner">
-                                        <p>Jannat Tumpa The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
+                                        <p>Can't believe this is real</p>
                                     </div>
                                     <div className="author-info">
-                                        <h6><span>Jannat Tumpa </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
-                                    </div>
-                                </div>
-                            </TabPanel>
-
-                            <TabPanel>
-                                <div className="rn-testimonial-content text-center">
-                                    <div className="inner">
-                                        <p>Standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
-                                    </div>
-                                    <div className="author-info">
-                                        <h6><span>Johns Due </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
-                                    </div>
-                                </div>
-                            </TabPanel>
-                            <TabPanel>
-                                <div className="rn-testimonial-content text-center">
-                                    <div className="inner">
-                                        <p>John Doe The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
-                                    </div>
-                                    <div className="author-info">
-                                        <h6><span>John Doe </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
+                                        <h6><span>Ivan, 30 </span>- BSc Business Management</h6>
                                     </div>
                                 </div>
                             </TabPanel>
@@ -63,20 +42,20 @@ class Testimonial extends Component{
                             <TabPanel>
                                 <div className="rn-testimonial-content text-center">
                                     <div className="inner">
-                                        <p>Chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
+                                        <p>I love this community</p>
                                     </div>
                                     <div className="author-info">
-                                        <h6><span>Amar Orthi </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
+                                        <h6><span>Dimitar, 23 </span>- BSc Business Management</h6>
                                     </div>
                                 </div>
                             </TabPanel>
                             <TabPanel>
                                 <div className="rn-testimonial-content text-center">
                                     <div className="inner">
-                                        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
+                                        <p>Nice people and even nicer interactions</p>
                                     </div>
                                     <div className="author-info">
-                                        <h6><span>Fatima Ma </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
+                                        <h6><span>Stefani, 21 </span>- BSc Business Management</h6>
                                     </div>
                                 </div>
                             </TabPanel>
@@ -84,10 +63,31 @@ class Testimonial extends Component{
                             <TabPanel>
                                 <div className="rn-testimonial-content text-center">
                                     <div className="inner">
-                                        <p>Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections Bonorum et Malorum original.</p>
+                                        <p>I hope this company improves with our help</p>
                                     </div>
                                     <div className="author-info">
-                                        <h6><span>JON CUMMINS </span> - COO, AMERIMAR ENTERPRISES, INC.</h6>
+                                        <h6><span>Martina, 20 </span>- BSc Business Management</h6>
+                                    </div>
+                                </div>
+                            </TabPanel>
+                            <TabPanel>
+                                <div className="rn-testimonial-content text-center">
+                                    <div className="inner">
+                                        <p>BGSG turned my social life around</p>
+                                    </div>
+                                    <div className="author-info">
+                                        <h6><span>Victor, 25 </span>- BSc Business Management</h6>
+                                    </div>
+                                </div>
+                            </TabPanel>
+
+                            <TabPanel>
+                                <div className="rn-testimonial-content text-center">
+                                    <div className="inner">
+                                        <p>This society is the only thing that makes me feel connected to my roots</p>
+                                    </div>
+                                    <div className="author-info">
+                                        <h6><span>Pamella, 20 </span>- BSc Business Management</h6>
                                     </div>
                                 </div>
                             </TabPanel>

@@ -57,7 +57,7 @@ Footer Styles
         }
         >span {
             color: #fff;
-            font-size: 15px;
+            font-size: 20px;
             text-transform: uppercase;
             letter-spacing: 4px;
             display: block;
@@ -145,7 +145,7 @@ Footer Styles
                 li {
                     a {
                         color: #c6c9d8;
-                        font-size: 16px;
+                        font-size: 12px;
                         @extend %transition;
                         opacity: 0.75;
                     }
@@ -171,7 +171,7 @@ Footer Styles
 .footer-style-2 {
     p {
         color: #c6c9d8;
-        font-size: 14px;
+        font-size: 20px;
         opacity: 0.75;
     }
 }

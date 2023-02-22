@@ -25,7 +25,11 @@ let TeamContent = [
   {
     images: "05",
     title: "Radost (Creative Manager)",
-    designation: ["Study: MA Euroculture", "Age: 23", "Interests: Customizing clothes, Embroidery, Dancing, Sustainability"],
+    designation: [
+      "Study: MA Euroculture",
+      "Age: 23",
+      "Interests: Customizing clothes, Embroidery, Dancing, Sustainability",
+    ],
     socialNetwork: [
       {
         icon: <FaFacebookF />,
@@ -40,7 +44,11 @@ let TeamContent = [
   {
     images: "06",
     title: "Tsveta (PR Manager)",
-    designation: ["Study: BA European languages and Cultures", "Age: 20", "Interests: Reading, Travelling, Cinema, Pilates"],
+    designation: [
+      "Study: BA European languages and Cultures",
+      "Age: 20",
+      "Interests: Reading, Travelling, Cinema, Pilates",
+    ],
     socialNetwork: [
       {
         icon: <FaFacebookF />,
@@ -59,7 +67,11 @@ let TeamContent = [
   {
     images: "07",
     title: "Pavella (Secretary)",
-    designation: ["Study: MSc Medicine", "Age: 21", "Interests: Tennis, Music, Painitng"],
+    designation: [
+      "Study: MSc Medicine",
+      "Age: 21",
+      "Interests: Tennis, Music, Painitng",
+    ],
     socialNetwork: [
       {
         icon: <FaFacebookF />,
@@ -78,7 +90,11 @@ let TeamContent = [
   {
     images: "02",
     title: "Sava (Internal Relations)",
-    designation: ["Study: BA Game Design", "Age: 20", "Interests: Gym, Kickboxing, Gaming"],
+    designation: [
+      "Study: BA Game Design",
+      "Age: 20",
+      "Interests: Gym, Kickboxing, Gaming",
+    ],
     socialNetwork: [
       {
         icon: <FaFacebookF />,
@@ -92,8 +108,12 @@ let TeamContent = [
   },
   {
     images: "03",
-    title: "Konstantin (External Relations)",
-    designation: ["Study: BA CMGT", "Age: 20", "Interests: Concerts, Movies, Enterprenuership, Sports"],
+    title: "Dimitar (Treasurer)",
+    designation: [
+      "Study: BA International Business",
+      "Age: 21",
+      "Interests: Music, DJ-ing, Business, Jiu-Jitsu",
+    ],
     socialNetwork: [
       {
         icon: <FaFacebookF />,
@@ -111,8 +131,12 @@ let TeamContent = [
   },
   {
     images: "04",
-    title: "Dimitar (Treasurer)",
-    designation: ["Study: BA International Business", "Age: 21", "Interests: Music, DJ-ing, Business, Jiu-Jitsu"],
+    title: "Konstantin (External Relations)",
+    designation: [
+      "Study: BA CMGT",
+      "Age: 20",
+      "Interests: Concerts, Movies, Enterprenuership, Sports",
+    ],
     socialNetwork: [
       {
         icon: <FaFacebookF />,
@@ -139,6 +163,7 @@ class Team extends Component {
           style={{ width: "400px", height: "600px" }}
           className="row single-item"
         >
+          <p style={{ margin: "auto", color: "grey" }}>CEO</p>
           <div className="team">
             <div className="thumbnail">
               <img

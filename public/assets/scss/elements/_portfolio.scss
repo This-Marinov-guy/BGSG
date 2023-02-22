@@ -34,8 +34,8 @@
         border-radius: 5px;
         cursor: pointer;
         &::before{
-            background-color: #28a745;
-            background-image: linear-gradient(#28a745 10%, #000000 100%);
+            background-color: #faf9f6;
+            background-image: linear-gradient(#faf9f6 10%, #000000 100%);
             position: absolute;
             content: "";
             top: 0;
@@ -146,19 +146,19 @@
         .inner {
             p {
                 color: #c6c9d8;
-                font-size: 14px;
+                font-size: 20px;
             }
             h4 {
                 font-size: 24px;
                 line-height: 36px;
                 a{
-                    color: #ffffff;
+                    color: #faf9f6;
                 }
             }
             .title {
                 font-size: 24px;
                 line-height: 36px;
-                color: #ffffff;
+                color: #faf9f6;
             }
             .portfolio-button{
                 @extend %transition;
@@ -169,7 +169,7 @@
                 }
                 a {
                     &.rn-btn{
-                        color: #ffffff;
+                        color: #faf9f6;
                         border-color: rgba(255,255,255,0.3);
                         &:hover{
                             border-color: $theme-color;
@@ -624,8 +624,8 @@
             li{
                 button {
                     &::after {
-                        background: #ffffff;
-                        box-shadow: inset 0 0 0 5px #ffffff;
+                        background: #faf9f6;
+                        box-shadow: inset 0 0 0 5px #faf9f6;
                     }
                 }
                 &.slick-active{
@@ -839,7 +839,7 @@ Portfolio Style Three
         }
         p{
             &.portfoliotype{
-                font-size: 14px;
+                font-size: 20px;
                 margin-bottom: 5px;
                 color: #c6c9d8;
             }
@@ -848,7 +848,7 @@ Portfolio Style Three
             &.title{
                 margin-bottom: 0;
                 a{
-                    color: #ffffff;
+                    color: #faf9f6;
                     font-size: 24px;
                     font-weight: 500;
                     line-height: 36px;
@@ -923,7 +923,7 @@ Portfolio Style Three
 
         p {
             margin-bottom: 5px;
-            font-size: 16px;
+            font-size: 22px;
         }
         h4 {
             a {

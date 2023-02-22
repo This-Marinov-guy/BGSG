@@ -2,6 +2,7 @@
     Slider Area 
 ======================*/
 
+@import url(//db.onlinewebfonts.com/c/08aae9f020949051ff8331be100607cb?family=Archive);
 
 @media #{$sm-layout} {
     .bg_image--31 {
@@ -48,7 +49,7 @@ Slider Default Style
                 font-size: 125px;
                 font-weight: 900;
                 text-transform: uppercase;
-                font-family: 'Montserrat', sans-serif;
+                font-family: 'Archive', sans-serif;
                 font-weight: 900;
                 line-height: 130px;
                 @media #{$laptop-device} {
@@ -178,7 +179,7 @@ Slider Default Style
             }
             > span {
                 color: #fff;
-                font-size: 15px;
+                font-size: 22px;
                 text-transform: uppercase;
                 letter-spacing: 4px;
                 display: block;
@@ -224,6 +225,7 @@ Slider Default Style
             }
             .slide-btn {
                 margin-top: 50px;
+                font-size: 22px;
             }
             &.text-left {
                 p {
@@ -276,13 +278,13 @@ Slider Default Style
         .inner {
             > span {
                 color: #1f1f25;
-                font-size: 15px;
+                font-size: 22px;
                 text-transform: uppercase;
                 letter-spacing: 4px;
                 display: block;
                 margin-bottom: 20px;
                 @media #{$sm-layout} {
-                    font-size: 13px;
+                    font-size: 22px;
                     margin-bottom: 10px;
                 }
             }
@@ -504,6 +506,7 @@ Personal Portfolio
     a.rn-button-style--2 {
         color: #fff;
         border-color: #fff;
+        font-size: 22px !important;
     }
 }
 

@@ -38,8 +38,8 @@ class PortfolioDetails extends Component{
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="rn-page-title text-center pt--100">
-                                    <h2 className="title theme-gradient">Getting tickets to the big show</h2>
-                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. </p>
+                                    <h2 className="title theme-gradient">Freedom Fest</h2>
+                                    <p>National Day of Bulgaria</p>
                                 </div>
                             </div>
                         </div>
@@ -54,44 +54,38 @@ class PortfolioDetails extends Component{
                             <div className="col-lg-12">
                                 <div className="portfolio-details">
                                     <div className="inner">
-                                        <h2>Trydo</h2>
-                                        <p className="subtitle">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commod viverra maecenas accumsan lacus vel facilisis. ut labore et dolore magna aliqua. </p>
+                                        <h2>About</h2>
+                                        <p className="subtitle">A party like no other</p>
+                                        <p>We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promise this will be an unforgetable experience that will be talked about for weeks after! Do not waste time and book your spot</p>
 
                                         <div className="portfolio-view-list d-flex flex-wrap">
                                             <div className="port-view">
-                                                <span>Branch</span>
-                                                <h4>Ability</h4>
+                                                <span>When</span>
+                                                <h4>3/2/2023, 8:00pm</h4>
                                             </div>
 
                                             <div className="port-view">
-                                                <span>Project Types</span>
-                                                <h4>Website</h4>
+                                                <span>Where</span>
+                                                <h4>Business Hall</h4>
                                             </div>
 
                                             <div className="port-view">
-                                                <span>Program</span>
-                                                <h4>View Project</h4>
+                                                <span>Entry fee</span>
+                                                <h4>8 euro</h4>
                                             </div>
                                         </div>
 
-                                        <div className="portfolio-share-link mt--20 pb--70 pb_sm--40">
-                                            <ul className="social-share rn-lg-size d-flex justify-content-start liststyle mt--15">
-                                                {SocialShare.map((val , i) => (
-                                                    <li key={i}><a href={`${val.link}`}>{val.Social}</a></li>
-                                                ))}
-                                            </ul>
-                                        </div>
                                     </div>
+                                    <br/>
                                     <div className="portfolio-thumb-inner">
                                         <div className="thumb position-relative mb--30">
-                                            <img src="/assets/images/portfolio/portfolio-big-03.jpg" alt="Portfolio Images"/>
+                                            <img src="/assets/images/portfolio/portfolio-big-01.jpg" alt="Portfolio Images"/>
                                             <ModalVideo channel='youtube' isOpen={this.state.isOpen} videoId='ZOoVOfieAF8' onClose={() => this.setState({isOpen: false})} />
                                             <button className="video-popup position-top-center" onClick={this.openModal}><span className="play-icon"></span></button>
                                         </div>
                                         
                                         <div className="thumb mb--30">
-                                            <img src="/assets/images/portfolio/portfolio-big-02.jpg" alt="Portfolio Images"/>
+                                            <img src="/assets/images/portfolio/portfolio-big-01.jpg" alt="Portfolio Images"/>
                                         </div>
 
                                         <div className="thumb">
@@ -104,53 +98,6 @@ class PortfolioDetails extends Component{
                     </div>
                 </div>
                 {/* End Portfolio Details */}
-
-                {/* Start Related Work */}
-                <div className="portfolio-related-work pb--120 bg_color--1">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="section-title text-center">
-                                    <span className="theme-color font--18 fontWeight600">Related Work</span>
-                                    <h2>Our More Projects</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row mt--10">
-                            {/* Start Single Portfolio */}
-                            <div className="col-lg-6 col-md-6 col-12">
-                                <div className="related-work text-center mt--30">
-                                    <div className="thumb">
-                                        <a href="/portfolio-details">
-                                            <img src="/assets/images/portfolio/related-image-01.jpg" alt="Portfolio-images"/>
-                                        </a>
-                                    </div>
-                                    <div className="inner">
-                                        <h4><a href="/portfolio-details">Digital Analysis</a></h4>
-                                        <span className="category">Technique</span>
-                                    </div>
-                                </div>
-                            </div>
-                             {/* End Single Portfolio */}
-                            {/* Start Single Portfolio */}
-                            <div className="col-lg-6 col-md-6 col-12">
-                                <div className="related-work text-center mt--30">
-                                    <div className="thumb">
-                                        <a href="/portfolio-details">
-                                            <img src="/assets/images/portfolio/related-image-02.jpg" alt="Portfolio-images"/>
-                                        </a>
-                                    </div>
-                                    <div className="inner">
-                                        <h4><a href="/portfolio-details">Plan Management</a></h4>
-                                        <span className="category">PLANNING</span>
-                                    </div>
-                                </div>
-                            </div>
-                             {/* End Single Portfolio */}
-                        </div>
-                    </div>
-                </div>
-                {/* End Related Work */}
 
                 {/* Start Back To Top */}
                 <div className="backto-top">

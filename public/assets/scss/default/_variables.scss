@@ -1,23 +1,27 @@
 //===== Colors =====//
-$theme-color: #f9004d;
-$theme-color-2: #f61b10;
-$theme-color-3: #ef0963;
+$theme-color: #f92820;
+$theme-color-2: #ab1c02;
+$theme-color-3: #9e0d33;
 $body-color: #1d1d24;
 $heading-color: #1f1f25;
 $border-color: #d4d4d4;
-$white:#fff;
+$white:#faf9f6;
 
 
 /*===============================
     Font Family 
 =================================*/
-$body-font: 'Poppins', sans-serif;
-$heading-font: 'Poppins', sans-serif;
+
+@import url(//db.onlinewebfonts.com/c/a0ee60b44a6245e32ff244a08ee8c9b6?family=Mozer+Bold);
+@import url(//db.onlinewebfonts.com/c/08aae9f020949051ff8331be100607cb?family=Archive);
+
+//deafault 'Poppins', sans-serif
+$body-font: 'Mozer Bold', sans-serif;
+$heading-font: 'Archive', sans-serif;
 
 
 // Heading Font List
-$font-1: 'Poppins', sans-serif;
-
+$font-1: 'Archive', sans-serif;
 $fontList: $font-1;
 
 
@@ -38,7 +42,7 @@ $colorList: $color-1, $color-2 ,$color-3 ,$color-4;
 //===== Line Height =====//
 $body-line-height: 1.714286;
 //==== Font size =====//
-$body-font-size: 14px;
+$body-font-size: 28px;
 $h1: 64px;
 $h2: 54px;
 $h3: 24px;
