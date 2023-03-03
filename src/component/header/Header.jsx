@@ -33,10 +33,7 @@ class Header extends Component {
     const { logo, color = "default-color" } = this.props;
 
     let logoUrl = (
-      <img
-        src="/assets/images/logo/logo.png"
-        alt="Digital Agency"
-      />
+      <img src="/assets/images/logo/logo.png" alt="Digital Agency" />
     );
 
     return (
@@ -52,25 +49,36 @@ class Header extends Component {
           <div className="header-right">
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
-                <li>
-                  <Link to="/">About</Link>
-                </li>
                 <li className="has-droupdown">
-                  <Link to="/">Events</Link>
+                  <Link to="/about">About</Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link to="/about">About Us</Link>
+                    </li>
+                    <li>
+                      <Link to="/board-members">Meet the Board</Link>
+                    </li>
+                    <li>
+                      <Link to="/about">Meet the Active Members</Link>
+                    </li>
+                  </ul>
                 </li>
-
+                <li>
+                  <Link to="/past-events">Events</Link>
+                </li>
                 <li>
                   <Link to="/contact">Contact</Link>
                 </li>
+                <li>
+                  <div className="header-btn">
+                    <a href="/login" className="rn-btn">
+                      <span>Log In</span>
+                    </a>
+                  </div>
+                </li>
               </ul>
             </nav>
-            <div className="header-btn">
-              <a
-                className="rn-btn"
-              >
-                <span>Log In</span>
-              </a>
-            </div>
+
             {/* Start Humberger Menu  */}
             <div className="humberger-menu d-block d-lg-none pl--20">
               <span

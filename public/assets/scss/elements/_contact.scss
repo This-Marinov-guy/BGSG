@@ -34,6 +34,14 @@
 /*==========================
     Contact Address 
 ============================*/
+.social_media {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 42px;
+}
+
 
 .rn-address {
     margin-top: 30px;

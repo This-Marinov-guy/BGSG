@@ -3,23 +3,24 @@
 =======================*/
 
 .header-area {
+  padding-left: 50px;
+  padding-right: 50px;
+  z-index: 999;
+  @media #{$lg-layout} {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media #{$sm-layout} {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   &.header--transparent {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     width: auto;
-    padding-left: 50px;
-    padding-right: 50px;
-    z-index: 999;
-    @media #{$lg-layout} {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-    @media #{$sm-layout} {
-      padding-left: 30px;
-      padding-right: 30px;
-    }
   }
   .header-wrapper {
     display: flex;
@@ -56,17 +57,20 @@
         border: 2px solid #fff;
         border-radius: 6px;
         color: #fff;
+        text-align: center;
         font-size: 24px;
         @extend %transition;
         position: relative;
         z-index: 2;
         @media #{$sm-layout} {
+          width: 100px;
           padding: 0 11px;
           height: 39px;
           line-height: 33px;
           font-size: 24px;
         }
         @media #{$large-mobile} {
+          width: 100px;
           height: 34px;
           line-height: 29px;
         }
@@ -90,7 +94,7 @@
     .logo {
       a {
         img {
-            border-radius: 50%;
+          border-radius: 50%;
 
           @media #{$sm-layout} {
             width: 120px;
@@ -125,7 +129,7 @@
       .logo {
         a {
           img {
-                      border-radius: 50%;
+            border-radius: 50%;
 
             @media #{$sm-layout} {
               width: auto;
@@ -308,7 +312,6 @@
   align-items: center;
   flex-wrap: wrap;
   .header-btn {
-    margin-left: 50px;
     @media #{$large-mobile} {
       margin-left: 0;
     }

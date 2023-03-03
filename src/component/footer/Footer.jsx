@@ -45,7 +45,6 @@ class Footer extends Component {
                           <li>
                             <a>About</a>
                           </li>
-                    
                         </ul>
                       </div>
                     </div>
@@ -81,7 +80,8 @@ class Footer extends Component {
                     <div className="col-lg-12">
                       <div className="copyright-text">
                         <p>
-                        Copyright © 2022 Bulgarian Society Groningen. All Rights Reserved.
+                          Copyright © 2022 Bulgarian Society Groningen. All
+                          Rights Reserved.
                         </p>
                       </div>
                     </div>

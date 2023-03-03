@@ -11,17 +11,22 @@ $white:#faf9f6;
 /*===============================
     Font Family 
 =================================*/
+@font-face{
+   font-family: Mozer;
+   src: url(/assets/fonts/Mozer-Trial-Regular.ttf) format('truetype')
+}
 
-@import url(//db.onlinewebfonts.com/c/a0ee60b44a6245e32ff244a08ee8c9b6?family=Mozer+Bold);
-@import url(//db.onlinewebfonts.com/c/08aae9f020949051ff8331be100607cb?family=Archive);
+@font-face{
+    font-family: Archive;
+    src: url(/assets/fonts/Archive-Regular.ttf) format('truetype')
+ }
 
-//deafault 'Poppins', sans-serif
-$body-font: 'Mozer Bold', sans-serif;
-$heading-font: 'Archive', sans-serif;
+$body-font: 'Mozer';
+$heading-font: 'Mozer';
 
 
 // Heading Font List
-$font-1: 'Archive', sans-serif;
+$font-1: 'Mozer';
 $fontList: $font-1;
 
 

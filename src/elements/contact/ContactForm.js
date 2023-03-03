@@ -56,15 +56,6 @@ function ContactForm({props}) {
             <div className="rn-form-group">
                 <input 
                 type="text"
-                name="phone"
-                placeholder="Phone Number"
-                required
-                />
-            </div>
-
-            <div className="rn-form-group">
-                <input 
-                type="text"
                 name="subject"
                 placeholder="Subject"
                 required
