@@ -5,7 +5,7 @@ let TeamContent = [
   {
     id: 1,
     images: "01",
-    title: "Lazar (President)",
+    title: "Lazar | President",
     designation: [
       "Study: MSc Artificial Intelligence",
       "Age: 25",
@@ -25,7 +25,7 @@ let TeamContent = [
   {
     id: 2,
     images: "05",
-    title: "Radost (Creative Manager)",
+    title: "Radost | Creative Manager",
     designation: [
       "Study: MA Euroculture",
       "Age: 23",
@@ -45,7 +45,7 @@ let TeamContent = [
   {
     id: 3,
     images: "06",
-    title: "Tsveta (PR Manager)",
+    title: "Tsveta | PR Manager",
     designation: [
       "Study: BA European languages and Cultures",
       "Age: 20",
@@ -69,7 +69,7 @@ let TeamContent = [
   {
     id: 4,
     images: "07",
-    title: "Pavella (Secretary)",
+    title: "Pavella | Secretary",
     designation: [
       "Study: MSc Medicine",
       "Age: 21",
@@ -93,7 +93,7 @@ let TeamContent = [
   {
     id: 5,
     images: "02",
-    title: "Sava (Internal Relations)",
+    title: "Sava | Internal Relations",
     designation: [
       "Study: BA Game Design",
       "Age: 20",
@@ -113,7 +113,7 @@ let TeamContent = [
   {
     id: 6,
     images: "04",
-    title: "Dimitar (Treasurer)",
+    title: "Dimitar | Treasurer",
     designation: [
       "Study: BA International Business",
       "Age: 21",
@@ -137,7 +137,7 @@ let TeamContent = [
   {
     id: 7,
     images: "03",
-    title: "Konstantin (External Relations)",
+    title: "Konstantin | External Relations",
     designation: [
       "Study: BA CMGT",
       "Age: 20",

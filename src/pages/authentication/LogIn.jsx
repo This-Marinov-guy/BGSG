@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PageHelmet from "../component/common/Helmet";
-import Header from "../component/header/HeaderLogo";
+import PageHelmet from "../../component/common/Helmet";
+import Header from "../../component/header/HeaderLogo";
 
 class Login extends Component {
   render() {
@@ -42,7 +42,7 @@ class Login extends Component {
                   </button>
                   <div className="action_btns">
                   <a className="rn-button-style--1" href="#">Forgot my pasword</a>
-                  <a className="rn-button-style--1" href="#">No account</a>
+                  <a className="rn-button-style--1" href="/signup">No account</a>
                   </div>
               </form>
             </div>

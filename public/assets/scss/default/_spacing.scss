@@ -435,6 +435,13 @@
   justify-content: space-around;
 }
 
+.hor_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .action_btns {
   display: flex;
   flex-direction: column;

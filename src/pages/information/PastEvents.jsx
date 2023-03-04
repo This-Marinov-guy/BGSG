@@ -1,32 +1,46 @@
 import React, { Component } from "react";
-import PageHelmet from "../component/common/Helmet";
-import Breadcrumb from "../elements/common/Breadcrumb";
+import PageHelmet from "../../component/common/Helmet";
+import Breadcrumb from "../../elements/common/Breadcrumb";
 import Slider from "react-slick";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { slickDot } from "../page-demo/script";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
+import { slickDot } from "../../page-demo/script";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
 
 const list = [
   {
-    image: "image-1",
+    image: "1",
     category: "Bulgarian Dinner",
     title: "Try our traditional cuisine",
   },
   {
-    image: "image-2",
+    image: "2",
     category: "Trifon Zarezan",
     title: "No valantine - wine is always there for us ",
   },
   {
-    image: "image-3",
+    image: "3",
+    category: "Freedom Fest",
+    title: "Celebration of the national day of Bulgaria",
+  },
+  {
+    image: "1",
+    category: "Bulgarian Dinner",
+    title: "Try our traditional cuisine",
+  },
+  {
+    image: "2",
+    category: "Trifon Zarezan",
+    title: "No valantine - wine is always there for us ",
+  },
+  {
+    image: "3",
     category: "Freedom Fest",
     title: "Celebration of the national day of Bulgaria",
   },
 ];
-
 
 class PastEvents extends Component {
   render() {
@@ -65,10 +79,11 @@ class PastEvents extends Component {
                       {list.map((value, index) => (
                         <div className="portfolio" key={index}>
                           <div className="thumbnail-inner">
-                            <div className={`thumbnail ${value.image}`}></div>
-                            <div
-                              className={`bg-blr-image ${value.image}`}
-                            ></div>
+                            <img
+                              className="thumbnail"
+                              src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                              alt="Event Images"
+                            />
                           </div>
                           <div className="content">
                             <div className="inner">

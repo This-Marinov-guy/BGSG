@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Parallax } from "react-parallax";
-import { Link } from "react-router-dom";
-import { slickDot } from "../page-demo/script";
-import Slider from "react-slick";
+import PortfolioList from "../elements/portfolio/PortfolioList";
 import Header from "../component/header/Header";
 import BrandTwo from "../elements/BrandTwo";
 import FooterTwo from "../component/footer/FooterTwo";
@@ -18,22 +16,10 @@ const SlideList = [
     title: "Bulgarian Society Groningen",
     description: "",
     buttonText: "Become a Member",
-    buttonLink: "",
+    buttonLink: "/signup",
   },
 ];
 
-const PostList = [
-  {
-    images: "01",
-    category: "Development",
-    title: "Barista Courses",
-  },
-  {
-    images: "02",
-    category: "Development",
-    title: "Barista Courses",
-  },
-];
 class Home extends Component {
   render() {
     return (
@@ -101,54 +87,25 @@ class Home extends Component {
         </div>
         {/* End Sponsor Area */}
 
-        {/* Start Blog Area */}
-        <div className="rn-blog-area pt--120 pb--140 bg_color--5">
-          <div className="rn-slick-dot">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="section-title text-left">
-                    <h2>What can you expect</h2>
-                    <p>More information about incoming - Better stay tuned!</p>
-                  </div>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="slick-space-gutter--15 slickdot--20">
-                    <Slider {...slickDot}>
-                      <div className="blog blog-style--1">
-                        <div className="thumbnail">
-                          <a href="/blog-details">
-                            <img
-                              src={`/assets/images/blog/blog-${PostList[0].images}.jpg`}
-                              alt="Blog Images"
-                            />
-                          </a>
+        {/* Start News Area */}
+        <div className="portfolio-area pb--60 bg_color--1">
+                    <div className="portfolio-sacousel-inner mb--55 mb_sm--0">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-12">
+                                    <div className="mb--30 mb_sm--0">
+                                        <h2 className="title">News</h2>
+                                        <p>What we expect to come soon - stay tuned for more information</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <PortfolioList styevariation="text-center mt--40" column="col-lg-4 col-md-6 col-sm-6 col-12" item="6" />
+                            </div>
                         </div>
-                        <div className="content">
-                          <h4 className="title">
-                            <a href="/blog-details">{PostList[0].title}</a>
-                          </h4>
-                          <div className="blog-btn">
-                            <a
-                              className="rn-btn text-white"
-                              href="/blog-details"
-                            >
-                              Read More
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </Slider>
-                  </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* End Blog Area */}
+        {/* End News Area */}
 
         {/* Start Footer Style  */}
         <FooterTwo />

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Breadcrumb from "../elements/common/Breadcrumb";
-import PageHelmet from "../component/common/Helmet";
-import Testimonial from "../elements/Testimonial";
-import Team from "../elements/Team";
+import Breadcrumb from "../../elements/common/Breadcrumb";
+import PageHelmet from "../../component/common/Helmet";
+import Testimonial from "../../elements/Testimonial";
+import Team from "../../elements/Team";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
 
 class Board extends Component {
   render() {
