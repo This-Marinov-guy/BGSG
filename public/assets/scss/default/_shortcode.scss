@@ -155,10 +155,10 @@ font-family: 'Poppins', sans-serif;
 }
 
 p {
-    font-size: 22px;
+    font-size: 26px;
     line-height: 30px;
     @media #{$sm-layout} {
-        font-size: 22px !important;
+        font-size: 26px !important;
         line-height: 28px !important;
     }
 }
@@ -438,7 +438,7 @@ textarea:-ms-input-placeholder {
     & i {
         display: block;
         line-height: 34px;
-        font-size: 22px;
+        font-size: 26px;
     }
 
     &:hover {

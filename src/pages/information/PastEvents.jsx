@@ -92,7 +92,7 @@ class PastEvents extends Component {
                                 <a href="/portfolio-details">{value.title}</a>
                               </h4>
                               <div className="portfolio-button">
-                                <a className="rn-btn" href="/portfolio-details">
+                                <a className="rn-btn" href="/blog-details">
                                   Tell me more
                                 </a>
                               </div>
