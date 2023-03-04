@@ -41,9 +41,7 @@ class Home extends Component {
                         {value.category ? <span>{value.category}</span> : ""}
                         {value.title ? (
                           <h1 className="title theme-gradient">
-                            <span>Bulgarian </span>
-                            <span style={{ color: "#28a745" }}>Society </span>
-                            <span style={{ color: "#dc3545" }}>Groningen </span>
+                            Bulgaria Society Groningen
                           </h1>
                         ) : (
                           ""

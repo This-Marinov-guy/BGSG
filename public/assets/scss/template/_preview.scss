@@ -152,7 +152,7 @@
                     }
                     @media #{$sm-layout} {
                         padding: 9px 12px;
-                        font-size: 14px;
+                        font-size: 16px;
                     }
                 }
                 @media #{$laptop-device} {
@@ -250,7 +250,7 @@
             text-align: left;
             padding: 25px 0 10px 0;
             color: #1f1f25;
-            font-size: 20px;
+            font-size: 26px;
             font-weight: 500;
             transition: 0.3s ease-in-out;
             letter-spacing: .20px;
@@ -260,7 +260,7 @@
             display: block;
             padding: 0;
             color: rgba(29,29,36,0.75);
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 300;
             transition: 0.3s ease-in-out;
             line-height: 25px;
@@ -299,7 +299,7 @@
             padding: 9px 14px;
             color: #fff;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1;
             right: 5px;
             text-transform: uppercase;
@@ -334,7 +334,7 @@ Faq Area
 
     .accordion__panel {
         p {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 30px;
             background: none;
             border: none;
@@ -393,7 +393,7 @@ Faq Area
     li {
         padding: 0 14px;
         color: #101010;
-        font-size: 16px;
+        font-size: 18px;
         cursor: pointer;
         outline: none;
         @media #{$large-mobile} {
@@ -491,15 +491,15 @@ a {
             &.subtitle{
                 color: #c6c9d8;
                 @media #{$md-layout} {
-                    font-size: 16px;
+                    font-size: 18px;
                     line-height: 28px;
                 }
                 @media #{$laptop-device} {
-                    font-size: 16px;
+                    font-size: 18px;
                     line-height: 26px;
                 }
                 @media #{$sm-layout} {
-                    font-size: 16px;
+                    font-size: 18px;
                     line-height: 28px;
                     color: #ffffff;
                 }
@@ -583,7 +583,7 @@ a {
             }
         }
         p {
-            font-size: 16px;
+            font-size: 18px;
             padding: 0;
             padding-right: 6%;
             margin-bottom: 0;
@@ -626,7 +626,7 @@ a {
     }
     .subtitle {
         color: rgba(198, 201, 216, 0.75);
-        font-size: 12px;
+        font-size: 15px;
         margin-top: 35px;
         margin-bottom: 0;
         letter-spacing: 1px;
@@ -793,7 +793,7 @@ gt matrik score area
 }
 .rn-accordion-area .card-box p {
     margin-bottom: 20px;
-    font-size: 16px;
+    font-size: 18px;
 }
 .rn-accordion-area .card-box.support p {
     margin-bottom: 20px;
@@ -863,7 +863,7 @@ gt matrik score area
             }
             .info {
                 .title {
-                    font-size: 16px;
+                    font-size: 18px;
                     line-height: 1.22;
                     font-weight: 700;
                     margin-bottom: 0;
@@ -872,19 +872,19 @@ gt matrik score area
                 p {
                     font-weight: 300;
                     color: $theme-color;
-                    font-size: 14px;
+                    font-size: 16px;
                 }
             }
         }
         .content {
             h5 {
-                font-size: 16px;
+                font-size: 18px;
                 margin-bottom: 15px;
                 font-weight: 500;
                 color: #1f1f25;
             }
             p {
-                font-size: 16px;
+                font-size: 18px;
                 line-height: 30px;
                 color: #717173;
             }

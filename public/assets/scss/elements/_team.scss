@@ -90,7 +90,7 @@
     p {
       &.designation {
         color: #c6c9d8;
-        font-size: 20px;
+        font-size: 26px;
         line-height: 34px;
         opacity: 0;
         visibility: hidden;
@@ -118,7 +118,7 @@
 
         a {
           color: #faf9f6;
-          font-size: 20px;
+          font-size: 26px;
           transition: 0.3s;
           svg {
             transition: 0.3s;
@@ -226,12 +226,12 @@
     .content {
       .title {
         margin-bottom: 2px;
-        font-size: 22px;
+        font-size: 24px;
       }
       p {
         &.designation {
           margin-bottom: 5px;
-          font-size: 22px;
+          font-size: 24px;
           font-weight: 300;
         }
       }
@@ -259,7 +259,7 @@ ul {
         color: #000;
         border-radius: 100%;
         text-align: center;
-        font-size: 20px;
+        font-size: 22px;
         transition: 0.3s;
         &:hover {
           color: $theme-color;

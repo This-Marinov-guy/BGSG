@@ -58,7 +58,7 @@
         border-radius: 6px;
         color: #fff;
         text-align: center;
-        font-size: 24px;
+        font-size: 26px;
         @extend %transition;
         position: relative;
         z-index: 2;
@@ -67,7 +67,7 @@
           padding: 0 11px;
           height: 39px;
           line-height: 33px;
-          font-size: 24px;
+          font-size: 26px;
         }
         @media #{$large-mobile} {
           width: 100px;
@@ -613,10 +613,10 @@
   span {
     cursor: pointer;
     @media #{$sm-layout} {
-      font-size: 24px;
+      font-size: 26px;
     }
     @media #{$md-layout} {
-      font-size: 24px;
+      font-size: 26px;
     }
   }
 }

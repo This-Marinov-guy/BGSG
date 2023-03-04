@@ -6,7 +6,7 @@ Progressbar Area
         position: relative;
         margin-top: 38px;
         .title{
-            font-size: 15px;
+            font-size: 17px;
             color: $heading-color;
             @extend %fontWeight500;
             margin-bottom: 10px;
@@ -31,7 +31,7 @@ Progressbar Area
             top: 0;
             @extend %fontWeight500;
             color: $heading-color;
-            font-size: 15px;
+            font-size: 17px;
             @media #{$sm-layout} {
                 top: -8px;
             }

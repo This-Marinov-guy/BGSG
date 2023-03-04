@@ -26,7 +26,7 @@
                 border-left: 15px solid #ffffff;
             }
             span {
-                font-size: 18px;
+                font-size: 24px;
                 line-height: 28px;
                 display: inline-block;
                 color: #292642;
@@ -62,7 +62,7 @@
             border-bottom: 1px solid #e1e1e1;
         }
         p {
-            font-size: 18px;
+            font-size: 20px;
             line-height: 30px;
             color: rgba(29, 29, 36, 0.75);
             margin-bottom: 30px;
@@ -85,17 +85,17 @@
                 margin-top: 28px;
 
                 @media #{$lg-layout} {
-                    font-size: 20px;
+                    font-size: 22px;
                     line-height: 38px;
                     margin-top: 24px;
                 }
                 @media #{$md-layout} {
-                    font-size: 18px;
+                    font-size: 20px;
                     line-height: 38px;
                     margin-top: 24px;
                 }
                 @media #{$sm-layout} {
-                    font-size: 18px;
+                    font-size: 20px;
                     line-height: 38px;
                     margin-top: 24px;
                 }
@@ -106,14 +106,14 @@
             .port-view {
                 margin: 0 40px;
                 span {
-                    font-size: 16px;
+                    font-size: 18px;
                     color: rgba(29, 29, 36, 0.75);
                     display: block;
                     margin-bottom: 10px;
                     font-weight: 500;
                 }
                 h4 {
-                    font-size: 22px;
+                    font-size: 24px;
                     font-weight: 500;
                 }
             }

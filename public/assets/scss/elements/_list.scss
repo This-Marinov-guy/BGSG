@@ -7,7 +7,7 @@
     li {
         color: #7e7e7e;
         font-weight: 400;
-        font-size: 22px;
+        font-size: 26px;
         line-height: inherit;
         margin-bottom: 10px;
         i,
@@ -29,9 +29,9 @@ ul {
         @extend %liststyle;
         li {
             position: relative;
-            padding-left: 22px;
+            padding-left: 26px;
             color: rgba(29, 29, 36, 0.75);
-            font-size: 18px;
+            font-size: 20px;
             line-height: 25px;
             @media #{$sm-layout} {
                 font-size: 22px;

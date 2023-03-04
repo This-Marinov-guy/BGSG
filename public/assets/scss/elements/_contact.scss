@@ -19,7 +19,7 @@
         margin-bottom: 20px;
         outline: none;
         color: #1f1f25;
-        font-size: 15px;
+        font-size: 20px;
         letter-spacing: 0.1px;
         &:focus {
             border-color: $theme-color;
@@ -69,12 +69,12 @@
     .inner {
         h4 {
             &.title {
-                font-size: 18px;
+                font-size: 22px;
                 font-weight: 700;
             }
         }
         p {
-            font-size: 18px;
+            font-size: 22px;
             margin-bottom: 0;
             color: rgba(29, 29, 36, 0.75);
             @media #{$lg-layout} {
@@ -130,7 +130,7 @@ textarea {
 
 .success-message {
     color: green;
-    font-size: 14px;
+    font-size: 22px;
     margin-top: 20px;
 }
 

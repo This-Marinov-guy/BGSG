@@ -22,12 +22,12 @@ BLog Details Styles
             width: 100%;
             bottom: -135px;
             li {
-                font-size: 16px;
+                font-size: 18px;
                 color: #c6c9d8;
                 margin: 0 15px;
                 margin-bottom: 13px;
                 @media #{$sm-layout} {
-                    font-size: 14px;
+                    font-size: 16px;
                 }
                 svg {
                     margin-right: 13px;
@@ -151,13 +151,13 @@ BLog Details Styles
                 }
                 span {
                     color: rgba(29, 29, 36, 0.75);
-                    font-size: 18px;
+                    font-size: 20px;
                     display: block;
                     text-align: left;
                     padding-top: 10px;
                     padding-left: 110px;
                     @media #{$sm-layout} {
-                        font-size: 16px;
+                        font-size: 18px;
                         padding-left: 0;
                         margin-bottom: 23px;
                     }
@@ -207,7 +207,7 @@ BLog Details Styles
                 border: 2px solid #e9e9e9;
                 border-radius: 4px;
                 height: 50px;
-                font-size: 16px;
+                font-size: 18px;
             }
             textarea {
                 min-height: 193px;
@@ -215,7 +215,7 @@ BLog Details Styles
                 border-radius: 4px;
                 resize: none;
                 padding: 15px;
-                font-size: 16px;
+                font-size: 18px;
             }
         }
     }

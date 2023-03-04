@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  FaTwitter,
   FaInstagram,
   FaFacebookF,
   FaLinkedinIn,
@@ -10,7 +9,6 @@ const SocialShare = [
   { Social: <FaFacebookF />, link: "https://www.facebook.com/" },
   { Social: <FaLinkedinIn />, link: "https://www.linkedin.com/" },
   { Social: <FaInstagram />, link: "https://www.instagram.com/" },
-  { Social: <FaTwitter />, link: "https://twitter.com/" },
 ];
 
 class Footer extends Component {
@@ -40,10 +38,13 @@ class Footer extends Component {
                         <h4>Quick Link</h4>
                         <ul className="ft-link">
                           <li>
-                            <a>Work</a>
+                            <a href="/about">About</a>
                           </li>
                           <li>
-                            <a>About</a>
+                            <a href="/past-events">Events</a>
+                          </li>
+                          <li>
+                            <a href="/contact">Contact</a>
                           </li>
                         </ul>
                       </div>
@@ -58,9 +59,6 @@ class Footer extends Component {
                             <a href="mailto:admin@example.com">
                               admin@example.com
                             </a>
-                          </li>
-                          <li>
-                            <a href="mailto:hr@example.com">hr@example.com</a>
                           </li>
                         </ul>
 

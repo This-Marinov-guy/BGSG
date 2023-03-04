@@ -36,17 +36,17 @@
     }
     p{
         &.description {
-            font-size: 22px;
+            font-size: 26px;
             line-height: 30px;
             padding: 0 5%;
             color: rgba(29, 29, 36, 0.75);
             @media #{$md-layout} {
-                font-size: 22px;
+                font-size: 26px;
                 line-height: 28px;
                 padding: 0;
             }
             @media #{$sm-layout} {
-                font-size: 22px;
+                font-size: 26px;
                 line-height: 28px;
                 padding: 0;
             }
@@ -84,7 +84,7 @@
     }
     h4 {
         &.description {
-            font-size: 22px;
+            font-size: 28px;
             line-height: 30px;
             padding: 0 10%;
             margin-bottom: 0;

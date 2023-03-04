@@ -5,49 +5,42 @@ $theme-color-3: #9e0d33;
 $body-color: #017363;
 $heading-color: #1f1f25;
 $border-color: #d4d4d4;
-$white:#faf9f6;
-
+$white: #faf9f6;
 
 /*===============================
     Font Family 
 =================================*/
-@font-face{
-   font-family: Mozer;
-   src: url(/assets/fonts/Mozer-Trial-Regular.ttf) format('truetype')
+@font-face {
+  font-family: Mozer;
+  src: url(/assets/fonts/Mozer-SemiBold.otf) format("opentype");
 }
 
-@font-face{
-    font-family: Archive;
-    src: url(/assets/fonts/Archive-Regular.ttf) format('truetype')
- }
+@font-face {
+  font-family: Archive;
+  src: url(/assets/fonts/Archive-Regular.ttf) format("truetype"),
+    url(/assets/fonts/Archive-Regular.otf) format("opentype");
+}
 
-$body-font: 'Mozer';
-$heading-font: 'Mozer';
-
+$body-font: "Mozer";
+$heading-font: "Mozer";
 
 // Heading Font List
-$font-1: 'Mozer';
+$font-1: "Mozer";
 $fontList: $font-1;
-
 
 /*===============================
     Color Variation 
 =================================*/
-$color-1:  $theme-color;
-$color-2:  #f4769a;
-$color-3:  #2f21b3;
-$color-4:  #8956e2;
-$colorList: $color-1, $color-2 ,$color-3 ,$color-4;
-
-
-
-
-
+$color-1: $theme-color;
+$color-2: #f4769a;
+$color-3: #2f21b3;
+$color-4: #8956e2;
+$colorList: $color-1, $color-2, $color-3, $color-4;
 
 //===== Line Height =====//
 $body-line-height: 1.714286;
 //==== Font size =====//
-$body-font-size: 28px;
+$body-font-size: 40px;
 $h1: 64px;
 $h2: 54px;
 $h3: 24px;
@@ -56,40 +49,37 @@ $h5: 18px;
 $h6: 16px;
 
 //===== Social Colors =====//
-$facebook : #3B5998;
-$twitter : #00ACEE;
-$google-plus : #DD4B39;
-$pinterest : #C8232C;
-$linkedin : #0E76A8;
-$flickr : #FF0084;
-$google : #dd4b39;
-$youtube : #cd201f;
-
-
-
+$facebook: #3b5998;
+$twitter: #00acee;
+$google-plus: #dd4b39;
+$pinterest: #c8232c;
+$linkedin: #0e76a8;
+$flickr: #ff0084;
+$google: #dd4b39;
+$youtube: #cd201f;
 
 // Layouts
-$smlg-device: 'only screen and (max-width: 1199px)';
+$smlg-device: "only screen and (max-width: 1199px)";
 
-$extra-device: 'only screen and (min-width: 1600px) and (max-width: 1919px)';
+$extra-device: "only screen and (min-width: 1600px) and (max-width: 1919px)";
 
-$laptop-device: 'only screen and (min-width: 1200px) and (max-width: 1599px)';
-$lg-layout: 'only screen and (min-width: 992px) and (max-width: 1199px)';
-$md-layout:'only screen and (min-width: 768px) and (max-width: 991px)';
-$sm-layout:'only screen and (max-width: 767px)';
-$large-mobile: 'only screen and (max-width: 575px)';
+$laptop-device: "only screen and (min-width: 1200px) and (max-width: 1599px)";
+$lg-layout: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$md-layout: "only screen and (min-width: 768px) and (max-width: 991px)";
+$sm-layout: "only screen and (max-width: 767px)";
+$large-mobile: "only screen and (max-width: 575px)";
 /* container 450px*/
-$small-mobile: 'only screen and (max-width: 479px)';
+$small-mobile: "only screen and (max-width: 479px)";
 /* container 300px*/
 
 @media #{$large-mobile} {
-    .container {
-        width: 450px;
-    }
+  .container {
+    width: 450px;
+  }
 }
 
 @media #{$small-mobile} {
-    .container {
-        width: 320px;
-    }
+  .container {
+    width: 320px;
+  }
 }

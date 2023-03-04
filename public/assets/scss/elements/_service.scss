@@ -3,6 +3,7 @@
 ===========================*/
 
 .service{
+    height: 100%;
     // Service Style One
     &.service__style--1 {
         padding: 40px 0;
@@ -33,7 +34,7 @@
                 &.title {
                     margin-bottom: 20px;
                     font-weight: 400;
-                    font-size: 24px;
+                    font-size: 26px;
                     @media #{$sm-layout} {
                         margin-bottom: 12px;
                         font-weight: 400;
@@ -318,11 +319,12 @@
             }
         }
         p {
-            font-size: 15px;
+            font-size: 17px;
             line-height: 24px;
         }
         a {
-
+           font-size: 10px;
+           display: block;
         }
     }
 }
@@ -412,7 +414,7 @@
 .creative-service-wrapper {
     .row {
         &.creative-service {
-            a{
+            button{
                 display: flex;
                 height: 100%;
             }
