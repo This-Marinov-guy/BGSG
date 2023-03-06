@@ -32,9 +32,7 @@ const SignUp = () => {
         <div className="container">
           <div className="row service-one-wrapper center_div">
             {options.map((val, i) => (
-              <div
-                key={i}
-              >
+              <div key={i}>
                 <button
                   style={
                     val.title === "Active Member"
@@ -53,7 +51,9 @@ const SignUp = () => {
                 >
                   <div className="hor_section">
                     <div className="icon">{val.icon}</div>
-                    <h3 style={{ width: "40%" }}>{val.price} euro per semester</h3>
+                    <h3 style={{ width: "40%" }}>
+                      {val.price} euro per semester
+                    </h3>
                   </div>
                   <div className="content">
                     <h3>{val.title}</h3>
@@ -74,39 +74,119 @@ const SignUp = () => {
           <div className="inner">
             <form id="form" style={{ padding: "50px" }} action="#">
               <h3>Fill your details and register as a {membership}</h3>
-              <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="text" placeholder="Name" />
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="text" placeholder="Name" />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="text" placeholder="Surname"></input>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="number" placeholder="Age" />
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="tel" placeholder="Phone (WhatsApp)" />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="email" placeholder="Email" />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-12">
+                  <select placeholder="University">
+                    <option value="" disabled selected>
+                      Select your univerisity
+                    </option>
+                    <option value="RUG">RUG</option>
+                    <option value="Hanze">Hanze</option>
+                    <option value="">Other univerisity</option>
+                    <option value="working">Working</option>
+                  </select>
+                </div>
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input
+                      type="text"
+                      placeholder="State the university"
+                    ></input>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="text" placeholder="Course of studying"></input>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="number" placeholder="Student Number"></input>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input type="password" placeholder="Password"></input>
+                  </div>
+                </div>
+                <div className="col-lg-6 col-md-12 col-12">
+                  <div className="rnform-group">
+                    <input
+                      type="password"
+                      placeholder="Confirm Password"
+                    ></input>
+                  </div>
                 </div>
               </div>
               <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="text" placeholder="Surname"></input>
+                <div className="hor_section_nospace">
+                  <input
+                    style={{ width: "30px", margin: "10px" }}
+                    type="checkbox"
+                  ></input>
+                  <p>I agree</p>
                 </div>
               </div>
               <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="number" placeholder="Age" />
+                <div className="hor_section_nospace">
+                  <input
+                    style={{ width: "30px", margin: "10px" }}
+                    type="checkbox"
+                  ></input>
+                  <p>I agree</p>
                 </div>
               </div>
               <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="text" placeholder="University"></input>
+                <div className="hor_section_nospace">
+                  <input
+                    style={{ width: "30px", margin: "10px" }}
+                    type="checkbox"
+                  ></input>
+                  <p>I agree</p>
                 </div>
               </div>
               <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="text" placeholder="Email" />
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="password" placeholder="Password"></input>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-12 col-12">
-                <div className="rnform-group">
-                  <input type="password" placeholder="Confirm Password"></input>
+                <div className="hor_section_nospace">
+                  <input
+                    style={{ width: "30px", margin: "10px" }}
+                    type="checkbox"
+                  ></input>
+                  <p>I agree</p>
                 </div>
               </div>
               <button
@@ -118,7 +198,7 @@ const SignUp = () => {
               </button>
               <div style={{ alignItems: "flex-start" }} className="action_btns">
                 <a className="rn-button-style--1" href="/login">
-                  I have an account
+                  I am a member
                 </a>
               </div>
             </form>

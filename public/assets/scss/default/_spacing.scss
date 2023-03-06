@@ -448,6 +448,13 @@
   justify-content: space-between;
 }
 
+.hor_section_nospace {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .action_btns {
   width: 100%;
   margin-top: 50px;
