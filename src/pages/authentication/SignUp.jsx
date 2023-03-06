@@ -5,18 +5,11 @@ import { FiUserPlus, FiUsers } from "react-icons/fi";
 
 const options = [
   {
-    icon: <FiUserPlus />,
-    title: "Active Member",
-    description:
-      "Help us with event plannig and preparation. You will get discounts for events and you will be posted in our  'Active member' list",
-    price: 100,
-  },
-  {
     icon: <FiUsers />,
     title: "Member",
     description:
-      "Be part of the society. With this status you can buy tickets from the platform and get the news straight up",
-    price: 10,
+      "Be part of the society. With this status you get discounts for our events and buying tickets becomes easier. Members have their names displayed on tickets and also they gain a collection here on their page!",
+    price: 5,
   },
 ];
 const SignUp = () => {
@@ -31,20 +24,15 @@ const SignUp = () => {
         logoname="logo.png"
       />
       <div className="container">
-        <h2 className="center_text">Be part of us</h2>
-        <p className="center_text">
-          Choose your status in the society and scroll to fill your details
-        </p>
+        <h2 className="center_text">Become a member</h2>
       </div>
       {/* Start Options Area */}
 
       <div className="service-area ptb--120 bg_color--1">
         <div className="container">
-          <div className="row service-one-wrapper">
+          <div className="row service-one-wrapper center_div">
             {options.map((val, i) => (
               <div
-              
-                className={"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb--20"}
                 key={i}
               >
                 <button
@@ -55,7 +43,6 @@ const SignUp = () => {
                   }
                   className="service service__style--2"
                   onClick={() => {
-                    setMembership(val.title);
                     setTimeout(() => {
                       window.scrollTo({
                         top: document.getElementById("form").scrollHeight,
@@ -66,7 +53,7 @@ const SignUp = () => {
                 >
                   <div className="hor_section">
                     <div className="icon">{val.icon}</div>
-                    <h3 style={{ width: "40%" }}>{val.price} euro per month</h3>
+                    <h3 style={{ width: "40%" }}>{val.price} euro per semester</h3>
                   </div>
                   <div className="content">
                     <h3>{val.title}</h3>
@@ -82,70 +69,62 @@ const SignUp = () => {
       {/* End Options Area */}
       {/* Start Form Area */}
 
-      {membership && (
-        <div className="blog-comment-form pb--120 bg_color--1">
-          <div className="container">
-            <div className="inner">
-              <form id="form" style={{ padding: "50px" }} action="#">
-                <h3>Fill your details and register as {membership}</h3>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input type="text" placeholder="Name" />
-                  </div>
+      <div className="blog-comment-form pb--120 bg_color--1">
+        <div className="container">
+          <div className="inner">
+            <form id="form" style={{ padding: "50px" }} action="#">
+              <h3>Fill your details and register as a {membership}</h3>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="text" placeholder="Name" />
                 </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input type="text" placeholder="Surname"></input>
-                  </div>
+              </div>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="text" placeholder="Surname"></input>
                 </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input type="number" placeholder="Age" />
-                  </div>
+              </div>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="number" placeholder="Age" />
                 </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input type="text" placeholder="University"></input>
-                  </div>
+              </div>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="text" placeholder="University"></input>
                 </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input type="text" placeholder="Email" />
-                  </div>
+              </div>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="text" placeholder="Email" />
                 </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input type="password" placeholder="Password"></input>
-                  </div>
+              </div>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="password" placeholder="Password"></input>
                 </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="rnform-group">
-                    <input
-                      type="password"
-                      placeholder="Confirm Password"
-                    ></input>
-                  </div>
+              </div>
+              <div className="col-lg-6 col-md-12 col-12">
+                <div className="rnform-group">
+                  <input type="password" placeholder="Confirm Password"></input>
                 </div>
-                <button
-                  style={{ marginTop: "40px" }}
-                  type="submit"
-                  className="rn-button-style--2 btn-solid"
-                >
-                  <span>Sign Up</span>
-                </button>
-                <div
-                  style={{ alignItems: "flex-start" }}
-                  className="action_btns"
-                >
-                  <a className="rn-button-style--1" href="/login">
-                    I have an account
-                  </a>
-                </div>
-              </form>
-            </div>
+              </div>
+              <button
+                style={{ marginTop: "40px" }}
+                type="submit"
+                className="rn-button-style--2 btn-solid"
+              >
+                <span>Sign Up</span>
+              </button>
+              <div style={{ alignItems: "flex-start" }} className="action_btns">
+                <a className="rn-button-style--1" href="/login">
+                  I have an account
+                </a>
+              </div>
+            </form>
           </div>
         </div>
-      )}
+      </div>
       {/* End Form Area */}
     </React.Fragment>
   );

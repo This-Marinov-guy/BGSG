@@ -5,7 +5,8 @@ let TeamContent = [
   {
     id: 1,
     images: "01",
-    title: "Lazar | President",
+    name: 'Lazar',
+    title: "| President",
     designation: [
       "Study: MSc Artificial Intelligence",
       "Age: 25",
@@ -25,7 +26,8 @@ let TeamContent = [
   {
     id: 2,
     images: "05",
-    title: "Radost | Creative Manager",
+    name: 'Radost',
+    title: "| Creative Manager",
     designation: [
       "Study: MA Euroculture",
       "Age: 23",
@@ -45,7 +47,8 @@ let TeamContent = [
   {
     id: 3,
     images: "06",
-    title: "Tsveta | PR Manager",
+    name: 'Tsveta',
+    title: "| PR Manager",
     designation: [
       "Study: BA European languages and Cultures",
       "Age: 20",
@@ -69,7 +72,8 @@ let TeamContent = [
   {
     id: 4,
     images: "07",
-    title: "Pavella | Secretary",
+    name: 'Pavella',
+    title: "| Secretary",
     designation: [
       "Study: MSc Medicine",
       "Age: 21",
@@ -93,7 +97,8 @@ let TeamContent = [
   {
     id: 5,
     images: "02",
-    title: "Sava | Internal Relations",
+    name: 'Sava',
+    title: "| Internal Relations",
     designation: [
       "Study: BA Game Design",
       "Age: 20",
@@ -113,7 +118,8 @@ let TeamContent = [
   {
     id: 6,
     images: "04",
-    title: "Dimitar | Treasurer",
+    name: 'Dimitar',
+    title: "| Treasurer",
     designation: [
       "Study: BA International Business",
       "Age: 21",
@@ -137,7 +143,8 @@ let TeamContent = [
   {
     id: 7,
     images: "03",
-    title: "Konstantin | External Relations",
+    name: 'Konstantin',
+    title: "| External Relations",
     designation: [
       "Study: BA CMGT",
       "Age: 20",
@@ -165,7 +172,7 @@ class Team extends Component {
     const { column } = this.props;
     return (
       <React.Fragment>
-        <div className="container">
+        <div className="container team_info">
           <div className="column">
             {TeamContent.map((value) => (
               <div
@@ -181,7 +188,12 @@ class Team extends Component {
                   src={`/assets/images/team/team-${value.images}.jpg`}
                   alt="Blog Images"
                 />
-                <div className="content">
+                <div className={
+                  value.id % 2 !== 0
+                    ? "team_member_border-1"
+                    : "team_member_border-2"
+                }>
+                  <h2 className="title">{value.name}</h2>
                   <h3 className="title">{value.title}</h3>
                   {value.designation.map((value, index) => (
                     <p key={index} className="designation">

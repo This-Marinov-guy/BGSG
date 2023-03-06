@@ -428,6 +428,12 @@
   text-align: center;
 }
 
+.center_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .center_section {
   display: flex;
   flex-direction: column;

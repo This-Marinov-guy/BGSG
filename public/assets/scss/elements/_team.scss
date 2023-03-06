@@ -1,14 +1,38 @@
 /*------------------------
     Team Styles 
 ----------------------*/
+.team_info {
+  @media #{$laptop-device} {
+    width: 80%;
+  }
+}
+
 .team_member_container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.team_member_border-1 {
+  border: 50px solid transparent;
+  border-image-source: url(/assets/images/border-1.png);
+  border-image-slice: 181 188 170 181;
+  border-image-width: 50px 50px 50px 50px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
+}
+
+.team_member_border-2 {
+  border: 50px solid transparent;
+  border-image-source: url(/assets/images/border-2.png);
+  border-image-slice: 162 162 166 159;
+  border-image-width: 50px 50px 50px 50px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
 }
 
 .team_img {
-  margin: 100px;
+  margin: 70px 50px;
   object-fit: cover;
   height: 500px;
   width: 400px;
