@@ -43,7 +43,8 @@ const SignUp = () => {
           <div className="row service-one-wrapper">
             {options.map((val, i) => (
               <div
-                className={"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"}
+              
+                className={"col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 mb--20"}
                 key={i}
               >
                 <button
