@@ -158,7 +158,7 @@ p {
     font-size: 26px;
     line-height: 30px;
     @media #{$sm-layout} {
-        font-size: 26px !important;
+        font-size: 26px;
         line-height: 28px !important;
     }
 }

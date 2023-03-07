@@ -14,7 +14,7 @@ const Input = (props) => {
         onChange={props.onChange}
       />
       {props.errorMessage && props.touched && (
-        <p style={{ color: "red" }} className="information">
+        <p style={{ color: "#f80707" }} className="information">
           {props.errorMessage}
         </p>
       )}
