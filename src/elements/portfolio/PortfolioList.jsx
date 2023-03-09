@@ -20,7 +20,7 @@ class PortfolioList extends Component {
     return (
       <React.Fragment>
         {PostList.map((value, index) => (
-          <div className={`${column}`} key={index}>
+          <div  className={`${column} mb--80`} key={index}>
             <div className={`portfolio ${styevariation}`}>
               <div className="thumbnail-inner">
                 <img
@@ -33,7 +33,7 @@ class PortfolioList extends Component {
                 <div className="inner">
                   <p>{value.category}</p>
                   <h4>
-                    <a href="/portfolio-details">{value.title}</a>
+                    <p>{value.title}</p>
                   </h4>
                   <div className="portfolio-button">
                     <a className="rn-btn" href="/portfolio-details">

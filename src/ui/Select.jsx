@@ -1,23 +1,25 @@
 import React from "react";
+import { Field } from "formik";
 
 const Select = (props) => {
   return (
     <div className="rnform-group">
-      <select
+      <Field
+        as="select"
         value={props.value}
-        isValid={props.isValid}
-        isInvalid={props.isInvalid}
+        isvalid={props.isValid}
+        isinvalid={props.isInvalid}
         touched={props.touched}
-        errorMessage={props.errorMessage}
+        errormessage={props.errorMessage}
         onChange={props.onChange}
       >
         <option value="" disabled selected>
           {props.placeholder}
         </option>
-        {props.options.map((option) => {
-          return <option value={option}>{option}</option>;
+        {props.options.map((option, i) => {
+          return <option key={i} value={option}>{option}</option>;
         })}
-      </select>
+      </Field>
       {props.errorMessage && props.touched && (
         <p style={{ color: "#f80707" }} className="information">
           {props.errorMessage}

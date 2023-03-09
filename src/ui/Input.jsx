@@ -1,16 +1,17 @@
 import React from "react";
+import { Field } from "formik";
 
 const Input = (props) => {
   return (
     <div className="rnform-group">
-      <input
+      <Field
         type={props.text}
         placeholder={props.placeholder}
         value={props.value}
-        isValid={props.isValid}
-        isInvalid={props.isInvalid}
+        isvalid={props.isValid}
+        isinvalid={props.isInvalid}
         touched={props.touched}
-        errorMessage={props.errorMessage}
+        errormessage={props.errorMessage}
         onChange={props.onChange}
       />
       {props.errorMessage && props.touched && (

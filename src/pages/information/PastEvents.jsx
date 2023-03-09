@@ -89,7 +89,7 @@ class PastEvents extends Component {
                             <div className="inner">
                               <p>{value.category}</p>
                               <h4>
-                                <a href="/portfolio-details">{value.title}</a>
+                                <p>{value.title}</p>
                               </h4>
                               <div className="portfolio-button">
                                 <a className="rn-btn" href="/blog-details">

@@ -1,19 +1,19 @@
 import React, { Fragment } from "react";
+import { Field } from "formik";
 
 const CheckBox = (props) => {
   return (
     <Fragment>
-      <div className="hor_section_nospace mb--20">
-        <input
+      <div className="hor_section_nospace mt--40">
+        <Field
           style={{ maxWidth: "30px", margin: "10px" }}
           type="checkbox"
           value={props.value}
-          isValid={props.isValid}
-          isInvalid={props.isInvalid}
+          isinvalid={props.isInvalid}
           touched={props.touched}
-          errorMessage={props.errorMessage}
+          errormessage={props.errorMessage}
           onChange={props.onChange}
-        ></input>
+        ></Field>
         <p className="information">{props.text}</p>
       </div>
       {props.errorMessage && props.touched && (

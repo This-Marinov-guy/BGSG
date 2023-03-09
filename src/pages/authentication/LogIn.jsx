@@ -42,7 +42,7 @@ class Login extends Component {
                   </button>
                   <div className="action_btns">
                   <a className="rn-button-style--1" href="#">Forgot my pasword</a>
-                  <a className="rn-button-style--1" href="/signup">No account</a>
+                  <a className="rn-button-style--1" href="/signup">Not a member</a>
                   </div>
               </form>
             </div>

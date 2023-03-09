@@ -11,31 +11,19 @@ import Footer from "../../component/footer/Footer";
 import { FiMail } from "react-icons/fi";
 
 import {
-  FaTwitter,
   FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaLink
+  FaFlickr,
+  FaLink,
 } from "react-icons/fa";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const SocialShare = [
-  { Social: <FaFacebookF />, link: "https://www.facebook.com/" },
-  { Social: <FaLinkedinIn />, link: "https://www.linkedin.com/" },
   { Social: <FaInstagram />, link: "https://www.instagram.com/" },
-  { Social: <FaTwitter />, link: "https://twitter.com/" },
+  { Social: <FaFlickr />, link: "https://www.facebook.com/" },
 ];
 
 class Contact extends Component {
-  static defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33,
-    },
-    zoom: 11,
-  };
-
   render() {
     return (
       <React.Fragment>
@@ -64,7 +52,7 @@ class Contact extends Component {
                   <div className="inner">
                     <h4 className="title">Email Address</h4>
                     <p>
-                      <a href="mailto:admin@gmail.com">admin@gmail.com</a>
+                      <a href="mailto:mailto:Bulgariansociety.gro@gmail.com">Bulgariansociety.gro@gmail.com</a>
                     </p>
                   
                   </div>

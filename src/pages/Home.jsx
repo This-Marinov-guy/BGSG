@@ -3,10 +3,12 @@ import { Parallax } from "react-parallax";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import Header from "../component/header/Header";
 import BrandTwo from "../elements/BrandTwo";
+import AboutUs from "../component/HomeLayout/homeOne/AboutUs";
 import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
+import Testimonial from "../elements/Testimonial";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 const SlideList = [
@@ -17,6 +19,29 @@ const SlideList = [
     description: "",
     buttonText: "Become a Member",
     buttonLink: "/signup",
+  },
+];
+
+const PhotoGallery = [
+  {
+    id: "1",
+    text: `'Some of our party animals'`,
+  },
+  {
+    id: "2",
+    text: `'Always prepared with delicios food'`,
+  },
+  {
+    id: "3",
+    text: `'Wine is a symbol of Bulgaria'`,
+  },
+  {
+    id: "4",
+    text: `'Nice music and lots of good energy'`,
+  },
+  {
+    id: "5",
+    text: `'A night to remember'`,
   },
 ];
 
@@ -85,26 +110,97 @@ class Home extends Component {
         </div>
         {/* End Sponsor Area */}
 
+        {/* Start About Area  */}
+        <AboutUs />
+        {/* End About Area  */}
+
         {/* Start News Area */}
-        <div className="portfolio-area pb--60 bg_color--1">
-                    <div className="portfolio-sacousel-inner mb--55 mb_sm--0">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <div className="mb--30 mb_sm--0">
-                                        <h2 className="title">News</h2>
-                                        <p>What we expect to come soon - stay tuned for more information</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <PortfolioList styevariation="text-center mt--40" column="col-lg-4 col-md-6 col-sm-6 col-12" item="6" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div className="container mt--80 mb--80">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="mb--30 mb_sm--0">
+                <h2 className="title">News</h2>
+                <p>Stay tuned for more information</p>
+              </div>
+            </div>
+          </div>
+        </div>
         {/* End News Area */}
 
+        {/* Start Upcoming Events Area */}
+        <div className="portfolio-area pb--60 bg_color--1 mt--80">
+          <div className="portfolio-sacousel-inner mb--55 mb_sm--0">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="mb--30 mb_sm--0">
+                    <h2 className="title">Upcoming Events</h2>
+                    <p>Expect soon - check for more information</p>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <PortfolioList
+                  styevariation="text-center mt--40"
+                  column="col-lg-4 col-md-6 col-sm-6 col-12"
+                  item="6"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End Upcoming Events Area */}
+
+        {/* Start Picture Area */}
+        <div className="container mt--80 mb--80">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="mb--30 mb_sm--0">
+                <h2 className="title">Photo Gallery</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            {PhotoGallery.map((event) => {
+              return (
+                <div key={event.id} className="col-lg-12 mb--40 mt--40">
+                  <div className="mb--30 mb_sm--0">
+                    <div
+                      className={
+                        event.id % 2 !== 0
+                          ? "team_member_container flex_left"
+                          : "team_member_container flex_right"
+                      }
+                    >
+                      <img
+                        className="mb--20"
+                        src={`/assets/images/events/event-${event.id}.jpg`}
+                        alt="Blog Images"
+                      />
+                      <p>{event.text}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="row">
+            <div className="col-lg-12">
+              <a
+                href="https://flickr.com/people/197725983@N03/"
+                target="_blank"
+                className="rn-button-style--2 btn-solid"
+              >
+                Check our Flickr for more
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* End Picture Area */}
+        <div className="mb--200 mt--200">
+          <Testimonial />
+        </div>
         {/* Start Footer Style  */}
         <FooterTwo />
         {/* End Footer Style  */}

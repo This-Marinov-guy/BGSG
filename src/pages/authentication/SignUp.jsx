@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import { Formik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
 import { FiUserPlus } from "react-icons/fi";
@@ -9,19 +9,29 @@ const schema = yup.object().shape({
   name: yup.string().required(),
   surname: yup.string().required(),
   age: yup.number().positive().required(),
+  phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
+  university: yup.string().required(),
+  universityName: yup.string().required("university name is a required filed"),
+  course: yup.string().required(),
+  studentNumber: yup
+    .string()
+    .required("your student number is a required filed"),
   password: yup
     .string()
     .min(5)
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/, {
-      message: "Please create a stronger password",
-    })
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/,
+      "Please create a stronger password with capital and small letters, number and a special symbol"
+    )
     .required(),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), null])
-    .required(),
-  terms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+    .required("passwords do not match"),
+  policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+  dataTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+  payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
 
 const options = [
@@ -70,9 +80,7 @@ const SignUp = () => {
                 >
                   <div className="hor_section">
                     <div className="icon">{val.icon}</div>
-                    <h3 style={{ width: "40%"}}>
-                      {val.price} euro/ semester
-                    </h3>
+                    <h3 style={{ width: "40%" }}>{val.price} euro/ semester</h3>
                   </div>
                   <div className="content">
                     <h3>{val.title}</h3>
@@ -93,140 +101,202 @@ const SignUp = () => {
           <Formik
             className="inner"
             validationSchema={schema}
-            validateOnChange={false}
-            onSubmit={async (values) => {
-              try {
-              } catch (err) {}
+            onSubmit={(values) => {
+              setTimeout(() => {
+                alert(JSON.stringify(values, null, 2));
+              }, 1000);
             }}
             initialValues={{
               name: "",
               surname: "",
-              image: "",
               age: "",
+              phone: "",
               email: "",
+              university: "",
+              universityName: "",
+              course: "",
+              studentNumber: "",
               password: "",
               confirmPassword: "",
-              terms: false,
+              policyTerms: false,
+              dataTerms: false,
+              notificationTerms: false,
+              notificationTypeTerms: "",
+              payTerms: false,
             }}
           >
-            {({
-              handleSubmit,
-              handleChange,
-              setFieldValue,
-              values,
-              touched,
-              errors,
-            }) => (
-              <form
-                id="form"
-                style={{ padding: "50px" }}
-                noValidate
-                onSubmit={handleSubmit}
-              >
+            {({ values }) => (
+              <Form id="form" style={{ padding: "50px" }}>
                 <h3>Fill your details and register</h3>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input
-                        type="text"
-                        placeholder="Name"
-                        value={values.name}
-                        isValid={touched.name && !errors.name}
-                        isInvalid={!!errors.name}
-                        errorMessage={errors.name}
-                        onChange={handleChange}
+                      <Field type="text" placeholder="Name" name="name" />
+                      <ErrorMessage
+                        className="error"
+                        name="name"
+                        component="div"
                       />
-                      {errors.name && touched.name && (
-                        <p style={{ color: "red" }} className="information">
-                          {errors.name}
-                        </p>
-                      )}
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input type="text" placeholder="Surname"></input>
+                      <Field
+                        type="text"
+                        placeholder="Surname"
+                        name="surname"
+                      ></Field>
+                      <ErrorMessage
+                        className="error"
+                        name="surname"
+                        component="div"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input type="number" placeholder="Age" />
+                      <Field type="number" placeholder="Age" name="age" />
+                      <ErrorMessage
+                        className="error"
+                        name="age"
+                        component="div"
+                      />
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input type="tel" placeholder="Phone (WhatsApp)" />
+                      <Field
+                        type="tel"
+                        placeholder="Phone (WhatsApp)"
+                        name="phone"
+                      />
+                      <ErrorMessage
+                        className="error"
+                        name="phone"
+                        component="div"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input type="email" placeholder="Email" />
+                      <Field type="email" placeholder="Email" name="email" />
+                      <ErrorMessage
+                        className="error"
+                        name="email"
+                        component="div"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
-                    <select>
-                      <option value="" disabled selected>
+                    <Field as="select" name="university">
+                      <option value="" disabled>
                         Select your univerisity
                       </option>
                       <option value="RUG">RUG</option>
                       <option value="Hanze">Hanze</option>
-                      <option value="">Other univerisity</option>
+                      <option value="other">Other univerisity</option>
                       <option value="working">Working</option>
-                    </select>
+                    </Field>
+                    <ErrorMessage
+                      className="error"
+                      name="university"
+                      component="div"
+                    />
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
-                    <div className="rnform-group">
-                      <input
-                        type="text"
-                        placeholder="State the university"
-                      ></input>
-                    </div>
+                    {values.university === "other" && (
+                      <div className="rnform-group">
+                        <Field
+                          type="text"
+                          placeholder="State the university"
+                          name="universityName"
+                        ></Field>
+                        <ErrorMessage
+                          className="error"
+                          name="universityName"
+                          component="div"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
+                {values.university !== "working" && (
+                  <div className="row">
+                    <div className="col-lg-6 col-md-12 col-12">
+                      <div className="rnform-group">
+                        <Field
+                          type="text"
+                          placeholder="Course of studying"
+                          name="course"
+                        ></Field>
+                        <ErrorMessage
+                          className="error"
+                          name="course"
+                          component="div"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-lg-6 col-md-12 col-12">
+                      <div className="rnform-group">
+                        <Field
+                          type="number"
+                          placeholder="Student Number"
+                          name="studentNumber"
+                        ></Field>
+                        <ErrorMessage
+                          className="error"
+                          name="studentNumber"
+                          component="div"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input
-                        type="text"
-                        placeholder="Course of studying"
-                      ></input>
+                      <Field
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                      ></Field>
+                      <ErrorMessage
+                        className="error"
+                        name="password"
+                        component="div"
+                      />
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <input type="number" placeholder="Student Number"></input>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-6 col-md-12 col-12">
-                    <div className="rnform-group">
-                      <input type="password" placeholder="Password"></input>
-                    </div>
-                  </div>
-                  <div className="col-lg-6 col-md-12 col-12">
-                    <div className="rnform-group">
-                      <input
+                      <Field
                         type="password"
                         placeholder="Confirm Password"
-                      ></input>
+                        name="confirmPassword"
+                      ></Field>
+                      <ErrorMessage
+                        className="error"
+                        name="confirmPassword"
+                        component="div"
+                      />
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40 mb--40">
-                    <input
+                  <div className="hor_section_nospace mt--40">
+                    <Field
                       style={{ maxWidth: "30px", margin: "10px" }}
                       type="checkbox"
-                    ></input>
+                      name="policyTerms"
+                    ></Field>
                     <p className="information">
-                      I have read and accept the
+                      I have read and accept the&nbsp;
                       <a
                         style={{ color: "#017363" }}
                         href="/assets/documents/Rules and regulations.pdf"
@@ -236,54 +306,71 @@ const SignUp = () => {
                       </a>
                     </p>
                   </div>
+                  <ErrorMessage
+                    className="error"
+                    name="policyTerms"
+                    component="div"
+                  />
                 </div>
                 <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mb--40">
-                    <input
+                  <div className="hor_section_nospace mt--40">
+                    <Field
                       style={{ maxWidth: "30px", margin: "10px" }}
                       type="checkbox"
-                    ></input>
+                      name="dataTerms"
+                    ></Field>
                     <p className="information">
                       I consent to my data being processed confidentially for
                       the purposes of the organization
                     </p>
                   </div>
+                  <ErrorMessage
+                    className="error"
+                    name="dataTerms"
+                    component="div"
+                  />
                 </div>
                 <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mb--20">
-                    <input
+                  <div className="hor_section_nospace mt--40">
+                    <Field
                       style={{ maxWidth: "30px", margin: "10px" }}
                       type="checkbox"
-                    ></input>
+                      name="notificationTerms"
+                    ></Field>
                     <p className="information">
                       I consent to being notified by BGSG about events and
                       discounts from us and our sponsors
                     </p>
                   </div>
-                  <select className="mb--40">
-                    <option value="" disabled selected>
-                      Contact me by:
+                  <Field as="select" name="notificationTypeTerms">
+                    <option value="" disabled>
+                      Contact By
                     </option>
                     <option value="Email">Email</option>
                     <option value="WhatsApp">WhatsApp</option>
-                  </select>
+                  </Field>
                 </div>
                 <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mb--40">
-                    <input
+                  <div className="hor_section_nospace mt--40">
+                    <Field
                       style={{ maxWidth: "30px", margin: "10px" }}
                       type="checkbox"
-                    ></input>
+                      name="payTerms"
+                    ></Field>
                     <p className="information">
                       I understand that my registration is complete after paying
                       the link I will receive on my email.
                     </p>
                   </div>
+                  <ErrorMessage
+                    className="error"
+                    name="payTerms"
+                    component="div"
+                  />
                 </div>
                 <button
-                  style={{ marginTop: "40px" }}
                   type="submit"
-                  className="rn-button-style--2 btn-solid"
+                  className="rn-button-style--2 btn-solid mt--80"
                 >
                   <span>Proceed to paying</span>
                 </button>
@@ -295,7 +382,7 @@ const SignUp = () => {
                     I am a member
                   </a>
                 </div>
-              </form>
+              </Form>
             )}
           </Formik>
         </div>

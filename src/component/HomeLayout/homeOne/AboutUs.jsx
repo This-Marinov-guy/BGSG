@@ -5,7 +5,7 @@ class AboutUs extends Component {
     let title = "About Us";
     return (
       <React.Fragment>
-        <div className="about-wrapper">
+        <div className="about-wrapper mb--40">
           <div className="container">
             <div className="row row--35 align-items-center">
               <div className="col-lg-5 col-md-12">

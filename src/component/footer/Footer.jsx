@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import {
   FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
+  FaFlickr,
 } from "react-icons/fa";
 
 const SocialShare = [
-  { Social: <FaFacebookF />, link: "https://www.facebook.com/" },
-  { Social: <FaLinkedinIn />, link: "https://www.linkedin.com/" },
-  { Social: <FaInstagram />, link: "https://www.instagram.com/" },
+  { Social: <FaInstagram />, link: "https://www.instagram.com/bulgariansociety.gro/" },
+  { Social: <FaFlickr />, link: "https://flickr.com/people/197725983@N03/" },  
 ];
 
 class Footer extends Component {
@@ -24,7 +22,7 @@ class Footer extends Component {
                     <span>Have a Question?</span>
                     <h2>
                       Do not <br />
-                      hasitate to reach us
+                      hesitate to reach us
                     </h2>
                   </div>
                 </div>
@@ -46,6 +44,10 @@ class Footer extends Component {
                           <li>
                             <a href="/contact">Contact</a>
                           </li>
+                          <li>
+                            <a href="/assets/documents/Rules and regulations.pdf"
+                        target="_blank">Terms and policy</a>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -56,8 +58,8 @@ class Footer extends Component {
                         <h4>Find us</h4>
                         <ul className="ft-link">
                           <li>
-                            <a href="mailto:admin@example.com">
-                              admin@example.com
+                            <a href="mailto:Bulgariansociety.gro@gmail.com">
+                            Bulgariansociety.gro@gmail.com
                             </a>
                           </li>
                         </ul>
