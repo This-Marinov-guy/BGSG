@@ -29,13 +29,11 @@ const options = [
     icon: <FiUserPlus />,
     title: "Member",
     description:
-      "Be part of the society. With this status you get discounts for our events and buying tickets becomes easier. Members have their names displayed on tickets and also they gain a collection here on their page!",
+      "Be part of the society. With this status you get discounts for our events and buying tickets becomes much easier. Members have their names displayed on event tickets and also they gain a collection in their account information!",
     price: 5,
   },
 ];
 const SignUp = () => {
-  const [membership, setMembership] = useState();
-
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Join" />
@@ -45,7 +43,7 @@ const SignUp = () => {
         logoname="logo.png"
       />
       <div className="container">
-        <h2 className="center_text">Become a member</h2>
+        <h2 className="center_text">Become a Member</h2>
       </div>
       {/* Start Options Area */}
 
@@ -72,8 +70,8 @@ const SignUp = () => {
                 >
                   <div className="hor_section">
                     <div className="icon">{val.icon}</div>
-                    <h3 style={{ width: "40%" }}>
-                      {val.price} euro per semester
+                    <h3 style={{ width: "40%"}}>
+                      {val.price} euro/ semester
                     </h3>
                   </div>
                   <div className="content">
@@ -125,7 +123,7 @@ const SignUp = () => {
                 noValidate
                 onSubmit={handleSubmit}
               >
-                <h3>Fill your details and register as a {membership}</h3>
+                <h3>Fill your details and register</h3>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">

@@ -57,7 +57,7 @@
     background-position: center;
     border-radius: 5px;
     background-color: #0a0a0a;
-    transform: scale(1.13) translateZ(0);
+    transform: translateZ(0);
     backface-visibility: hidden;
     transition: transform 0.28s ease;
     z-index: 4;
@@ -95,7 +95,6 @@
 
   .content {
     position: absolute;
-    bottom: 40px;
     left: 40px;
     right: 40px;
     max-width: 100% !important;
@@ -153,7 +152,6 @@
   &.text-center {
     .content {
       position: absolute;
-      bottom: 40px;
       left: 40px;
       max-width: 80% !important;
       z-index: 10;
