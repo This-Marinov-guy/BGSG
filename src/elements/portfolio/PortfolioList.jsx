@@ -4,12 +4,7 @@ import { Link } from "react-router-dom";
 const PostList = [
   {
     image: "4",
-    category: "Development",
-    title: "Barista Courses",
-  },
-  {
-    image: "5",
-    category: "Development",
+    category: "Members",
     title: "Barista Courses",
   },
 ];
@@ -32,9 +27,9 @@ class PortfolioList extends Component {
               <div className="content">
                 <div className="inner">
                   <p>{value.category}</p>
-                  <h4>
+                  <h3>
                     <p>{value.title}</p>
-                  </h4>
+                  </h3>
                   <div className="portfolio-button">
                     <a className="rn-btn" href="/portfolio-details">
                       View Details

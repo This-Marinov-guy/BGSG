@@ -31,6 +31,24 @@
   border-image-repeat: stretch stretch;
 }
 
+.team_member_border-3 {
+  border: 50px solid transparent;
+  border-image-source: url(/assets/images/border-3.png);
+  border-image-slice: 162 162 166 159;
+  border-image-width: 50px 50px 50px 50px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
+}
+
+.team_member_border-4 {
+  border: 50px solid transparent;
+  border-image-source: url(/assets/images/border-4.png);
+  border-image-slice: 162 162 166 159;
+  border-image-width: 50px 50px 50px 50px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
+}
+
 .team_img {
   margin: 70px 50px;
   object-fit: cover;

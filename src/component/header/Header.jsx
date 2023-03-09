@@ -59,7 +59,7 @@ class Header extends Component {
                       <Link to="/board-members">Meet the Board</Link>
                     </li>
                     <li>
-                      <Link to="/about">Meet the Active Members</Link>
+                      <Link to="/active-members">Meet the Members</Link>
                     </li>
                   </ul>
                 </li>

@@ -98,10 +98,6 @@ class PastEvents extends Component {
                               </div>
                             </div>
                           </div>
-                          <Link
-                            className="link-overlay"
-                            to="/portfolio-details"
-                          ></Link>
                         </div>
                       ))}
                     </Slider>
