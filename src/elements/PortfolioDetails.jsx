@@ -101,7 +101,14 @@ class PortfolioDetails extends Component {
                         <span>Entry fee</span>
                         <h4>8 euro</h4>
                       </div>
+
                     </div>
+                      <a
+                        href="/purchase-ticket"
+                        className="rn-button-style--2 btn-solid"
+                      >
+                        Buy Ticket
+                      </a>
                   </div>
                   <br />
                   {/* Start Contact Map  */}

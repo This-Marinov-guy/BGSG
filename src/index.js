@@ -26,6 +26,7 @@ import SignUp from "./pages/authentication/SignUp";
 import PastEvents from "./pages/information/PastEvents";
 import PortfolioDetails from "./elements/PortfolioDetails";
 import EventReflection from "./elements/EventReflection";
+import Purchase from "./pages/Purchase";
 
 const eventDetails = [
   {
@@ -34,7 +35,7 @@ const eventDetails = [
     attendance: "56",
     comments: "20",
     text: ["a", "b", "c", "d", "f", "g"],
-    bgImage: '12',
+    bgImage: "12",
     images: ["01", "02", "03"],
   },
 ];
@@ -52,6 +53,7 @@ class Root extends Component {
             <Route exact path={`/board-members`} component={Board} />
             <Route exact path={`/active-members`} component={ActiveMembers} />
             <Route exact path={`/past-events`} component={PastEvents} />
+            <Route eaxct path={"/purchase-ticket"} component={Purchase} />
 
             {/* Authentication */}
             <Route exact path={`/login`} component={LogIn} />
