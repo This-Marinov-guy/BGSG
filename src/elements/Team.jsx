@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 let TeamContent = [
   {
     id: 1,
     images: "01",
-    name: 'Lazar',
+    name: "Lazar",
     title: "| President",
     designation: [
       "Study: MSc Artificial Intelligence",
@@ -14,19 +14,15 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://www.instagram.com/vdvends/",
       },
     ],
   },
   {
     id: 2,
     images: "05",
-    name: 'Radost',
+    name: "Radost",
     title: "| Creative Manager",
     designation: [
       "Study: MA Euroculture",
@@ -35,19 +31,15 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://www.instagram.com/radostlozanova/",
       },
     ],
   },
   {
     id: 3,
     images: "06",
-    name: 'Tsveta',
+    name: "Tsveta",
     title: "| PR Manager",
     designation: [
       "Study: BA European languages and Cultures",
@@ -56,23 +48,15 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
-      },
-      {
-        icon: <FaTwitter />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://www.instagram.com/tsveta_xx/?hl=en",
       },
     ],
   },
   {
     id: 4,
     images: "07",
-    name: 'Pavella',
+    name: "Pavella",
     title: "| Secretary",
     designation: [
       "Study: MSc Medicine",
@@ -81,23 +65,15 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
-      },
-      {
-        icon: <FaTwitter />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://instagram.com/_pavella_g?igshid=YmMyMTA2M2Y=",
       },
     ],
   },
   {
     id: 5,
     images: "02",
-    name: 'Sava',
+    name: "Sava",
     title: "| Internal Relations",
     designation: [
       "Study: BA Game Design",
@@ -106,19 +82,15 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://www.instagram.com/n0t_stalking/",
       },
     ],
   },
   {
     id: 6,
     images: "04",
-    name: 'Dimitar',
+    name: "Dimitar",
     title: "| Treasurer",
     designation: [
       "Study: BA International Business",
@@ -127,23 +99,15 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
-      },
-      {
-        icon: <FaTwitter />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://www.instagram.com/dimitarstamatovv/",
       },
     ],
   },
   {
     id: 7,
     images: "03",
-    name: 'Konstantin',
+    name: "Konstantin",
     title: "| External Relations",
     designation: [
       "Study: BA CMGT",
@@ -152,16 +116,8 @@ let TeamContent = [
     ],
     socialNetwork: [
       {
-        icon: <FaFacebookF />,
-        url: "#",
-      },
-      {
-        icon: <FaLinkedinIn />,
-        url: "#",
-      },
-      {
-        icon: <FaTwitter />,
-        url: "#",
+        icon: <FaInstagram />,
+        url: "https://www.instagram.com/konstantin_sonev/",
       },
     ],
   },
@@ -188,11 +144,13 @@ class Team extends Component {
                   src={`/assets/images/team/team-${value.images}.jpg`}
                   alt="Blog Images"
                 />
-                <div className={
-                  value.id % 2 !== 0
-                    ? "team_member_border-1"
-                    : "team_member_border-2"
-                }>
+                <div
+                  className={
+                    value.id % 2 !== 0
+                      ? "team_member_border-1"
+                      : "team_member_border-2"
+                  }
+                >
                   <h2 className="title">{value.name}</h2>
                   <h3 className="title">{value.title}</h3>
                   {value.designation.map((value, index) => (

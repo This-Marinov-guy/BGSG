@@ -1,5 +1,5 @@
 // React Required
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
 // Blocks Layout
@@ -24,55 +24,45 @@ import ActiveMembers from "./pages/information/ActiveMembers";
 import LogIn from "./pages/authentication/LogIn";
 import SignUp from "./pages/authentication/SignUp";
 import PastEvents from "./pages/information/PastEvents";
-import PortfolioDetails from "./elements/PortfolioDetails";
+import EventDetails from "./elements/EventDetails";
 import EventReflection from "./elements/EventReflection";
 import Purchase from "./pages/Purchase";
 
-const eventDetails = [
-  {
-    title: "Bulgarian Dinner",
-    date: "18th January",
-    attendance: "56",
-    comments: "20",
-    text: ["a", "b", "c", "d", "f", "g"],
-    bgImage: "12",
-    images: ["01", "02", "03"],
-  },
-];
-class Root extends Component {
-  render() {
-    return (
-      <BrowserRouter basename={"/"}>
-        <PageScrollTop>
-          <Switch>
-            <Route exact path="/" component={Home} />
 
-            {/* Element Layot */}
-            <Route exact path={`/contact`} component={Contact} />
-            <Route exact path={`/about`} component={About} />
-            <Route exact path={`/board-members`} component={Board} />
-            <Route exact path={`/active-members`} component={ActiveMembers} />
-            <Route exact path={`/past-events`} component={PastEvents} />
-            <Route eaxct path={"/purchase-ticket"} component={Purchase} />
+const Root = () => {
+  return (
+    <BrowserRouter basename={"/"}>
+      <PageScrollTop>
+        <Switch>
+          <Route exact path="/" component={Home} />
 
-            {/* Authentication */}
-            <Route exact path={`/login`} component={LogIn} />
-            <Route exact path={`/signup`} component={SignUp} />
+          {/* Element Layot */}
+          <Route exact path={`/contact`} component={Contact} />
+          <Route exact path={`/about`} component={About} />
+          <Route exact path={`/board-members`} component={Board} />
+          <Route exact path={`/active-members`} component={ActiveMembers} />
+          <Route exact path={`/past-events`} component={PastEvents} />
+          <Route eaxct path={"/purchase-ticket"} component={Purchase} />
 
-            <Route path={`/portfolio-details`} component={PortfolioDetails} />
-            <Route path={`/blog-details`}>
-              <EventReflection event={eventDetails[0]} />
-            </Route>
+          {/* Authentication */}
+          <Route exact path={`/login`} component={LogIn} />
+          <Route exact path={`/signup`} component={SignUp} />
 
-            {/* Blocks Elements  */}
-            <Route path={`/404`} component={error404} />
-            <Route component={error404} />
-          </Switch>
-        </PageScrollTop>
-      </BrowserRouter>
-    );
-  }
-}
+          <Route path={`/portfolio-details/:eventId`}>
+            <EventDetails />
+          </Route>
+          <Route path={`/blog-details/:eventId`}>
+            <EventReflection />
+          </Route>
+
+          {/* Blocks Elements  */}
+          <Route path={`/404`} component={error404} />
+          <Route component={error404} />
+        </Switch>
+      </PageScrollTop>
+    </BrowserRouter>
+  );
+};
 
 ReactDOM.render(<Root />, document.getElementById("root"));
 serviceWorker.register();

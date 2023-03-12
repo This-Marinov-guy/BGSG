@@ -10,7 +10,6 @@ import Footer from "../../component/footer/Footer";
 
 class About extends Component {
   render() {
-
     return (
       <React.Fragment>
         <PageHelmet pageTitle="About" />
@@ -43,6 +42,22 @@ class About extends Component {
         </div>
         {/* End CounterUp Area */}
 
+        {/* Start History Area */}
+        {/* <div className="about-wrapper mb--40">
+          <div className="container">
+            <div className="row row--35 align-items-center">
+              <div className="col-lg-7 col-md-12">
+                <div className="section-title">
+                  <h2 className="title">History</h2>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <p>dkajshdjsahd dhksajhd kajsdhaks dhak</p>
+            </div>
+          </div>
+        </div> */}
+        {/* End History Area */}
         {/* Start Back To Top */}
         <div className="backto-top">
           <ScrollToTop showUnder={160}>

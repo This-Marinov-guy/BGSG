@@ -2,7 +2,7 @@
 
 .purchase_panel {
   margin: 50px auto;
-  width: 80%;
+  padding: 0 50px;
   @media #{$smlg-device} {
     width: 100%;
   }
@@ -22,7 +22,9 @@
     align-items: center;
     justify-content: center;
     .team_member_border-3 {
+      @media #{$sm-layout} {
         width: 80%;
+      }
     }
   }
 }
@@ -31,7 +33,7 @@
   background-image: url(/assets/images/line.png);
   background-size: contain;
   background-repeat: repeat-y;
-  margin-left: 80%;
+  margin-left: 65%;
   height: 1000px;
   width: 50px;
   background-repeat: repeat-y;

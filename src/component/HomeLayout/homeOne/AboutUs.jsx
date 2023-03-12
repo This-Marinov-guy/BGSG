@@ -26,7 +26,7 @@ class AboutUs extends Component {
                   <div className="row mt--30 mt_sm--10">
                     <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                       <div className="about-us-list">
-                        <h3 className="title">Aim</h3>
+                        <h3 className="title">Goal</h3>
                         <p>
                           We aim to bring Bulgarian students in Groningen
                           together
@@ -48,7 +48,7 @@ class AboutUs extends Component {
                       <div className="about-us-list">
                         <h3 className="title">Culture</h3>
                         <p>
-                          We nurture and develope the Bulgarian culture in the
+                          We nurture and develop the Bulgarian culture in the
                           city
                         </p>
                       </div>

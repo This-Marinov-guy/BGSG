@@ -10,7 +10,7 @@ class Board extends Component {
   render() {
     return (
       <React.Fragment>
-        <PageHelmet pageTitle="Board" />
+        <PageHelmet pageTitle="Committees" />
 
         <Header
           headertransparent="header--transparent"
@@ -18,7 +18,7 @@ class Board extends Component {
           logoname="logo.png"
         />
         {/* Start Breadcrump Area */}
-        <Breadcrumb title={"Board Members"} />
+        <Breadcrumb title={"Meet the Committees"} />
         {/* End Breadcrump Area */}
 
         {/* Start Team Area  */}

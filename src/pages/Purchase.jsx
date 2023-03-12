@@ -43,10 +43,10 @@ const Purchase = () => {
         logoname="logo.png"
       />
       <div className="container">
-        <h2 className="center_text">Purchase a Ticket</h2>
+        <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
       <div className="row purchase_panel">
-        <div className="col-lg-4 col-md-12 col-12">
+        <div style={{width:'40%'}} className="col-lg-4 col-md-12 col-12">
           <div className="event_details">
             <img
               className="title_img"
@@ -70,10 +70,10 @@ const Purchase = () => {
             </div>
           </div>
         </div>
-        <div className="col-lg-4 col-md-12 col-12">
+        <div style={{width:'20%'}} className="col-lg-4 col-md-12 col-12">
           <div className="line" />
         </div>
-        <div className="col-lg-4 col-md-12 col-12">
+        <div style={{width:'40%'}} className="col-lg-4 col-md-12 col-12">
           <div className="container">
             <Formik
               className="inner"

@@ -6,8 +6,73 @@ import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
+import { useParams } from "react-router-dom";
+import PhotoGallery from "./PhotoGallery";
+
+const eventReflectionDetails = [
+  {
+    title: "Bulgarian Dinner",
+    bgImage: "12",
+    date: "13th January",
+    attendance: "60",
+    comments: "20",
+    text: `Our first event - a traditional Bulgarian Dinner consisting of 3 courses. The starter was tarator - a "cold soup" made with yogurt and cucumber, the main course was musaka and we finished with chocolate cake for dessert. 🙂`,
+    images: [
+      { id: "1", image: "bulgarian-dinner/04.jpeg", text: "" },
+      { id: "2", image: "bulgarian-dinner/05.jpeg", text: "" },
+      { id: "3", image: "bulgarian-dinner/06.jpeg", text: "" },
+      { id: "4", image: "bulgarian-dinner/07.jpeg", text: "" },
+      { id: "5", image: "bulgarian-dinner/08.jpeg", text: "" },
+      { id: "6", image: "bulgarian-dinner/09.jpeg", text: "" },
+      { id: "7", image: "bulgarian-dinner/10.jpeg", text: "" },
+    ],
+  },
+  {
+    title: "Trifon Zarezan | Wine Tasting",
+    bgImage: "13",
+    date: "14th February",
+    attendance: "30",
+    comments: "20",
+    text: `This event was available only for our members as a welcome event. We celebrated Trifon Zarezan together with a wine tasting event. It involved sampling and evaluating of different types of wines - 3 red wines and 2 white wines. We put our guests in groups of 2 and they had a list of wines and descriptions which they had to put together after tasting each of the wines. The group with the most right answers won a prize which was a special wine bought from Paris. 🙂`,
+    images: [
+      { id: "1", image: "wine-tasting/01.jpeg", text: "" },
+      { id: "2", image: "wine-tasting/02.jpeg", text: "" },
+      { id: "3", image: "wine-tasting/03.jpeg", text: "" },
+      { id: "4", image: "wine-tasting/04.jpeg", text: "" },
+      { id: "5", image: "wine-tasting/05.jpeg", text: "" },
+      { id: "6", image: "wine-tasting/06.jpeg", text: "" },
+      { id: "7", image: "wine-tasting/07.jpeg", text: "" },
+    ],
+  },
+  {
+    title: "Freedom Fest",
+    bgImage: "14",
+    date: "3rd March",
+    attendance: "90",
+    comments: "50",
+    text: `We celebrated the independence day of Bulgaria together by hosting a freedom fest. The event was a party with Bulgarian music which was made for anyone who wanted to get a taste of the Bulgarian culture. 🙂`,
+    images: [
+      { id: "1", image: "freedom-fest/01.jpeg", text: "" },
+      { id: "2", image: "freedom-fest/02.jpeg", text: "" },
+      { id: "3", image: "freedom-fest/03.jpeg", text: "" },
+      { id: "4", image: "freedom-fest/04.jpeg", text: "" },
+      { id: "5", image: "freedom-fest/05.jpeg", text: "" },
+      { id: "6", image: "freedom-fest/06.jpeg", text: "" },
+      { id: "7", image: "freedom-fest/07.jpeg", text: "" },
+      { id: "8", image: "freedom-fest/08.jpeg", text: "" },
+      { id: "9", image: "freedom-fest/09.jpeg", text: "" },
+      { id: "10", image: "freedom-fest/10.jpeg", text: "" },
+      { id: "11", image: "freedom-fest/11.jpeg", text: "" },
+      { id: "12", image: "freedom-fest/12.jpeg", text: "" },
+      { id: "13", image: "freedom-fest/13.jpeg", text: "" },
+      { id: "14", image: "freedom-fest/14.jpeg", text: "" },
+    ],
+  },
+];
 
 const EventReflection = (props) => {
+  const eventId = useParams().eventId;
+
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Event Reflection" />
@@ -18,7 +83,9 @@ const EventReflection = (props) => {
 
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${props.event.bgImage}`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${
+          eventReflectionDetails[Number(eventId)].bgImage
+        }`}
         data-black-overlay="7"
       >
         <div className="container">
@@ -26,20 +93,20 @@ const EventReflection = (props) => {
             <div className="col-lg-12">
               <div className="blog-single-page-title text-center pt--100">
                 <h2 className="title theme-gradient">
-                  Reflection <br /> on {props.event.title}
+                  {eventReflectionDetails[Number(eventId)].title}
                 </h2>
                 <ul className="blog-meta d-flex justify-content-center align-items-center">
                   <li>
                     <FiClock />
-                    {props.event.date}
+                    {eventReflectionDetails[Number(eventId)].date}
                   </li>
                   <li>
                     <FiUser />
-                    {props.event.attendance} people
+                    {eventReflectionDetails[Number(eventId)].attendance} people
                   </li>
                   <li>
                     <FiMessageCircle />
-                    {props.event.comments} Comments
+                    {eventReflectionDetails[Number(eventId)].comments} Comments
                   </li>
                 </ul>
               </div>
@@ -55,103 +122,9 @@ const EventReflection = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="inner-wrapper">
-                <div className="inner">
-                  <p>{props.event.text[0]}</p>
-                  <div className="thumbnail">
-                    <img
-                      src={`/assets/images/blog/bl-big-${props.event.images[1]}.jpg`}
-                      alt="Blog Images"
-                    />
-                  </div>
-                  <p className="mt--40">{props.event.text[1]}</p>
-                  <p>{props.event.text[2]}</p>
-                  <blockquote className="rn-blog-quote">
-                    {props.event.text[3]}
-                  </blockquote>
-                  <p>{props.event.text[4]}</p>
-                  <div className="blog-single-list-wrapper d-flex flex-wrap">
-                    <div className="thumbnail">
-                      <img
-                        className="w-100"
-                        src={`/assets/images/blog/bl-big-${props.event.images[1]}.jpg`}
-                        alt="BLog Images"
-                      />
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do
-                      </span>
-                    </div>
-                    <div className="content">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                        Risus commodo .
-                      </p>
-                      <h4 className="title">Ordered & Unordered Lists.</h4>
-                      <ul className="list-style">
-                        <li>Yet this above sewed flirted opened ouch</li>
-                        <li>Goldfinch realistic sporadic ingenuous</li>
-                        <li>
-                          Abominable this abidin far successfully then like
-                          piquan
-                        </li>
-                        <li>Risus commodo viverra</li>
-                        <li>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </li>
-                      </ul>
-                      <h4 className="title">Ordered & Unordered Lists.</h4>
-                      <ul className="list-style">
-                        <li>Yet this above sewed flirted opened ouch</li>
-                        <li>Goldfinch realistic sporadic ingenuous</li>
-                        <li>
-                          Abominable this abidin far successfully then like
-                          piquan
-                        </li>
-                        <li>Risus commodo viverra</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <p className="mt--25 mt_sm--5">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't
-                    look even slightly believable. If you are going to use a
-                    passage of Lorem Ipsum. You need to be sure there isn't
-                    anything embarrassing hidden in the middle of text. All the
-                    Lorem Ipsum generators on the Internet tend toitrrepeat
-                    predefined chunks. Necessary, making this the first true
-                    generator on the Internet. It re are many variations of
-                    passages of Lorem Ipsum available, but the majority have
-                    suffered alteration in some form, by injectedeed eedhumour,
-                    or randomised words which don't look even slightly
-                    believable.
-                  </p>
-                  <div className="video-wrapper position-relative mb--40">
-                    <div className="thumbnail">
-                      <img
-                        src={`/assets/images/blog/bl-big-${props.event.images[2]}.jpg`}
-                        alt="Blog Images"
-                      />
-                    </div>
-                  </div>
-                  <p className="mb--0">
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour, or randomised words which don't
-                    look even slightly believable. If you are going to use a
-                    passage of Lorem Ipsum. You need to be sure there isn't
-                    anything embarrassing hidden in the middle of text. All the
-                    Lorem Ipsum generators on the Internet tend toitrrepeat
-                    predefined chunks. Necessary, making this the first true
-                    generator on the Internet. It re are many variations of
-                    passages of Lorem Ipsum available, but the majority have
-                    suffered alteration in some form, by injectedeed eedhumour,
-                    or randomised words which don't look even slightly
-                    believable.
-                  </p>
+                <h2 className="title">Event Description</h2>
+                <div className="inner mt--80">
+                  <p>{eventReflectionDetails[Number(eventId)].text}</p>
                 </div>
               </div>
             </div>
@@ -159,6 +132,10 @@ const EventReflection = (props) => {
         </div>
       </div>
       {/* End Blog Details */}
+
+      {/* Start Picture Area */}
+      <PhotoGallery target={eventReflectionDetails[Number(eventId)].images} />
+      {/* End Picture Area */}
 
       {/* Start Sponsor Area */}
       <div className="rn-brand-area brand-separation bg_color--5 ptb--120">

@@ -56,6 +56,14 @@
   width: 400px;
 }
 
+.gallery_img {
+  width: 50%;
+  object-fit: cover;
+  @media #{$smlg-device} {
+    width: 80%;
+  }
+}
+
 .content {
   margin: auto;
   max-width: 400px;

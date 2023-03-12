@@ -80,7 +80,7 @@ const SignUp = () => {
                 >
                   <div className="hor_section">
                     <div className="icon">{val.icon}</div>
-                    <h3 style={{ width: "40%" }}>{val.price} euro/ semester</h3>
+                    <h3 style={{ width: "40%" }}>{val.price} euro/semester</h3>
                   </div>
                   <div className="content">
                     <h3>{val.title}</h3>

@@ -25,21 +25,6 @@ const list = [
     category: "Freedom Fest",
     title: "Celebration of the national day of Bulgaria",
   },
-  {
-    image: "1",
-    category: "Bulgarian Dinner",
-    title: "Try our traditional cuisine",
-  },
-  {
-    image: "2",
-    category: "Trifon Zarezan",
-    title: "No valantine - wine is always there for us ",
-  },
-  {
-    image: "3",
-    category: "Freedom Fest",
-    title: "Celebration of the national day of Bulgaria",
-  },
 ];
 
 class PastEvents extends Component {
@@ -78,26 +63,31 @@ class PastEvents extends Component {
                     <Slider {...slickDot}>
                       {list.map((value, index) => (
                         <div className="portfolio" key={index}>
-                          <div className="thumbnail-inner">
-                            <img
-                              className="thumbnail"
-                              src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
-                              alt="Event Images"
-                            />
-                          </div>
-                          <div className="content">
-                            <div className="inner">
-                              <p>{value.category}</p>
-                              <h4>
-                                <p>{value.title}</p>
-                              </h4>
-                              <div className="portfolio-button">
-                                <a className="rn-btn" href="/blog-details">
-                                  Tell me more
-                                </a>
+                          <Link to={`/blog-details/${index}`}>
+                            <div className="thumbnail-inner">
+                              <img
+                                className="thumbnail"
+                                src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                                alt="Event Images"
+                              />
+                            </div>
+                            <div className="content">
+                              <div className="inner">
+                                <p>{value.category}</p>
+                                <h4>
+                                  <p>{value.title}</p>
+                                </h4>
+                                <div className="portfolio-button">
+                                  <a
+                                    className="rn-btn"
+                                    href={`/blog-details/${index}`}
+                                  >
+                                    Tell me more
+                                  </a>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          </Link>
                         </div>
                       ))}
                     </Slider>

@@ -26,22 +26,27 @@ const SlideList = [
 const Photos = [
   {
     id: "1",
+    image: 'event-1.jpg',
     text: "Some of our party animals",
   },
   {
     id: "2",
+    image: 'event-2.jpg',
     text: "Always prepared with delicios food",
   },
   {
     id: "3",
+    image: 'event-3.jpg',
     text: "Wine is a symbol of Bulgaria",
   },
   {
     id: "4",
+    image: 'event-4.jpg',
     text: "Nice music and lots of good energy",
   },
   {
     id: "5",
+    image: 'event-5.jpg',
     text: "A night to remember",
   },
 ];

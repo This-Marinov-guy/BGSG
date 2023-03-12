@@ -21,11 +21,11 @@ class CounterOne extends Component{
                 countTitle: 'Members of the board that are responsible for the society',
             },
             {
-                countNum : 10,
+                countNum : 4,
                 countTitle: 'Events that we have hosted by today',
             },
             {
-                countNum : 100,
+                countNum : 5,
                 countTitle: 'Active members, part of the society',
             },
         ];

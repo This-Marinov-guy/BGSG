@@ -25,13 +25,17 @@ const PhotoGallery = (props) => {
                   <img
                     className={
                       event.id % 2 !== 0
-                        ? "team_member_border-3 mb--20"
-                        : "team_member_border-4 mb--20"
+                        ? "gallery_img team_member_border-3 mb--20"
+                        : "gallery_img team_member_border-4 mb--20"
                     }
-                    src={`/assets/images/events/event-${event.id}.jpg`}
+                    src={`/assets/images/events/${event.image}`}
                     alt="Blog Images"
                   />
-                  <p style={{ fontStyle: "italic" }}>{`"${event.text}"`}</p>
+                  {event.text && (
+                    <p
+                      style={{ fontStyle: "italic", margin: "auto" }}
+                    >{`"${event.text}"`}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -41,7 +45,7 @@ const PhotoGallery = (props) => {
       <div className="row">
         <div className="col-lg-12">
           <a
-            href="https://flickr.com/people/197725983@N03/"
+            href="https://flickr.com/photos/197725983@N03/albums"
             target="_blank"
             className="rn-button-style--2 btn-solid"
           >
