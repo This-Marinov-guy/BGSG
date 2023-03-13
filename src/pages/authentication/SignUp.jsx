@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import {
-  FiCast,
-  FiLayers,
-  FiUsers,
-  FiChevronUp,
   FiCheck,
 } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";

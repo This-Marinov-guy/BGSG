@@ -17,6 +17,7 @@
     @media #{$md-layout} {
       padding: 20px 0;
     }
+
     .icon {
       img {
         margin-bottom: 34px;
@@ -47,7 +48,9 @@
           }
         }
       }
-      p, li {
+      p,
+      li,
+      .edit_btn {
         opacity: 0.75;
         font-weight: 300;
       }
@@ -72,6 +75,10 @@
     @media #{$large-mobile} {
       padding: 30px 18px;
       margin-top: 30px;
+    }
+
+    .edit_btn {
+      cursor: pointer;
     }
 
     &::before {
@@ -113,10 +120,10 @@
           font-weight: 500;
           @extend %transition;
           @media #{$laptop-device} {
-            font-size: 19px;
+            font-size: 23px;
           }
           @media #{$sm-layout} {
-            font-size: 20px;
+            font-size: 23px;
           }
           @media #{$md-layout} {
             margin-bottom: 8px;
@@ -126,7 +133,9 @@
           }
         }
       }
-      p, li {
+      p,
+      li,
+      .edit_btn {
         @extend %transition;
         color: rgba(29, 29, 36, 0.75);
       }
@@ -148,7 +157,9 @@
             @extend %textwhite;
           }
         }
-        p, li {
+        p,
+        li,
+        .edit_btn {
           @extend %textwhite;
         }
       }
@@ -211,7 +222,6 @@
         visibility: visible;
       }
     }
-
     .icon {
       display: inline-flex;
       font-size: 54px;
@@ -235,22 +245,24 @@
         &.title {
           margin-bottom: 19px;
           font-weight: 500;
-          font-size: 22px;
+          font-size: 23px;
           @extend %transition;
           @media #{$laptop-device} {
             margin-bottom: 12px;
-            font-size: 20px;
+            font-size: 23px;
           }
           @media #{$large-mobile} {
             color: #fff;
           }
           @media #{$sm-layout} {
             margin-bottom: 10px;
-            font-size: 18px;
+            font-size: 23px;
           }
         }
       }
-      p, li {
+      p,
+      li,
+      .edit_btn {
         color: rgba(29, 29, 36, 0.75);
         @extend %transition;
         @media #{$large-mobile} {
@@ -275,7 +287,9 @@
             color: #fff;
           }
         }
-        p, li {
+        p,
+        li,
+        .edit_btn {
           color: #fff;
         }
       }
@@ -294,7 +308,7 @@
   }
   .content {
     h3 {
-      font-size: 19px;
+      font-size: 23px;
       margin-top: 30px;
       margin-bottom: 10px;
       font-weight: 600;
@@ -306,7 +320,9 @@
         }
       }
     }
-    p, li {
+    p,
+    li,
+    .edit_btn {
       font-size: 17px;
       line-height: 24px;
     }
@@ -346,7 +362,9 @@
           color: #c6c9d8;
         }
       }
-      p, li {
+      p,
+      li,
+      .edit_btn {
         color: #c6c9d8;
       }
     }
@@ -382,7 +400,9 @@
           color: #ffffff;
         }
       }
-      p, li {
+      p,
+      li,
+      .edit_btn {
         color: rgba(255, 255, 255, 0.75);
       }
     }
