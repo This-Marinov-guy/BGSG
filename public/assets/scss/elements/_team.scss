@@ -59,8 +59,11 @@
 .gallery_img {
   width: 50%;
   object-fit: cover;
-  @media #{$smlg-device} {
+  @media #{$md-layout} {
     width: 80%;
+  }
+  @media #{$sm-layout} {
+    width: 100%;
   }
 }
 

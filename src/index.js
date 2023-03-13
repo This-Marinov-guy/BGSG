@@ -23,11 +23,11 @@ import ActiveMembers from "./pages/information/ActiveMembers";
 
 import LogIn from "./pages/authentication/LogIn";
 import SignUp from "./pages/authentication/SignUp";
+import User from "./pages/authentication/User";
 import PastEvents from "./pages/information/PastEvents";
 import EventDetails from "./elements/EventDetails";
 import EventReflection from "./elements/EventReflection";
 import Purchase from "./pages/Purchase";
-
 
 const Root = () => {
   return (
@@ -47,6 +47,7 @@ const Root = () => {
           {/* Authentication */}
           <Route exact path={`/login`} component={LogIn} />
           <Route exact path={`/signup`} component={SignUp} />
+          <Route exact path={`/user/:userId`} component={User} />
 
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />

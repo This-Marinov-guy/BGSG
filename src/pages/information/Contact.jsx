@@ -10,11 +10,7 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { FiMail } from "react-icons/fi";
 
-import {
-  FaInstagram,
-  FaFlickr,
-  FaLink,
-} from "react-icons/fa";
+import { FaInstagram, FaFlickr, FaLink } from "react-icons/fa";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -35,8 +31,8 @@ class Contact extends Component {
           logoname="logo.png"
         />
 
-       {/* Start Breadcrump Area */}
-       <Breadcrumb title={"Contact Us"} />
+        {/* Start Breadcrump Area */}
+        <Breadcrumb title={"Contact Us"} />
         {/* End Breadcrump Area */}
 
         {/* Start Contact Top Area  */}
@@ -49,12 +45,15 @@ class Contact extends Component {
                   <div className="icon">
                     <FiMail />
                   </div>
-                  <div className="inner">
+                  <div
+                    className="inner email_container"
+                  >
                     <h4 className="title">Email Address</h4>
                     <p>
-                      <a href="mailto:mailto:Bulgariansociety.gro@gmail.com">Bulgariansociety.gro@gmail.com</a>
+                      <a href="mailto:mailto:Bulgariansociety.gro@gmail.com">
+                        Bulgariansociety.gro@gmail.com
+                      </a>
                     </p>
-                  
                   </div>
                 </div>
               </div>
@@ -62,7 +61,9 @@ class Contact extends Component {
               {/* Start Social Media  */}
               <div className="col-lg-4 col-md-6 col-sm-6 col-12">
                 <div className="rn-address">
-                  <div className="icon"><FaLink/></div>
+                  <div className="icon">
+                    <FaLink />
+                  </div>
                   <div className="inner">
                     <div className="social_media">
                       {SocialShare.map((val, i) => (

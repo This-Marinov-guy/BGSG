@@ -47,7 +47,7 @@
           }
         }
       }
-      p {
+      p, li {
         opacity: 0.75;
         font-weight: 300;
       }
@@ -126,7 +126,7 @@
           }
         }
       }
-      p {
+      p, li {
         @extend %transition;
         color: rgba(29, 29, 36, 0.75);
       }
@@ -148,7 +148,7 @@
             @extend %textwhite;
           }
         }
-        p {
+        p, li {
           @extend %textwhite;
         }
       }
@@ -250,7 +250,7 @@
           }
         }
       }
-      p {
+      p, li {
         color: rgba(29, 29, 36, 0.75);
         @extend %transition;
         @media #{$large-mobile} {
@@ -275,7 +275,7 @@
             color: #fff;
           }
         }
-        p {
+        p, li {
           color: #fff;
         }
       }
@@ -306,7 +306,7 @@
         }
       }
     }
-    p {
+    p, li {
       font-size: 17px;
       line-height: 24px;
     }
@@ -346,7 +346,7 @@
           color: #c6c9d8;
         }
       }
-      p {
+      p, li {
         color: #c6c9d8;
       }
     }
@@ -382,7 +382,7 @@
           color: #ffffff;
         }
       }
-      p {
+      p, li {
         color: rgba(255, 255, 255, 0.75);
       }
     }

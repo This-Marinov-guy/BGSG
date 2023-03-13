@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import {
+  FiCast,
+  FiLayers,
+  FiUsers,
+  FiChevronUp,
+  FiCheck,
+} from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
 import { FiUserPlus } from "react-icons/fi";
@@ -38,8 +45,7 @@ const options = [
   {
     icon: <FiUserPlus />,
     title: "Member",
-    description:
-      "Be part of the society. With this status you get discounts for our events and buying tickets becomes much easier. Members have their names displayed on event tickets and also they gain a collection in their account information!",
+    description: "Be part of the society. With this membership you get:  ",
     price: 5,
   },
 ];
@@ -85,6 +91,25 @@ const SignUp = () => {
                   <div className="content">
                     <h3>{val.title}</h3>
                     <p>{val.description}</p>
+                    <div className="pricing-body">
+                      <ul
+                        style={{ textAlign: "start" }}
+                        className="list-style--1"
+                      >
+                        <li>
+                          <FiCheck /> Access to exclusive member events
+                        </li>
+                        <li>
+                          <FiCheck /> Discounts to all events
+                        </li>
+                        <li>
+                          <FiCheck /> Premium named event tickets
+                        </li>
+                        <li>
+                          <FiCheck /> Collection of tickets at your page
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </button>
               </div>
