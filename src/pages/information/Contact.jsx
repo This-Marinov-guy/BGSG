@@ -10,13 +10,14 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { FiMail } from "react-icons/fi";
 
-import { FaInstagram, FaFlickr, FaLink } from "react-icons/fa";
+import { FaInstagram, FaFlickr, FaLink, FaFacebookF } from "react-icons/fa";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const SocialShare = [
-  { Social: <FaInstagram />, link: "https://www.instagram.com/" },
-  { Social: <FaFlickr />, link: "https://www.facebook.com/" },
+  { Social: <FaInstagram />, link: "https://flickr.com/photos/197725983@N03" },
+  { Social: <FaFacebookF />, link: "https://www.facebook.com/profile.php?id=100090061861023" },
+  { Social: <FaFlickr />, link: "https://www.instagram.com/bulgariansociety.gro/?igshid=YmMyMTA2M2Y%3D" },
 ];
 
 class Contact extends Component {

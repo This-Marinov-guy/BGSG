@@ -307,17 +307,25 @@
   }
 }
 
+.header-middle {
+  height: 200px;
+  width: 100%;
+  background-color: #017363;
+}
+
 .header-right {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  @media only screen and (min-width:1199px) {
-    padding: 20px;
-    background-color: #ab1c02;
-  }
   .header-btn {
     @media #{$large-mobile} {
       margin-left: 0;
+    }
+  }
+  &.header-red {
+    @media only screen and (min-width: 991px) {
+      padding: 20px;
+      background-color: #ab1c02;
     }
   }
 }

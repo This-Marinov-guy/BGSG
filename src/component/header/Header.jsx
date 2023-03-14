@@ -70,6 +70,9 @@ class Header extends Component {
                   <Link to="/contact">Contact</Link>
                 </li>
                 <li>
+                    <Link to="/user">Profile</Link>
+                  </li>
+                <li>
                   <div className="header-btn">
                     <a href="/login" className="rn-btn">
                       <span>Log In</span>

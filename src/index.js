@@ -1,6 +1,8 @@
 // React Required
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -31,37 +33,39 @@ import Purchase from "./pages/Purchase";
 
 const Root = () => {
   return (
-    <BrowserRouter basename={"/"}>
-      <PageScrollTop>
-        <Switch>
-          <Route exact path="/" component={Home} />
+    <Provider store={store}>
+      <BrowserRouter basename={"/"}>
+        <PageScrollTop>
+          <Switch>
+            <Route exact path="/" component={Home} />
 
-          {/* Element Layot */}
-          <Route exact path={`/contact`} component={Contact} />
-          <Route exact path={`/about`} component={About} />
-          <Route exact path={`/board-members`} component={Board} />
-          <Route exact path={`/active-members`} component={ActiveMembers} />
-          <Route exact path={`/past-events`} component={PastEvents} />
-          <Route eaxct path={"/purchase-ticket"} component={Purchase} />
+            {/* Element Layot */}
+            <Route exact path={`/contact`} component={Contact} />
+            <Route exact path={`/about`} component={About} />
+            <Route exact path={`/board-members`} component={Board} />
+            <Route exact path={`/active-members`} component={ActiveMembers} />
+            <Route exact path={`/past-events`} component={PastEvents} />
+            <Route eaxct path={"/purchase-ticket"} component={Purchase} />
 
-          {/* Authentication */}
-          <Route exact path={`/login`} component={LogIn} />
-          <Route exact path={`/signup`} component={SignUp} />
-          <Route exact path={`/user`} component={User} />
+            {/* Authentication */}
+            <Route exact path={`/login`} component={LogIn} />
+            <Route exact path={`/signup`} component={SignUp} />
+            <Route exact path={`/user`} component={User} />
 
-          <Route path={`/portfolio-details/:eventId`}>
-            <EventDetails />
-          </Route>
-          <Route path={`/blog-details/:eventId`}>
-            <EventReflection />
-          </Route>
+            <Route path={`/portfolio-details/:eventId`}>
+              <EventDetails />
+            </Route>
+            <Route path={`/blog-details/:eventId`}>
+              <EventReflection />
+            </Route>
 
-          {/* Blocks Elements  */}
-          <Route path={`/404`} component={error404} />
-          <Route component={error404} />
-        </Switch>
-      </PageScrollTop>
-    </BrowserRouter>
+            {/* Blocks Elements  */}
+            <Route path={`/404`} component={error404} />
+            <Route component={error404} />
+          </Switch>
+        </PageScrollTop>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

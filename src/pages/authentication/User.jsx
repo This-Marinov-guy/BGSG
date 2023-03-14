@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit } from "react-icons/fi";
+import { FiCircle, FiEdit, FiChevronUp } from "react-icons/fi";
+import FooterTwo from "../../component/footer/FooterTwo";
+import ScrollToTop from "react-scroll-up";
 import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 
@@ -10,13 +12,11 @@ const User = () => {
     <React.Fragment>
       <PageHelmet pageTitle="Profile" />
       <HeaderTwo
+        title="Your Profile"
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
       />
-        <div style={{padding:'20px',backgroundColor:'#017363'}} className="container">
-          <h2 className="center_text mt--120">Your Profile</h2>
-        </div>
       {/* Start Info Area */}
 
       <div className="service-area ptb--120 bg_color--1">
@@ -73,7 +73,20 @@ const User = () => {
           <div className="col-lg-12">
             <div className="mb--30 mb_sm--0">
               <h2 className="title">News</h2>
-              <p>Stay tuned for more information</p>
+              <ul>
+                <li>
+                  <p>
+                    Open submissions for Active members! Press here to submit a
+                    request and we will reach you soon
+                  </p>
+                  <button className="rn-button-style--2 btn-solid mt--20">
+                    Become an Active Member
+                  </button>
+                </li>
+                <li className="mt--40">
+                  <p>We will soon post information for our 2nd member event. Stay tuned!</p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -94,6 +107,16 @@ const User = () => {
         </div>
       </div>
       {/* End Collection Area */}
+      {/* Start Footer Style  */}
+      <FooterTwo />
+      {/* End Footer Style  */}
+      {/* Start Back To Top */}
+      <div className="backto-top">
+        <ScrollToTop showUnder={160}>
+          <FiChevronUp />
+        </ScrollToTop>
+      </div>
+      {/* End Back To Top */}
     </React.Fragment>
   );
 };

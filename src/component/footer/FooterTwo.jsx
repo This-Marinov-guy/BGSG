@@ -1,10 +1,11 @@
 import React from 'react';
-import { FaInstagram ,FaFlickr} from "react-icons/fa";
+import { FaInstagram, FaFlickr, FaFacebookF } from "react-icons/fa";
 
 const SocialShare = [
-    {Social: <FaInstagram /> , link: 'https://www.instagram.com/bulgariansociety.gro/'},
-    {Social: <FaFlickr /> , link: 'https://flickr.com/people/197725983@N03/'},
-    ,
+    { Social: <FaInstagram />, link: "https://flickr.com/photos/197725983@N03" },
+  { Social: <FaFacebookF />, link: "https://www.facebook.com/profile.php?id=100090061861023" },
+  { Social: <FaFlickr />, link: "https://www.instagram.com/bulgariansociety.gro/?igshid=YmMyMTA2M2Y%3D" },
+    
 ]
 
 const FooterTwo = () => {

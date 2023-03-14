@@ -387,7 +387,7 @@ const SignUp = () => {
                         href="/assets/documents/Rules and regulations.pdf"
                         target="_blank"
                       >
-                        society's policy
+                        society's rules and regulations
                       </a>
                     </p>
                   </div>
