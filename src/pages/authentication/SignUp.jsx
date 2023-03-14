@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  FiCheck,
-} from "react-icons/fi";
+import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
 import { FiUserPlus } from "react-icons/fi";
 
 const schema = yup.object().shape({
+  image: yup.string().required("Please upload your picture"),
   name: yup.string().required(),
   surname: yup.string().required(),
   age: yup.number().positive().required(),
@@ -46,6 +45,34 @@ const options = [
   },
 ];
 const SignUp = () => {
+  const [file, setFile] = useState();
+  const [previewUrl, setPreviewUrl] = useState();
+  const [isValid, setIsValid] = useState(true);
+
+  useEffect(() => {
+    if (!file) {
+      return;
+    }
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setPreviewUrl(fileReader.result);
+    };
+    fileReader.readAsDataURL(file);
+  }, [file]);
+
+  const inputHandler = (event) => {
+    //set image
+    let pickedFile;
+    if (event.target.files || event.target.files.length === 1) {
+      pickedFile = event.target.files[0];
+      setFile(pickedFile);
+      setIsValid(true);
+      return;
+    } else {
+      setIsValid(false);
+    }
+  };
+
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Join" />
@@ -128,6 +155,7 @@ const SignUp = () => {
               }, 1000);
             }}
             initialValues={{
+              image: "",
               name: "",
               surname: "",
               age: "",
@@ -149,6 +177,42 @@ const SignUp = () => {
             {({ values }) => (
               <Form id="form" style={{ padding: "50px" }}>
                 <h3>Fill your details and register</h3>
+                <div className="row mb--40 mt--40">
+                <div className="col-lg-12 col-md-12 col-12">
+                  <div className="rnform-group ">
+                    <div className="image_input_window">
+                      <Field
+                        className="image_input_field"
+                        onInput={inputHandler}
+                        type="file"
+                        placeholder="Image"
+                        name="image"
+                      />
+                      {!previewUrl ? (
+                        <FiUserPlus/>
+                      ) : (
+                        <img
+                          className="upload_image"
+                          src={previewUrl}
+                          alt="Preview"
+                        />
+                      )}
+                    </div>
+                    <div>
+                      <ErrorMessage
+                        className="error"
+                        name="image"
+                        component="div"
+                      />
+                      {!isValid && (
+                        <p className="error">
+                          Corrupted file, please try again
+                        </p>
+                      )}
+                    </div>
+                    </div>
+                  </div>
+                </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">

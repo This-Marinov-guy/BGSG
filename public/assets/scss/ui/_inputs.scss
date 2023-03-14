@@ -1,0 +1,28 @@
+// Image upload
+
+.image_input_window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  align-self: center;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #d4d4d4;
+}
+
+.image_input_field {
+    height: 150px;
+  width: 150px;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload_image {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #d4d4d4;
+}
+
+//Inputs
