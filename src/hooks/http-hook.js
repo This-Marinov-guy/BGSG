@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { selectError, showError } from "src/redux/error";
-import { selectLoading, startLoading, stopLoading } from "src/redux/loading";
+import { selectError, showError } from "../redux/error";
+import { selectLoading, startLoading, stopLoading } from "../redux/loading";
 
 export const useHttpClient = () => {
   const dispatch = useDispatch();

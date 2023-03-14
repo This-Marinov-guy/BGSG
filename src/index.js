@@ -1,8 +1,13 @@
-// React Required
-import React from "react";
+// React and Redux Required
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { useSelector } from "react-redux";
+import { login, logout, selectUser } from "./redux/user";
+import { useDispatch } from "react-redux";
+import { useHttpClient } from "./hooks/http-hook";
+import { selectErrorMsg } from "./redux/error";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -32,42 +37,87 @@ import EventReflection from "./elements/EventReflection";
 import Purchase from "./pages/Purchase";
 
 const Root = () => {
+  const dispatch = useDispatch();
+
+  const user = useSelector(selectUser);
+  const errorMsg = useSelector(selectErrorMsg);
+
+  const { error } = useHttpClient();
+
+  let routes;
+
+  useEffect(() => {
+    let logoutTimer;
+    if (user.token && user.expirationDate) {
+      let remainingTime =
+        new Date(user.expirationDate).getTime() - new Date().getTime();
+      logoutTimer = setTimeout(handler, remainingTime);
+      function handler() {
+        dispatch(logout());
+      }
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [user.token, logout, user.expirationDate]);
+
+  useEffect(() => {
+    let storedData = JSON.parse(localStorage.getItem("userData"));
+    if (
+      storedData &&
+      storedData.token &&
+      new Date(storedData.expirationDate) > new Date()
+    ) {
+      dispatch(
+        login({
+          userId: storedData.userId,
+          token: storedData.token,
+          expirationDate: new Date(
+            new Date().getTime() + 36000000
+          ).toISOString(),
+        })
+      );
+    }
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
-      <BrowserRouter basename={"/"}>
-        <PageScrollTop>
-          <Switch>
-            <Route exact path="/" component={Home} />
+    <BrowserRouter basename={"/"}>
+      <PageScrollTop>
+        <Switch>
+          <Route exact path="/" component={Home} />
 
-            {/* Element Layot */}
-            <Route exact path={`/contact`} component={Contact} />
-            <Route exact path={`/about`} component={About} />
-            <Route exact path={`/board-members`} component={Board} />
-            <Route exact path={`/active-members`} component={ActiveMembers} />
-            <Route exact path={`/past-events`} component={PastEvents} />
-            <Route eaxct path={"/purchase-ticket"} component={Purchase} />
+          {/* Element Layot */}
+          <Route exact path={`/contact`} component={Contact} />
+          <Route exact path={`/about`} component={About} />
+          <Route exact path={`/board-members`} component={Board} />
+          <Route exact path={`/active-members`} component={ActiveMembers} />
+          <Route exact path={`/past-events`} component={PastEvents} />
+          <Route eaxct path={"/purchase-ticket"} component={Purchase} />
 
-            {/* Authentication */}
-            <Route exact path={`/login`} component={LogIn} />
-            <Route exact path={`/signup`} component={SignUp} />
-            <Route exact path={`/user`} component={User} />
+          {/* Authentication */}
+          <Route exact path={`/login`} component={LogIn} />
+          <Route exact path={`/signup`} component={SignUp} />
+          <Route exact path={`/user`} component={User} />
 
-            <Route path={`/portfolio-details/:eventId`}>
-              <EventDetails />
-            </Route>
-            <Route path={`/blog-details/:eventId`}>
-              <EventReflection />
-            </Route>
+          <Route path={`/portfolio-details/:eventId`}>
+            <EventDetails />
+          </Route>
+          <Route path={`/blog-details/:eventId`}>
+            <EventReflection />
+          </Route>
 
-            {/* Blocks Elements  */}
-            <Route path={`/404`} component={error404} />
-            <Route component={error404} />
-          </Switch>
-        </PageScrollTop>
-      </BrowserRouter>
-    </Provider>
+          {/* Blocks Elements  */}
+          <Route path={`/404`} component={error404} />
+          <Route component={error404} />
+        </Switch>
+      </PageScrollTop>
+    </BrowserRouter>
   );
 };
 
-ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(
+  <Provider store={store}>
+    <Root />
+  </Provider>,
+  document.getElementById("root")
+);
 serviceWorker.register();
