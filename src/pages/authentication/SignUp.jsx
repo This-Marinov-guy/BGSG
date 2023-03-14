@@ -4,7 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
-import { FiUserPlus } from "react-icons/fi";
+import { FiImage, FiUserPlus } from "react-icons/fi";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -189,7 +189,7 @@ const SignUp = () => {
                         name="image"
                       />
                       {!previewUrl ? (
-                        <FiUserPlus/>
+                        <FiImage/>
                       ) : (
                         <img
                           className="upload_image"

@@ -72,7 +72,7 @@ class Home extends Component {
                         {value.category ? <span>{value.category}</span> : ""}
                         {value.title ? (
                           <h1 className="title theme-gradient">
-                            Bulgaria Society Groningen
+                            {value.title}
                           </h1>
                         ) : (
                           ""
