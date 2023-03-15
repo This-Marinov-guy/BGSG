@@ -5,6 +5,7 @@ import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
 import { FiImage, FiUserPlus } from "react-icons/fi";
+import { useHttpClient } from "../../hooks/http-hook";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -15,6 +16,7 @@ const schema = yup.object().shape({
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
   universityName: yup.string().required("university name is a required filed"),
+  otherUniversity: yup.string().required("please state your university"),
   course: yup.string().required(),
   studentNumber: yup
     .string()
@@ -48,6 +50,8 @@ const SignUp = () => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(true);
+
+  const { sendRequest } = useHttpClient();
 
   useEffect(() => {
     if (!file) {
@@ -156,6 +160,7 @@ const SignUp = () => {
             validationSchema={schema}
             onSubmit={async (values) => {
               try {
+                console.log("start");
                 const formData = new FormData();
                 formData.append("image", values.image);
                 formData.append("name", values.name);
@@ -165,6 +170,7 @@ const SignUp = () => {
                 formData.append("email", values.email);
                 formData.append("university", values.university);
                 formData.append("universityName", values.universityName);
+                formData.append("otherUniversity", values.otherUniversity);
                 formData.append("course", values.course);
                 formData.append("studentNumber", values.studentNumber);
                 formData.append("password", values.password);
@@ -172,21 +178,21 @@ const SignUp = () => {
                   "notificationTypeTerms",
                   values.notificationTypeTerms
                 );
-                const responseData = await sendRequest(
-                  `${process.env.REACT_APP_URL}/user/signup`,
+                const data = await sendRequest(
+                  `http://localhost:80/api/user/signup`,
                   "POST",
                   formData
                 );
-
-                dispatch(
-                  login({
-                    userId: responseData.userId,
-                    token: responseData.token,
-                    expirationDate: new Date(
-                      new Date().getTime() + 36000000
-                    ).toISOString(),
-                  })
-                );
+                console.log("done");
+                // dispatch(
+                //   login({
+                //     userId: data.userId,
+                //     token: data.token,
+                //     expirationDate: new Date(
+                //       new Date().getTime() + 36000000
+                //     ).toISOString(),
+                //   })
+                // );
               } catch (err) {}
             }}
             initialValues={{
@@ -198,6 +204,7 @@ const SignUp = () => {
               email: "",
               university: "",
               universityName: "",
+              otherUniversity: "",
               course: "",
               studentNumber: "",
               password: "",
@@ -209,12 +216,11 @@ const SignUp = () => {
               payTerms: false,
             }}
           >
-            {({ values, setFieldValue, handleSubmit }) => (
+            {({ values, setFieldValue }) => (
               <Form
                 encType="multipart/form-data"
                 id="form"
                 style={{ padding: "50px" }}
-                onSubmit={handleSubmit}
               >
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">
@@ -344,11 +350,11 @@ const SignUp = () => {
                         <Field
                           type="text"
                           placeholder="State the university"
-                          name="universityName"
+                          name="otherUniversity"
                         ></Field>
                         <ErrorMessage
                           className="error"
-                          name="universityName"
+                          name="otherUniversity"
                           component="div"
                         />
                       </div>
@@ -499,12 +505,9 @@ const SignUp = () => {
                 </div>
                 <button
                   type="submit"
-                  onClick={() => {
-                    console.log("values ", values);
-                  }}
                   className="rn-button-style--2 btn-solid mt--80"
                 >
-                  <span>Proceed to paying</span>
+                  Proceed to paying
                 </button>
                 <div
                   style={{ alignItems: "flex-start" }}
