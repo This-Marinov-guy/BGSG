@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectUser } from "../../redux/user";
 import { Link, useHistory } from "react-router-dom";
-import { FiX, FiMenu } from "react-icons/fi";
+import { FiGlobe, FiX, FiMenu } from "react-icons/fi";
 
 const HeaderTwo = () => {
   const [isMenuOpened, setIsMenuOpened] = useState();
@@ -41,6 +41,13 @@ const HeaderTwo = () => {
           <div className="header-right header-red">
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
+                <li>
+                  <FiGlobe className="google_icon" />
+                  <div
+                    className="google_btn"
+                    id="google_translate_element"
+                  ></div>
+                </li>
                 <li className="has-droupdown">
                   <Link to="/about">About</Link>
                   <ul className="submenu">

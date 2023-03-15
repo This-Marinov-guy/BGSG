@@ -17,6 +17,10 @@ let TeamContent = [
         icon: <FaInstagram />,
         url: "https://www.instagram.com/vdvends/",
       },
+      {
+        icon: <FaLinkedinIn />,
+        url: "https://www.linkedin.com/in/lazar-popov-bb4321200/",
+      }
     ],
   },
   {
@@ -32,8 +36,12 @@ let TeamContent = [
     socialNetwork: [
       {
         icon: <FaInstagram />,
-        url: "https://www.instagram.com/radostlozanova/",
+        url: "https://www.linkedin.com/in/radost-lozanova/",
       },
+      {
+        icon: <FaLinkedinIn />,
+        url: "https://www.instagram.com/radostlozanova/",
+      }
     ],
   },
   {
@@ -164,6 +172,7 @@ class Team extends Component {
                       style={{ margin: "20px" }}
                       key={index}
                       href={`${social.url}`}
+                      target="_blank"
                     >
                       {social.icon}
                     </a>

@@ -60,11 +60,16 @@ const SignUp = () => {
     fileReader.readAsDataURL(file);
   }, [file]);
 
+  const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
+
   const inputHandler = (event) => {
     //set image
-    let pickedFile;
+    let pickedFile = event.target.files[0];
+    if (!validFileTypes.find((type) => type === pickedFile.type)) {
+      setIsValid(false);
+      return;
+    }
     if (event.target.files || event.target.files.length === 1) {
-      pickedFile = event.target.files[0];
       setFile(pickedFile);
       setIsValid(true);
       return;
@@ -149,10 +154,40 @@ const SignUp = () => {
           <Formik
             className="inner"
             validationSchema={schema}
-            onSubmit={(values) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-              }, 1000);
+            onSubmit={async (values) => {
+              try {
+                const formData = new FormData();
+                formData.append("image", values.image);
+                formData.append("name", values.name);
+                formData.append("surname", values.surname);
+                formData.append("age", values.age);
+                formData.append("phone", values.phone);
+                formData.append("email", values.email);
+                formData.append("university", values.university);
+                formData.append("universityName", values.universityName);
+                formData.append("course", values.course);
+                formData.append("studentNumber", values.studentNumber);
+                formData.append("password", values.password);
+                formData.append(
+                  "notificationTypeTerms",
+                  values.notificationTypeTerms
+                );
+                const responseData = await sendRequest(
+                  `${process.env.REACT_APP_URL}/user/signup`,
+                  "POST",
+                  formData
+                );
+
+                dispatch(
+                  login({
+                    userId: responseData.userId,
+                    token: responseData.token,
+                    expirationDate: new Date(
+                      new Date().getTime() + 36000000
+                    ).toISOString(),
+                  })
+                );
+              } catch (err) {}
             }}
             initialValues={{
               image: "",
@@ -174,42 +209,51 @@ const SignUp = () => {
               payTerms: false,
             }}
           >
-            {({ values }) => (
-              <Form id="form" style={{ padding: "50px" }}>
+            {({ values, setFieldValue, handleSubmit }) => (
+              <Form
+                encType="multipart/form-data"
+                id="form"
+                style={{ padding: "50px" }}
+                onSubmit={handleSubmit}
+              >
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">
-                <div className="col-lg-12 col-md-12 col-12">
-                  <div className="rnform-group ">
-                    <div className="image_input_window">
-                      <Field
-                        className="image_input_field"
-                        onInput={inputHandler}
-                        type="file"
-                        placeholder="Image"
-                        name="image"
-                      />
-                      {!previewUrl ? (
-                        <FiImage/>
-                      ) : (
-                        <img
-                          className="upload_image"
-                          src={previewUrl}
-                          alt="Preview"
+                  <div className="col-lg-12 col-md-12 col-12">
+                    <div className="rnform-group ">
+                      <div className="image_input_window">
+                        <input
+                          className="image_input_field"
+                          onInput={inputHandler}
+                          onChange={(event) => {
+                            setFieldValue("image", event.target.files[0]);
+                          }}
+                          type="file"
+                          placeholder="Image"
+                          name="image"
+                          accept=".png,.jpg,.jpeg"
                         />
-                      )}
-                    </div>
-                    <div>
-                      <ErrorMessage
-                        className="error"
-                        name="image"
-                        component="div"
-                      />
-                      {!isValid && (
-                        <p className="error">
-                          Corrupted file, please try again
-                        </p>
-                      )}
-                    </div>
+                        {!previewUrl ? (
+                          <FiImage />
+                        ) : (
+                          <img
+                            className="upload_image"
+                            src={previewUrl}
+                            alt="Preview"
+                          />
+                        )}
+                      </div>
+                      <div>
+                        <ErrorMessage
+                          className="error"
+                          name="image"
+                          component="div"
+                        />
+                        {!isValid && (
+                          <p className="error">
+                            The file is not supported, please try again
+                          </p>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -455,6 +499,9 @@ const SignUp = () => {
                 </div>
                 <button
                   type="submit"
+                  onClick={() => {
+                    console.log("values ", values);
+                  }}
                   className="rn-button-style--2 btn-solid mt--80"
                 >
                   <span>Proceed to paying</span>
