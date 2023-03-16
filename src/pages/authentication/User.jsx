@@ -19,13 +19,13 @@ const User = () => {
       />
       {/* Start Info Area */}
 
-      <div className="service-area ptb--120 bg_color--1">
+      <div className="service-area ptb--120 bg_color--1 mt--120">
         <div className="container">
           <div className="row service-one-wrapper center_div">
             <div className="col-lg-6 col-md-12 col-12 ">
               <div className="service service__style--2 team_member_border-1">
-                <div className="content">
-                  <img src={`/assets/images/team/team-01.jpg`} alt="profile" />
+                <div className="content center_div">
+                  <img src={`https://bgsg-users.s3.amazonaws.com/f654209c-80e6-4120-9ed9-11f15a6cb993.jpeg`} alt="profile" />
                 </div>
               </div>
             </div>

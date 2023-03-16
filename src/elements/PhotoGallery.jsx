@@ -11,32 +11,24 @@ const PhotoGallery = (props) => {
         </div>
       </div>
       <div className="row">
-        {props.target.map((event) => {
+        {props.target.map((event, index) => {
           return (
-            <div key={event.id} className="col-lg-12 mb--40 mt--40">
-              <div className="mb--30 mb_sm--0">
-                <div
+            <div key={index} className="col-lg-6 col-md-6 col-12">
+              <div className="mb--30 mb_sm--0 center_section">
+                <img
                   className={
-                    event.id % 2 !== 0
-                      ? "team_member_container flex_left"
-                      : "team_member_container flex_right"
+                    index % 2 !== 0
+                      ? "team_member_border-3 mb--20"
+                      : "team_member_border-4 mb--20"
                   }
-                >
-                  <img
-                    className={
-                      event.id % 2 !== 0
-                        ? "gallery_img team_member_border-3 mb--20"
-                        : "gallery_img team_member_border-4 mb--20"
-                    }
-                    src={`/assets/images/events/${event.image}`}
-                    alt="Blog Images"
-                  />
-                  {event.text && (
-                    <p
-                      style={{ fontStyle: "italic", margin: "auto" }}
-                    >{`"${event.text}"`}</p>
-                  )}
-                </div>
+                  src={`/assets/images/events/${event.image}`}
+                  alt="Blog Images"
+                />
+                {event.text && (
+                  <p
+                    style={{ fontStyle: "italic"}}
+                  >{`"${event.text}"`}</p>
+                )}
               </div>
             </div>
           );

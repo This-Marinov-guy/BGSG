@@ -6,6 +6,8 @@ import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
 import { FiImage, FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/user";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -15,12 +17,22 @@ const schema = yup.object().shape({
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
-  universityName: yup.string().required("university name is a required filed"),
-  otherUniversity: yup.string().required("please state your university"),
-  course: yup.string().required(),
-  studentNumber: yup
-    .string()
-    .required("your student number is a required filed"),
+  otherUniversityName: yup.string().when("university", {
+    is: "other",
+    then: () => yup.string().required("Please state which university"),
+    otherwise: () => yup.string(),
+  }),
+  course: yup.string().when("university", {
+    is: true,
+    then: () => yup.string().required("Your course is a required filed"),
+    otherwise: () => yup.string(),
+  }),
+  studentNumber: yup.string().when("university", {
+    is: true,
+    then: () =>
+      yup.string().required("Your student number is a required filed"),
+    otherwise: () => yup.string(),
+  }),
   password: yup
     .string()
     .min(5)
@@ -50,6 +62,8 @@ const SignUp = () => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(true);
+
+  const dispatch = useDispatch();
 
   const { sendRequest } = useHttpClient();
 
@@ -160,7 +174,6 @@ const SignUp = () => {
             validationSchema={schema}
             onSubmit={async (values) => {
               try {
-                console.log("start");
                 const formData = new FormData();
                 formData.append("image", values.image);
                 formData.append("name", values.name);
@@ -169,8 +182,10 @@ const SignUp = () => {
                 formData.append("phone", values.phone);
                 formData.append("email", values.email);
                 formData.append("university", values.university);
-                formData.append("universityName", values.universityName);
-                formData.append("otherUniversity", values.otherUniversity);
+                formData.append(
+                  "otherUniversityName",
+                  values.otherUniversityName
+                );
                 formData.append("course", values.course);
                 formData.append("studentNumber", values.studentNumber);
                 formData.append("password", values.password);
@@ -183,16 +198,16 @@ const SignUp = () => {
                   "POST",
                   formData
                 );
-                console.log("done");
-                // dispatch(
-                //   login({
-                //     userId: data.userId,
-                //     token: data.token,
-                //     expirationDate: new Date(
-                //       new Date().getTime() + 36000000
-                //     ).toISOString(),
-                //   })
-                // );
+                console.log(data);
+                dispatch(
+                  login({
+                    userId: data.user.userId,
+                    token: data.token,
+                    expirationDate: new Date(
+                      new Date().getTime() + 36000000
+                    ).toISOString(),
+                  })
+                );
               } catch (err) {}
             }}
             initialValues={{
@@ -203,8 +218,7 @@ const SignUp = () => {
               phone: "",
               email: "",
               university: "",
-              universityName: "",
-              otherUniversity: "",
+              otherUniversityName: "",
               course: "",
               studentNumber: "",
               password: "",
@@ -350,11 +364,11 @@ const SignUp = () => {
                         <Field
                           type="text"
                           placeholder="State the university"
-                          name="otherUniversity"
+                          name="otherUniversityName"
                         ></Field>
                         <ErrorMessage
                           className="error"
-                          name="otherUniversity"
+                          name="otherUniversityName"
                           component="div"
                         />
                       </div>
@@ -434,7 +448,7 @@ const SignUp = () => {
                       I have read and accept the&nbsp;
                       <a
                         style={{ color: "#017363" }}
-                        href="/assets/documents/Rules and regulations.pdf"
+                        href="/rules-and-regulations"
                         target="_blank"
                       >
                         society's rules and regulations

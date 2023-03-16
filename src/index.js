@@ -24,6 +24,7 @@ import Home from "./pages/Home";
 // Element Layout
 import About from "./pages/information/About";
 import Contact from "./pages/information/Contact";
+import Policy from "./pages/information/Policy";
 import error404 from "./pages/error404";
 import Board from "./pages/information/Board";
 import ActiveMembers from "./pages/information/ActiveMembers";
@@ -86,6 +87,7 @@ const Root = () => {
           {/* Element Layot */}
           <Route exact path={`/contact`} component={Contact} />
           <Route exact path={`/about`} component={About} />
+          <Route exact path={`/rules-and-regulations`} component={Policy} />
           <Route exact path={`/board-members`} component={Board} />
           <Route exact path={`/active-members`} component={ActiveMembers} />
           <Route exact path={`/past-events`} component={PastEvents} />
@@ -94,7 +96,7 @@ const Root = () => {
           {/* Authentication */}
           <Route exact path={`/login`} component={LogIn} />
           <Route exact path={`/signup`} component={SignUp} />
-          {user.token && <Route exact path={`/user/:userId`} component={User} />}
+          {<Route exact path={`/user/:userId`} component={User} />}
 
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />
