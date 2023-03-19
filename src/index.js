@@ -6,8 +6,7 @@ import { store } from "./redux/store";
 import { useSelector } from "react-redux";
 import { login, logout, selectUser } from "./redux/user";
 import { useDispatch } from "react-redux";
-import { useHttpClient } from "./hooks/http-hook";
-import { selectErrorMsg } from "./redux/error";
+import { selectError, selectErrorMsg } from "./redux/error";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -43,7 +42,8 @@ const Root = () => {
 
   const user = useSelector(selectUser);
 
-  const { error } = useHttpClient();
+  const error = useSelector(selectError);
+  const errorMessage = useSelector(selectErrorMsg);
 
   useEffect(() => {
     let logoutTimer;
@@ -82,7 +82,7 @@ const Root = () => {
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
         <Switch>
-          {error && <Error />}
+          {error && <Error errorMessage={errorMessage} />}
           <Route exact path="/" component={Home} />
 
           {/* Element Layot */}

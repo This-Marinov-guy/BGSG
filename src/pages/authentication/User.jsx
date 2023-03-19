@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useHttpClient } from "../../hooks/http-hook";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCircle, FiEdit, FiChevronUp } from "react-icons/fi";
@@ -8,7 +10,27 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 
 const User = () => {
-  return (
+  const [currentUser, setCurrentUser] = useState();
+
+  const { sendRequest } = useHttpClient();
+
+  const userId = useParams().userId;
+
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const responseData = await sendRequest(
+          `http://localhost:80/api/user/${userId}`
+        );
+        setCurrentUser(responseData.user);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchCurrentUser();
+  }, [sendRequest, userId]);
+
+  return currentUser ? (
     <React.Fragment>
       <PageHelmet pageTitle="Profile" />
       <HeaderTwo
@@ -25,14 +47,17 @@ const User = () => {
             <div className="col-lg-6 col-md-12 col-12 ">
               <div className="service service__style--2 team_member_border-1">
                 <div className="content center_div">
-                  <img src={`https://bgsg-users.s3.amazonaws.com/f654209c-80e6-4120-9ed9-11f15a6cb993.jpeg`} alt="profile" />
+                  <img
+                    src={`https://bgsg-users.s3.amazonaws.com/f654209c-80e6-4120-9ed9-11f15a6cb993.jpeg`}
+                    alt="profile"
+                  />
                 </div>
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-12">
               <div className="service service__style--2 team_member_border-2">
                 <div style={{ width: "100%" }} className="content">
-                  <h2>Hello again Dimitar!</h2>
+                  <h2>Hello again {currentUser.name}!</h2>
                   <div className="hor_section mb--40">
                     <p className="mt--20">Your information</p>
                     <FiEdit
@@ -49,14 +74,23 @@ const User = () => {
                     >
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> Full Name:
-                        Dimitar Stamatov
+                        {currentUser.name + " " + currentUser.surname}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> Age: 21
+                        <FiCircle style={{ fontSize: "14px" }} /> Age:{" "}
+                        {currentUser.age}
                       </li>
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> Email:
-                        stamatov31@gmail.com
+                        {currentUser.email}
+                      </li>
+                      <li>
+                        <FiCircle style={{ fontSize: "14px" }} /> Phone:
+                        {currentUser.phone}
+                      </li>
+                      <li>
+                        <FiCircle style={{ fontSize: "14px" }} /> University:
+                        {currentUser.university}
                       </li>
                     </ul>
                   </div>
@@ -84,7 +118,10 @@ const User = () => {
                   </button>
                 </li>
                 <li className="mt--40">
-                  <p>We will soon post information for our 2nd member event. Stay tuned!</p>
+                  <p>
+                    We will soon post information for our 2nd member event. Stay
+                    tuned!
+                  </p>
                 </li>
               </ul>
             </div>
@@ -118,6 +155,8 @@ const User = () => {
       </div>
       {/* End Back To Top */}
     </React.Fragment>
+  ) : (
+    <p>No such user! Please try again</p>
   );
 };
 

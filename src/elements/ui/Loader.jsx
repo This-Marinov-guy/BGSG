@@ -1,10 +1,18 @@
-import React from 'react'
-import Spinner from 'react-bootstrap/Spinner';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/Spinner";
 
 const Loader = () => {
   return (
-    <Spinner animation="border" variant="success" />
-  )
-}
+    <Spinner
+      variant="danger"
+      as="span"
+      animation="border"
+      size="m"
+      role="status"
+      aria-hidden="true"
+    />
+  );
+};
 
-export default Loader
+export default Loader;

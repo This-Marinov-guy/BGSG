@@ -4,6 +4,7 @@
   max-width: 50%;
   position: fixed;
   z-index: 10000;
+  animation: slide-down 300ms ease-out forwards;
 
   .action_btns {
     font-size: 30px;
@@ -12,5 +13,15 @@
     align-items: flex-start;
     justify-content: space-between;
   }
+}
 
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

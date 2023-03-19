@@ -438,3 +438,27 @@
     margin: 0 -40px;
   }
 }
+
+.image_input_window {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #d4d4d4;
+
+  img {
+    border: 1px solid #d4d4d4;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.image_input_field {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}

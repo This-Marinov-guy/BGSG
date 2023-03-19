@@ -8,6 +8,7 @@ import { FiImage, FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/user";
+import Loader from "../../elements/ui/Loader";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -65,7 +66,7 @@ const SignUp = () => {
 
   const dispatch = useDispatch();
 
-  const { sendRequest } = useHttpClient();
+  const { loading, sendRequest } = useHttpClient();
 
   useEffect(() => {
     if (!file) {
@@ -256,7 +257,6 @@ const SignUp = () => {
                           <FiImage />
                         ) : (
                           <img
-                            className="upload_image"
                             src={previewUrl}
                             alt="Preview"
                           />
@@ -517,12 +517,16 @@ const SignUp = () => {
                     component="div"
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="rn-button-style--2 btn-solid mt--80"
-                >
-                  Proceed to paying
-                </button>
+                {loading ? (
+                  <Loader />
+                ) : (
+                  <button
+                    type="submit"
+                    className="rn-button-style--2 btn-solid mt--80"
+                  >
+                    Proceed to paying
+                  </button>
+                )}
                 <div
                   style={{ alignItems: "flex-start" }}
                   className="action_btns"

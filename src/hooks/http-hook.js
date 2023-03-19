@@ -1,12 +1,11 @@
 import { useCallback, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { selectError, showError } from "../redux/error";
+import { showError } from "../redux/error";
 import { selectLoading, startLoading, stopLoading } from "../redux/loading";
 
 export const useHttpClient = () => {
   const dispatch = useDispatch();
-  const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
 
   const activeHttpRequests = useRef([]);
@@ -53,5 +52,5 @@ export const useHttpClient = () => {
     };
   }, []);
 
-  return { loading, error, sendRequest };
+  return { loading, sendRequest };
 };

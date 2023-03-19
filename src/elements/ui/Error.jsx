@@ -4,7 +4,7 @@ import { FiX } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { removeError } from "../../redux/error";
 
-const Error = () => {
+const Error = (props) => {
   const dispatch = useDispatch();
 
   const closeHandler = () => {
@@ -17,13 +17,11 @@ const Error = () => {
       variant="danger"
     >
       <div className="action_btns">
-        <h3>Be careful</h3>
+        <h3>Be careful - You just got an error!</h3>
         <FiX style={{marginRight:'20px'}} onClick={closeHandler}/>
       </div>
       <p>
-        Change this and that and try again. Duis mollis, est non commodo luctus,
-        nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
-        consectetur purus sit amet fermentum.
+      {props.errorMessage}
       </p>
     </Alert>
   );
