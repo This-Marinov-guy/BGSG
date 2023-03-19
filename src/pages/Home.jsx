@@ -24,24 +24,6 @@ const SlideList = [
   },
 ];
 
-const Photos = [
-  {
-    id: "1",
-    image: "home-page/event-1.jpg",
-    text: "Some of our party animals",
-  },
-  {
-    id: "2",
-    image: "home-page/event-3.jpg",
-    text: "Wine is a symbol of Bulgaria",
-  },
-  {
-    id: "3",
-    image: "home-page/event-4.jpg",
-    text: "Nice music and lots of good energy",
-  },
-];
-
 class Home extends Component {
   render() {
     return (
@@ -117,8 +99,6 @@ class Home extends Component {
             <div className="col-lg-12">
               <div className="mb--30 mb_sm--0">
                 <h2 className="title">News</h2>
-                <Loader/>
-                <Error/>
                 <p>Stay tuned for more information</p>
               </div>
             </div>
@@ -149,11 +129,6 @@ class Home extends Component {
           </div>
         </div>
         {/* End Upcoming Events Area */}
-
-        {/* Start Picture Area */}
-        <PhotoGallery target={Photos} />
-
-        {/* End Picture Area */}
   
         {/* Start Footer Style  */}
         <FooterTwo />

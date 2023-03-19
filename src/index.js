@@ -1,6 +1,6 @@
 // React and Redux Required
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { useSelector } from "react-redux";
@@ -36,12 +36,12 @@ import PastEvents from "./pages/information/PastEvents";
 import EventDetails from "./elements/EventDetails";
 import EventReflection from "./elements/EventReflection";
 import Purchase from "./pages/Purchase";
+import Error from "./elements/ui/Error";
 
 const Root = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(selectUser);
-  const errorMsg = useSelector(selectErrorMsg);
 
   const { error } = useHttpClient();
 
@@ -82,6 +82,7 @@ const Root = () => {
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
         <Switch>
+          {error && <Error />}
           <Route exact path="/" component={Home} />
 
           {/* Element Layot */}
@@ -114,10 +115,10 @@ const Root = () => {
   );
 };
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <Provider store={store}>
     <Root />
-  </Provider>,
-  document.getElementById("root")
+  </Provider>
 );
 serviceWorker.register();

@@ -1,0 +1,16 @@
+.error_panel {
+  top: 50px;
+  left: 25%;
+  max-width: 50%;
+  position: fixed;
+  z-index: 10000;
+
+  .action_btns {
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+}

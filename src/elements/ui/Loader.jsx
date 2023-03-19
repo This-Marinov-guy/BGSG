@@ -1,16 +1,10 @@
-import React from "react";
-import { Spinner } from "@chakra-ui/react";
+import React from 'react'
+import Spinner from 'react-bootstrap/Spinner';
 
 const Loader = () => {
   return (
-    <Spinner
-      thickness="4px"
-      speed="0.65s"
-      emptyColor="gray.200"
-      color="green.500"
-      size="l"
-    />
-  );
-};
+    <Spinner animation="border" variant="success" />
+  )
+}
 
-export default Loader;
+export default Loader
