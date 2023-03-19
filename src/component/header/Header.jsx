@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectUser } from "../../redux/user";
 import { Link, useHistory } from "react-router-dom";
-import { FiGlobe, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 
 
 const Header = () => {
@@ -41,8 +41,8 @@ const Header = () => {
         <div className="header-right">
           <nav className="mainmenunav d-lg-block">
             <ul className="mainmenu">
-              <li>
-                <FiGlobe className="google_icon"/>
+              <li className="google_btn_item">
+                <img src='/assets/images/logo/google.png' alt='google' className="google_icon"/>
                 <div className="google_btn" id="google_translate_element"></div>
               </li>
               <li className="has-droupdown">

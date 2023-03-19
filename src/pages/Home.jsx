@@ -8,8 +8,9 @@ import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
-import Testimonial from "../elements/Testimonial";
 import PhotoGallery from "../elements/PhotoGallery";
+import Loader from "../elements/ui/Loader";
+import Error from "../elements/ui/Error";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 const SlideList = [
@@ -116,6 +117,8 @@ class Home extends Component {
             <div className="col-lg-12">
               <div className="mb--30 mb_sm--0">
                 <h2 className="title">News</h2>
+                <Loader/>
+                <Error/>
                 <p>Stay tuned for more information</p>
               </div>
             </div>
