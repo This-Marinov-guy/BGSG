@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/HeaderLogo";
-import { FiImage, FiUserPlus } from "react-icons/fi";
+import { FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/user";
 import Loader from "../../elements/ui/Loader";
+import ImageInput from "../../elements/ui/ImageInput";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -60,42 +61,9 @@ const options = [
   },
 ];
 const SignUp = () => {
-  const [file, setFile] = useState();
-  const [previewUrl, setPreviewUrl] = useState();
-  const [isValid, setIsValid] = useState(true);
-
   const dispatch = useDispatch();
 
   const { loading, sendRequest } = useHttpClient();
-
-  useEffect(() => {
-    if (!file) {
-      return;
-    }
-    const fileReader = new FileReader();
-    fileReader.onload = () => {
-      setPreviewUrl(fileReader.result);
-    };
-    fileReader.readAsDataURL(file);
-  }, [file]);
-
-  const validFileTypes = ["image/jpg", "image/jpeg", "image/png"];
-
-  const inputHandler = (event) => {
-    //set image
-    let pickedFile = event.target.files[0];
-    if (!validFileTypes.find((type) => type === pickedFile.type)) {
-      setIsValid(false);
-      return;
-    }
-    if (event.target.files || event.target.files.length === 1) {
-      setFile(pickedFile);
-      setIsValid(true);
-      return;
-    } else {
-      setIsValid(false);
-    }
-  };
 
   return (
     <React.Fragment>
@@ -240,41 +208,18 @@ const SignUp = () => {
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">
                   <div className="col-lg-12 col-md-12 col-12">
-                    <div className="rnform-group ">
-                      <div className="image_input_window">
-                        <input
-                          className="image_input_field"
-                          onInput={inputHandler}
-                          onChange={(event) => {
-                            setFieldValue("image", event.target.files[0]);
-                          }}
-                          type="file"
-                          placeholder="Image"
-                          name="image"
-                          accept=".png,.jpg,.jpeg"
-                        />
-                        {!previewUrl ? (
-                          <FiImage />
-                        ) : (
-                          <img
-                            src={previewUrl}
-                            alt="Preview"
-                          />
-                        )}
-                      </div>
-                      <div>
+                    <ImageInput
+                      onChange={(event) => {
+                        setFieldValue("image", event.target.files[0]);
+                      }}
+                      errorRequired={
                         <ErrorMessage
                           className="error"
                           name="image"
                           component="div"
                         />
-                        {!isValid && (
-                          <p className="error">
-                            The file is not supported, please try again
-                          </p>
-                        )}
-                      </div>
-                    </div>
+                      }
+                    />
                   </div>
                 </div>
                 <div className="row">

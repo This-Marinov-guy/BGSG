@@ -97,7 +97,9 @@ const Root = () => {
           {/* Authentication */}
           <Route exact path={`/login`} component={LogIn} />
           <Route exact path={`/signup`} component={SignUp} />
-          {<Route exact path={`/user/:userId`} component={User} />}
+          {user.token && (
+            <Route exact path={`/user/:userId`} component={User} />
+          )}
 
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />

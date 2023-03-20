@@ -18,7 +18,7 @@ const Error = (props) => {
     >
       <div className="action_btns">
         <h3>Be careful - You just got an error!</h3>
-        <FiX style={{marginRight:'20px'}} onClick={closeHandler}/>
+        <FiX className="mr--20" onClick={closeHandler}/>
       </div>
       <p>
       {props.errorMessage}

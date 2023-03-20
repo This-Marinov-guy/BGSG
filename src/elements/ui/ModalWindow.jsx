@@ -3,9 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import { selectModal } from "../../redux/modal";
 
-const Modal = (props) => {
+const ModalWindow = (props) => {
   const modal = useSelector(selectModal);
-
+  
   return (
     <Modal
       show={modal}
@@ -19,4 +19,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default ModalWindow;
