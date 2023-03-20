@@ -1,6 +1,7 @@
 {
   "name": "bgsg",
   "version": "0.1.0",
+  "homepage": "http://trydo.rainbowit.net",
   "private": true,
   "basename": "/",
   "dependencies": {
