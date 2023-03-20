@@ -7,7 +7,7 @@ import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit, FiChevronUp, FiX } from "react-icons/fi";
+import { FiCircle, FiEdit, FiChevronUp, FiX, FiLock } from "react-icons/fi";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import PageHelmet from "../../component/common/Helmet";
@@ -42,7 +42,6 @@ const schema = yup.object().shape({
 
 const User = () => {
   const [currentUser, setCurrentUser] = useState();
-
   const { loading, sendRequest } = useHttpClient();
 
   const dispatch = useDispatch();
@@ -78,8 +77,32 @@ const User = () => {
         colorblack="color--black"
         logoname="logo.png"
       />
+      {currentUser.status !== "active" && (
+        <ModalWindow static="static" show={currentUser.status} freeze>
+          <div style={{ padding: "40px" }} className="center_section">
+            <h2>Your account is locked</h2>
+            <p className="center_text">
+              To continue using the benefits of a member please pay the 5euro
+              subscription for the following semester!
+            </p>
+            {loading ? (
+              <Loader />
+            ) : (
+              <button
+                onClick={() => {}}
+                className="rn-button-style--2 btn-solid mt--40"
+              >
+                Pay and unlock
+              </button>
+            )}
+            <a href="/" className="rn-button-style--2 rn-btn-green mt--40">
+              Back to Home
+            </a>
+          </div>
+        </ModalWindow>
+      )}
       {modal && (
-        <ModalWindow>
+        <ModalWindow show={modal}>
           <Formik
             className="inner"
             validationSchema={schema}
@@ -108,27 +131,24 @@ const User = () => {
                   "PATCH",
                   formData
                 );
-                console.log(data);
-                dispatch(removeModal());
+                window.location.reload();
               } catch (err) {}
             }}
             initialValues={{
-              image: "",
-              name: "",
-              surname: "",
-              age: "",
-              phone: "",
-              email: "",
-              university: "",
-              otherUniversityName: "",
-              course: "",
-              studentNumber: "",
-              password: "",
-              confirmPassword: "",
+              image: currentUser.image,
+              name: currentUser.name,
+              surname: currentUser.surname,
+              age: currentUser.age,
+              phone: currentUser.phone,
+              email: currentUser.email,
+              university: currentUser.university,
+              otherUniversityName: currentUser.otherUniversityName,
+              course: currentUser.course,
+              studentNumber: currentUser.studentNumber,
               policyTerms: false,
               dataTerms: false,
               notificationTerms: false,
-              notificationTypeTerms: "",
+              notificationTypeTerms: currentUser.notificationTypeTerms,
               payTerms: false,
             }}
           >
@@ -138,7 +158,7 @@ const User = () => {
                 id="form"
                 style={{ padding: "50px" }}
               >
-                <div className="action_btns">
+                <div className="hor_section">
                   <h3>Fill your details and register</h3>
                   <FiX className="mr--20" onClick={closeHandler} />
                 </div>
@@ -155,19 +175,13 @@ const User = () => {
                           component="div"
                         />
                       }
-                      value={currentUser.image}
                     />
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <Field
-                        type="text"
-                        placeholder="Name"
-                        name="name"
-                        value={currentUser.name}
-                      />
+                      <Field type="text" placeholder="Name" name="name" />
                       <ErrorMessage
                         className="error"
                         name="name"
@@ -181,7 +195,6 @@ const User = () => {
                         type="text"
                         placeholder="Surname"
                         name="surname"
-                        value={currentUser.surname}
                       ></Field>
                       <ErrorMessage
                         className="error"
@@ -194,12 +207,7 @@ const User = () => {
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <Field
-                        type="number"
-                        placeholder="Age"
-                        name="age"
-                        value={currentUser.age}
-                      />
+                      <Field type="number" placeholder="Age" name="age" />
                       <ErrorMessage
                         className="error"
                         name="age"
@@ -213,7 +221,6 @@ const User = () => {
                         type="tel"
                         placeholder="Phone (WhatsApp)"
                         name="phone"
-                        value={currentUser.phone}
                       />
                       <ErrorMessage
                         className="error"
@@ -226,12 +233,7 @@ const User = () => {
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <Field
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                        value={currentUser.email}
-                      />
+                      <Field type="email" placeholder="Email" name="email" />
                       <ErrorMessage
                         className="error"
                         name="email"
@@ -242,11 +244,7 @@ const User = () => {
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
-                    <Field
-                      as="select"
-                      name="university"
-                      defaultValue={currentUser.university}
-                    >
+                    <Field as="select" name="university">
                       <option value="" disabled>
                         Select your univerisity
                       </option>
@@ -268,7 +266,6 @@ const User = () => {
                           type="text"
                           placeholder="State the university"
                           name="otherUniversityName"
-                          value={currentUser.otherUniversityName}
                         ></Field>
                         <ErrorMessage
                           className="error"
@@ -287,7 +284,6 @@ const User = () => {
                           type="text"
                           placeholder="Course of studying"
                           name="course"
-                          value={currentUser.course}
                         ></Field>
                         <ErrorMessage
                           className="error"
@@ -302,7 +298,6 @@ const User = () => {
                           type="number"
                           placeholder="Student Number"
                           name="studentNumber"
-                          value={currentUser.studentNumber}
                         ></Field>
                         <ErrorMessage
                           className="error"
@@ -325,11 +320,7 @@ const User = () => {
                       discounts from us and our sponsors
                     </p>
                   </div>
-                  <Field
-                    as="select"
-                    name="notificationTypeTerms"
-                    defaultValue={currentUser.notificationTypeTerms}
-                  >
+                  <Field as="select" name="notificationTypeTerms">
                     <option value="" disabled>
                       Contact By
                     </option>

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import PageHelmet from "../component/common/Helmet";
-import Header from "../component/header/HeaderLogo";
+import Header from "../component/header/Header";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -41,8 +41,9 @@ const Purchase = () => {
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
+        dark
       />
-      <div className="container">
+      <div className="container mt--200">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
       <div className="row purchase_panel">

@@ -3,13 +3,14 @@ import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
-import Header from "../../component/header/HeaderLogo";
+import Header from "../../component/header/Header";
 import { FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/user";
 import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
+import { useHistory } from "react-router-dom";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -63,6 +64,8 @@ const options = [
 const SignUp = () => {
   const dispatch = useDispatch();
 
+  const history = useHistory();
+
   const { loading, sendRequest } = useHttpClient();
 
   return (
@@ -72,8 +75,9 @@ const SignUp = () => {
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
+        dark
       />
-      <div className="container">
+      <div className="container mt--200">
         <h2 className="center_text">Become a Member</h2>
       </div>
       {/* Start Options Area */}
@@ -170,13 +174,14 @@ const SignUp = () => {
                 console.log(data);
                 dispatch(
                   login({
-                    userId: data.user.userId,
+                    userId: data.userId,
                     token: data.token,
                     expirationDate: new Date(
                       new Date().getTime() + 36000000
                     ).toISOString(),
                   })
                 );
+                history.push("/");
               } catch (err) {}
             }}
             initialValues={{

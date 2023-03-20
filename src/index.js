@@ -1,5 +1,5 @@
 // React and Redux Required
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
@@ -81,8 +81,8 @@ const Root = () => {
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
+        {error && <Error errorMessage={errorMessage} />}
         <Switch>
-          {error && <Error errorMessage={errorMessage} />}
           <Route exact path="/" component={Home} />
 
           {/* Element Layot */}
@@ -95,8 +95,12 @@ const Root = () => {
           <Route eaxct path={"/purchase-ticket"} component={Purchase} />
 
           {/* Authentication */}
-          <Route exact path={`/login`} component={LogIn} />
-          <Route exact path={`/signup`} component={SignUp} />
+          {!user.token && (
+            <Fragment>
+              <Route exact path={`/login`} component={LogIn} />
+              <Route exact path={`/signup`} component={SignUp} />
+            </Fragment>
+          )}
           {user.token && (
             <Route exact path={`/user/:userId`} component={User} />
           )}

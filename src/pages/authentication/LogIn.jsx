@@ -3,8 +3,9 @@ import { useHttpClient } from "../../hooks/http-hook";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/user";
 import PageHelmet from "../../component/common/Helmet";
-import Header from "../../component/header/HeaderLogo";
+import Header from "../../component/header/Header";
 import Loader from "../../elements/ui/Loader";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [loginFormValues, setLoginFormValues] = useState({
@@ -15,6 +16,8 @@ const Login = () => {
   const { loading, sendRequest } = useHttpClient();
 
   const dispatch = useDispatch();
+
+  const history = useHistory();
 
   const changeFormInputHandler = (event) => {
     setLoginFormValues((prevState) => {
@@ -29,8 +32,9 @@ const Login = () => {
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
+        dark
       />
-      <div className="container">
+      <div className="container mt--200">
         <h2 className="center_text">Log in your account</h2>
       </div>
       <div className="blog-comment-form pb--120 bg_color--1">
@@ -42,6 +46,7 @@ const Login = () => {
               onSubmit={async (event) => {
                 event.preventDefault();
                 try {
+                  console.log(loginFormValues);
                   const responseData = await sendRequest(
                     `http://localhost:80/api/user/login`,
                     "POST",
@@ -53,6 +58,7 @@ const Login = () => {
                       "Content-Type": "application/json",
                     }
                   );
+
                   dispatch(
                     login({
                       userId: responseData.userId,
@@ -62,6 +68,7 @@ const Login = () => {
                       ).toISOString(),
                     })
                   );
+                  history.push("/");
                 } catch (err) {}
               }}
             >
@@ -69,6 +76,7 @@ const Login = () => {
                 <div className="rnform-group">
                   <input
                     type="text"
+                    name="email"
                     placeholder="Email"
                     onChange={(event) => changeFormInputHandler(event)}
                   />
@@ -78,18 +86,23 @@ const Login = () => {
                 <div className="rnform-group">
                   <input
                     type="password"
+                    name="password"
                     placeholder="Password"
                     onChange={(event) => changeFormInputHandler(event)}
                   ></input>
                 </div>
               </div>
-              {loading ? <Loader/> : <button
-                style={{ marginTop: "40px" }}
-                type="submit"
-                className="rn-button-style--2 btn-solid"
-              >
-                <span>Log in</span>
-              </button>}
+              {loading ? (
+                <Loader />
+              ) : (
+                <button
+                  style={{ marginTop: "40px" }}
+                  type="submit"
+                  className="rn-button-style--2 btn-solid"
+                >
+                  <span>Log in</span>
+                </button>
+              )}
               <div className="action_btns">
                 <a className="rn-button-style--1" href="#">
                   Forgot my pasword

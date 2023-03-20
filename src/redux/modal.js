@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const bodyStyle = document.body.style;
+const bodyStyle = document.getElementById('root').style;
 
 export const modalSlice = createSlice({
   name: "modal",

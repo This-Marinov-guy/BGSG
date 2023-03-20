@@ -1,18 +1,21 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import { useSelector } from "react-redux";
-import { selectModal } from "../../redux/modal";
 
 const ModalWindow = (props) => {
-  const modal = useSelector(selectModal);
   
+  if (props.freeze) {
+    window.onscroll = function () {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    };
+  }
+
   return (
     <Modal
-      show={modal}
+      show={props.show}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      backdrop={props.static}
       centered
+      freeze={props.freeze}
     >
       {props.children}
     </Modal>

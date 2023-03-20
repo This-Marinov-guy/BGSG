@@ -41,7 +41,11 @@
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
-          { pageLanguage: "en", includedLanguages: "en,bg,nl" },
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,bg,nl",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
           "google_translate_element"
         );
       }

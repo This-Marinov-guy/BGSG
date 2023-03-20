@@ -4,8 +4,7 @@ import { logout, selectUser } from "../../redux/user";
 import { Link, useHistory } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 
-
-const Header = () => {
+const Header = (props) => {
   const [isMenuOpened, setIsMenuOpened] = useState();
 
   const user = useSelector(selectUser);
@@ -40,9 +39,13 @@ const Header = () => {
         </div>
         <div className="header-right">
           <nav className="mainmenunav d-lg-block">
-            <ul className="mainmenu">
+            <ul className={props.dark ? 'mainmenu dark_nav' : 'mainmenu'}>
               <li className="google_btn_item">
-                <img src='/assets/images/logo/google.png' alt='google' className="google_icon"/>
+                <img
+                  src="/assets/images/logo/google.png"
+                  alt="google"
+                  className="google_icon"
+                />
                 <div className="google_btn" id="google_translate_element"></div>
               </li>
               <li className="has-droupdown">
