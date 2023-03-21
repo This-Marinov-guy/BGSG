@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useHttpClient } from "../../hooks/http-hook";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/user";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, selectUser } from "../../redux/user";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/Header";
 import Loader from "../../elements/ui/Loader";
-import { useHistory } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
+import { FiX } from "react-icons/fi";
 
-const Login = () => {
+const Login = (props) => {
   const [loginFormValues, setLoginFormValues] = useState({
     email: "",
     password: "",
@@ -17,12 +19,18 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
+  const user = useSelector(selectUser);
+
   const history = useHistory();
 
   const changeFormInputHandler = (event) => {
     setLoginFormValues((prevState) => {
       return { ...prevState, [event.target.name]: event.target.value };
     });
+  };
+
+  const closeHandler = () => {
+    props.setNotification(null);
   };
 
   return (
@@ -46,7 +54,6 @@ const Login = () => {
               onSubmit={async (event) => {
                 event.preventDefault();
                 try {
-                  console.log(loginFormValues);
                   const responseData = await sendRequest(
                     `http://localhost:80/api/user/login`,
                     "POST",
@@ -68,7 +75,27 @@ const Login = () => {
                       ).toISOString(),
                     })
                   );
+                  props.setNotification(
+                    <Alert className="error_panel" variant="success">
+                      <div className="action_btns">
+                        <h3>Welcome Back!</h3>
+                        <FiX className="mr--20" onClick={closeHandler} />
+                      </div>
+                      <p>
+                        Nice seeing you again! Please check the news section so
+                        you are up to date!
+                      </p>
+                      <a
+                        onClick={closeHandler}
+                        href={`/user/${responseData.userId}`}
+                        className="rn-button-style--2 rn-btn-green mt--40"
+                      >
+                        Go to Profile
+                      </a>
+                    </Alert>
+                  );
                   history.push("/");
+                  setTimeout(() => closeHandler(), 5000);
                 } catch (err) {}
               }}
             >

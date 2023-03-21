@@ -6,11 +6,13 @@ import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/Header";
 import { FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/user";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, selectUser } from "../../redux/user";
 import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
-import { useHistory } from "react-router-dom";
+import Alert from "react-bootstrap/Alert";
+import { FiX } from "react-icons/fi";
 
 const schema = yup.object().shape({
   image: yup.string().required("Please upload your picture"),
@@ -61,12 +63,18 @@ const options = [
     price: 5,
   },
 ];
-const SignUp = () => {
+const SignUp = (props) => {
   const dispatch = useDispatch();
 
   const history = useHistory();
 
+  const user = useSelector(selectUser);
+
   const { loading, sendRequest } = useHttpClient();
+
+  const closeHandler = () => {
+    props.setNotification(null);
+  };
 
   return (
     <React.Fragment>
@@ -166,22 +174,41 @@ const SignUp = () => {
                   "notificationTypeTerms",
                   values.notificationTypeTerms
                 );
-                const data = await sendRequest(
+                const responseData = await sendRequest(
                   `http://localhost:80/api/user/signup`,
                   "POST",
                   formData
                 );
-                console.log(data);
                 dispatch(
                   login({
-                    userId: data.userId,
-                    token: data.token,
+                    userId: responseData.userId,
+                    token: responseData.token,
                     expirationDate: new Date(
                       new Date().getTime() + 36000000
                     ).toISOString(),
                   })
                 );
+                props.setNotification(
+                  <Alert className="error_panel" variant="success">
+                    <div className="action_btns">
+                      <h3>Welcome new memeber</h3>
+                      <FiX className="mr--20" onClick={closeHandler} />
+                    </div>
+                    <p>
+                      Thank you for joining the member group! Access your
+                      details and check what news we have for members only!
+                    </p>
+                    <a
+                      onClick={closeHandler}
+                      href={`/user/${responseData.userId}`}
+                      className="rn-button-style--2 rn-btn-green mt--40"
+                    >
+                      Go to Profile
+                    </a>
+                  </Alert>
+                );
                 history.push("/");
+                setTimeout(() => closeHandler(), 5000);
               } catch (err) {}
             }}
             initialValues={{

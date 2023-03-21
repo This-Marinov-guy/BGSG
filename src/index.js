@@ -1,5 +1,5 @@
 // React and Redux Required
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
@@ -38,6 +38,8 @@ import Purchase from "./pages/Purchase";
 import Error from "./elements/ui/Error";
 
 const Root = () => {
+  const [notification, setNotification] = useState();
+
   const dispatch = useDispatch();
 
   const user = useSelector(selectUser);
@@ -81,6 +83,7 @@ const Root = () => {
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
+        {notification}
         {error && <Error errorMessage={errorMessage} />}
         <Switch>
           <Route exact path="/" component={Home} />
@@ -97,8 +100,18 @@ const Root = () => {
           {/* Authentication */}
           {!user.token && (
             <Fragment>
-              <Route exact path={`/login`} component={LogIn} />
-              <Route exact path={`/signup`} component={SignUp} />
+              <Route exact path={`/login`}>
+                <LogIn
+                  notification={notification}
+                  setNotification={setNotification}
+                />
+              </Route>
+              <Route exact path={`/signup`}>
+                <SignUp
+                  notification={notification}
+                  setNotification={setNotification}
+                />
+              </Route>
             </Fragment>
           )}
           {user.token && (

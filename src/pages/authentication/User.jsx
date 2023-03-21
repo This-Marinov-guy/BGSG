@@ -126,8 +126,8 @@ const User = () => {
                   "notificationTypeTerms",
                   values.notificationTypeTerms
                 );
-                const data = await sendRequest(
-                  `http://localhost:80/api/user/edit-info/:userId`,
+                const responseData = await sendRequest(
+                  `http://localhost:80/api/user/edit-info/${userId}`,
                   "PATCH",
                   formData
                 );
@@ -352,7 +352,7 @@ const User = () => {
               <div className="service service__style--2 team_member_border-1">
                 <div className="content center_div">
                   <img
-                    src={`https://bgsg-users.s3.amazonaws.com/f654209c-80e6-4120-9ed9-11f15a6cb993.jpeg`}
+                    src={currentUser.image}
                     alt="profile"
                   />
                 </div>

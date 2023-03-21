@@ -8,9 +8,6 @@ import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
-import PhotoGallery from "../elements/PhotoGallery";
-import Loader from "../elements/ui/Loader";
-import Error from "../elements/ui/Error";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 const SlideList = [

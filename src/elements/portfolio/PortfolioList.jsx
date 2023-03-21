@@ -18,31 +18,28 @@ class PortfolioList extends Component {
         {PostList.map((value, index) => (
           <div className={`${column} mb--80`} key={index}>
             <div className={`portfolio ${styevariation}`}>
-              <Link to={`/portfolio-details/${index}`}>
-                <div className="thumbnail-inner">
+              <div className="thumbnail-inner">
+                <Link to={`/portfolio-details/${index}`}>
                   <img
                     className="thumbnail"
                     src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
                     alt="Event Images"
                   />
-                </div>
-                <div className="content">
-                  <div className="inner">
-                    <p>{value.category}</p>
-                    <h3>
-                      <p>{value.title}</p>
-                    </h3>
-                    <div className="portfolio-button">
-                      <a
-                        className="rn-btn"
-                        href={`/portfolio-details/${index}`}
-                      >
-                        View Details
-                      </a>
-                    </div>
+                </Link>
+              </div>
+              <div className="content">
+                <div className="inner">
+                  <p>{value.category}</p>
+                  <h3>
+                    <p>{value.title}</p>
+                  </h3>
+                  <div className="portfolio-button">
+                    <a className="rn-btn" href={`/portfolio-details/${index}`}>
+                      View Details
+                    </a>
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
         ))}
