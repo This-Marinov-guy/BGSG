@@ -1,7 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import PageHelmet from "../component/common/Helmet";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import Header from "../component/header/Header";
 
 const schema = yup.object().shape({
@@ -33,7 +35,13 @@ const schema = yup.object().shape({
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
 
-const Purchase = () => {
+const NonMemberPurchase = () => {
+  const [expand, setExpand] = useState(false);
+
+  const expandHandler = () => {
+    setExpand(!expand);
+  };
+
   return (
     <Fragment>
       <PageHelmet pageTitle="Buy Ticket" />
@@ -47,13 +55,16 @@ const Purchase = () => {
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
       <div className="row purchase_panel">
-        <div style={{width:'40%'}} className="col-lg-4 col-md-12 col-12">
+        <div style={{ width: "40%" }} className="col-lg-4 col-md-12 col-12">
           <div className="event_details">
+          <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{expand ? "Click to Shrink" : 'Click to Expand'}</Tooltip>}>
             <img
-              className="title_img"
-              src="/assets/images/events/event-1.jpg"
-              alt="title"
+              onClick={expandHandler}
+              src="/assets/images/tickets/ticket.png"
+              alt="ticket"
+              className={expand ? "title_img expand_img" : "title_img"}
             />
+            </OverlayTrigger>
             <h2 className="mt--40">Event Details</h2>
             <p>Name: Freedome Fest</p>
             <p>Date: 23.1.2021</p>
@@ -71,18 +82,16 @@ const Purchase = () => {
             </div>
           </div>
         </div>
-        <div style={{width:'20%'}} className="col-lg-4 col-md-12 col-12">
+        <div style={{ width: "20%" }} className="col-lg-4 col-md-12 col-12">
           <div className="line" />
         </div>
-        <div style={{width:'40%'}} className="col-lg-4 col-md-12 col-12">
+        <div style={{ width: "40%" }} className="col-lg-4 col-md-12 col-12">
           <div className="container">
             <Formik
               className="inner"
               validationSchema={schema}
               onSubmit={(values) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                }, 1000);
+                
               }}
               initialValues={{
                 name: "",
@@ -182,7 +191,6 @@ const Purchase = () => {
                   >
                     <span>Proceed to paying</span>
                   </button>
-            
                 </Form>
               )}
             </Formik>
@@ -193,4 +201,4 @@ const Purchase = () => {
   );
 };
 
-export default Purchase;
+export default NonMemberPurchase;

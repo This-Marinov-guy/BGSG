@@ -156,7 +156,11 @@ const SignUp = (props) => {
             onSubmit={async (values) => {
               try {
                 const formData = new FormData();
-                formData.append("image", values.image);
+                formData.append(
+                  "image",
+                  values.image,
+                  values.name + values.surname
+                );
                 formData.append("name", values.name);
                 formData.append("surname", values.surname);
                 formData.append("age", values.age);

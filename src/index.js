@@ -34,7 +34,8 @@ import User from "./pages/authentication/User";
 import PastEvents from "./pages/information/PastEvents";
 import EventDetails from "./elements/EventDetails";
 import EventReflection from "./elements/EventReflection";
-import Purchase from "./pages/Purchase";
+import MemberPurchase from "./pages/MemberPurchase";
+import NonMemberPurchase from "./pages/NonMemberPurchase";
 import Error from "./elements/ui/Error";
 
 const Root = () => {
@@ -80,6 +81,25 @@ const Root = () => {
     }
   }, [dispatch]);
 
+  const authRoutes = (
+    <Fragment>
+      {" "}
+      <Route exact path={`/user/:userId`} component={User} />
+    </Fragment>
+  );
+
+  const nonAuthRoutes = (
+    <Fragment>
+      {" "}
+      <Route exact path={`/login`}>
+        <LogIn notification={notification} setNotification={setNotification} />
+      </Route>
+      <Route exact path={`/signup`}>
+        <SignUp notification={notification} setNotification={setNotification} />
+      </Route>
+    </Fragment>
+  );
+
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
@@ -95,35 +115,20 @@ const Root = () => {
           <Route exact path={`/board-members`} component={Board} />
           <Route exact path={`/active-members`} component={ActiveMembers} />
           <Route exact path={`/past-events`} component={PastEvents} />
-          <Route eaxct path={"/purchase-ticket"} component={Purchase} />
-
-          {/* Authentication */}
-          {!user.token && (
-            <Fragment>
-              <Route exact path={`/login`}>
-                <LogIn
-                  notification={notification}
-                  setNotification={setNotification}
-                />
-              </Route>
-              <Route exact path={`/signup`}>
-                <SignUp
-                  notification={notification}
-                  setNotification={setNotification}
-                />
-              </Route>
-            </Fragment>
-          )}
-          {user.token && (
-            <Route exact path={`/user/:userId`} component={User} />
-          )}
-
+          <Route
+            eaxct
+            path={"/purchase-ticket"}
+            component={user.token ? MemberPurchase : NonMemberPurchase}
+          />
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />
           </Route>
           <Route path={`/blog-details/:eventId`}>
             <EventReflection />
           </Route>
+
+          {/* Auth pages */}
+          {user.token ? authRoutes : nonAuthRoutes}
 
           {/* Blocks Elements  */}
           <Route path={`/404`} component={error404} />

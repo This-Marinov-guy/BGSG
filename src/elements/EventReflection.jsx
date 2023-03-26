@@ -56,6 +56,7 @@ const eventReflectionDetails = [
 
 const EventReflection = (props) => {
   const eventId = useParams().eventId;
+  console.log(eventId);
 
   return (
     <React.Fragment>
