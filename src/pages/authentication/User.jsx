@@ -57,9 +57,7 @@ const User = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const responseData = await sendRequest(
-          `http://localhost:80/api/user/${userId}`
-        );
+        const responseData = await sendRequest(`user/${userId}`);
         setCurrentUser(responseData.user);
       } catch (err) {
         console.log(err);

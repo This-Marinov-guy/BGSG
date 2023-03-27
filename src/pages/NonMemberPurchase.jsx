@@ -94,13 +94,13 @@ const NonMemberPurchase = (props) => {
                   const responseData = await sendRequest(
                     `event/purchase-ticket/guest`,
                     "POST",
-                    {
+                    JSON.stringify({
                       eventName: "freedom fest",
                       eventDate: "3.03.2023",
                       guestName: values.name + " " + values.surname,
                       guestEmail: values.email,
                       guestPhone: values.phone,
-                    },
+                    }),
                     {
                       "Content-Type": "application/json",
                     }
@@ -118,7 +118,7 @@ const NonMemberPurchase = (props) => {
                       </p>
                     </Alert>
                   );
-                  history.push("/");
+                  // history.push("/");
                   setTimeout(() => closeHandler(), 10000);
                 } catch (err) {}
               }}
@@ -171,6 +171,10 @@ const NonMemberPurchase = (props) => {
                   <div className="col-lg-12 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field type="tel" placeholder="Phone" name="phone" />
+                      <p className="information">
+                        Please your real number as it might be used to prove
+                        your identity on the entry
+                      </p>
                       <ErrorMessage
                         className="error"
                         name="phone"
@@ -211,8 +215,8 @@ const NonMemberPurchase = (props) => {
                         name="payTerms"
                       ></Field>
                       <p className="information">
-                        I understand that my registration is complete after
-                        paying the link I will receive on my email.
+                        I agree to share the provided information with the
+                        organization in case they need to prove my identity
                       </p>
                     </div>
                     <ErrorMessage

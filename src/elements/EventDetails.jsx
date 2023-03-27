@@ -1,22 +1,16 @@
 import React, { Component } from "react";
 import PageHelmet from "../component/common/Helmet";
-import ModalVideo from "react-modal-video";
-import {
-  FaTwitter,
-  FaInstagram,
-  FaFacebookF,
-  FaLinkedinIn,
-} from "react-icons/fa";
-import GoogleMapReact from "google-map-react";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/user";
 
 const eventDetails = [
   {
-    id: '0',
+    id: "0",
     title: "Freedom Fest",
     description: "National day of Bulgaria",
     bgImage: "4",
@@ -31,9 +25,11 @@ const eventDetails = [
   },
 ];
 
-const EventDetails = (props) => { 
+const EventDetails = (props) => {
   const eventId = useParams().eventId;
-  
+
+  const user = useSelector(selectUser);
+
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Portfolio Details" />
@@ -46,14 +42,18 @@ const EventDetails = (props) => {
 
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${eventDetails[Number(eventId)].bgImage}`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${
+          eventDetails[Number(eventId)].bgImage
+        }`}
         data-black-overlay="7"
       >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="rn-page-title text-center pt--100">
-                <h2 className="title theme-gradient">{eventDetails[Number(eventId)].title}</h2>
+                <h2 className="title theme-gradient">
+                  {eventDetails[Number(eventId)].title}
+                </h2>
                 <p>{eventDetails[Number(eventId)].description}</p>
               </div>
             </div>
@@ -70,7 +70,9 @@ const EventDetails = (props) => {
               <div className="portfolio-details">
                 <div className="inner">
                   <h2>About</h2>
-                  <p className="subtitle">{eventDetails[Number(eventId)].text[0]}</p>
+                  <p className="subtitle">
+                    {eventDetails[Number(eventId)].text[0]}
+                  </p>
                   <p>{eventDetails[Number(eventId)].text[1]}</p>
 
                   <div className="portfolio-view-list d-flex flex-wrap">
@@ -90,7 +92,11 @@ const EventDetails = (props) => {
                     </div>
                   </div>
                   <a
-                    href="/purchase-ticket"
+                    href={
+                      user.token
+                        ? `/purchase-ticket/${user.userId}`
+                        : "/purchase-ticket"
+                    }
                     className="rn-button-style--2 btn-solid"
                   >
                     Buy Ticket
@@ -119,7 +125,9 @@ const EventDetails = (props) => {
                 <div className="portfolio-thumb-inner">
                   <div className="thumb position-relative mb--30">
                     <img
-                      src={`/assets/images/portfolio/${eventDetails[Number(eventId)].images[0]}`}
+                      src={`/assets/images/portfolio/${
+                        eventDetails[Number(eventId)].images[0]
+                      }`}
                       alt="Portfolio Images"
                     />
                   </div>

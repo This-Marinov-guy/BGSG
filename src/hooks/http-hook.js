@@ -19,7 +19,7 @@ export const useHttpClient = () => {
       try {
         const response = await fetch(process.env.REACT_APP_URL + url, {
           method,
-          body: JSON.stringify(body),
+          body,
           headers,
           signal: httpAbortCtrl.signal,
         });

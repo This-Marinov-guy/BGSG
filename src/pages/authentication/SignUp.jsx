@@ -159,7 +159,7 @@ const SignUp = (props) => {
                 formData.append(
                   "image",
                   values.image,
-                  values.name + values.surname
+                  values.name + values.surname + values.phone
                 );
                 formData.append("name", values.name);
                 formData.append("surname", values.surname);

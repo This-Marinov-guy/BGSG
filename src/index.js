@@ -115,13 +115,17 @@ const Root = () => {
           <Route exact path={`/board-members`} component={Board} />
           <Route exact path={`/active-members`} component={ActiveMembers} />
           <Route exact path={`/past-events`} component={PastEvents} />
-          <Route eaxct path={"/purchase-ticket"}>
-            {!user.token ? (
+
+          {user.token ? (
+            <Route exact path={"/purchase-ticket/:userId"}>
               <MemberPurchase setNotification={setNotification} />
-            ) : (
+            </Route>
+          ) : (
+            <Route exact path={"/purchase-ticket"}>
               <NonMemberPurchase setNotification={setNotification} />
-            )}
-          </Route>
+            </Route>
+          )}
+
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />
           </Route>
