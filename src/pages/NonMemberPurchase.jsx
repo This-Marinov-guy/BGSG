@@ -118,7 +118,7 @@ const NonMemberPurchase = (props) => {
                       </p>
                     </Alert>
                   );
-                  // history.push("/");
+                  history.push("/");
                   setTimeout(() => closeHandler(), 10000);
                 } catch (err) {}
               }}
