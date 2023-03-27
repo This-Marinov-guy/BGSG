@@ -17,9 +17,9 @@ export const useHttpClient = () => {
       activeHttpRequests.current.push(httpAbortCtrl);
 
       try {
-        const response = await fetch(url, {
+        const response = await fetch(process.env.REACT_APP_URL + url, {
           method,
-          body,
+          body: JSON.stringify(body),
           headers,
           signal: httpAbortCtrl.signal,
         });

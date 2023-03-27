@@ -92,10 +92,10 @@ const Root = () => {
     <Fragment>
       {" "}
       <Route exact path={`/login`}>
-        <LogIn notification={notification} setNotification={setNotification} />
+        <LogIn setNotification={setNotification} />
       </Route>
       <Route exact path={`/signup`}>
-        <SignUp notification={notification} setNotification={setNotification} />
+        <SignUp setNotification={setNotification} />
       </Route>
     </Fragment>
   );
@@ -115,11 +115,13 @@ const Root = () => {
           <Route exact path={`/board-members`} component={Board} />
           <Route exact path={`/active-members`} component={ActiveMembers} />
           <Route exact path={`/past-events`} component={PastEvents} />
-          <Route
-            eaxct
-            path={"/purchase-ticket"}
-            component={user.token ? MemberPurchase : NonMemberPurchase}
-          />
+          <Route eaxct path={"/purchase-ticket"}>
+            {!user.token ? (
+              <MemberPurchase setNotification={setNotification} />
+            ) : (
+              <NonMemberPurchase setNotification={setNotification} />
+            )}
+          </Route>
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />
           </Route>

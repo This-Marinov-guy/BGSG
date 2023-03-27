@@ -179,7 +179,7 @@ const SignUp = (props) => {
                   values.notificationTypeTerms
                 );
                 const responseData = await sendRequest(
-                  `http://localhost:80/api/user/signup`,
+                  `user/signup`,
                   "POST",
                   formData
                 );

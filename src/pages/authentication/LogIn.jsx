@@ -55,7 +55,7 @@ const Login = (props) => {
                 event.preventDefault();
                 try {
                   const responseData = await sendRequest(
-                    `http://localhost:80/api/user/login`,
+                    `user/login`,
                     "POST",
                     JSON.stringify({
                       email: loginFormValues.email,

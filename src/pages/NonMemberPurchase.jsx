@@ -1,45 +1,38 @@
 import React, { Fragment, useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useHistory } from "react-router-dom";
+import { useHttpClient } from "../hooks/http-hook";
 import PageHelmet from "../component/common/Helmet";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import Header from "../component/header/Header";
+import Loader from "../elements/ui/Loader";
+import Alert from "react-bootstrap/Alert";
+import { FiX } from "react-icons/fi";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
   surname: yup.string().required(),
-  age: yup.number().positive().required(),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
-  university: yup.string().required(),
-  universityName: yup.string().required("university name is a required filed"),
-  course: yup.string().required(),
-  studentNumber: yup
-    .string()
-    .required("your student number is a required filed"),
-  password: yup
-    .string()
-    .min(5)
-    .matches(
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/,
-      "Please create a stronger password with capital and small letters, number and a special symbol"
-    )
-    .required(),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref("password"), null])
-    .required("passwords do not match"),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
-  dataTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
 
-const NonMemberPurchase = () => {
+const NonMemberPurchase = (props) => {
   const [expand, setExpand] = useState(false);
+
+  const { loading, sendRequest } = useHttpClient();
+
+  const history = useHistory();
 
   const expandHandler = () => {
     setExpand(!expand);
+  };
+
+  const closeHandler = () => {
+    props.setNotification(null);
   };
 
   return (
@@ -57,13 +50,19 @@ const NonMemberPurchase = () => {
       <div className="row purchase_panel">
         <div style={{ width: "40%" }} className="col-lg-4 col-md-12 col-12">
           <div className="event_details">
-          <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">{expand ? "Click to Shrink" : 'Click to Expand'}</Tooltip>}>
-            <img
-              onClick={expandHandler}
-              src="/assets/images/tickets/ticket.png"
-              alt="ticket"
-              className={expand ? "title_img expand_img" : "title_img"}
-            />
+            <OverlayTrigger
+              overlay={
+                <Tooltip id="tooltip-disabled">
+                  {expand ? "Click to Shrink" : "Click to Expand"}
+                </Tooltip>
+              }
+            >
+              <img
+                onClick={expandHandler}
+                src="/assets/images/tickets/ticket.png"
+                alt="ticket"
+                className={expand ? "title_img expand_img" : "title_img"}
+              />
             </OverlayTrigger>
             <h2 className="mt--40">Event Details</h2>
             <p>Name: Freedome Fest</p>
@@ -90,13 +89,44 @@ const NonMemberPurchase = () => {
             <Formik
               className="inner"
               validationSchema={schema}
-              onSubmit={(values) => {
-                
+              onSubmit={async (values) => {
+                try {
+                  const responseData = await sendRequest(
+                    `event/purchase-ticket/guest`,
+                    "POST",
+                    {
+                      eventName: "freedom fest",
+                      eventDate: "3.03.2023",
+                      guestName: values.name + " " + values.surname,
+                      guestEmail: values.email,
+                      guestPhone: values.phone,
+                    },
+                    {
+                      "Content-Type": "application/json",
+                    }
+                  );
+                  props.setNotification(
+                    <Alert className="error_panel" variant="success">
+                      <div className="action_btns">
+                        <h3>Thank you for buying a ticket for our event!</h3>
+                        <FiX className="mr--20" onClick={closeHandler} />
+                      </div>
+                      <p>
+                        Please check your email to access your ticket and be
+                        sure to have it on the entry! Find more information on
+                        the event section. See you there!
+                      </p>
+                    </Alert>
+                  );
+                  history.push("/");
+                  setTimeout(() => closeHandler(), 10000);
+                } catch (err) {}
               }}
               initialValues={{
                 name: "",
                 surname: "",
                 email: "",
+                phone: "",
                 policyTerms: false,
                 payTerms: false,
               }}
@@ -104,42 +134,48 @@ const NonMemberPurchase = () => {
               {({ values }) => (
                 <Form id="form" style={{ padding: "50px" }}>
                   <h3>Fill your details and buy a ticket</h3>
-                  <div className="row">
-                    <div className="col-lg-12 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field type="text" placeholder="Name" name="name" />
-                        <ErrorMessage
-                          className="error"
-                          name="name"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-12 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Surname"
-                          name="surname"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="surname"
-                          component="div"
-                        />
-                      </div>
+                  <div className="col-lg-12 col-md-12 col-12">
+                    <div className="rnform-group">
+                      <Field type="text" placeholder="Name" name="name" />
+                      <ErrorMessage
+                        className="error"
+                        name="name"
+                        component="div"
+                      />
                     </div>
                   </div>
-                  <div className="row">
-                    <div className="col-lg-12 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field type="email" placeholder="Email" name="email" />
-                        <ErrorMessage
-                          className="error"
-                          name="email"
-                          component="div"
-                        />
-                      </div>
+                  <div className="col-lg-12 col-md-12 col-12">
+                    <div className="rnform-group">
+                      <Field
+                        type="text"
+                        placeholder="Surname"
+                        name="surname"
+                      ></Field>
+                      <ErrorMessage
+                        className="error"
+                        name="surname"
+                        component="div"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-12 col-md-12 col-12">
+                    <div className="rnform-group">
+                      <Field type="email" placeholder="Email" name="email" />
+                      <ErrorMessage
+                        className="error"
+                        name="email"
+                        component="div"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-12 col-md-12 col-12">
+                    <div className="rnform-group">
+                      <Field type="tel" placeholder="Phone" name="phone" />
+                      <ErrorMessage
+                        className="error"
+                        name="phone"
+                        component="div"
+                      />
                     </div>
                   </div>
                   <div className="col-lg-12 col-md-12 col-12">
@@ -185,12 +221,16 @@ const NonMemberPurchase = () => {
                       component="div"
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="rn-button-style--2 btn-solid mt--80"
-                  >
-                    <span>Proceed to paying</span>
-                  </button>
+                  {loading ? (
+                    <Loader />
+                  ) : (
+                    <button
+                      type="submit"
+                      className="rn-button-style--2 btn-solid mt--80"
+                    >
+                      <span>Proceed to paying</span>
+                    </button>
+                  )}
                 </Form>
               )}
             </Formik>

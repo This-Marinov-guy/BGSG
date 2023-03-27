@@ -127,7 +127,7 @@ const User = () => {
                   values.notificationTypeTerms
                 );
                 const responseData = await sendRequest(
-                  `http://localhost:80/api/user/edit-info/${userId}`,
+                  `user/edit-info/${userId}`,
                   "PATCH",
                   formData
                 );
@@ -351,10 +351,7 @@ const User = () => {
             <div className="col-lg-6 col-md-12 col-12 ">
               <div className="service service__style--2 team_member_border-1">
                 <div className="content center_div">
-                  <img
-                    src={currentUser.image}
-                    alt="profile"
-                  />
+                  <img src={currentUser.image} alt="profile" />
                 </div>
               </div>
             </div>
@@ -460,7 +457,7 @@ const User = () => {
       {/* End Back To Top */}
     </React.Fragment>
   ) : (
-    <p>No such user! Please try again</p>
+    <Loader />
   );
 };
 
