@@ -22,7 +22,7 @@ const MemberPurchase = (props) => {
   const userId = useParams().userId;
 
   const closeHandler = () => {
-    dispatch(removeModal());
+    props.setNotification(null);
   };
 
   useEffect(() => {
@@ -67,15 +67,19 @@ const MemberPurchase = (props) => {
 
   const submitHandler = async () => {
     try {
-      let file;
-      document.getElementById("canvas").toBlob((blob) => {
-        file = new File([blob], "ticket.jpeg", { type: "image/jpeg" });
-      }, "image/jpeg");
+      const canvas = document.getElementById("canvas");
+      const dataBlob = await new Promise((resolve) =>
+        canvas.toBlob((blob) => resolve(blob), "image/png")
+      );
       const formData = new FormData();
       formData.append("eventName", "freedom fest");
       formData.append("eventDate", "03.03.2023");
       formData.append("userId", userId);
-      formData.append("ticket", file);
+      formData.append(
+        "ticket",
+        dataBlob,
+        "freedom_fest_" + currentUser.name + currentUser.surname
+      );
       const responseData = await sendRequest(
         "event/purchase-ticket/member",
         "POST",

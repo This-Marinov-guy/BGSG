@@ -7,9 +7,11 @@ import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit, FiChevronUp, FiX, FiLock } from "react-icons/fi";
+import { FiCircle, FiEdit, FiChevronUp, FiX } from "react-icons/fi";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
@@ -40,8 +42,11 @@ const schema = yup.object().shape({
   }),
 });
 
+
 const User = () => {
   const [currentUser, setCurrentUser] = useState();
+  const [expand, setExpand] = useState(false);
+
   const { loading, sendRequest } = useHttpClient();
 
   const dispatch = useDispatch();
@@ -52,6 +57,19 @@ const User = () => {
 
   const closeHandler = () => {
     dispatch(removeModal());
+  };
+
+
+  const expandHandler = (elementId) => {
+    const ticketImage = document.getElementById(elementId);
+    const className = "expand_ticket_img";
+    if (!ticketImage.classList.contains(className)) {
+      ticketImage.classList.add(className);
+      setExpand(true)
+    } else {
+      ticketImage.classList.remove(className);
+      setExpand(false)
+    }
   };
 
   useEffect(() => {
@@ -107,7 +125,11 @@ const User = () => {
             onSubmit={async (values) => {
               try {
                 const formData = new FormData();
-                formData.append("image", values.image);
+                formData.append(
+                  "image",
+                  values.image,
+                  currentUser.name + currentUser.surname + currentUser.phone
+                );
                 formData.append("name", values.name);
                 formData.append("surname", values.surname);
                 formData.append("age", values.age);
@@ -436,8 +458,34 @@ const User = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="mb--30 mb_sm--0">
-              <h2 className="title">Ticket Collection</h2>
-              <p>No tickets purchased</p>
+              <h2 className="title mb--40">Ticket Collection</h2>
+              {currentUser.tickets ? (
+                <div className="row">
+                  {currentUser.tickets.map((ticket, i) => (
+                    <div className="col-lg-4 col-md-6 col-12" key={i}>
+                      <OverlayTrigger
+                        overlay={
+                          <Tooltip id="tooltip-disabled">
+                            {expand ? "Click to Shrink" : "Click to Expand"}
+                          </Tooltip>
+                        }
+                      >
+                        <img
+                          id={`ticket${i}`}
+                          className="mb--40"
+                          src={ticket.image}
+                          alt="ticket"
+                          onClick={(event) => {
+                            expandHandler(event.target.id);
+                          }}
+                        />
+                      </OverlayTrigger>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p>No tickets purchased</p>
+              )}
             </div>
           </div>
         </div>
