@@ -69,7 +69,7 @@ const MemberPurchase = (props) => {
     try {
       const canvas = document.getElementById("canvas");
       const dataBlob = await new Promise((resolve) =>
-        canvas.toBlob((blob) => resolve(blob), "image/png")
+        canvas.toBlob((blob) => resolve(blob), "image/jpeg")
       );
       const formData = new FormData();
       formData.append("eventName", "freedom fest");
@@ -78,7 +78,7 @@ const MemberPurchase = (props) => {
       formData.append(
         "ticket",
         dataBlob,
-        "freedom_fest_" + currentUser.name + currentUser.surname
+        "freedom_fest_" + currentUser.name + currentUser.surname + '_MEMBER'
       );
       const responseData = await sendRequest(
         "event/purchase-ticket/member",

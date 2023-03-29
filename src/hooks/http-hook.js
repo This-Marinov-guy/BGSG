@@ -1,7 +1,7 @@
 import { useCallback, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { showError } from "../redux/error";
+import { removeError, showError } from "../redux/error";
 import { selectLoading, startLoading, stopLoading } from "../redux/loading";
 
 export const useHttpClient = () => {
@@ -38,6 +38,7 @@ export const useHttpClient = () => {
         return responseData;
       } catch (err) {
         dispatch(showError(err.message));
+        setTimeout(()=> dispatch(removeError()), 6000)
         dispatch(stopLoading());
         throw err;
       }

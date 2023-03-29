@@ -58,10 +58,11 @@ const NonMemberPurchase = (props) => {
               }
             >
               <img
-                onClick={expandHandler}
                 src="/assets/images/tickets/ticket.png"
                 alt="ticket"
+                id="ticket"
                 className={expand ? "title_img expand_img" : "title_img"}
+                onClick={expandHandler}
               />
             </OverlayTrigger>
             <h2 className="mt--40">Event Details</h2>
@@ -91,19 +92,40 @@ const NonMemberPurchase = (props) => {
               validationSchema={schema}
               onSubmit={async (values) => {
                 try {
+                  // Create an empty canvas element, add the image and covert to blob
+                  const ticket = document.getElementById("ticket");
+                  var canvas = document.createElement("canvas");
+                  var layout = canvas.getContext("2d");
+                  canvas.width = ticket.naturalWidth;
+                  canvas.height = ticket.naturalHeight;
+                  layout.drawImage(
+                    ticket,
+                    0,
+                    0,
+                    ticket.naturalWidth,
+                    ticket.naturalHeight
+                  );
+                  const dataBlob = await new Promise((resolve) =>
+                    canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+                  );
+                  const formData = new FormData();
+                  formData.append("eventName", "freedom fest");
+                  formData.append("eventDate", "03.03.2023");
+                  formData.append(
+                    "guestName",
+                    values.name + " " + values.surname
+                  );
+                  formData.append("guestEmail", values.email);
+                  formData.append("guestPhone", values.phone);
+                  formData.append(
+                    "ticket",
+                    dataBlob,
+                    "freedom_fest_" + values.name + values.surname + '_GUEST'
+                  );
                   const responseData = await sendRequest(
                     `event/purchase-ticket/guest`,
                     "POST",
-                    JSON.stringify({
-                      eventName: "freedom fest",
-                      eventDate: "3.03.2023",
-                      guestName: values.name + " " + values.surname,
-                      guestEmail: values.email,
-                      guestPhone: values.phone,
-                    }),
-                    {
-                      "Content-Type": "application/json",
-                    }
+                    formData
                   );
                   props.setNotification(
                     <Alert className="error_panel" variant="success">
@@ -131,7 +153,7 @@ const NonMemberPurchase = (props) => {
                 payTerms: false,
               }}
             >
-              {({ values }) => (
+              {() => (
                 <Form id="form" style={{ padding: "50px" }}>
                   <h3>Fill your details and buy a ticket</h3>
                   <div className="col-lg-12 col-md-12 col-12">
