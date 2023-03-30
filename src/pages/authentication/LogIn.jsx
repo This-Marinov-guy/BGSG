@@ -14,7 +14,7 @@ import { FiX } from "react-icons/fi";
 import { removeModal, selectModal, showModal } from "../../redux/modal";
 
 const schema = yup.object().shape({
-  token: yup.string(),
+  token: yup.string().required("Please provide the token send to you by email"),
   password: yup
     .string()
     .min(5)
@@ -65,7 +65,7 @@ const Login = (props) => {
     event.preventDefault();
     try {
       const responseData = await sendRequest(
-        `user/send-password-token`,
+        "user/send-password-token",
         "POST",
         JSON.stringify({
           email: loginFormValues.email,
@@ -76,8 +76,8 @@ const Login = (props) => {
       );
       setUserEmail(responseData.email);
       setValidationToken(responseData.token);
+      setConfirmChanging(true);
     } catch (err) {}
-    setConfirmChanging(true);
   };
 
   const loginHandler = async (event) => {
@@ -146,23 +146,25 @@ const Login = (props) => {
             >
               <div className="hor_section">
                 <h3>
-                  You are about to start proceedure for changing Password! Do
-                  you want to continue?
+                  You are about to start proceedure for changing password!
+                  Please enter your account email!
                 </h3>
                 <FiX className="mr--20" onClick={closeHandler} />
               </div>
               <input
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Email"
                 onChange={(event) => changeFormInputHandler(event)}
               />
-              <button
-                type="submit"
-                className="rn-button-style--2 btn-solid mt--80"
-              >
-                Proceed
-              </button>{" "}
+              {!confirmChanging && (
+                <button
+                  type="submit"
+                  className="rn-button-style--2 btn-solid mt--80"
+                >
+                  Proceed
+                </button>
+              )}
             </form>
           ) : (
             <Formik
@@ -201,13 +203,12 @@ const Login = (props) => {
                 confirmPassword: "",
               }}
             >
-              {({ values }) => (
+              {() => (
                 <Form id="form" style={{ padding: "50px" }}>
                   <div className="hor_section">
                     <h3>Reset you password</h3>
                     <FiX className="mr--20" onClick={closeHandler} />
                   </div>
-
                   <div className="row">
                     <div className="col-lg-12 col-md-12 col-12">
                       <div className="rnform-group">
@@ -217,9 +218,6 @@ const Login = (props) => {
                           placeholder="Validation token"
                           name="token"
                         />
-                        {validationToken !== values.token && (
-                          <p className="error">Token mismatch!</p>
-                        )}
                         <ErrorMessage
                           className="error"
                           name="token"
@@ -258,18 +256,17 @@ const Login = (props) => {
                       </div>
                     </div>
                   </div>
-
-                  {loading ? (
+                  {loading && confirmChanging ? (
                     <Loader />
                   ) : (
                     <button
                       type="submit"
                       className="rn-button-style--2 btn-solid mt--80"
-                      disabled={!confirmChanging ? true : false}
                     >
                       Update password
                     </button>
                   )}
+                  )
                 </Form>
               )}
             </Formik>
@@ -307,14 +304,13 @@ const Login = (props) => {
                   ></input>
                 </div>
               </div>
-              {loading ? (
+              {loading && !modal ? (
                 <Loader />
               ) : (
                 <button
                   style={{ marginTop: "40px" }}
                   type="submit"
                   className="rn-button-style--2 btn-solid"
-                  disabled={modal ? true : false}
                 >
                   <span>Log in</span>
                 </button>

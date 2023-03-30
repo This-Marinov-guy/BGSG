@@ -36,6 +36,7 @@ const Header = (props) => {
             className="rn-btn mr--10"
             onClick={() => {
               dispatch(logout());
+              setLogoutAlert(false);
               history.push("/");
             }}
           >
