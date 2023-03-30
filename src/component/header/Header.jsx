@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, selectUser } from "../../redux/user";
 import { Link, useHistory } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import Alert from "react-bootstrap/Alert";
 
 const Header = (props) => {
   const [isMenuOpened, setIsMenuOpened] = useState();
+  const [logoutAlert, setLogoutAlert] = useState(false);
 
   const user = useSelector(selectUser);
+
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -25,102 +28,126 @@ const Header = (props) => {
   let logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
 
   return (
-    <header
-      className={`header-area formobile-menu header--transparent default-color`}
-    >
-      <div
-        className={(isMenuOpened && "menu-open") + " header-wrapper"}
-        id="header-wrapper"
+    <Fragment>
+      {logoutAlert && (
+        <Alert className="logout_alert" variant="danger">
+          <p>Continue logging out?</p>
+          <button
+            className="rn-btn mr--10"
+            onClick={() => {
+              dispatch(logout());
+              history.push("/");
+            }}
+          >
+            Log out
+          </button>
+          <button
+            className="rn-btn"
+            onClick={() => {
+              setLogoutAlert(false);
+            }}
+          >
+            Stay
+          </button>
+        </Alert>
+      )}
+      <header
+        className={`header-area formobile-menu header--transparent default-color`}
       >
-        <div className="header-left">
-          <div className="logo">
-            <a href="/">{logoUrl}</a>
+        <div
+          className={(isMenuOpened && "menu-open") + " header-wrapper"}
+          id="header-wrapper"
+        >
+          <div className="header-left">
+            <div className="logo">
+              <a href="/">{logoUrl}</a>
+            </div>
           </div>
-        </div>
-        <div className="header-right">
-          <nav className="mainmenunav d-lg-block">
-            <ul className={props.dark ? 'mainmenu dark_nav' : 'mainmenu'}>
-              <li className="google_btn_item">
-                <img
-                  src="/assets/images/logo/google.png"
-                  alt="google"
-                  className="google_icon"
-                />
-                <div className="google_btn" id="google_translate_element"></div>
-              </li>
-              <li className="has-droupdown">
-                <Link to="/about">About</Link>
-                <ul className="submenu">
-                  <li>
-                    <Link to="/about">About Us</Link>
-                  </li>
-                  <li>
-                    <Link to="/board-members">Meet the Board</Link>
-                  </li>
-                  <li>
-                    <Link to="/active-members">Meet the Committees</Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link to="/past-events">Events</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-              {user.token && (
-                <li>
-                  <Link to={`/user/${user.userId}`}>Profile</Link>
+          <div className="header-right">
+            <nav className="mainmenunav d-lg-block">
+              <ul className={props.dark ? "mainmenu dark_nav" : "mainmenu"}>
+                <li className="google_btn_item">
+                  <img
+                    src="/assets/images/logo/google.png"
+                    alt="google"
+                    className="google_icon"
+                  />
+                  <div
+                    className="google_btn"
+                    id="google_translate_element"
+                  ></div>
                 </li>
-              )}
+                <li className="has-droupdown">
+                  <Link to="/about">About</Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link to="/about">About Us</Link>
+                    </li>
+                    <li>
+                      <Link to="/board-members">Meet the Board</Link>
+                    </li>
+                    <li>
+                      <Link to="/active-members">Meet the Committees</Link>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <Link to="/past-events">Events</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
+                {user.token && (
+                  <li>
+                    <Link to={`/user/${user.userId}`}>Profile</Link>
+                  </li>
+                )}
 
-              <li>
-                <div className="header-btn">
-                  {!user.token ? (
-                    <a href="/login" className="rn-btn">
-                      <span>Log In</span>
-                    </a>
-                  ) : (
-                    <button
-                      onClick={() => {
-                        dispatch(logout());
-                        history.push("/");
-                      }}
-                      className="rn-btn"
-                    >
-                      <span>Log Out</span>
-                    </button>
-                  )}
-                </div>
-              </li>
-            </ul>
-          </nav>
+                <li>
+                  <div className="header-btn">
+                    {!user.token ? (
+                      <a href="/login" className="rn-btn">
+                        <span>Log In</span>
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => setLogoutAlert(true)}
+                        className="rn-btn"
+                      >
+                        <span>Log Out</span>
+                      </button>
+                    )}
+                  </div>
+                </li>
+              </ul>
+            </nav>
 
-          {/* Start Humberger Menu  */}
-          <div className="humberger-menu d-block d-lg-none pl--20">
-            <span
-              onClick={() => {
-                setIsMenuOpened(true);
-              }}
-              className="menutrigger text-white"
-            >
-              <FiMenu />
-            </span>
-          </div>
-          {/* End Humberger Menu  */}
-          <div className="close-menu d-block d-lg-none">
-            <span
-              onClick={() => {
-                setIsMenuOpened(false);
-              }}
-              className="closeTrigger"
-            >
-              <FiX />
-            </span>
+            {/* Start Humberger Menu  */}
+            <div className="humberger-menu d-block d-lg-none pl--20">
+              <span
+                onClick={() => {
+                  setIsMenuOpened(true);
+                }}
+                className="menutrigger text-white"
+              >
+                <FiMenu />
+              </span>
+            </div>
+            {/* End Humberger Menu  */}
+            <div className="close-menu d-block d-lg-none">
+              <span
+                onClick={() => {
+                  setIsMenuOpened(false);
+                }}
+                className="closeTrigger"
+              >
+                <FiX />
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </Fragment>
   );
 };
 

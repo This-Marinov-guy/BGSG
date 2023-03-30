@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout, selectUser } from "../../redux/user";
 import { Link, useHistory } from "react-router-dom";
 import { FiX, FiMenu } from "react-icons/fi";
+import Alert from "react-bootstrap/Alert";
 
 const HeaderTwo = () => {
   const [isMenuOpened, setIsMenuOpened] = useState();
+  const [logoutAlert, setLogoutAlert] = useState(false);
 
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -25,6 +27,28 @@ const HeaderTwo = () => {
 
   return (
     <Fragment>
+      {logoutAlert && (
+        <Alert className="logout_alert" variant="danger">
+          <p>Continue logging out?</p>
+          <button
+            className="rn-btn mr--10"
+            onClick={() => {
+              dispatch(logout());
+              history.push("/");
+            }}
+          >
+            Log out
+          </button>
+          <button
+            className="rn-btn"
+            onClick={() => {
+              setLogoutAlert(false);
+            }}
+          >
+            Stay
+          </button>
+        </Alert>
+      )}
       <header
         className={`header-area formobile-menu header--transparent default-color}`}
       >

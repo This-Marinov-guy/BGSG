@@ -15,6 +15,16 @@
   }
 }
 
+.logout_alert{
+  position: absolute;
+  padding: 20px;
+  z-index: 1000;
+  top: 20px;
+  right: 10%;
+  animation: slide-down 300ms ease-out forwards;
+
+}
+
 @keyframes slide-down {
   from {
     opacity: 0;

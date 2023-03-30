@@ -14,6 +14,11 @@
     line-height: 24px;
   }
 }
+
+.pd--40 {
+  padding: 40px;
+}
+
 .plr--120 {
   @media #{$md-layout} {
     padding: 0 60px !important;
