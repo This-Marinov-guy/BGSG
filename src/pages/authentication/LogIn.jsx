@@ -37,7 +37,6 @@ const Login = (props) => {
   const [confirmChanging, setConfirmChanging] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [validationToken, setValidationToken] = useState("");
-  console.log(validationToken);
 
   const { loading, sendRequest } = useHttpClient();
 
@@ -266,7 +265,6 @@ const Login = (props) => {
                       Update password
                     </button>
                   )}
-                  )
                 </Form>
               )}
             </Formik>

@@ -12,13 +12,34 @@ $white: #faf9f6;
 =================================*/
 @font-face {
   font-family: Mozer;
-  src: url(/assets/fonts/Mozer-SemiBold.otf) format("opentype");
+  src: url(/assets/fonts/Mozer-Book.otf) format("opentype"),
+    url(//db.onlinewebfonts.com/t/84f35c1442bbadaf25cca25689550e42.eot?#iefix)
+      format("embedded-opentype"),
+    url(//db.onlinewebfonts.com/t/84f35c1442bbadaf25cca25689550e42.woff2)
+      format("woff2"),
+    url(//db.onlinewebfonts.com/t/84f35c1442bbadaf25cca25689550e42.woff)
+      format("woff"),
+    url(//db.onlinewebfonts.com/t/84f35c1442bbadaf25cca25689550e42.ttf)
+      format("truetype"),
+    url(/assets/fonts/Mozer-Book.ttf) format("truetype"),
+    url(/assets/fonts/Mozer-Book.woff) format("woff"),
+    url(/assets/fonts/Mozer-Book.woff2) format("woff2");
 }
 
 @font-face {
   font-family: Archive;
-  src: url(/assets/fonts/Archive-Regular.ttf) format("truetype"),
-    url(/assets/fonts/Archive-Regular.otf) format("opentype");
+  src: url(//db.onlinewebfonts.com/t/08aae9f020949051ff8331be100607cb.eot?#iefix)
+      format("embedded-opentype"),
+    url(//db.onlinewebfonts.com/t/08aae9f020949051ff8331be100607cb.woff2)
+      format("woff2"),
+    url(//db.onlinewebfonts.com/t/08aae9f020949051ff8331be100607cb.woff)
+      format("woff"),
+    url(//db.onlinewebfonts.com/t/08aae9f020949051ff8331be100607cb.ttf)
+      format("truetype"),
+    url(//db.onlinewebfonts.com/t/08aae9f020949051ff8331be100607cb.svg#Archive)
+      format("svg"),
+    url(/assets/fonts/Archive.ttf) format("truetype"),
+    url(/assets/fonts/Archive.woff) format("woff");
 }
 
 $body-font: "Mozer";
