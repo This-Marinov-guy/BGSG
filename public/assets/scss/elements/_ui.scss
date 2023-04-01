@@ -1,3 +1,7 @@
+.slide-down {
+  animation: slide-down 300ms ease-out forwards;
+}
+
 .error_panel {
   top: 50px;
   left: 25%;
@@ -15,14 +19,13 @@
   }
 }
 
-.logout_alert{
+.logout_alert {
   position: absolute;
   padding: 20px;
   z-index: 1000;
   top: 20px;
   right: 10%;
   animation: slide-down 300ms ease-out forwards;
-
 }
 
 @keyframes slide-down {
@@ -35,3 +38,4 @@
     transform: translateY(0);
   }
 }
+

@@ -3,8 +3,6 @@ import PageHelmet from "../component/common/Helmet";
 import Header from "../component/header/Header";
 import { useHistory, useParams } from "react-router-dom";
 import { useHttpClient } from "../hooks/http-hook";
-import { useDispatch } from "react-redux";
-import { removeModal } from "../redux/modal";
 import Loader from "../elements/ui/Loader";
 import Alert from "react-bootstrap/Alert";
 import { FiX } from "react-icons/fi";
@@ -13,17 +11,17 @@ const MemberPurchase = (props) => {
   const [currentUser, setCurrentUser] = useState("");
   const { loading, sendRequest } = useHttpClient();
 
-  const dispatch = useDispatch();
-
   const history = useHistory();
-
-  const canvasRef = useRef(null);
 
   const userId = useParams().userId;
 
   const closeHandler = () => {
     props.setNotification(null);
   };
+
+  useEffect(() => {
+    setTimeout(init, 100);
+  }, [currentUser]);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -38,7 +36,7 @@ const MemberPurchase = (props) => {
   }, [sendRequest, userId]);
 
   const init = () => {
-    const canvas = canvasRef.current;
+    const canvas = document.getElementById("canvas");
     const layout = canvas.getContext("2d");
     let img = new Image();
     img.src = "/assets/images/tickets/ticket.png";
@@ -51,19 +49,20 @@ const MemberPurchase = (props) => {
       layout.save();
 
       // text
-      let txt = currentUser.name + " " + currentUser.surname;
+      let textName = currentUser.name;
       layout.rotate(4.71);
       layout.font = "bold 70px Mozer";
       layout.fillStyle = "#faf9f6";
-      layout.strokeText(txt, -570, 1550);
-      layout.fillText(txt, -570, 1550);
-      layout.restore();
+      layout.strokeText(textName, -540, 1520);
+      layout.fillText(textName, -540, 1520);
+
+      layout.font = "bold 70px Mozer";
+      layout.fillStyle = "#faf9f6";
+      let textSurname = currentUser.surname;
+      layout.strokeText(textSurname, -360, 1600);
+      layout.fillText(textSurname, -360, 1600);
     };
   };
-
-  useEffect(() => {
-    window.onload = init;
-  }, [currentUser]);
 
   const submitHandler = async () => {
     try {
@@ -78,7 +77,7 @@ const MemberPurchase = (props) => {
       formData.append(
         "ticket",
         dataBlob,
-        "freedom_fest_" + currentUser.name + currentUser.surname + '_MEMBER'
+        "freedom_fest_" + currentUser.name + currentUser.surname + "_MEMBER"
       );
       const responseData = await sendRequest(
         "event/purchase-ticket/member",
@@ -115,8 +114,8 @@ const MemberPurchase = (props) => {
       <div className="container mt--200">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
-      <div style={{ margin: "auto", width: "80%" }} className="row">
-        <canvas id="canvas" ref={canvasRef} name="canvas" />
+      <div style={{ margin: "auto", width: "80%" }} className="row slide-down">
+        <canvas id="canvas" name="canvas" />
       </div>
       <div
         style={{ width: "80%" }}
