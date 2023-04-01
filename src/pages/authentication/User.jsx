@@ -7,7 +7,7 @@ import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit, FiChevronUp, FiX } from "react-icons/fi";
+import { FiCircle, FiEdit, FiChevronUp, FiX, FiImage } from "react-icons/fi";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -17,7 +17,6 @@ import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 
 const schema = yup.object().shape({
-  image: yup.string().required("Please upload your picture"),
   name: yup.string().required(),
   surname: yup.string().required(),
   age: yup.number().positive().required(),
@@ -42,7 +41,6 @@ const schema = yup.object().shape({
   }),
 });
 
-
 const User = () => {
   const [currentUser, setCurrentUser] = useState();
   const [expand, setExpand] = useState(false);
@@ -59,16 +57,15 @@ const User = () => {
     dispatch(removeModal());
   };
 
-
   const expandHandler = (elementId) => {
     const ticketImage = document.getElementById(elementId);
     const className = "expand_ticket_img";
     if (!ticketImage.classList.contains(className)) {
       ticketImage.classList.add(className);
-      setExpand(true)
+      setExpand(true);
     } else {
       ticketImage.classList.remove(className);
-      setExpand(false)
+      setExpand(false);
     }
   };
 
@@ -183,6 +180,7 @@ const User = () => {
                   <FiX className="mr--20" onClick={closeHandler} />
                 </div>
                 <div className="row mb--40 mt--40">
+                  
                   <div className="col-lg-12 col-md-12 col-12">
                     <ImageInput
                       onChange={(event) => {
@@ -197,6 +195,7 @@ const User = () => {
                       }
                     />
                   </div>
+                  
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">

@@ -36,7 +36,6 @@ const Login = (props) => {
   });
   const [confirmChanging, setConfirmChanging] = useState(false);
   const [userEmail, setUserEmail] = useState("");
-  const [validationToken, setValidationToken] = useState("");
 
   const { loading, sendRequest } = useHttpClient();
 
@@ -74,7 +73,6 @@ const Login = (props) => {
         }
       );
       setUserEmail(responseData.email);
-      setValidationToken(responseData.token);
       setConfirmChanging(true);
     } catch (err) {}
   };
@@ -175,6 +173,7 @@ const Login = (props) => {
                     `user/change-password`,
                     "PATCH",
                     JSON.stringify({
+                      userToken: values.token,
                       email: userEmail,
                       password: values.password,
                     }),
@@ -182,19 +181,19 @@ const Login = (props) => {
                       "Content-Type": "application/json",
                     }
                   );
+                  props.setNotification(
+                    <Alert className="error_panel" variant="success">
+                      <div className="action_btns">
+                        <h3>Success!</h3>
+                        <FiX className="mr--20" onClick={closeHandler} />
+                      </div>
+                      <p>You successesfully changed your password!</p>
+                    </Alert>
+                  );
+                  dispatch(removeModal());
+                  history.push("/login");
+                  setTimeout(() => closeHandler(), 5000);
                 } catch (err) {}
-                props.setNotification(
-                  <Alert className="error_panel" variant="success">
-                    <div className="action_btns">
-                      <h3>Success!</h3>
-                      <FiX className="mr--20" onClick={closeHandler} />
-                    </div>
-                    <p>You successesfully changed your password!</p>
-                  </Alert>
-                );
-                dispatch(removeModal());
-                history.push("/login");
-                setTimeout(() => closeHandler(), 5000);
               }}
               initialValues={{
                 token: "",

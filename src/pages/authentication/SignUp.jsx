@@ -392,6 +392,7 @@ const SignUp = (props) => {
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
+                        autoComplete="off"
                         type="password"
                         placeholder="Password"
                         name="password"
@@ -406,6 +407,7 @@ const SignUp = (props) => {
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
+                        autoComplete="off"
                         type="password"
                         placeholder="Confirm Password"
                         name="confirmPassword"

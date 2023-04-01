@@ -52,7 +52,10 @@ const Contact = () => {
                 <div className="inner email_container">
                   <h4 className="title">Email Address</h4>
                   <p>
-                    <a href="mailto:mailto:Bulgariansociety.gro@gmail.com">
+                    <a
+                      style={{ overflowWrap: "break-word" }}
+                      href="mailto:mailto:Bulgariansociety.gro@gmail.com"
+                    >
                       Bulgariansociety.gro@gmail.com
                     </a>
                   </p>

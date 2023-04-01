@@ -123,7 +123,7 @@ const NonMemberPurchase = (props) => {
                     "freedom_fest_GUEST"
                   );
                   const responseData = await sendRequest(
-                    `event/purchase-ticket/guest`,
+                    "event/purchase-ticket/guest",
                     "POST",
                     formData
                   );
@@ -154,7 +154,7 @@ const NonMemberPurchase = (props) => {
               }}
             >
               {() => (
-                <Form id="form" style={{ padding: "50px" }}>
+                <Form encType="multipart/form-data" id="form" style={{ padding: "50px" }}>
                   <h3>Fill your details and buy a ticket</h3>
                   <div className="col-lg-12 col-md-12 col-12">
                     <div className="rnform-group">
@@ -194,7 +194,7 @@ const NonMemberPurchase = (props) => {
                     <div className="rnform-group">
                       <Field type="tel" placeholder="Phone" name="phone" />
                       <p className="information">
-                        Please your real number as it might be used to prove
+                        Please enter your real number as it might be used to prove
                         your identity on the entry
                       </p>
                       <ErrorMessage
