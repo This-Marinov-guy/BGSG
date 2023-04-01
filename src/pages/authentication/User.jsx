@@ -368,7 +368,7 @@ const User = () => {
         <div className="container">
           <div className="row service-one-wrapper center_div">
             <div className="col-lg-6 col-md-12 col-12 ">
-              <div className="service service__style--2 team_member_border-1">
+              <div className="service service__style--2">
                 <div className="content center_div">
                   <img src={currentUser.image} alt="profile" />
                 </div>
@@ -393,7 +393,7 @@ const User = () => {
                       className="list-style--1"
                     >
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> Full Name:
+                        <FiCircle style={{ fontSize: "14px" }} /> Full Name:{" "}
                         {currentUser.name + " " + currentUser.surname}
                       </li>
                       <li>
@@ -401,15 +401,15 @@ const User = () => {
                         {currentUser.age}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> Email:
+                        <FiCircle style={{ fontSize: "14px" }} /> Email:{" "}
                         {currentUser.email}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> Phone:
+                        <FiCircle style={{ fontSize: "14px" }} /> Phone:{" "}
                         {currentUser.phone}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> University:
+                        <FiCircle style={{ fontSize: "14px" }} /> University:{" "}
                         {currentUser.university}
                       </li>
                     </ul>

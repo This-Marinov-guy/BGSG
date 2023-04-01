@@ -30,10 +30,6 @@ class Board extends Component {
               <div className="col-lg-6">
                 <div className="section-title service-style--3 text-left mb--25 mb_sm--0">
                   <h2 className="title">Meet the Board</h2>
-                  <p>
-                    We were founded in 2022 by our current president Lazar as an
-                    NPO with 7 members each having a key role in the company
-                  </p>
                 </div>
               </div>
             </div>
@@ -45,11 +41,11 @@ class Board extends Component {
         {/* End Team Area  */}
 
         {/* Start Testimonial Area */}
-        <div className="rn-testimonial-area bg_color--1 ptb--120">
+        {/* <div className="rn-testimonial-area bg_color--1 ptb--120">
           <div className="container">
             <Testimonial />
           </div>
-        </div>
+        </div> */}
         {/* End Testimonial Area */}
 
         {/* Start Back To Top */}

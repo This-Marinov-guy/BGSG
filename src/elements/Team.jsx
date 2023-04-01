@@ -20,7 +20,7 @@ let TeamContent = [
       {
         icon: <FaLinkedinIn />,
         url: "https://www.linkedin.com/in/lazar-popov-bb4321200/",
-      }
+      },
     ],
   },
   {
@@ -36,12 +36,12 @@ let TeamContent = [
     socialNetwork: [
       {
         icon: <FaInstagram />,
-        url: "https://www.linkedin.com/in/radost-lozanova/",
+        url: "https://www.instagram.com/radostlozanova/",
       },
       {
         icon: <FaLinkedinIn />,
-        url: "https://www.instagram.com/radostlozanova/",
-      }
+        url: "https://www.linkedin.com/in/radost-lozanova/",
+      },
     ],
   },
   {

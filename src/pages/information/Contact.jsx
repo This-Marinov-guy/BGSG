@@ -54,7 +54,7 @@ const Contact = () => {
                   <p>
                     <a
                       style={{ overflowWrap: "break-word" }}
-                      href="mailto:mailto:Bulgariansociety.gro@gmail.com"
+                      href="mailto:bulgariansociety.gro@gmail.com"
                     >
                       Bulgariansociety.gro@gmail.com
                     </a>
@@ -94,7 +94,7 @@ const Contact = () => {
       {/* End Contact Page Area  */}
 
       {/* Start Brand Area */}
-      <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
+      {/* <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -102,7 +102,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Brand Area */}
 
       {/* Start Back To Top */}

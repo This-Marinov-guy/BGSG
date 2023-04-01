@@ -75,7 +75,7 @@ class Home extends Component {
         </div>
         {/* End Slider Area   */}
         {/* Start Sponsor Area */}
-        <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
+        {/* <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -83,7 +83,7 @@ class Home extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         {/* End Sponsor Area */}
 
         {/* Start About Area  */}

@@ -326,7 +326,7 @@ const SignUp = (props) => {
                   <div className="col-lg-6 col-md-12 col-12">
                     <Field as="select" name="university">
                       <option value="" disabled>
-                        Select your univerisity
+                        Select your university
                       </option>
                       <option value="RUG">RUG</option>
                       <option value="Hanze">Hanze</option>
