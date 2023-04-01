@@ -110,10 +110,7 @@ const HeaderTwo = () => {
                       </a>
                     ) : (
                       <button
-                        onClick={() => {
-                          dispatch(logout());
-                          history.push("/");
-                        }}
+                        onClick={() => setLogoutAlert(true)}
                         className="rn-btn"
                       >
                         <span>Log Out</span>
