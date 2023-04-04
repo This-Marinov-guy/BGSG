@@ -15,11 +15,12 @@ import Alert from "react-bootstrap/Alert";
 import { FiX } from "react-icons/fi";
 
 const schema = yup.object().shape({
-  image: yup.string().required("Please upload your picture"),
+  image: yup.string(),
   name: yup.string().required(),
   surname: yup.string().required(),
-  age: yup.number().positive().required(),
+  birth: yup.number().positive().required("Year of Birth is a required field"),
   phone: yup.string().required(),
+  gender: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
   otherUniversityName: yup.string().when("university", {
@@ -48,8 +49,8 @@ const schema = yup.object().shape({
     .required(),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password"), null])
-    .required("passwords do not match"),
+    .oneOf([yup.ref("password"), null], "Passwords do not match")
+    .required("Passwords do not match"),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   dataTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
@@ -156,15 +157,20 @@ const SignUp = (props) => {
             onSubmit={async (values) => {
               try {
                 const formData = new FormData();
-                formData.append(
-                  "image",
-                  values.image,
-                  values.name + values.surname + values.phone
-                );
+                if (values.image) {
+                  formData.append(
+                    "image",
+                    values.image,
+                    values.name + values.surname + values.birth
+                  );
+                } else {
+                  formData.append("image", null);
+                }
                 formData.append("name", values.name);
                 formData.append("surname", values.surname);
-                formData.append("age", values.age);
+                formData.append("birth", values.birth);
                 formData.append("phone", values.phone);
+                formData.append("gender", values.gender);
                 formData.append("email", values.email);
                 formData.append("university", values.university);
                 formData.append(
@@ -219,8 +225,9 @@ const SignUp = (props) => {
               image: "",
               name: "",
               surname: "",
-              age: "",
+              birth: "",
               phone: "",
+              gender: "",
               email: "",
               university: "",
               otherUniversityName: "",
@@ -244,18 +251,15 @@ const SignUp = (props) => {
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">
                   <div className="col-lg-12 col-md-12 col-12">
+                    <h3 className="center_text">Profile picture</h3>
                     <ImageInput
                       onChange={(event) => {
                         setFieldValue("image", event.target.files[0]);
                       }}
-                      errorRequired={
-                        <ErrorMessage
-                          className="error"
-                          name="image"
-                          component="div"
-                        />
-                      }
                     />
+                    <p className="mt--10 information center_text">
+                      *optional - we will asign you a cool traditional avatar
+                    </p>
                   </div>
                 </div>
                 <div className="row">
@@ -287,10 +291,14 @@ const SignUp = (props) => {
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <Field type="number" placeholder="Age" name="age" />
+                      <Field
+                        type="number"
+                        placeholder="Year of Birth"
+                        name="birth"
+                      />
                       <ErrorMessage
                         className="error"
-                        name="age"
+                        name="birth"
                         component="div"
                       />
                     </div>
@@ -308,6 +316,23 @@ const SignUp = (props) => {
                         component="div"
                       />
                     </div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-lg-6 col-md-6 col-12">
+                    <Field as="select" name="gender">
+                      <option value="" disabled>
+                        Gender (for avatar purpose only)
+                      </option>
+                      <option value="m">Male</option>
+                      <option value="f">Female</option>
+                      <option value="O">Other</option>
+                    </Field>
+                    <ErrorMessage
+                      className="error"
+                      name="gender"
+                      component="div"
+                    />
                   </div>
                 </div>
                 <div className="row">
@@ -480,6 +505,7 @@ const SignUp = (props) => {
                     </option>
                     <option value="Email">Email</option>
                     <option value="WhatsApp">WhatsApp</option>
+                    <option value="Email & WhatsApp">Both</option>
                   </Field>
                 </div>
                 <div className="col-lg-6 col-md-12 col-12">

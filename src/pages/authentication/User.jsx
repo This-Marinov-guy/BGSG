@@ -17,9 +17,10 @@ import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 
 const schema = yup.object().shape({
+  image: yup.string(),
   name: yup.string().required(),
   surname: yup.string().required(),
-  age: yup.number().positive().required(),
+  birth: yup.number().positive().required("Year of Birth is a required field"),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
@@ -122,14 +123,18 @@ const User = () => {
             onSubmit={async (values) => {
               try {
                 const formData = new FormData();
-                formData.append(
-                  "image",
-                  values.image,
-                  currentUser.name + currentUser.surname + currentUser.phone
-                );
+                if (values.image) {
+                  formData.append(
+                    "image",
+                    values.image,
+                    currentUser.name + currentUser.surname + currentUser.birth
+                  );
+                } else {
+                  formData.append("image", null);
+                }
                 formData.append("name", values.name);
                 formData.append("surname", values.surname);
-                formData.append("age", values.age);
+                formData.append("birth", values.birth);
                 formData.append("phone", values.phone);
                 formData.append("email", values.email);
                 formData.append("university", values.university);
@@ -155,7 +160,7 @@ const User = () => {
               image: currentUser.image,
               name: currentUser.name,
               surname: currentUser.surname,
-              age: currentUser.age,
+              birth: currentUser.birth,
               phone: currentUser.phone,
               email: currentUser.email,
               university: currentUser.university,
@@ -180,12 +185,12 @@ const User = () => {
                   <FiX className="mr--20" onClick={closeHandler} />
                 </div>
                 <div className="row mb--40 mt--40">
-                  
                   <div className="col-lg-12 col-md-12 col-12">
                     <ImageInput
                       onChange={(event) => {
                         setFieldValue("image", event.target.files[0]);
                       }}
+                      intialImage={currentUser.image}
                       errorRequired={
                         <ErrorMessage
                           className="error"
@@ -195,7 +200,6 @@ const User = () => {
                       }
                     />
                   </div>
-                  
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
@@ -226,10 +230,14 @@ const User = () => {
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <Field type="number" placeholder="Age" name="age" />
+                      <Field
+                        type="number"
+                        placeholder="Year of Birth"
+                        name="birth"
+                      />
                       <ErrorMessage
                         className="error"
-                        name="age"
+                        name="birth"
                         component="div"
                       />
                     </div>
@@ -397,8 +405,8 @@ const User = () => {
                         {currentUser.name + " " + currentUser.surname}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> Age:{" "}
-                        {currentUser.age}
+                        <FiCircle style={{ fontSize: "14px" }} /> Year of Birth:{" "}
+                        {currentUser.birth}
                       </li>
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> Email:{" "}

@@ -3,13 +3,14 @@ import { FiImage, FiUserPlus } from "react-icons/fi";
 
 const ImageInput = (props) => {
   const [file, setFile] = useState();
-  const [previewUrl, setPreviewUrl] = useState();
+  const [previewUrl, setPreviewUrl] = useState(props.intialImage);
   const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {
     if (!file) {
       return;
     }
+
     const fileReader = new FileReader();
     fileReader.onload = () => {
       setPreviewUrl(fileReader.result);
