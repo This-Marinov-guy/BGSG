@@ -20,7 +20,7 @@ const MemberPurchase = (props) => {
   };
 
   useEffect(() => {
-    setTimeout(init, 100);
+    setTimeout(init, 200);
   }, [currentUser]);
 
   useEffect(() => {
@@ -49,18 +49,19 @@ const MemberPurchase = (props) => {
       layout.save();
 
       // text
-      let textName = currentUser.name;
+      let textName = 'Vladislav';
       layout.rotate(4.71);
       layout.font = "bold 70px Mozer";
       layout.fillStyle = "#faf9f6";
-      layout.strokeText(textName, -540, 1520);
-      layout.fillText(textName, -540, 1520);
+      layout.textAlign = "center";
+      layout.strokeText(textName, -340, 1520);
 
       layout.font = "bold 70px Mozer";
       layout.fillStyle = "#faf9f6";
-      let textSurname = currentUser.surname;
-      layout.strokeText(textSurname, -360, 1600);
-      layout.fillText(textSurname, -360, 1600);
+      let textSurname = 'Marinnov';
+      layout.textAlign = "center";
+      layout.strokeText(textSurname, -340, 1600);
+      layout.fillText(textSurname, -340, 1600);
     };
   };
 

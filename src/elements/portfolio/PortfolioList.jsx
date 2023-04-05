@@ -29,10 +29,6 @@ class PortfolioList extends Component {
               </div>
               <div className="content">
                 <div className="inner">
-                  <p>{value.category}</p>
-                  <h3>
-                    <p>{value.title}</p>
-                  </h3>
                   <div className="portfolio-button">
                     <a className="rn-btn" href={`/portfolio-details/${index}`}>
                       View Details

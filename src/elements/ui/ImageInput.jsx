@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FiImage, FiUserPlus } from "react-icons/fi";
+import { FiImage } from "react-icons/fi";
 
 const ImageInput = (props) => {
   const [file, setFile] = useState();

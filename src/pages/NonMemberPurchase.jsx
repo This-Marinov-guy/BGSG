@@ -120,7 +120,7 @@ const NonMemberPurchase = (props) => {
                   formData.append(
                     "ticket",
                     dataBlob,
-                    "freedom_fest_GUEST"
+                    "freedom_fest_" + values.name + values.surname + "_GUEST"
                   );
                   const responseData = await sendRequest(
                     "event/purchase-ticket/guest",

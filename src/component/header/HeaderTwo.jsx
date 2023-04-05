@@ -66,7 +66,7 @@ const HeaderTwo = () => {
           <div className="header-right header-red">
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
-                <li>
+                <li className="google_btn_item">
                   <img
                     src="/assets/images/logo/google.png"
                     alt="google"

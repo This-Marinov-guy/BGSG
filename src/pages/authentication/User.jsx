@@ -16,12 +16,13 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 
+
 const schema = yup.object().shape({
   image: yup.string(),
   name: yup.string().required(),
   surname: yup.string().required(),
   birth: yup.number().positive().required("Year of Birth is a required field"),
-  phone: yup.string().required(),
+  phone: yup.string().min(8).required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
   otherUniversityName: yup.string().when("university", {
@@ -157,7 +158,7 @@ const User = () => {
               } catch (err) {}
             }}
             initialValues={{
-              image: currentUser.image,
+              image: '',
               name: currentUser.name,
               surname: currentUser.surname,
               birth: currentUser.birth,
@@ -244,11 +245,14 @@ const User = () => {
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                      <Field
+                    <Field
                         type="tel"
-                        placeholder="Phone (WhatsApp)"
+                        placeholder="WhatsApp Phone "
                         name="phone"
-                      />
+                      ></Field>
+                      <p className="information">
+                        Please type your number with + and country code
+                      </p>
                       <ErrorMessage
                         className="error"
                         name="phone"
@@ -322,7 +326,7 @@ const User = () => {
                     <div className="col-lg-6 col-md-12 col-12">
                       <div className="rnform-group">
                         <Field
-                          type="number"
+                          type="text"
                           placeholder="Student Number"
                           name="studentNumber"
                         ></Field>
@@ -353,6 +357,7 @@ const User = () => {
                     </option>
                     <option value="Email">Email</option>
                     <option value="WhatsApp">WhatsApp</option>
+                    <option value="Email & WhatsApp">Both</option>
                   </Field>
                 </div>
                 {loading ? (
@@ -441,7 +446,7 @@ const User = () => {
                     Open submissions for Active members! Press here to submit a
                     request and we will reach you soon
                   </p>
-                  <button className="rn-button-style--2 btn-solid mt--20">
+                  <button className="rn-button-style--2 btn-solid mt--20" disabled>
                     Become an Active Member
                   </button>
                 </li>

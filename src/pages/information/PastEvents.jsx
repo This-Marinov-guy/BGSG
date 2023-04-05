@@ -73,10 +73,6 @@ class PastEvents extends Component {
                             </div>
                             <div className="content">
                               <div className="inner">
-                                <p>{value.category}</p>
-                                <h4>
-                                  <p>{value.title}</p>
-                                </h4>
                                 <div className="portfolio-button">
                                   <a
                                     className="rn-btn"

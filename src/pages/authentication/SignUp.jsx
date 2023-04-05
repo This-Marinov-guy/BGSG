@@ -19,8 +19,7 @@ const schema = yup.object().shape({
   name: yup.string().required(),
   surname: yup.string().required(),
   birth: yup.number().positive().required("Year of Birth is a required field"),
-  phone: yup.string().required(),
-  gender: yup.string().required(),
+  phone: yup.string().min(8).required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
   otherUniversityName: yup.string().when("university", {
@@ -68,8 +67,6 @@ const SignUp = (props) => {
   const dispatch = useDispatch();
 
   const history = useHistory();
-
-  const user = useSelector(selectUser);
 
   const { loading, sendRequest } = useHttpClient();
 
@@ -170,7 +167,6 @@ const SignUp = (props) => {
                 formData.append("surname", values.surname);
                 formData.append("birth", values.birth);
                 formData.append("phone", values.phone);
-                formData.append("gender", values.gender);
                 formData.append("email", values.email);
                 formData.append("university", values.university);
                 formData.append(
@@ -227,7 +223,6 @@ const SignUp = (props) => {
               surname: "",
               birth: "",
               phone: "",
-              gender: "",
               email: "",
               university: "",
               otherUniversityName: "",
@@ -307,32 +302,18 @@ const SignUp = (props) => {
                     <div className="rnform-group">
                       <Field
                         type="tel"
-                        placeholder="Phone (WhatsApp)"
+                        placeholder="WhatsApp Phone "
                         name="phone"
-                      />
+                      ></Field>
+                      <p className="information">
+                        Please type your number with + and country code
+                      </p>
                       <ErrorMessage
                         className="error"
                         name="phone"
                         component="div"
                       />
                     </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-6 col-md-6 col-12">
-                    <Field as="select" name="gender">
-                      <option value="" disabled>
-                        Gender (for avatar purpose only)
-                      </option>
-                      <option value="m">Male</option>
-                      <option value="f">Female</option>
-                      <option value="O">Other</option>
-                    </Field>
-                    <ErrorMessage
-                      className="error"
-                      name="gender"
-                      component="div"
-                    />
                   </div>
                 </div>
                 <div className="row">
@@ -400,7 +381,7 @@ const SignUp = (props) => {
                     <div className="col-lg-6 col-md-12 col-12">
                       <div className="rnform-group">
                         <Field
-                          type="number"
+                          type="text"
                           placeholder="Student Number"
                           name="studentNumber"
                         ></Field>
