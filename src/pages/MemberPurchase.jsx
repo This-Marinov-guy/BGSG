@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PageHelmet from "../component/common/Helmet";
 import Header from "../component/header/Header";
 import { useHistory, useParams } from "react-router-dom";
@@ -8,7 +8,7 @@ import Alert from "react-bootstrap/Alert";
 import { FiX } from "react-icons/fi";
 
 const MemberPurchase = (props) => {
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState();
   const { loading, sendRequest } = useHttpClient();
 
   const history = useHistory();
@@ -18,10 +18,6 @@ const MemberPurchase = (props) => {
   const closeHandler = () => {
     props.setNotification(null);
   };
-
-  useEffect(() => {
-    setTimeout(init, 200);
-  }, [currentUser]);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -35,21 +31,19 @@ const MemberPurchase = (props) => {
     fetchCurrentUser();
   }, [sendRequest, userId]);
 
-  const init = () => {
-    const canvas = document.getElementById("canvas");
-    const layout = canvas.getContext("2d");
-    let img = new Image();
-    img.src = "/assets/images/tickets/ticket.png";
-
-    img.onload = () => {
-      // image
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      layout.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight);
-      layout.save();
-
+  const submitHandler = async () => {
+    try {
+      // Create a canvas element, add the image and text, covert to blob
+      var canvas = document.createElement("canvas");
+      var layout = canvas.getContext("2d");
+      let ticket = new Image();
+      ticket.src = "/assets/images/tickets/ticket.png";
+      //image
+      canvas.width = ticket.naturalWidth;
+      canvas.height = ticket.naturalHeight;
+      layout.drawImage(ticket, 0, 0, ticket.naturalWidth, ticket.naturalHeight);
       // text
-      let textName = 'Vladislav';
+      let textName = currentUser.name;
       layout.rotate(4.71);
       layout.font = "bold 70px Mozer";
       layout.fillStyle = "#faf9f6";
@@ -58,19 +52,15 @@ const MemberPurchase = (props) => {
 
       layout.font = "bold 70px Mozer";
       layout.fillStyle = "#faf9f6";
-      let textSurname = 'Marinnov';
+      let textSurname = currentUser.surname;
       layout.textAlign = "center";
       layout.strokeText(textSurname, -340, 1600);
       layout.fillText(textSurname, -340, 1600);
-    };
-  };
-
-  const submitHandler = async () => {
-    try {
-      const canvas = document.getElementById("canvas");
+      // blob
       const dataBlob = await new Promise((resolve) =>
         canvas.toBlob((blob) => resolve(blob), "image/jpeg")
       );
+      // formData
       const formData = new FormData();
       formData.append("eventName", "freedom fest");
       formData.append("eventDate", "03.03.2023");
@@ -115,8 +105,15 @@ const MemberPurchase = (props) => {
       <div className="container mt--200">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
-      <div style={{ margin: "auto", width: "80%" }} className="row slide-down">
-        <canvas id="canvas" name="canvas" />
+      <div
+        style={{ margin: "auto", width: "80%" }}
+        className="row slide-down center_div"
+      >
+        <img
+          src="/assets/images/portfolio/portfolio-big-01.jpg"
+          alt="Event"
+          className="title_img"
+        />
       </div>
       <div
         style={{ width: "80%" }}
@@ -133,7 +130,6 @@ const MemberPurchase = (props) => {
           </div>
         </div>
         <div className="col-lg-6 col-md-12 col-12">
-          <div className="container">
             {loading ? (
               <Loader />
             ) : (
@@ -151,7 +147,6 @@ const MemberPurchase = (props) => {
             </p>
           </div>
         </div>
-      </div>
     </Fragment>
   ) : (
     <Loader />

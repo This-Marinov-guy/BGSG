@@ -1,11 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
 import { useHttpClient } from "../hooks/http-hook";
 import PageHelmet from "../component/common/Helmet";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 import Header from "../component/header/Header";
 import Loader from "../elements/ui/Loader";
 import Alert from "react-bootstrap/Alert";
@@ -21,15 +19,9 @@ const schema = yup.object().shape({
 });
 
 const NonMemberPurchase = (props) => {
-  const [expand, setExpand] = useState(false);
-
   const { loading, sendRequest } = useHttpClient();
 
   const history = useHistory();
-
-  const expandHandler = () => {
-    setExpand(!expand);
-  };
 
   const closeHandler = () => {
     props.setNotification(null);
@@ -50,21 +42,11 @@ const NonMemberPurchase = (props) => {
       <div className="row purchase_panel">
         <div style={{ width: "40%" }} className="col-lg-4 col-md-12 col-12">
           <div className="event_details">
-            <OverlayTrigger
-              overlay={
-                <Tooltip id="tooltip-disabled">
-                  {expand ? "Click to Shrink" : "Click to Expand"}
-                </Tooltip>
-              }
-            >
-              <img
-                src="/assets/images/tickets/ticket.png"
-                alt="ticket"
-                id="ticket"
-                className={expand ? "title_img expand_img" : "title_img"}
-                onClick={expandHandler}
-              />
-            </OverlayTrigger>
+            <img
+              src="/assets/images/portfolio/portfolio-big-01.jpg"
+              alt="Event"
+              className="title_img"
+            />
             <h2 className="mt--40">Event Details</h2>
             <p>Name: Freedome Fest</p>
             <p>Date: 23.1.2021</p>
@@ -76,7 +58,7 @@ const NonMemberPurchase = (props) => {
                 By becoming a member the cost of the ticket will be reduced and
                 the information will be prefilled for ticket purchasing
               </p>
-              <a className="rn-button-style--2 btn-solid">
+              <a className="rn-button-style--2 btn-solid" href="/signup">
                 <span>Become a Member</span>
               </a>
             </div>
@@ -92,10 +74,12 @@ const NonMemberPurchase = (props) => {
               validationSchema={schema}
               onSubmit={async (values) => {
                 try {
-                  // Create an empty canvas element, add the image and covert to blob
-                  const ticket = document.getElementById("ticket");
+                  // Create a canvas element, add the image and text, covert to blob
                   var canvas = document.createElement("canvas");
                   var layout = canvas.getContext("2d");
+                  let ticket = new Image();
+                  ticket.src = "/assets/images/tickets/ticket.png";
+                  //image
                   canvas.width = ticket.naturalWidth;
                   canvas.height = ticket.naturalHeight;
                   layout.drawImage(
@@ -105,9 +89,25 @@ const NonMemberPurchase = (props) => {
                     ticket.naturalWidth,
                     ticket.naturalHeight
                   );
+                  // text
+                  let textName = values.name;
+                  layout.rotate(4.71);
+                  layout.font = "bold 70px Mozer";
+                  layout.fillStyle = "#faf9f6";
+                  layout.textAlign = "center";
+                  layout.strokeText(textName, -340, 1520);
+
+                  layout.font = "bold 70px Mozer";
+                  layout.fillStyle = "#faf9f6";
+                  let textSurname = values.surname;
+                  layout.textAlign = "center";
+                  layout.strokeText(textSurname, -340, 1600);
+                  layout.fillText(textSurname, -340, 1600);
+                  // blob
                   const dataBlob = await new Promise((resolve) =>
                     canvas.toBlob((blob) => resolve(blob), "image/jpeg")
                   );
+                  // formData
                   const formData = new FormData();
                   formData.append("eventName", "freedom fest");
                   formData.append("eventDate", "03.03.2023");
@@ -154,7 +154,11 @@ const NonMemberPurchase = (props) => {
               }}
             >
               {() => (
-                <Form encType="multipart/form-data" id="form" style={{ padding: "50px" }}>
+                <Form
+                  encType="multipart/form-data"
+                  id="form"
+                  style={{ padding: "50px" }}
+                >
                   <h3>Fill your details and buy a ticket</h3>
                   <div className="col-lg-12 col-md-12 col-12">
                     <div className="rnform-group">
@@ -194,8 +198,8 @@ const NonMemberPurchase = (props) => {
                     <div className="rnform-group">
                       <Field type="tel" placeholder="Phone" name="phone" />
                       <p className="information">
-                        Please enter your real number as it might be used to prove
-                        your identity on the entry
+                        Please enter your real number as it might be used to
+                        prove your identity on the entry
                       </p>
                       <ErrorMessage
                         className="error"
