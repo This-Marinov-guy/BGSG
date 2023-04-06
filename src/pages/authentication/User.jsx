@@ -15,7 +15,7 @@ import Tooltip from "react-bootstrap/Tooltip";
 import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
-
+import Locked from "../../elements/ui/Locked";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -92,30 +92,7 @@ const User = () => {
         colorblack="color--black"
         logoname="logo.png"
       />
-      {currentUser.status !== "active" && (
-        <ModalWindow static="static" show={currentUser.status} freeze>
-          <div style={{ padding: "40px" }} className="center_section">
-            <h2>Your account is locked</h2>
-            <p className="center_text">
-              To continue using the benefits of a member please pay the 5euro
-              subscription for the following semester!
-            </p>
-            {loading ? (
-              <Loader />
-            ) : (
-              <button
-                onClick={() => {}}
-                className="rn-button-style--2 btn-solid mt--40"
-              >
-                Pay and unlock
-              </button>
-            )}
-            <a href="/" className="rn-button-style--2 rn-btn-green mt--40">
-              Back to Home
-            </a>
-          </div>
-        </ModalWindow>
-      )}
+      {currentUser.status !== "active" && <Locked show={currentUser.status} />}
       {modal && (
         <ModalWindow show={modal}>
           <Formik
@@ -158,7 +135,7 @@ const User = () => {
               } catch (err) {}
             }}
             initialValues={{
-              image: '',
+              image: "",
               name: currentUser.name,
               surname: currentUser.surname,
               birth: currentUser.birth,
@@ -245,7 +222,7 @@ const User = () => {
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
-                    <Field
+                      <Field
                         type="tel"
                         placeholder="WhatsApp Phone "
                         name="phone"
@@ -446,7 +423,10 @@ const User = () => {
                     Open submissions for Active members! Press here to submit a
                     request and we will reach you soon
                   </p>
-                  <button className="rn-button-style--2 btn-solid mt--20" disabled>
+                  <button
+                    className="rn-button-style--2 btn-solid mt--20"
+                    disabled
+                  >
                     Become an Active Member
                   </button>
                 </li>

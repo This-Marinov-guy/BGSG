@@ -87,7 +87,7 @@ const HeaderTwo = () => {
                       <Link to="/board-members">Meet the Board</Link>
                     </li>
                     <li>
-                      <Link to="/active-members">Meet the Committees</Link>
+                      <Link to="/committees">Meet the Committees</Link>
                     </li>
                   </ul>
                 </li>

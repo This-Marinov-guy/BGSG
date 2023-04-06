@@ -17,7 +17,7 @@ export const useHttpClient = () => {
       activeHttpRequests.current.push(httpAbortCtrl);
 
       try {
-        const response = await fetch('http://localhost:80/api/' + url, {
+        const response = await fetch("http://localhost:80/api/" + url, {
           method,
           body,
           headers,

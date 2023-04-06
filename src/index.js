@@ -26,7 +26,7 @@ import Contact from "./pages/information/Contact";
 import Policy from "./pages/information/Policy";
 import error404 from "./pages/error404";
 import Board from "./pages/information/Board";
-import ActiveMembers from "./pages/information/ActiveMembers";
+import Committees from "./pages/information/Committees";
 
 import LogIn from "./pages/authentication/LogIn";
 import SignUp from "./pages/authentication/SignUp";
@@ -37,6 +37,7 @@ import EventReflection from "./elements/EventReflection";
 import MemberPurchase from "./pages/MemberPurchase";
 import NonMemberPurchase from "./pages/NonMemberPurchase";
 import Error from "./elements/ui/Error";
+import StripePayment from "./elements/ui/StripePayment";
 
 const Root = () => {
   const [notification, setNotification] = useState();
@@ -113,9 +114,11 @@ const Root = () => {
           <Route exact path={`/about`} component={About} />
           <Route exact path={`/rules-and-regulations`} component={Policy} />
           <Route exact path={`/board-members`} component={Board} />
-          <Route exact path={`/active-members`} component={ActiveMembers} />
+          <Route exact path={`/committees`} component={Committees} />
           <Route exact path={`/past-events`} component={PastEvents} />
-
+          <Route exact path={"/stripe"}>
+            <StripePayment />
+          </Route>
           {user.token ? (
             <Route exact path={"/purchase-ticket/:userId"}>
               <MemberPurchase setNotification={setNotification} />
@@ -151,4 +154,5 @@ root.render(
     <Root />
   </Provider>
 );
-serviceWorker.register();
+
+serviceWorker.unregister();

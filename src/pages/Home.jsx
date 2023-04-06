@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import { Parallax } from "react-parallax";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import Header from "../component/header/Header";
-import BrandTwo from "../elements/BrandTwo";
 import AboutUs from "../component/HomeLayout/homeOne/AboutUs";
 import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
@@ -14,7 +13,7 @@ const SlideList = [
   {
     textPosition: "text-center",
     category: "",
-    title: "Bulgarian Society Groningen",
+    title: "Bulgatian Society Groningen",
     description: "",
     buttonText: "Become a Member",
     buttonLink: "/signup",

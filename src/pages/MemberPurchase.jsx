@@ -4,6 +4,7 @@ import Header from "../component/header/Header";
 import { useHistory, useParams } from "react-router-dom";
 import { useHttpClient } from "../hooks/http-hook";
 import Loader from "../elements/ui/Loader";
+import Locked from "../elements/ui/Locked";
 import Alert from "react-bootstrap/Alert";
 import { FiX } from "react-icons/fi";
 
@@ -102,6 +103,7 @@ const MemberPurchase = (props) => {
         logoname="logo.png"
         dark
       />
+      {currentUser.status !== "active" && <Locked show={currentUser.status} />}
       <div className="container mt--200">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
@@ -130,23 +132,23 @@ const MemberPurchase = (props) => {
           </div>
         </div>
         <div className="col-lg-6 col-md-12 col-12">
-            {loading ? (
-              <Loader />
-            ) : (
-              <button
-                className="rn-button-style--2 btn-solid mt--80"
-                onClick={submitHandler}
-              >
-                <span>Proceed to paying</span>
-              </button>
-            )}
-            <p className="information mt--20">
-              The information for purchasing this ticket will be taken from your
-              account. Be sure it is accurate at it can be use as a prove of
-              your identity on the entry!
-            </p>
-          </div>
+          {loading ? (
+            <Loader />
+          ) : (
+            <button
+              className="rn-button-style--2 btn-solid mt--80"
+              onClick={submitHandler}
+            >
+              <span>Proceed to paying</span>
+            </button>
+          )}
+          <p className="information mt--20">
+            The information for purchasing this ticket will be taken from your
+            account. Be sure it is accurate at it can be use as a prove of your
+            identity on the entry!
+          </p>
         </div>
+      </div>
     </Fragment>
   ) : (
     <Loader />

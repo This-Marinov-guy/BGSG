@@ -6,7 +6,7 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 
-class Board extends Component {
+class Committees extends Component {
   render() {
     return (
       <React.Fragment>
@@ -45,4 +45,4 @@ class Board extends Component {
     );
   }
 }
-export default Board;
+export default Committees;
