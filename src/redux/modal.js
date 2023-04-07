@@ -5,6 +5,7 @@ export const modalSlice = createSlice({
   initialState: {
     modal: false,
     warning: false,
+    purchase: false,
   },
   reducers: {
     showModal: (state) => {
@@ -19,12 +20,25 @@ export const modalSlice = createSlice({
     removeWarning: (state) => {
       state.warning = false;
     },
+    showPurchase: (state) => {
+      state.purchase = true;
+    },
+    removePurchase: (state) => {
+      state.purchase = false;
+    },
   },
 });
 
 export const selectModal = (state) => state.modal.modal;
 export const selectWarning = (state) => state.modal.warning;
+export const selectPurchase = (state) => state.modal.purchase;
 
-export const { removeModal, showModal, showWarning, removeWarning } =
-  modalSlice.actions;
+export const {
+  removeModal,
+  showModal,
+  showWarning,
+  removeWarning,
+  showPurchase,
+  removePurchase,
+} = modalSlice.actions;
 export default modalSlice.reducer;

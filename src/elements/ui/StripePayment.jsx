@@ -3,13 +3,29 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "./Loader";
+import ModalWindow from "./ModalWindow";
 import CheckoutForm from "./CheckoutForm";
+import { useDispatch, useSelector } from "react-redux";
+import { removePurchase, selectPurchase } from "../../redux/modal";
+import { FiX } from "react-icons/fi";
 
 const StripePayment = (props) => {
+  const appearance = {
+    theme: "stripe",
+  };
+
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
 
+  const purchase = useSelector(selectPurchase);
+
+  const dispatch = useDispatch();
+
   const { sendRequest } = useHttpClient();
+
+  const closeHandler = () => {
+    dispatch(removePurchase());
+  };
 
   useEffect(() => {
     const config = async () => {
@@ -32,6 +48,7 @@ const StripePayment = (props) => {
           "POST",
           JSON.stringify({
             amount: 1,
+            email: "vlady1002@abv.bg",
           }),
           {
             "Content-Type": "application/json",
@@ -46,16 +63,22 @@ const StripePayment = (props) => {
   }, []);
 
   return (
-    <Fragment>
-      <h1>Payment</h1>
-      {stripePromise && clientSecret ? (
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm />
-        </Elements>
-      ) : (
-        <Loader />
-      )}
-    </Fragment>
+    <ModalWindow static="static" show={!purchase} freeze>
+      <div style={{ padding: "40px" }} className="center_section">
+        <h1>Payment</h1>
+        <FiX className="x_icon" onClick={closeHandler} />
+        {stripePromise && clientSecret ? (
+          <Elements
+            stripe={stripePromise}
+            options={{ clientSecret, appearance }}
+          >
+            <CheckoutForm handleSuccess={props.handleSuccess} />
+          </Elements>
+        ) : (
+          <Loader />
+        )}
+      </div>
+    </ModalWindow>
   );
 };
 

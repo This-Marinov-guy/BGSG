@@ -1,13 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import * as yup from "yup";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useFormikContext, Formik, Form, Field, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
 import { useHttpClient } from "../hooks/http-hook";
 import PageHelmet from "../component/common/Helmet";
 import Header from "../component/header/Header";
 import Loader from "../elements/ui/Loader";
 import Alert from "react-bootstrap/Alert";
+import ModalWindow from "../elements/ui/ModalWindow";
 import { FiX } from "react-icons/fi";
+import { selectModal, showModal } from "../redux/modal";
+import { useDispatch, useSelector } from "react-redux";
+import StripePayment from "../elements/ui/StripePayment";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -21,10 +25,20 @@ const schema = yup.object().shape({
 const NonMemberPurchase = (props) => {
   const { loading, sendRequest } = useHttpClient();
 
+  const modal = useSelector(selectModal);
+
+  const dispatch = useDispatch();
+
   const history = useHistory();
 
   const closeHandler = () => {
     props.setNotification(null);
+  };
+
+  const { submitForm } = useFormikContext();
+
+  const handleSuccess = () => {
+    submitForm();
   };
 
   return (
@@ -159,6 +173,11 @@ const NonMemberPurchase = (props) => {
                   id="form"
                   style={{ padding: "50px" }}
                 >
+                  {modal && (
+                    <ModalWindow>
+                      <StripePayment handleSuccess={handleSuccess} />
+                    </ModalWindow>
+                  )}
                   <h3>Fill your details and buy a ticket</h3>
                   <div className="col-lg-12 col-md-12 col-12">
                     <div className="rnform-group">
@@ -251,21 +270,19 @@ const NonMemberPurchase = (props) => {
                       component="div"
                     />
                   </div>
-                  {loading ? (
-                    <Loader />
-                  ) : (
-                    <button
-                      type="submit"
-                      className="rn-button-style--2 btn-solid mt--80"
-                    >
-                      <span>Proceed to paying</span>
-                    </button>
-                  )}
                 </Form>
               )}
             </Formik>
           </div>
         </div>
+        <button
+          className="rn-button-style--2 btn-solid mt--80"
+          onClick={() => {
+            dispatch(showModal());
+          }}
+        >
+          <span>Proceed to paying</span>
+        </button>
       </div>
     </Fragment>
   );

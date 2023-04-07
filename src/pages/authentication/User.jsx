@@ -7,7 +7,7 @@ import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit, FiChevronUp, FiX, FiImage } from "react-icons/fi";
+import { FiCircle, FiEdit, FiChevronUp, FiX} from "react-icons/fi";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -160,7 +160,7 @@ const User = () => {
               >
                 <div className="hor_section">
                   <h3>Fill your details and register</h3>
-                  <FiX className="mr--20" onClick={closeHandler} />
+                  <FiX className="x_icon" onClick={closeHandler} />
                 </div>
                 <div className="row mb--40 mt--40">
                   <div className="col-lg-12 col-md-12 col-12">

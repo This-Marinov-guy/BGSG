@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { showError } from "../../redux/error";
 import { removeModal } from "../../redux/modal";
 
-const CheckoutForm = () => {
+const CheckoutForm = (props) => {
   const [isProcessing, setIsProcessing] = useState(false);
 
   const stripe = useStripe();
@@ -36,7 +36,13 @@ const CheckoutForm = () => {
 
     if (error) {
       dispatch(showError(error.message));
+    } else if (paymentIntent && paymentIntent.status === "succeeded") {
+      // code to execute after succesful payment
+      props.handleSuccess();
+    } else {
+      dispatch(showError("Payment Failed"));
     }
+
     setIsProcessing(false);
   };
 
