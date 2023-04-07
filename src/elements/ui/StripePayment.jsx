@@ -1,22 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
-import {
-  useStripe,
-  useElements,
-  Elements,
-  PaymentElement,
-} from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
 import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "./Loader";
+import CheckoutForm from "./CheckoutForm";
 
-const StripePayment = () => {
+const StripePayment = (props) => {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
 
-  const { loading, sendRequest } = useHttpClient();
-
-  const handleSubmit = () => {};
+  const { sendRequest } = useHttpClient();
 
   useEffect(() => {
     const config = async () => {
@@ -57,14 +50,7 @@ const StripePayment = () => {
       <h1>Payment</h1>
       {stripePromise && clientSecret ? (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <form id="payment-form" onSubmit={handleSubmit}>
-            <button
-              type="submit"
-              className="rn-button-style--2 btn-solid mt--40"
-            >
-              Pay and unlock
-            </button>
-          </form>
+          <CheckoutForm />
         </Elements>
       ) : (
         <Loader />
