@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import * as yup from "yup";
-import { useFormikContext, Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
 import { useHttpClient } from "../hooks/http-hook";
 import PageHelmet from "../component/common/Helmet";
@@ -23,11 +23,11 @@ const schema = yup.object().shape({
 });
 
 const NonMemberPurchase = (props) => {
+  const [purchase, setPurchase] = useState(false);
+  const [formInputs, setFormInputs] = useState("");
   const { loading, sendRequest } = useHttpClient();
 
   const modal = useSelector(selectModal);
-
-  const dispatch = useDispatch();
 
   const history = useHistory();
 
@@ -35,10 +35,68 @@ const NonMemberPurchase = (props) => {
     props.setNotification(null);
   };
 
-  const { submitForm } = useFormikContext();
+  const handleSuccess = async () => {
+    try {
+      // Create a canvas element, add the image and text, covert to blob
+      var canvas = document.createElement("canvas");
+      var layout = canvas.getContext("2d");
+      let ticket = new Image();
+      ticket.src = "/assets/images/tickets/ticket.png";
+      //image
+      canvas.width = ticket.naturalWidth;
+      canvas.height = ticket.naturalHeight;
+      layout.drawImage(ticket, 0, 0, ticket.naturalWidth, ticket.naturalHeight);
+      // text
+      let textName = formInputs.name;
+      layout.rotate(4.71);
+      layout.font = "bold 70px Mozer";
+      layout.fillStyle = "#faf9f6";
+      layout.textAlign = "center";
+      layout.strokeText(textName, -340, 1520);
 
-  const handleSuccess = () => {
-    submitForm();
+      layout.font = "bold 70px Mozer";
+      layout.fillStyle = "#faf9f6";
+      let textSurname = formInputs.surname;
+      layout.textAlign = "center";
+      layout.strokeText(textSurname, -340, 1600);
+      layout.fillText(textSurname, -340, 1600);
+      // blob
+      const dataBlob = await new Promise((resolve) =>
+        canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+      );
+      // formData
+      const formData = new FormData();
+      formData.append("eventName", "freedom fest");
+      formData.append("eventDate", "03.03.2023");
+      formData.append("guestName", formInputs.name + " " + formInputs.surname);
+      formData.append("guestEmail", formInputs.email);
+      formData.append("guestPhone", formInputs.phone);
+      formData.append(
+        "ticket",
+        dataBlob,
+        "freedom_fest_" + formInputs.name + formInputs.surname + "_GUEST"
+      );
+      const responseData = await sendRequest(
+        "event/purchase-ticket/guest",
+        "POST",
+        formData
+      );
+      props.setNotification(
+        <Alert className="error_panel" variant="success">
+          <div className="action_btns">
+            <h3>Thank you for buying a ticket for our event!</h3>
+            <FiX className="mr--20" onClick={closeHandler} />
+          </div>
+          <p>
+            Please check your email to access your ticket and be sure to have it
+            on the entry! Find more information on the event section. See you
+            there!
+          </p>
+        </Alert>
+      );
+      history.push("/");
+      setTimeout(() => closeHandler(), 10000);
+    } catch (err) {}
   };
 
   return (
@@ -50,6 +108,13 @@ const NonMemberPurchase = (props) => {
         logoname="logo.png"
         dark
       />
+      {purchase && (
+        <StripePayment
+          show={purchase}
+          cancel={() => setPurchase(false)}
+          onSuccess={handleSuccess}
+        />
+      )}
       <div className="container mt--200">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
@@ -86,77 +151,14 @@ const NonMemberPurchase = (props) => {
             <Formik
               className="inner"
               validationSchema={schema}
-              onSubmit={async (values) => {
-                try {
-                  // Create a canvas element, add the image and text, covert to blob
-                  var canvas = document.createElement("canvas");
-                  var layout = canvas.getContext("2d");
-                  let ticket = new Image();
-                  ticket.src = "/assets/images/tickets/ticket.png";
-                  //image
-                  canvas.width = ticket.naturalWidth;
-                  canvas.height = ticket.naturalHeight;
-                  layout.drawImage(
-                    ticket,
-                    0,
-                    0,
-                    ticket.naturalWidth,
-                    ticket.naturalHeight
-                  );
-                  // text
-                  let textName = values.name;
-                  layout.rotate(4.71);
-                  layout.font = "bold 70px Mozer";
-                  layout.fillStyle = "#faf9f6";
-                  layout.textAlign = "center";
-                  layout.strokeText(textName, -340, 1520);
-
-                  layout.font = "bold 70px Mozer";
-                  layout.fillStyle = "#faf9f6";
-                  let textSurname = values.surname;
-                  layout.textAlign = "center";
-                  layout.strokeText(textSurname, -340, 1600);
-                  layout.fillText(textSurname, -340, 1600);
-                  // blob
-                  const dataBlob = await new Promise((resolve) =>
-                    canvas.toBlob((blob) => resolve(blob), "image/jpeg")
-                  );
-                  // formData
-                  const formData = new FormData();
-                  formData.append("eventName", "freedom fest");
-                  formData.append("eventDate", "03.03.2023");
-                  formData.append(
-                    "guestName",
-                    values.name + " " + values.surname
-                  );
-                  formData.append("guestEmail", values.email);
-                  formData.append("guestPhone", values.phone);
-                  formData.append(
-                    "ticket",
-                    dataBlob,
-                    "freedom_fest_" + values.name + values.surname + "_GUEST"
-                  );
-                  const responseData = await sendRequest(
-                    "event/purchase-ticket/guest",
-                    "POST",
-                    formData
-                  );
-                  props.setNotification(
-                    <Alert className="error_panel" variant="success">
-                      <div className="action_btns">
-                        <h3>Thank you for buying a ticket for our event!</h3>
-                        <FiX className="mr--20" onClick={closeHandler} />
-                      </div>
-                      <p>
-                        Please check your email to access your ticket and be
-                        sure to have it on the entry! Find more information on
-                        the event section. See you there!
-                      </p>
-                    </Alert>
-                  );
-                  history.push("/");
-                  setTimeout(() => closeHandler(), 10000);
-                } catch (err) {}
+              onSubmit={(values) => {
+                setFormInputs({
+                  name: values.name,
+                  surname: values.surname,
+                  email: values.email,
+                  phone: values.phone,
+                });
+                setPurchase(true);
               }}
               initialValues={{
                 name: "",
@@ -270,19 +272,21 @@ const NonMemberPurchase = (props) => {
                       component="div"
                     />
                   </div>
+                  {loading ? (
+                    <Loader />
+                  ) : (
+                    <button
+                      type="submit"
+                      className="rn-button-style--2 btn-solid mt--80"
+                    >
+                      <span>Proceed to paying</span>
+                    </button>
+                  )}
                 </Form>
               )}
             </Formik>
           </div>
         </div>
-        <button
-          className="rn-button-style--2 btn-solid mt--80"
-          onClick={() => {
-            dispatch(showModal());
-          }}
-        >
-          <span>Proceed to paying</span>
-        </button>
       </div>
     </Fragment>
   );

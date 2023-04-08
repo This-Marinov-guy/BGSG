@@ -5,8 +5,6 @@ import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "./Loader";
 import ModalWindow from "./ModalWindow";
 import CheckoutForm from "./CheckoutForm";
-import { useDispatch, useSelector } from "react-redux";
-import { removePurchase, selectPurchase } from "../../redux/modal";
 import { FiX } from "react-icons/fi";
 
 const StripePayment = (props) => {
@@ -17,14 +15,10 @@ const StripePayment = (props) => {
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
 
-  const purchase = useSelector(selectPurchase);
-
-  const dispatch = useDispatch();
-
   const { sendRequest } = useHttpClient();
 
   const closeHandler = () => {
-    dispatch(removePurchase());
+    props.cancel();
   };
 
   useEffect(() => {
@@ -63,7 +57,7 @@ const StripePayment = (props) => {
   }, []);
 
   return (
-    <ModalWindow static="static" show={!purchase} freeze>
+    <ModalWindow static="static" show={props.show}>
       <div style={{ padding: "40px" }} className="center_section">
         <h1>Payment</h1>
         <FiX className="x_icon" onClick={closeHandler} />
@@ -72,7 +66,7 @@ const StripePayment = (props) => {
             stripe={stripePromise}
             options={{ clientSecret, appearance }}
           >
-            <CheckoutForm handleSuccess={props.handleSuccess} />
+            <CheckoutForm onSuccess={props.onSuccess} />
           </Elements>
         ) : (
           <Loader />

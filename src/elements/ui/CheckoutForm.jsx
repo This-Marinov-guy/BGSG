@@ -30,6 +30,7 @@ const CheckoutForm = (props) => {
       confirmParams: {
         return_url: `${window.location.origin}`,
       },
+      redirect: "if_required",
     });
 
     dispatch(removeModal());
@@ -38,7 +39,7 @@ const CheckoutForm = (props) => {
       dispatch(showError(error.message));
     } else if (paymentIntent && paymentIntent.status === "succeeded") {
       // code to execute after succesful payment
-      props.handleSuccess();
+      alert("hello");
     } else {
       dispatch(showError("Payment Failed"));
     }

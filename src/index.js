@@ -37,7 +37,6 @@ import EventReflection from "./elements/EventReflection";
 import MemberPurchase from "./pages/MemberPurchase";
 import NonMemberPurchase from "./pages/NonMemberPurchase";
 import Error from "./elements/ui/Error";
-import StripePayment from "./elements/ui/StripePayment";
 
 const Root = () => {
   const [notification, setNotification] = useState();
@@ -116,9 +115,7 @@ const Root = () => {
           <Route exact path={`/board-members`} component={Board} />
           <Route exact path={`/committees`} component={Committees} />
           <Route exact path={`/past-events`} component={PastEvents} />
-          <Route exact path={"/stripe"}>
-            <StripePayment />
-          </Route>
+
           {user.token ? (
             <Route exact path={"/purchase-ticket/:userId"}>
               <MemberPurchase setNotification={setNotification} />
