@@ -16,8 +16,8 @@ const CheckoutForm = (props) => {
   const dispatch = useDispatch();
 
   const paymentElementOptions = {
-    layout: "tabs",
-  };
+    layout: "tabs"
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -36,23 +36,19 @@ const CheckoutForm = (props) => {
       redirect: "if_required",
     });
 
-    //error
-    if (error.type === "card_error" || error.type === "validation_error") {
-      dispatch(showError(error.message));
-      setIsProcessing(false);
-      return;
+    if (error) {
+      console.log(error.message);
+    } else if (paymentIntent && paymentIntent.status === "succeeded") {
+      console.log("successs");
+    } else {
+      console.log('Fail');
     }
 
-    //success
-    if (paymentIntent && paymentIntent.status === "succeeded") {
-      alert("contracts");
-      setIsProcessing(false);
-    }
   };
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <PaymentElement options={paymentElementOptions} />
+      <PaymentElement options={paymentElementOptions}/>
       <button
         type="submit"
         disabled={isProcessing || !stripe || !elements}

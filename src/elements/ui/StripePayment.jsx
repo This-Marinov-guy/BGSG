@@ -4,8 +4,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "./Loader";
 import ModalWindow from "./ModalWindow";
-import CheckoutForm from "./CheckoutForm";
+import InjectedCheckoutForm from "./CheckoutForm";
 import { FiX } from "react-icons/fi";
+import StripeCheckout from 'react-stripe-checkout';
+
 
 const StripePayment = (props) => {
   const [stripePromise, setStripePromise] = useState(null);
@@ -37,7 +39,7 @@ const StripePayment = (props) => {
           "POST",
           JSON.stringify({
             amount: 1,
-            email: "***@abv.bg",
+            email: "vlady1002@abv.bg",
           }),
           {
             "Content-Type": "application/json",
@@ -66,7 +68,7 @@ const StripePayment = (props) => {
         <FiX className="x_icon" onClick={closeHandler} />
         {stripePromise && clientSecret ? (
           <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm
+            <InjectedCheckoutForm
               clientSecret={clientSecret}
               onSuccess={props.onSuccess}
             />
