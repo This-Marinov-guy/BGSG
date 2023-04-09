@@ -6,7 +6,6 @@ import {
 } from "@stripe/react-stripe-js";
 import { useDispatch } from "react-redux";
 import { showError } from "../../redux/error";
-import { removeModal } from "../../redux/modal";
 
 const CheckoutForm = (props) => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -15,6 +14,10 @@ const CheckoutForm = (props) => {
   const elements = useElements();
 
   const dispatch = useDispatch();
+
+  const paymentElementOptions = {
+    layout: "tabs",
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,26 +36,26 @@ const CheckoutForm = (props) => {
       redirect: "if_required",
     });
 
-    dispatch(removeModal());
-
-    if (error) {
+    //error
+    if (error.type === "card_error" || error.type === "validation_error") {
       dispatch(showError(error.message));
-    } else if (paymentIntent && paymentIntent.status === "succeeded") {
-      // code to execute after succesful payment
-      alert("hello");
-    } else {
-      dispatch(showError("Payment Failed"));
+      setIsProcessing(false);
+      return;
     }
 
-    setIsProcessing(false);
+    //success
+    if (paymentIntent && paymentIntent.status === "succeeded") {
+      alert("contracts");
+      setIsProcessing(false);
+    }
   };
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <PaymentElement />
+      <PaymentElement options={paymentElementOptions} />
       <button
         type="submit"
-        disabled={isProcessing}
+        disabled={isProcessing || !stripe || !elements}
         className="rn-button-style--2 btn-solid mt--40"
       >
         {isProcessing ? "Processing..." : "Pay now"}

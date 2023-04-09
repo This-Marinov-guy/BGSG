@@ -108,13 +108,6 @@ const NonMemberPurchase = (props) => {
         logoname="logo.png"
         dark
       />
-      {purchase && (
-        <StripePayment
-          show={purchase}
-          cancel={() => setPurchase(false)}
-          onSuccess={handleSuccess}
-        />
-      )}
       <div className="container mt--200">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
       </div>
@@ -151,14 +144,29 @@ const NonMemberPurchase = (props) => {
             <Formik
               className="inner"
               validationSchema={schema}
-              onSubmit={(values) => {
+              onSubmit={async (values) => {
                 setFormInputs({
                   name: values.name,
                   surname: values.surname,
                   email: values.email,
                   phone: values.phone,
                 });
-                setPurchase(true);
+                try {
+                  const responseData = await sendRequest(
+                    "payment/checkout",
+                    "POST",
+                    JSON.stringify({
+                      itemId: "price_1MudzFIOw5UGbAo1w66nEEEv",
+                      origin_url: window.location.origin,
+                    }),
+                    {
+                      "Content-Type": "application/json",
+                    }
+                  );
+                  if (responseData.url) {
+                    window.location.assign(responseData.url);
+                  }
+                } catch (err) {}
               }}
               initialValues={{
                 name: "",
@@ -175,11 +183,6 @@ const NonMemberPurchase = (props) => {
                   id="form"
                   style={{ padding: "50px" }}
                 >
-                  {modal && (
-                    <ModalWindow>
-                      <StripePayment handleSuccess={handleSuccess} />
-                    </ModalWindow>
-                  )}
                   <h3>Fill your details and buy a ticket</h3>
                   <div className="col-lg-12 col-md-12 col-12">
                     <div className="rnform-group">

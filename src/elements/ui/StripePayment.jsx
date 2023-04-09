@@ -8,10 +8,6 @@ import CheckoutForm from "./CheckoutForm";
 import { FiX } from "react-icons/fi";
 
 const StripePayment = (props) => {
-  const appearance = {
-    theme: "stripe",
-  };
-
   const [stripePromise, setStripePromise] = useState(null);
   const [clientSecret, setClientSecret] = useState(null);
 
@@ -25,8 +21,7 @@ const StripePayment = (props) => {
     const config = async () => {
       try {
         const responseData = await sendRequest(`payment/configure`);
-        const promise = await loadStripe(responseData.publishableKey);
-        setStripePromise(promise);
+        setStripePromise(loadStripe(responseData.publishableKey));
       } catch (err) {
         console.log(err);
       }
@@ -42,7 +37,7 @@ const StripePayment = (props) => {
           "POST",
           JSON.stringify({
             amount: 1,
-            email: "vlady1002@abv.bg",
+            email: "***@abv.bg",
           }),
           {
             "Content-Type": "application/json",
@@ -56,17 +51,25 @@ const StripePayment = (props) => {
     loadPayment();
   }, []);
 
+  const appearance = {
+    theme: "stripe",
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
+
   return (
-    <ModalWindow static="static" show={props.show}>
+    <ModalWindow static="static" show={true}>
       <div style={{ padding: "40px" }} className="center_section">
         <h1>Payment</h1>
         <FiX className="x_icon" onClick={closeHandler} />
         {stripePromise && clientSecret ? (
-          <Elements
-            stripe={stripePromise}
-            options={{ clientSecret, appearance }}
-          >
-            <CheckoutForm onSuccess={props.onSuccess} />
+          <Elements stripe={stripePromise} options={options}>
+            <CheckoutForm
+              clientSecret={clientSecret}
+              onSuccess={props.onSuccess}
+            />
           </Elements>
         ) : (
           <Loader />

@@ -17,7 +17,9 @@ export const useHttpClient = () => {
       activeHttpRequests.current.push(httpAbortCtrl);
 
       try {
-        const response = await fetch("http://localhost:80/api/" + url, {
+        //for production --> process.env.REACT_APP_URL
+        //for testing -----> "http://localhost:80/api/"
+        const response = await fetch(process.env.REACT_APP_URL + url, {
           method,
           body,
           headers,
@@ -38,7 +40,7 @@ export const useHttpClient = () => {
         return responseData;
       } catch (err) {
         dispatch(showError(err.message));
-        setTimeout(()=> dispatch(removeError()), 6000)
+        setTimeout(() => dispatch(removeError()), 6000);
         dispatch(stopLoading());
         throw err;
       }

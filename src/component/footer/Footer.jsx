@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { FaInstagram, FaFlickr, FaFacebookF } from "react-icons/fa";
 
 const SocialShare = [
-  { Social: <FaInstagram />, link: "https://flickr.com/photos/197725983@N03" },
+  {
+    Social: <FaInstagram />,
+    link: "https://www.instagram.com/bulgariansociety.gro/?igshid=YmMyMTA2M2Y%3D",
+  },
   {
     Social: <FaFacebookF />,
     link: "https://www.facebook.com/profile.php?id=100090061861023",
   },
   {
     Social: <FaFlickr />,
-    link: "https://www.instagram.com/bulgariansociety.gro/?igshid=YmMyMTA2M2Y%3D",
+    link: "https://flickr.com/photos/197725983@N03",
   },
 ];
 class Footer extends Component {
@@ -87,8 +90,16 @@ class Footer extends Component {
                           Copyright © 2022 Bulgarian Society Groningen. All
                           Rights Reserved.
                         </p>
-                        <div style={{fontSize:'15px'}} className="information">Fonts provided from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> and licensed by CC BY 3.0</div>
-
+                        <div
+                          style={{ fontSize: "15px" }}
+                          className="information"
+                        >
+                          Fonts provided from{" "}
+                          <a href="http://www.onlinewebfonts.com">
+                            oNline Web Fonts
+                          </a>{" "}
+                          and licensed by CC BY 3.0
+                        </div>
                       </div>
                     </div>
                   </div>
