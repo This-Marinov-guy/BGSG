@@ -38,6 +38,8 @@ import MemberPurchase from "./pages/MemberPurchase";
 import NonMemberPurchase from "./pages/NonMemberPurchase";
 import Error from "./elements/ui/Error";
 import StripePayment from "./elements/ui/StripePayment";
+import Fail from "./pages/redirects/Fail";
+import Success from "./pages/redirects/Success";
 
 const Root = () => {
   const [notification, setNotification] = useState();
@@ -109,7 +111,11 @@ const Root = () => {
         <Switch>
           <Route exact path="/" component={Home} />
 
-          {/* Element Layot */}
+          {/* Element Layout */}
+          <Route exact path={`/fail`} component={Fail} />
+          <Route exact path={`/success`}>
+            <Success onSuccess={()=>{}}/>
+          </Route>
           <Route exact path={`/contact`} component={Contact} />
           <Route exact path={`/about`} component={About} />
           <Route exact path={`/rules-and-regulations`} component={Policy} />

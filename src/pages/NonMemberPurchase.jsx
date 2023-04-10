@@ -7,11 +7,7 @@ import PageHelmet from "../component/common/Helmet";
 import Header from "../component/header/Header";
 import Loader from "../elements/ui/Loader";
 import Alert from "react-bootstrap/Alert";
-import ModalWindow from "../elements/ui/ModalWindow";
 import { FiX } from "react-icons/fi";
-import { selectModal, showModal } from "../redux/modal";
-import { useDispatch, useSelector } from "react-redux";
-import StripePayment from "../elements/ui/StripePayment";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -27,78 +23,12 @@ const NonMemberPurchase = (props) => {
   const [formInputs, setFormInputs] = useState("");
   const { loading, sendRequest } = useHttpClient();
 
-  const modal = useSelector(selectModal);
-
   const history = useHistory();
 
   const closeHandler = () => {
     props.setNotification(null);
   };
-
-  const handleSuccess = async () => {
-    try {
-      // Create a canvas element, add the image and text, covert to blob
-      var canvas = document.createElement("canvas");
-      var layout = canvas.getContext("2d");
-      let ticket = new Image();
-      ticket.src = "/assets/images/tickets/ticket.png";
-      //image
-      canvas.width = ticket.naturalWidth;
-      canvas.height = ticket.naturalHeight;
-      layout.drawImage(ticket, 0, 0, ticket.naturalWidth, ticket.naturalHeight);
-      // text
-      let textName = formInputs.name;
-      layout.rotate(4.71);
-      layout.font = "bold 70px Mozer";
-      layout.fillStyle = "#faf9f6";
-      layout.textAlign = "center";
-      layout.strokeText(textName, -340, 1520);
-
-      layout.font = "bold 70px Mozer";
-      layout.fillStyle = "#faf9f6";
-      let textSurname = formInputs.surname;
-      layout.textAlign = "center";
-      layout.strokeText(textSurname, -340, 1600);
-      layout.fillText(textSurname, -340, 1600);
-      // blob
-      const dataBlob = await new Promise((resolve) =>
-        canvas.toBlob((blob) => resolve(blob), "image/jpeg")
-      );
-      // formData
-      const formData = new FormData();
-      formData.append("eventName", "freedom fest");
-      formData.append("eventDate", "03.03.2023");
-      formData.append("guestName", formInputs.name + " " + formInputs.surname);
-      formData.append("guestEmail", formInputs.email);
-      formData.append("guestPhone", formInputs.phone);
-      formData.append(
-        "ticket",
-        dataBlob,
-        "freedom_fest_" + formInputs.name + formInputs.surname + "_GUEST"
-      );
-      const responseData = await sendRequest(
-        "event/purchase-ticket/guest",
-        "POST",
-        formData
-      );
-      props.setNotification(
-        <Alert className="error_panel" variant="success">
-          <div className="action_btns">
-            <h3>Thank you for buying a ticket for our event!</h3>
-            <FiX className="mr--20" onClick={closeHandler} />
-          </div>
-          <p>
-            Please check your email to access your ticket and be sure to have it
-            on the entry! Find more information on the event section. See you
-            there!
-          </p>
-        </Alert>
-      );
-      history.push("/");
-      setTimeout(() => closeHandler(), 10000);
-    } catch (err) {}
-  };
-
+  
   return (
     <Fragment>
       <PageHelmet pageTitle="Buy Ticket" />
@@ -120,7 +50,7 @@ const NonMemberPurchase = (props) => {
               className="title_img"
             />
             <h2 className="mt--40">Event Details</h2>
-            <p>Name: Freedome Fest</p>
+            <p>Name: Freedom Fest</p>
             <p>Date: 23.1.2021</p>
             <p>Time: 8:00</p>
             <p>Address: Groningen</p>
@@ -145,23 +75,62 @@ const NonMemberPurchase = (props) => {
               className="inner"
               validationSchema={schema}
               onSubmit={async (values) => {
-                setFormInputs({
-                  name: values.name,
-                  surname: values.surname,
-                  email: values.email,
-                  phone: values.phone,
-                });
+                // // Create a canvas element, add the image and text, covert to blob
+                // var canvas = document.createElement("canvas");
+                // var layout = canvas.getContext("2d");
+                // let ticket = new Image();
+                // ticket.src = "/assets/images/tickets/ticket.png";
+                // //image
+                // canvas.width = ticket.naturalWidth;
+                // canvas.height = ticket.naturalHeight;
+                // layout.drawImage(
+                //   ticket,
+                //   0,
+                //   0,
+                //   ticket.naturalWidth,
+                //   ticket.naturalHeight
+                // );
+                // // text
+                // let textName = values.name;
+                // layout.rotate(4.71);
+                // layout.font = "bold 70px Mozer";
+                // layout.fillStyle = "#faf9f6";
+                // layout.textAlign = "center";
+                // layout.strokeText(textName, -340, 1520);
+
+                // layout.font = "bold 70px Mozer";
+                // layout.fillStyle = "#faf9f6";
+                // let textSurname = values.surname;
+                // layout.textAlign = "center";
+                // layout.strokeText(textSurname, -340, 1600);
+                // layout.fillText(textSurname, -340, 1600);
+                // // blob
+                // const dataBlob = await new Promise((resolve) =>
+                //   canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+                // );
+                // // formData
+                // const formData = new FormData();
+                // formData.append("itemId", "price_1MudzFIOw5UGbAo1w66nEEEv");
+                // formData.append("origin_url", window.location.origin);
+                // formData.append('method', "buy_guest_ticket")
+                // formData.append("eventName", "freedom fest");
+                // formData.append("eventDate", "03.03.2023");
+                // formData.append(
+                //   "guestName",
+                //   values.name + " " + values.surname
+                // );
+                // formData.append("guestEmail", values.email);
+                // formData.append("guestPhone", values.phone);
+                // formData.append(
+                //   "ticket",
+                //   dataBlob,
+                //   "freedom_fest_" + values.name + values.surname + "_GUEST"
+                // );
                 try {
                   const responseData = await sendRequest(
                     "payment/checkout",
                     "POST",
-                    JSON.stringify({
-                      itemId: "price_1MudzFIOw5UGbAo1w66nEEEv",
-                      origin_url: window.location.origin,
-                    }),
-                    {
-                      "Content-Type": "application/json",
-                    }
+                    // formData
                   );
                   if (responseData.url) {
                     window.location.assign(responseData.url);
@@ -179,7 +148,6 @@ const NonMemberPurchase = (props) => {
             >
               {() => (
                 <Form
-                  encType="multipart/form-data"
                   id="form"
                   style={{ padding: "50px" }}
                 >

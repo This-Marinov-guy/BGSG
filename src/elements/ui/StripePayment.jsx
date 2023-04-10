@@ -6,8 +6,8 @@ import Loader from "./Loader";
 import ModalWindow from "./ModalWindow";
 import InjectedCheckoutForm from "./CheckoutForm";
 import { FiX } from "react-icons/fi";
-import StripeCheckout from 'react-stripe-checkout';
-
+import StripeCheckout from "react-stripe-checkout";
+import CheckoutForm from "./CheckoutForm";
 
 const StripePayment = (props) => {
   const [stripePromise, setStripePromise] = useState(null);
@@ -68,10 +68,7 @@ const StripePayment = (props) => {
         <FiX className="x_icon" onClick={closeHandler} />
         {stripePromise && clientSecret ? (
           <Elements stripe={stripePromise} options={options}>
-            <InjectedCheckoutForm
-              clientSecret={clientSecret}
-              onSuccess={props.onSuccess}
-            />
+            <CheckoutForm  />
           </Elements>
         ) : (
           <Loader />

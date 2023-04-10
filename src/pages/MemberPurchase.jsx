@@ -124,7 +124,7 @@ const MemberPurchase = (props) => {
         <div className="col-lg-6 col-md-12 col-12">
           <div className="event_details">
             <h2 className="mt--40">Event Details</h2>
-            <p>Name: Freedome Fest</p>
+            <p>Name: Freedom Fest</p>
             <p>Date: 23.1.2021</p>
             <p>Time: 8:00</p>
             <p>Address: Groningen</p>
