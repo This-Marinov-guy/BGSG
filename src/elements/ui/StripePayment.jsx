@@ -53,12 +53,12 @@ const StripePayment = (props) => {
     loadPayment();
   }, []);
 
-  const appearance = {
-    theme: "stripe",
-  };
+  console.log(stripePromise, clientSecret);
   const options = {
     clientSecret,
-    appearance,
+    appearance: {
+      theme: "stripe",
+    },
   };
 
   return (
@@ -68,7 +68,7 @@ const StripePayment = (props) => {
         <FiX className="x_icon" onClick={closeHandler} />
         {stripePromise && clientSecret ? (
           <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm  />
+            <CheckoutForm />
           </Elements>
         ) : (
           <Loader />

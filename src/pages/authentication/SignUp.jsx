@@ -18,7 +18,7 @@ const schema = yup.object().shape({
   image: yup.string(),
   name: yup.string().required(),
   surname: yup.string().required(),
-  birth: yup.number().positive().required("Year of Birth is a required field"),
+  birth: yup.string().required("Date of Birth is a required field"),
   phone: yup.string().min(8).required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
@@ -197,7 +197,7 @@ const SignUp = (props) => {
                 props.setNotification(
                   <Alert className="error_panel" variant="success">
                     <div className="action_btns">
-                      <h3>Welcome new memeber</h3>
+                      <h3>Welcome new member</h3>
                       <FiX className="mr--20" onClick={closeHandler} />
                     </div>
                     <p>
@@ -287,8 +287,10 @@ const SignUp = (props) => {
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
-                        type="number"
-                        placeholder="Year of Birth"
+                        type="date"
+                        min="1900-01-01"
+                        max="2100-12-30"
+                        placeholder="Date of Birth"
                         name="birth"
                       />
                       <ErrorMessage

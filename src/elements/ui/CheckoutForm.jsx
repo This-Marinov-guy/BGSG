@@ -15,10 +15,6 @@ const CheckoutForm = (props) => {
 
   const dispatch = useDispatch();
 
-  const paymentElementOptions = {
-    layout: "tabs"
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -31,7 +27,7 @@ const CheckoutForm = (props) => {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}`,
+        return_url: `${window.location.origin}/success`,
       },
       redirect: "if_required",
     });
@@ -41,14 +37,13 @@ const CheckoutForm = (props) => {
     } else if (paymentIntent && paymentIntent.status === "succeeded") {
       console.log("successs");
     } else {
-      console.log('Fail');
+      console.log("Fail");
     }
-
   };
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <PaymentElement options={paymentElementOptions}/>
+      <PaymentElement />
       <button
         type="submit"
         disabled={isProcessing || !stripe || !elements}

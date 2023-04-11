@@ -3,7 +3,7 @@ import { FiImage } from "react-icons/fi";
 
 const ImageInput = (props) => {
   const [file, setFile] = useState();
-  const [previewUrl, setPreviewUrl] = useState(props.intialImage);
+  const [previewUrl, setPreviewUrl] = useState(props.initialImage);
   const [isValid, setIsValid] = useState(true);
 
   useEffect(() => {

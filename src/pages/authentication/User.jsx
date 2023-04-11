@@ -21,7 +21,7 @@ const schema = yup.object().shape({
   image: yup.string(),
   name: yup.string().required(),
   surname: yup.string().required(),
-  birth: yup.number().positive().required("Year of Birth is a required field"),
+  birth: yup.string().required("Date of Birth is a required field"),
   phone: yup.string().min(8).required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
@@ -168,7 +168,7 @@ const User = () => {
                       onChange={(event) => {
                         setFieldValue("image", event.target.files[0]);
                       }}
-                      intialImage={currentUser.image}
+                      initialImage={currentUser.image}
                       errorRequired={
                         <ErrorMessage
                           className="error"
@@ -209,8 +209,10 @@ const User = () => {
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
-                        type="number"
-                        placeholder="Year of Birth"
+                        type="date"
+                        min="1900-01-01"
+                        max="2100-12-30"
+                        placeholder="Date of Birth"
                         name="birth"
                       />
                       <ErrorMessage
