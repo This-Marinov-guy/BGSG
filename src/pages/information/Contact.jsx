@@ -56,7 +56,7 @@ const Contact = () => {
                       style={{ overflowWrap: "break-word" }}
                       href="mailto:bulgariansociety.gro@gmail.com"
                     >
-                      Bulgariansociety.gro@gmail.com
+                      bulgariansociety.gro@gmail.com
                     </a>
                   </p>
                 </div>

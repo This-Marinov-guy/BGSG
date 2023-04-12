@@ -51,6 +51,7 @@ const Root = () => {
   const error = useSelector(selectError);
   const errorMessage = useSelector(selectErrorMsg);
 
+  //auto logout
   useEffect(() => {
     let logoutTimer;
     if (user.token && user.expirationDate) {
@@ -68,7 +69,7 @@ const Root = () => {
   useEffect(() => {
     let storedData = JSON.parse(localStorage.getItem("userData"));
     if (
-      storedData &&
+      storedData &&  
       storedData.token &&
       new Date(storedData.expirationDate) > new Date()
     ) {
@@ -114,7 +115,7 @@ const Root = () => {
           {/* Element Layout */}
           <Route exact path={`/fail`} component={Fail} />
           <Route exact path={`/success`}>
-            <Success onSuccess={()=>{}}/>
+            <Success onSuccess={() => {}} />
           </Route>
           <Route exact path={`/contact`} component={Contact} />
           <Route exact path={`/about`} component={About} />
@@ -123,7 +124,7 @@ const Root = () => {
           <Route exact path={`/committees`} component={Committees} />
           <Route exact path={`/past-events`} component={PastEvents} />
           <Route exact path={"/stripe"}>
-            <StripePayment />
+            <StripePayment amount={100} invoiceEmail="jchamp@abv.bg" />
           </Route>
           {user.token ? (
             <Route exact path={"/purchase-ticket/:userId"}>

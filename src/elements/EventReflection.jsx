@@ -123,15 +123,7 @@ const EventReflection = (props) => {
       {/* End Picture Area */}
 
       {/* Start Sponsor Area */}
-      <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <BrandTwo />
-            </div>
-          </div>
-        </div>
-      </div>
+    
       {/* End Sponsor Area */}
 
       {/* Start Back To Top */}

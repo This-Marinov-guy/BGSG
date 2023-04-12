@@ -11,8 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, selectUser } from "../../redux/user";
 import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
-import Alert from "react-bootstrap/Alert";
-import { FiX } from "react-icons/fi";
+import { showError } from "../../redux/error";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -180,41 +179,34 @@ const SignUp = (props) => {
                   "notificationTypeTerms",
                   values.notificationTypeTerms
                 );
-                const responseData = await sendRequest(
-                  `user/signup`,
+                let responseData = await sendRequest(
+                  `user/check-email`,
                   "POST",
-                  formData
+                  JSON.stringify({
+                    email: values.email,
+                  }),
+                  {
+                    "Content-Type": "application/json",
+                  }
                 );
-                dispatch(
-                  login({
-                    userId: responseData.userId,
-                    token: responseData.token,
-                    expirationDate: new Date(
-                      new Date().getTime() + 36000000
-                    ).toISOString(),
-                  })
-                );
-                props.setNotification(
-                  <Alert className="error_panel" variant="success">
-                    <div className="action_btns">
-                      <h3>Welcome new member</h3>
-                      <FiX className="mr--20" onClick={closeHandler} />
-                    </div>
-                    <p>
-                      Thank you for joining the member group! Access your
-                      details and check what news we have for members only!
-                    </p>
-                    <a
-                      onClick={closeHandler}
-                      href={`/user/${responseData.userId}`}
-                      className="rn-button-style--2 rn-btn-green mt--40"
-                    >
-                      Go to Profile
-                    </a>
-                  </Alert>
-                );
-                history.push("/");
-                setTimeout(() => closeHandler(), 5000);
+                if (responseData.message === "verified") {
+                  responseData = await sendRequest(
+                    `user/signup`,
+                    "POST",
+                    formData
+                  );
+                  dispatch(
+                    login({
+                      userId: responseData.userId,
+                      token: responseData.token,
+                      expirationDate: new Date(
+                        new Date().getTime() + 36000000
+                      ).toISOString(),
+                    })
+                  );
+                } else {
+                  dispatch(showError('Signing failed, please try again!'))
+                }
               } catch (err) {}
             }}
             initialValues={{
@@ -370,7 +362,7 @@ const SignUp = (props) => {
                       <div className="rnform-group">
                         <Field
                           type="text"
-                          placeholder="Course of studying"
+                          placeholder="Study Program"
                           name="course"
                         ></Field>
                         <ErrorMessage

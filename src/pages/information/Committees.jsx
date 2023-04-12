@@ -24,13 +24,20 @@ class Committees extends Component {
         {/* Start Team Area  */}
         <div className="rn-team-area ptb--120 bg_color--5">
           <div className="container">
+            <div className="options-btns-div">
+              <button className="rn-button-style--2 btn-solid option-btn">
+                Personal development and Sports
+              </button>
+              <button className="rn-button-style--2 btn-solid option-btn">
+                Social and Culture  
+              </button>
+            </div>
             <div className="row">
-                <h2 className="center_text">Expect soon...</h2>
+              <h2 className="center_text">Expect soon...</h2>
             </div>
           </div>
         </div>
         {/* End Team Area  */}
-
 
         {/* Start Back To Top */}
         <div className="backto-top">

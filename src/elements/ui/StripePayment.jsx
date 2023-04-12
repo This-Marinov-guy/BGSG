@@ -1,16 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "./Loader";
 import ModalWindow from "./ModalWindow";
-import InjectedCheckoutForm from "./CheckoutForm";
 import { FiX } from "react-icons/fi";
-import StripeCheckout from "react-stripe-checkout";
 import CheckoutForm from "./CheckoutForm";
 
 const StripePayment = (props) => {
   const [stripePromise, setStripePromise] = useState(null);
+  const [invoiceEmail, setInvoiceEmail] = useState("");
   const [clientSecret, setClientSecret] = useState(null);
 
   const { sendRequest } = useHttpClient();
@@ -38,14 +37,16 @@ const StripePayment = (props) => {
           `payment/create-payment-intent`,
           "POST",
           JSON.stringify({
-            amount: 1,
-            email: "vlady1002@abv.bg",
+            //in cents
+            amount: props.amount,
+            email: props.invoiceEmail,
           }),
           {
             "Content-Type": "application/json",
           }
         );
         setClientSecret(responseData.clientSecret);
+        setInvoiceEmail(responseData.invoiceEmail);
       } catch (err) {
         console.log(err);
       }
@@ -53,7 +54,6 @@ const StripePayment = (props) => {
     loadPayment();
   }, []);
 
-  console.log(stripePromise, clientSecret);
   const options = {
     clientSecret,
     appearance: {
@@ -68,7 +68,10 @@ const StripePayment = (props) => {
         <FiX className="x_icon" onClick={closeHandler} />
         {stripePromise && clientSecret ? (
           <Elements stripe={stripePromise} options={options}>
-            <CheckoutForm />
+            <CheckoutForm
+              invoiceEmail={invoiceEmail}
+              clientSecret={clientSecret}
+            />
           </Elements>
         ) : (
           <Loader />

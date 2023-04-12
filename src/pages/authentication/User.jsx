@@ -292,7 +292,7 @@ const User = () => {
                       <div className="rnform-group">
                         <Field
                           type="text"
-                          placeholder="Course of studying"
+                          placeholder="Study Program"
                           name="course"
                         ></Field>
                         <ErrorMessage
