@@ -2,9 +2,41 @@ import React from "react";
 import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "./Loader";
 import ModalWindow from "./ModalWindow";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { showError } from "../../redux/error";
 
 const Locked = (props) => {
   const { loading, sendRequest } = useHttpClient();
+
+  const userId = useParams().userId;
+
+  const dispatch = useDispatch();
+
+  const handleUnlock = async () => {
+    if (!userId) {
+      dispatch(showError("User cannot be found, please try again"));
+      return;
+    }
+    try {
+      const responseData = await sendRequest(
+        "payment/checkout-no-file",
+        "POST",
+        JSON.stringify({
+          itemId: "price_1Mue19IOw5UGbAo1tzyjzoni",
+          origin_url: window.location.origin,
+          method: "unlock_account",
+          userId,
+        }),
+        {
+          "Content-Type": "application/json",
+        }
+      );
+      if (responseData.url) {
+        window.location.assign(responseData.url);
+      }
+    } catch (err) {}
+  };
 
   return (
     <ModalWindow static="static" show={props.show} freeze>
@@ -19,7 +51,7 @@ const Locked = (props) => {
           <Loader />
         ) : (
           <button
-            onClick={() => {}}
+            onClick={handleUnlock}
             className="rn-button-style--2 btn-solid mt--40"
           >
             Pay and unlock
