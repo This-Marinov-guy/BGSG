@@ -23,41 +23,38 @@ const SlideList = [
 ];
 
 const Home = () => {
-  const [notification, setNotification] = useState();
-
   //check payment status
 
-  useEffect(() => {
-    const url = new URL(window.location);
-    const params = new URLSearchParams(url.search);
-    if (params.get("payment_intent_client_secret") != null) {
-      if (params.get("redirect_status") === "succeeded") {
-        console.log("payment");
-        setNotification(
-          <Alert className="error_panel" variant="success">
-            <div className="action_btns">
-              <h3>Thank you for your purchase</h3>
-              <FiX className="x_icon" />
-            </div>
-            <p>
-              Your purchase is successful! 
-            </p>
-            <a href="*" className="rn-button-style--2 rn-btn-green mt--40">
-              Go to Profile
-            </a>
-          </Alert>
-        );
-      } else {
-        console.log("no payment");
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const url = new URL(window.location);
+  //   const params = new URLSearchParams(url.search);
+  //   if (params.get("payment_intent_client_secret") != null) {
+  //     if (params.get("redirect_status") === "succeeded") {
+  //       console.log("payment");
+  //       setNotification(
+  //         <Alert className="error_panel" variant="success">
+  //           <div className="action_btns">
+  //             <h3>Thank you for your purchase</h3>
+  //             <FiX className="x_icon" />
+  //           </div>
+  //           <p>
+  //             Your purchase is successful! 
+  //           </p>
+  //           <a href="*" className="rn-button-style--2 rn-btn-green mt--40">
+  //             Go to Profile
+  //           </a>
+  //         </Alert>
+  //       );
+  //     } else {
+  //       console.log("no payment");
+  //     }
+  //   }
+  // }, []);
 
   return (
     <Fragment>
       <Helmet pageTitle="Home" />
       <Header logo="light" />
-      {notification}
       {/* Start Slider Area   */}
       <div className="slider-activation slider-creative-agency">
         <Parallax bgImage={image1} strength={100}>

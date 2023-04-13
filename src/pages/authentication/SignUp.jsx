@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
@@ -12,6 +12,10 @@ import { login, selectUser } from "../../redux/user";
 import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import { showError } from "../../redux/error";
+import StripePayment from "../../elements/ui/StripePayment";
+import Alert from "react-bootstrap/Alert";
+import ModalWindow from "../../elements/ui/ModalWindow";
+import { FiX } from "react-icons/fi";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -63,6 +67,10 @@ const options = [
   },
 ];
 const SignUp = (props) => {
+  const [purchase, setPurchase] = useState();
+  const [invoiceEmail, setInvoiceEmail] = useState();
+  const [formInputs, setFormInputs] = useState();
+
   const dispatch = useDispatch();
 
   const history = useHistory();
@@ -71,6 +79,44 @@ const SignUp = (props) => {
 
   const closeHandler = () => {
     props.setNotification(null);
+  };
+
+  const handleSuccess = async () => {
+    try {
+      const responseData = await sendRequest(`user/signup`, "POST", formInputs);
+      dispatch(
+        login({
+          userId: responseData.userId,
+          token: responseData.token,
+          expirationDate: new Date(
+            new Date().getTime() + 36000000
+          ).toISOString(),
+        })
+      );
+      props.setNotification(
+        <Alert className="error_panel" variant="success">
+          <div className="action_btns">
+            <h3>Greetings New Member!</h3>
+            <FiX className="mr--20" onClick={closeHandler} />
+          </div>
+          <p>
+            Your payment was successful! Enjoy your membership status for the
+            term and hope we can see you soon!
+          </p>
+          <a
+            onClick={closeHandler}
+            href={`/user/${responseData.userId}`}
+            className="rn-button-style--2 rn-btn-green mt--40"
+          >
+            Go to Profile
+          </a>
+        </Alert>
+      );
+      history.push("/");
+      setTimeout(() => closeHandler(), 5000);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -82,6 +128,15 @@ const SignUp = (props) => {
         logoname="logo.png"
         dark
       />
+      {purchase && (
+        <StripePayment
+          amount={500}
+          invoiceEmail={invoiceEmail}
+          purchase={purchase}
+          setPurchase={setPurchase}
+          handleSuccess={handleSuccess}
+        />
+      )}
       <div className="container mt--200">
         <h2 className="center_text">Become a Member</h2>
       </div>
@@ -162,6 +217,9 @@ const SignUp = (props) => {
                 } else {
                   formData.append("image", null);
                 }
+                formData.append("itemId", "price_1MvNo5IOw5UGbAo1dPRzKvLR");
+                formData.append("origin_url", window.location.origin);
+                formData.append("method", "signup");
                 formData.append("name", values.name);
                 formData.append("surname", values.surname);
                 formData.append("birth", values.birth);
@@ -179,33 +237,13 @@ const SignUp = (props) => {
                   "notificationTypeTerms",
                   values.notificationTypeTerms
                 );
-                let responseData = await sendRequest(
-                  `user/check-email`,
+                const responseData = await sendRequest(
+                  "payment/checkout",
                   "POST",
-                  JSON.stringify({
-                    email: values.email,
-                  }),
-                  {
-                    "Content-Type": "application/json",
-                  }
+                  formData
                 );
-                if (responseData.message === "verified") {
-                  responseData = await sendRequest(
-                    `user/signup`,
-                    "POST",
-                    formData
-                  );
-                  dispatch(
-                    login({
-                      userId: responseData.userId,
-                      token: responseData.token,
-                      expirationDate: new Date(
-                        new Date().getTime() + 36000000
-                      ).toISOString(),
-                    })
-                  );
-                } else {
-                  dispatch(showError('Signing failed, please try again!'))
+                if (responseData.url) {
+                  window.location.assign(responseData.url);
                 }
               } catch (err) {}
             }}

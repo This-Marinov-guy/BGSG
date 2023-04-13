@@ -24,12 +24,21 @@ const CheckoutForm = (props) => {
 
     setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: window.location.origin,
       },
+      redirect: "if_required",
     });
+
+    if (error) {
+      dispatch(showError("Payment Failed, please try again!"));
+    } else if (paymentIntent && paymentIntent.status === "succeeded") {
+      props.handleSuccess();
+    } else {
+      dispatch(showError("Unexpected Error, please try again!"));
+    }
   };
 
   return (

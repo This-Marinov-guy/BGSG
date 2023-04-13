@@ -3,18 +3,19 @@ import Alert from "react-bootstrap/Alert";
 
 const Fail = () => {
   return (
-    <Alert style={{margin:"50px"}} variant="danger">
-      <Alert.Heading>Payment Error</Alert.Heading>
+    <Alert
+      className="center_section"
+      style={{ margin: "50px" }}
+      variant="danger"
+    >
+      <h2 className="mb--40">Payment Error</h2>
       <p>
-        Unfortunately, your payment was unsuccessful! Please try again from the
-        home page
+        Unfortunately, your payment was unsuccessful and you were NOT charged!
+        If you need any help with the payment, please contact us!
       </p>
-      <a className="rn-button-style--2 btn-solid mt--40" href="/">Home</a>
-      <hr />
-      <p className="mb-0">
-        If you have been charged or you face problems, do not hesitate to
-        contact us!
-      </p>
+      <a className="rn-button-style--2 btn-solid mt--40" href="/">
+        Home
+      </a>
     </Alert>
   );
 };

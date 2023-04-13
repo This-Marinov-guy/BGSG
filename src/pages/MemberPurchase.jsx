@@ -63,34 +63,25 @@ const MemberPurchase = (props) => {
       );
       // formData
       const formData = new FormData();
-      formData.append("eventName", "freedom fest");
-      formData.append("eventDate", "03.03.2023");
-      formData.append("userId", userId);
       formData.append(
-        "ticket",
+        "image",
         dataBlob,
         "freedom_fest_" + currentUser.name + currentUser.surname + "_MEMBER"
       );
+      formData.append("itemId", "price_1MudzeIOw5UGbAo1K0l3xJ9y");
+      formData.append("origin_url", window.location.origin);
+      formData.append("method", "buy_member_ticket");
+      formData.append("eventName", "freedom fest");
+      formData.append("eventDate", "03.03.2023");
+      formData.append("userId", userId);
       const responseData = await sendRequest(
-        "event/purchase-ticket/member",
+        "payment/checkout",
         "POST",
         formData
       );
-      props.setNotification(
-        <Alert className="error_panel" variant="success">
-          <div className="action_btns">
-            <h3>Thank you for buying a ticket for our event!</h3>
-            <FiX className="mr--20" onClick={closeHandler} />
-          </div>
-          <p>
-            Please check your email to access your ticket and be sure to have it
-            on the entry! Find more information on the event section. See you
-            there!
-          </p>
-        </Alert>
-      );
-      history.push("/");
-      setTimeout(() => closeHandler(), 10000);
+      if (responseData.url) {
+        window.location.assign(responseData.url);
+      }
     } catch (err) {}
   };
 

@@ -15,7 +15,7 @@ const StripePayment = (props) => {
   const { sendRequest } = useHttpClient();
 
   const closeHandler = () => {
-    props.cancel();
+    props.setPurchase(false);
   };
 
   useEffect(() => {
@@ -31,19 +31,16 @@ const StripePayment = (props) => {
   }, []);
 
   useEffect(() => {
+    const formData = new FormData();
+    formData.append("amount", 1000);
+    formData.append("email", "vdasdas@gmail.com");
     const loadPayment = async () => {
       try {
         const responseData = await sendRequest(
           `payment/create-payment-intent`,
           "POST",
-          JSON.stringify({
-            //in cents
-            amount: props.amount,
-            email: props.invoiceEmail,
-          }),
-          {
-            "Content-Type": "application/json",
-          }
+          JSON.stringify(Object.fromEntries(formData)),
+          { "Content-Type": "application/json" }
         );
         setClientSecret(responseData.clientSecret);
         setInvoiceEmail(responseData.invoiceEmail);
@@ -71,6 +68,7 @@ const StripePayment = (props) => {
             <CheckoutForm
               invoiceEmail={invoiceEmail}
               clientSecret={clientSecret}
+              handleSuccess={props.handleSuccess}
             />
           </Elements>
         ) : (

@@ -38,8 +38,8 @@ import MemberPurchase from "./pages/MemberPurchase";
 import NonMemberPurchase from "./pages/NonMemberPurchase";
 import Error from "./elements/ui/Error";
 import StripePayment from "./elements/ui/StripePayment";
-import Fail from "./pages/redirects/Fail";
 import Success from "./pages/redirects/Success";
+import Fail from "./pages/redirects/Fail";
 
 const Root = () => {
   const [notification, setNotification] = useState();
@@ -69,7 +69,7 @@ const Root = () => {
   useEffect(() => {
     let storedData = JSON.parse(localStorage.getItem("userData"));
     if (
-      storedData &&  
+      storedData &&
       storedData.token &&
       new Date(storedData.expirationDate) > new Date()
     ) {
@@ -110,13 +110,11 @@ const Root = () => {
         {notification}
         {error && <Error errorMessage={errorMessage} />}
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/">
+            <Home setNotification={setNotification} />
+          </Route>
 
           {/* Element Layout */}
-          <Route exact path={`/fail`} component={Fail} />
-          <Route exact path={`/success`}>
-            <Success onSuccess={() => {}} />
-          </Route>
           <Route exact path={`/contact`} component={Contact} />
           <Route exact path={`/about`} component={About} />
           <Route exact path={`/rules-and-regulations`} component={Policy} />
@@ -142,6 +140,11 @@ const Root = () => {
           <Route path={`/blog-details/:eventId`}>
             <EventReflection />
           </Route>
+
+          {/* Redirect pages */}
+
+          <Route exact path={`/success`} component={Success} />
+          <Route exact path={`/fail`} component={Fail} />
 
           {/* Auth pages */}
           {user.token ? authRoutes : nonAuthRoutes}

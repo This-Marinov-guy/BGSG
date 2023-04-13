@@ -75,60 +75,60 @@ const NonMemberPurchase = (props) => {
               className="inner"
               validationSchema={schema}
               onSubmit={async (values) => {
-                // Create a canvas element, add the image and text, covert to blob
-                var canvas = document.createElement("canvas");
-                var layout = canvas.getContext("2d");
-                let ticket = new Image();
-                ticket.src = "/assets/images/tickets/ticket.png";
-                //image
-                canvas.width = ticket.naturalWidth;
-                canvas.height = ticket.naturalHeight;
-                layout.drawImage(
-                  ticket,
-                  0,
-                  0,
-                  ticket.naturalWidth,
-                  ticket.naturalHeight
-                );
-                // text
-                let textName = values.name;
-                layout.rotate(4.71);
-                layout.font = "bold 70px Mozer";
-                layout.fillStyle = "#faf9f6";
-                layout.textAlign = "center";
-                layout.strokeText(textName, -340, 1520);
-
-                layout.font = "bold 70px Mozer";
-                layout.fillStyle = "#faf9f6";
-                let textSurname = values.surname;
-                layout.textAlign = "center";
-                layout.strokeText(textSurname, -340, 1600);
-                layout.fillText(textSurname, -340, 1600);
-                // blob
-                const dataBlob = await new Promise((resolve) =>
-                  canvas.toBlob((blob) => resolve(blob), "image/jpeg")
-                );
-                // formData
-                const formData = new FormData();
-                formData.append("itemId", "price_1MudzFIOw5UGbAo1w66nEEEv");
-                formData.append("origin_url", window.location.origin);
-                formData.append("method", "buy_guest_ticket");
-                formData.append("eventName", "freedom fest");
-                formData.append("eventDate", "03.03.2023");
-                formData.append(
-                  "guestName",
-                  values.name + " " + values.surname
-                );
-                formData.append("guestEmail", values.email);
-                formData.append("guestPhone", values.phone);
-                formData.append(
-                  "ticket",
-                  dataBlob,
-                  "freedom_fest_" + values.name + values.surname + "_GUEST"
-                );
                 try {
+                  // Create a canvas element, add the image and text, covert to blob
+                  var canvas = document.createElement("canvas");
+                  var layout = canvas.getContext("2d");
+                  let ticket = new Image();
+                  ticket.src = "/assets/images/tickets/ticket.png";
+                  //image
+                  canvas.width = ticket.naturalWidth;
+                  canvas.height = ticket.naturalHeight;
+                  layout.drawImage(
+                    ticket,
+                    0,
+                    0,
+                    ticket.naturalWidth,
+                    ticket.naturalHeight
+                  );
+                  // text
+                  let textName = values.name;
+                  layout.rotate(4.71);
+                  layout.font = "bold 70px Mozer";
+                  layout.fillStyle = "#faf9f6";
+                  layout.textAlign = "center";
+                  layout.strokeText(textName, -340, 1520);
+
+                  layout.font = "bold 70px Mozer";
+                  layout.fillStyle = "#faf9f6";
+                  let textSurname = values.surname;
+                  layout.textAlign = "center";
+                  layout.strokeText(textSurname, -340, 1600);
+                  layout.fillText(textSurname, -340, 1600);
+                  // blob
+                  const dataBlob = await new Promise((resolve) =>
+                    canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+                  );
+                  // formData
+                  const formData = new FormData();
+                  formData.append(
+                    "image",
+                    dataBlob,
+                    "freedom_fest_" + values.name + values.surname + "_GUEST"
+                  );
+                  formData.append("itemId", "price_1MudzFIOw5UGbAo1w66nEEEv");
+                  formData.append("origin_url", window.location.origin);
+                  formData.append("method", "buy_guest_ticket");
+                  formData.append("eventName", "freedom fest");
+                  formData.append("eventDate", "03.03.2023");
+                  formData.append("guestEmail", values.email);
+                  formData.append(
+                    "guestName",
+                    values.name + " " + values.surname
+                  );
+                  formData.append("guestPhone", values.phone);
                   const responseData = await sendRequest(
-                    "event/purchase-ticket/guest",
+                    "payment/checkout",
                     "POST",
                     formData
                   );
