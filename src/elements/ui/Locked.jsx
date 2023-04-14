@@ -47,16 +47,13 @@ const Locked = (props) => {
           subscription for the following semester! Otherwise, log out of your
           account.
         </p>
-        {loading ? (
-          <Loader />
-        ) : (
-          <button
-            onClick={handleUnlock}
-            className="rn-button-style--2 btn-solid mt--40"
-          >
-            Pay and unlock
-          </button>
-        )}
+        <button
+          disabled={loading}
+          onClick={handleUnlock}
+          className="rn-button-style--2 btn-solid mt--40"
+        >
+          {loading ? <Loader /> : <span>Proceed to paying</span>}
+        </button>
         <a href="/" className="rn-button-style--2 rn-btn-green mt--40">
           Back to Home
         </a>

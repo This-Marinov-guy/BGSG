@@ -1,5 +1,5 @@
 // React and Redux Required
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
@@ -24,14 +24,14 @@ import Home from "./pages/Home";
 import About from "./pages/information/About";
 import Contact from "./pages/information/Contact";
 import Policy from "./pages/information/Policy";
-import error404 from "./pages/error404";
+import Error404 from "./pages/Error404";
 import Board from "./pages/information/Board";
 import Committees from "./pages/information/Committees";
 
 import LogIn from "./pages/authentication/LogIn";
 import SignUp from "./pages/authentication/SignUp";
 import User from "./pages/authentication/User";
-import PastEvents from "./pages/information/PastEvents";
+import Events from "./pages/information/Events";
 import EventDetails from "./elements/EventDetails";
 import EventReflection from "./elements/EventReflection";
 import MemberPurchase from "./pages/MemberPurchase";
@@ -85,25 +85,6 @@ const Root = () => {
     }
   }, [dispatch]);
 
-  const authRoutes = (
-    <Fragment>
-      {" "}
-      <Route exact path={`/user/:userId`} component={User} />
-    </Fragment>
-  );
-
-  const nonAuthRoutes = (
-    <Fragment>
-      {" "}
-      <Route exact path={`/login`}>
-        <LogIn setNotification={setNotification} />
-      </Route>
-      <Route exact path={`/signup`}>
-        <SignUp setNotification={setNotification} />
-      </Route>
-    </Fragment>
-  );
-
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
@@ -120,19 +101,10 @@ const Root = () => {
           <Route exact path={`/rules-and-regulations`} component={Policy} />
           <Route exact path={`/board-members`} component={Board} />
           <Route exact path={`/committees`} component={Committees} />
-          <Route exact path={`/past-events`} component={PastEvents} />
+          <Route exact path={`/events`} component={Events} />
           <Route exact path={"/stripe"}>
             <StripePayment amount={100} invoiceEmail="jchamp@abv.bg" />
           </Route>
-          {user.token ? (
-            <Route exact path={"/purchase-ticket/:userId"}>
-              <MemberPurchase setNotification={setNotification} />
-            </Route>
-          ) : (
-            <Route exact path={"/purchase-ticket"}>
-              <NonMemberPurchase setNotification={setNotification} />
-            </Route>
-          )}
 
           <Route path={`/portfolio-details/:eventId`}>
             <EventDetails />
@@ -145,13 +117,35 @@ const Root = () => {
 
           <Route exact path={`/success`} component={Success} />
           <Route exact path={`/fail`} component={Fail} />
+          <Route exact path={`/404`} component={Error404} />
 
           {/* Auth pages */}
-          {user.token ? authRoutes : nonAuthRoutes}
-
-          {/* Blocks Elements  */}
-          <Route path={`/404`} component={error404} />
-          <Route component={error404} />
+          {user.token ? (
+            <Switch>
+              <Route exact path={`/user/:userId`} component={User} />
+              <Route exact path={"/purchase-ticket/:userId"}>
+                <MemberPurchase setNotification={setNotification} />
+              </Route>
+              <Route path="*">
+                <Error404 />
+              </Route>
+            </Switch>
+          ) : (
+            <Switch>
+              <Route exact path={`/login`}>
+                <LogIn setNotification={setNotification} />
+              </Route>
+              <Route exact path={`/signup`}>
+                <SignUp setNotification={setNotification} />
+              </Route>
+              <Route exact path={"/purchase-ticket"}>
+                <NonMemberPurchase setNotification={setNotification} />
+              </Route>
+              <Route path="*">
+                <Error404 />
+              </Route>
+            </Switch>
+          )}
         </Switch>
       </PageScrollTop>
     </BrowserRouter>

@@ -348,7 +348,7 @@
   &.header-red {
     @media only screen and (min-width: 991px) {
       padding: 20px;
-      background-color: #ab1c02;
+      background-color: $theme-color-2;
     }
   }
 }

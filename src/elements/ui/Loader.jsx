@@ -4,15 +4,18 @@ import Spinner from "react-bootstrap/Spinner";
 
 const Loader = () => {
   return (
-    <Spinner
-      className="center_div"
-      variant="danger"
-      as="span"
-      animation="border"
-      size="m"
-      role="status"
-      aria-hidden="true"
-    />
+    <div className="hor_section_nospace">
+    <span style={{marginRight:"10px"}}>Processing </span>
+      <Spinner
+        className="center_div"
+        variant="light"
+        as="span"
+        animation="border"
+        size="s"
+        role="status"
+        aria-hidden="true"
+      />
+    </div>
   );
 };
 

@@ -240,16 +240,13 @@ const NonMemberPurchase = (props) => {
                       component="div"
                     />
                   </div>
-                  {loading ? (
-                    <Loader />
-                  ) : (
-                    <button
-                      type="submit"
-                      className="rn-button-style--2 btn-solid mt--80"
-                    >
-                      <span>Proceed to paying</span>
-                    </button>
-                  )}
+                  <button
+                    disabled={loading}
+                    type="submit"
+                    className="rn-button-style--2 btn-solid mt--80"
+                  >
+                    {loading ? <Loader /> : <span>Proceed to paying</span>}
+                  </button>
                 </Form>
               )}
             </Formik>

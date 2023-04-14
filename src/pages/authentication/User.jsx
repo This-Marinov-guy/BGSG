@@ -87,7 +87,6 @@ const User = () => {
     <React.Fragment>
       <PageHelmet pageTitle="Profile" />
       <HeaderTwo
-        title="Your Profile"
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
@@ -339,16 +338,13 @@ const User = () => {
                     <option value="Email & WhatsApp">Both</option>
                   </Field>
                 </div>
-                {loading ? (
-                  <Loader />
-                ) : (
-                  <button
+                <button
+                    disabled={loading}
                     type="submit"
                     className="rn-button-style--2 btn-solid mt--80"
                   >
-                    Update information
+                    {loading ? <Loader /> : <span>Update information</span>}
                   </button>
-                )}
               </Form>
             )}
           </Formik>

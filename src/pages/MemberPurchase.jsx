@@ -123,16 +123,13 @@ const MemberPurchase = (props) => {
           </div>
         </div>
         <div className="col-lg-6 col-md-12 col-12">
-          {loading ? (
-            <Loader />
-          ) : (
-            <button
-              className="rn-button-style--2 btn-solid mt--80"
-              onClick={submitHandler}
-            >
-              <span>Proceed to paying</span>
-            </button>
-          )}
+          <button
+            disabled={loading}
+            onClick={submitHandler}
+            className="rn-button-style--2 btn-solid mt--80"
+          >
+            {loading ? <Loader /> : <span>Proceed to paying</span>}
+          </button>
           <p className="information mt--20">
             The information for purchasing this ticket will be taken from your
             account. Be sure it is accurate at it can be use as a prove of your

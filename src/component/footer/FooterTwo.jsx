@@ -24,7 +24,7 @@ const FooterTwo = () => {
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
             <div className="inner">
               <div className="logo text-center text-sm-left mb_sm--20">
-                <a href="/home-one">
+                <a href="/">
                   <img
                     style={{ borderRadius: "50%" }}
                     src="/assets/images/logo/logo.png"

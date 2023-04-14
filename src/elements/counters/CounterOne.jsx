@@ -25,7 +25,7 @@ class CounterOne extends Component{
                 countTitle: 'Events that we have hosted by today',
             },
             {
-                countNum : 5,
+                countNum : 8,
                 countTitle: 'Active members, part of the society',
             },
         ];

@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login, selectUser } from "../../redux/user";
 import PageHelmet from "../../component/common/Helmet";
-import Header from "../../component/header/Header";
+import HeaderTwo from "../../component/header/HeaderTwo";
 import Loader from "../../elements/ui/Loader";
 import Alert from "react-bootstrap/Alert";
 import ModalWindow from "../../elements/ui/ModalWindow";
@@ -128,11 +128,10 @@ const Login = (props) => {
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Login" />
-      <Header
+      <HeaderTwo
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
-        dark
       />
       {modal && (
         <ModalWindow show={modal}>
@@ -254,16 +253,13 @@ const Login = (props) => {
                       </div>
                     </div>
                   </div>
-                  {loading && confirmChanging ? (
-                    <Loader />
-                  ) : (
-                    <button
-                      type="submit"
-                      className="rn-button-style--2 btn-solid mt--80"
-                    >
-                      Update password
-                    </button>
-                  )}
+                  <button
+                    disabled={loading}
+                    type="submit"
+                    className="rn-button-style--2 btn-solid mt--80"
+                  >
+                    {loading ? <Loader /> : <span>Proceed to paying</span>}
+                  </button>
                 </Form>
               )}
             </Formik>
@@ -301,17 +297,13 @@ const Login = (props) => {
                   ></input>
                 </div>
               </div>
-              {loading && !modal ? (
-                <Loader />
-              ) : (
-                <button
-                  style={{ marginTop: "40px" }}
-                  type="submit"
-                  className="rn-button-style--2 btn-solid"
-                >
-                  <span>Log in</span>
-                </button>
-              )}
+              <button
+                disabled={loading}
+                type="submit"
+                className="rn-button-style--2 btn-solid mt--40"
+              >
+                {loading ? <Loader /> : <span>Log In</span>}
+              </button>
             </form>
             <div className="action_btns">
               <button

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { Fragment } from "react";
 import { Parallax } from "react-parallax";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import Header from "../component/header/Header";
@@ -7,8 +7,6 @@ import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
-import Alert from "react-bootstrap/Alert";
-import { FiX } from "react-icons/fi";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 const SlideList = [
@@ -23,34 +21,6 @@ const SlideList = [
 ];
 
 const Home = () => {
-  //check payment status
-
-  // useEffect(() => {
-  //   const url = new URL(window.location);
-  //   const params = new URLSearchParams(url.search);
-  //   if (params.get("payment_intent_client_secret") != null) {
-  //     if (params.get("redirect_status") === "succeeded") {
-  //       console.log("payment");
-  //       setNotification(
-  //         <Alert className="error_panel" variant="success">
-  //           <div className="action_btns">
-  //             <h3>Thank you for your purchase</h3>
-  //             <FiX className="x_icon" />
-  //           </div>
-  //           <p>
-  //             Your purchase is successful! 
-  //           </p>
-  //           <a href="*" className="rn-button-style--2 rn-btn-green mt--40">
-  //             Go to Profile
-  //           </a>
-  //         </Alert>
-  //       );
-  //     } else {
-  //       console.log("no payment");
-  //     }
-  //   }
-  // }, []);
-
   return (
     <Fragment>
       <Helmet pageTitle="Home" />

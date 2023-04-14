@@ -91,6 +91,15 @@ a {
       }
     }
 
+    &.rn-btn-reverse {
+      border: 2px solid $theme-color;
+      color: $theme-color;
+      &:hover {
+        background: $theme-color;
+        color: #fff;
+      }
+    }
+
     &.border-opacity-half {
       border-color: rgba(31, 31, 37, 0.1);
     }

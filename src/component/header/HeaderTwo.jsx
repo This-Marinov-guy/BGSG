@@ -92,7 +92,7 @@ const HeaderTwo = () => {
                   </ul>
                 </li>
                 <li>
-                  <Link to="/past-events">Events</Link>
+                  <Link to="/events">Events</Link>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>

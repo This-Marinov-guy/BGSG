@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
-import Header from "../../component/header/Header";
+import HeaderTwo from "../../component/header/HeaderTwo";
 import { FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
 import { useHistory } from "react-router-dom";
@@ -122,11 +122,10 @@ const SignUp = (props) => {
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Join" />
-      <Header
+      <HeaderTwo
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
-        dark
       />
       {purchase && (
         <StripePayment
@@ -539,16 +538,13 @@ const SignUp = (props) => {
                     component="div"
                   />
                 </div>
-                {loading ? (
-                  <Loader />
-                ) : (
-                  <button
+                <button
+                    disabled={loading}
                     type="submit"
                     className="rn-button-style--2 btn-solid mt--80"
                   >
-                    Proceed to paying
+                    {loading ? <Loader /> : <span>Proceed to paying</span>}
                   </button>
-                )}
                 <div
                   style={{ alignItems: "flex-start" }}
                   className="action_btns"

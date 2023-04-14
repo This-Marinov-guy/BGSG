@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { slickDot } from "../../page-demo/script";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
+import PortfolioList from "../../elements/portfolio/PortfolioList";
 
 const list = [
   {
@@ -27,11 +28,11 @@ const list = [
   },
 ];
 
-class PastEvents extends Component {
+class Events extends Component {
   render() {
     return (
       <React.Fragment>
-        <PageHelmet pageTitle="Past Events" />
+        <PageHelmet pageTitle="Events" />
 
         <Header
           headertransparent="header--transparent"
@@ -39,10 +40,40 @@ class PastEvents extends Component {
           logoname="logo.png"
         />
         {/* Start Breadcrump Area */}
-        <Breadcrumb title={"Past Events"} />
+        <Breadcrumb title={"Events"} />
         {/* End Breadcrump Area */}
 
-        {/* Start Portfolio Area */}
+        {/* Start Future Events Area */}
+        <div className="portfolio-area pt--120 pb--100 bg_color--5">
+          <div className="rn-slick-dot">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-6">
+                  <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
+                    <h2 className="title">What can you expect soon</h2>
+                    <p>
+                      Click on an event for more information and buy a ticket on our website
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="slick-space-gutter--15 slickdot--20">
+                  <PortfolioList
+                styevariation="text-center mt--40"
+                column="col-lg-4 col-md-6 col-sm-6 col-12"
+                item="6"
+              />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* End Future Events Area */}
+
+        {/* Start Past Events Area */}
         <div className="portfolio-area pt--120 pb--140 bg_color--5">
           <div className="rn-slick-dot">
             <div className="container">
@@ -93,7 +124,7 @@ class PastEvents extends Component {
             </div>
           </div>
         </div>
-        {/* End Portfolio Area */}
+        {/* End Past Events Area */}
 
         {/* Start Back To Top */}
         <div className="backto-top">
@@ -108,4 +139,4 @@ class PastEvents extends Component {
     );
   }
 }
-export default PastEvents;
+export default Events;
