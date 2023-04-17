@@ -25,6 +25,18 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>BGSG</title>
+    <!-- remove the google translate banner -->
+    <style type="text/css">
+      .goog-te-gadget img {
+        display: none !important;
+      }
+      body > .skiptranslate {
+        display: none;
+      }
+      body {
+        top: 0px !important;
+      }
+    </style>
   </head>
 
   <body>
@@ -42,22 +54,5 @@
     -->
 
     <!-- js files -->
-    <script type="text/javascript">
-      function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            includedLanguages: "en,bg,nl",
-            layout:
-              window.google.translate.TranslateElement.InlineLayout.VERTICAL,
-          },
-          "google_translate_element"
-        );
-      }
-    </script>
-    <script
-      type="text/javascript"
-      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-    ></script>
   </body>
 </html>

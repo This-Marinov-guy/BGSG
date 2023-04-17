@@ -4,6 +4,7 @@ import { logout, selectUser } from "../../redux/user";
 import { Link, useHistory } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import Alert from "react-bootstrap/Alert";
+import GoogleTranslate from "../../elements/ui/GoogleTranslate";
 
 const Header = (props) => {
   const [isMenuOpened, setIsMenuOpened] = useState();
@@ -25,7 +26,13 @@ const Header = (props) => {
     }
   }
 
-  let logoUrl = <img className="logo" src="/assets/images/logo/logo.png" alt="Digital Agency" />;
+  let logoUrl = (
+    <img
+      className="logo"
+      src="/assets/images/logo/logo.png"
+      alt="Digital Agency"
+    />
+  );
 
   return (
     <Fragment>
@@ -67,17 +74,7 @@ const Header = (props) => {
           <div className="header-right">
             <nav className="mainmenunav d-lg-block">
               <ul className={props.dark ? "mainmenu dark_nav" : "mainmenu"}>
-                <li className="google_btn_item">
-                  <img
-                    src="/assets/images/logo/google.png"
-                    alt="google"
-                    className="google_icon"
-                  />
-                  <div
-                    className="google_btn"
-                    id="google_translate_element"
-                  ></div>
-                </li>
+                  <GoogleTranslate />
                 <li className="has-droupdown">
                   <Link to="/about">About</Link>
                   <ul className="submenu">
