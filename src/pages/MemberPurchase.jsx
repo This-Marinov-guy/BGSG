@@ -45,6 +45,7 @@ const MemberPurchase = () => {
       layout.fillStyle = "#faf9f6";
       layout.textAlign = "center";
       layout.strokeText(textName, -340, 1520);
+      layout.fillText(textName, -340, 1520);
 
       layout.font = "bold 70px Mozer";
       layout.fillStyle = "#faf9f6";
