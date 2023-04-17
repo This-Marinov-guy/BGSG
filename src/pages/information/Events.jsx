@@ -9,6 +9,8 @@ import { slickDot } from "../../page-demo/script";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import PortfolioList from "../../elements/portfolio/PortfolioList";
+import { FutureEventsContent } from "./FutureEvents";
+import { PastEventsContent } from "./PastEvents";
 
 const list = [
   {
@@ -44,85 +46,11 @@ class Events extends Component {
         {/* End Breadcrump Area */}
 
         {/* Start Future Events Area */}
-        <div className="portfolio-area pt--120 pb--100 bg_color--5">
-          <div className="rn-slick-dot">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
-                    <h2 className="title">What can you expect soon</h2>
-                    <p>
-                      Click on an event for more information and buy a ticket on
-                      our website
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="slick-space-gutter--15 slickdot--20">
-                    <PortfolioList
-                      styevariation="text-center mt--40"
-                      column="col-lg-4 col-md-6 col-sm-6 col-12"
-                      item="6"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <FutureEventsContent />
         {/* End Future Events Area */}
 
         {/* Start Past Events Area */}
-        <div className="portfolio-area pt--120 pb--140 bg_color--5">
-          <div className="rn-slick-dot">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-6">
-                  <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
-                    <h2 className="title">What have we done so far</h2>
-                    <p>
-                      Let us introduce you to our events that brought success
-                      beyond our expectations
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="slick-space-gutter--15 slickdot--20">
-                    <Slider {...slickDot}>
-                      {list.map((value, index) => (
-                        <div className="portfolio" key={index}>
-                          <div className="thumbnail-inner">
-                            <img
-                              className="thumbnail"
-                              src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
-                              alt="Event Images"
-                            />
-                          </div>
-                          <div className="content">
-                            <div className="inner">
-                              <div className="portfolio-button">
-                                <a
-                                  className="rn-btn"
-                                  href={`/blog-details/${index}`}
-                                >
-                                  Tell me more
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </Slider>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PastEventsContent />
         {/* End Past Events Area */}
 
         {/* Start Back To Top */}

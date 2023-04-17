@@ -99,6 +99,16 @@ a {
         color: #fff;
       }
     }
+    &.rn-btn-reverse-green {
+      border: 2px solid $body-color;
+      background: $body-color;
+      color: #fff;
+      &:hover {
+        border: 2px solid $body-color;
+        background: $body-color;
+        color: #fff;
+      }
+    }
 
     &.border-opacity-half {
       border-color: rgba(31, 31, 37, 0.1);

@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import { Parallax } from "react-parallax";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/user";
 import PortfolioList from "../elements/portfolio/PortfolioList";
 import Header from "../component/header/Header";
 import AboutUs from "../component/HomeLayout/homeOne/AboutUs";
@@ -21,6 +23,8 @@ const SlideList = [
 ];
 
 const Home = () => {
+  const user = useSelector(selectUser);
+
   return (
     <Fragment>
       <Helmet pageTitle="Home" />
@@ -48,7 +52,7 @@ const Home = () => {
                       ) : (
                         ""
                       )}
-                      {value.buttonText ? (
+                      {value.buttonText && !user.token ? (
                         <div className="slide-btn">
                           <a
                             style={{ fontSize: "24px" }}
@@ -59,7 +63,15 @@ const Home = () => {
                           </a>
                         </div>
                       ) : (
-                        ""
+                        <div className="slide-btn">
+                          <a
+                            style={{ fontSize: "24px" }}
+                            className="rn-button-style--2 rn-btn-reverse-green"
+                            href={`/user/${user.userId}`}
+                          >
+                            Go to Profile
+                          </a>
+                        </div>
                       )}
                     </div>
                   </div>

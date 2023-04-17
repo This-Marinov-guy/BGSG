@@ -16,6 +16,7 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 import Locked from "../../elements/ui/Locked";
+import { convertDate } from "../../util/convertDate";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -381,7 +382,7 @@ const User = () => {
             <div className="col-lg-6 col-md-12 col-12">
               <div className="service service__style--2 team_member_border-2">
                 <div style={{ width: "100%" }} className="content">
-                  <h2>Hello again {currentUser.name}!</h2>
+                  <h2>Hello again, {currentUser.name}!</h2>
                   <div className="hor_section mb--40">
                     <p className="mt--20">Your information</p>
                     <FiEdit
@@ -401,8 +402,8 @@ const User = () => {
                         {currentUser.name + " " + currentUser.surname}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /> Year of Birth:{" "}
-                        {currentUser.birth}
+                        <FiCircle style={{ fontSize: "14px" }} /> Date of Birth:{" "}
+                        {convertDate(currentUser.birth)}
                       </li>
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> Email:{" "}
@@ -434,15 +435,15 @@ const User = () => {
               <ul>
                 <li>
                   <p>
-                    Open submissions for Active members! Press here to submit a
-                    request and we will reach you soon
+                    Open submissions for Active members will be notified here!
+                    Check you profile or expect news from us!
                   </p>
-                  <button
+                  {/* <button
                     className="rn-button-style--2 btn-solid mt--20"
                     disabled
                   >
                     Become an Active Member
-                  </button>
+                  </button> */}
                 </li>
                 <li className="mt--40">
                   <p>
@@ -465,7 +466,7 @@ const User = () => {
           <div className="col-lg-12">
             <div className="mb--30 mb_sm--0">
               <h2 className="title mb--40">Ticket Collection</h2>
-              {currentUser.tickets ? (
+              {currentUser.tickets.length > 0 ? (
                 <div className="row">
                   {currentUser.tickets.map((ticket, i) => (
                     <div className="col-lg-4 col-md-6 col-12" key={i}>

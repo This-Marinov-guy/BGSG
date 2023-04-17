@@ -31,6 +31,16 @@ const LogIn = lazy(() => import("./pages/authentication/LogIn"));
 const SignUp = lazy(() => import("./pages/authentication/SignUp"));
 const User = lazy(() => import("./pages/authentication/User"));
 const Events = lazy(() => import("./pages/information/Events"));
+const FutureEvents = lazy(() =>
+  import("./pages/information/FutureEvents").then((module) => ({
+    default: module.FutureEvents,
+  }))
+);
+const PastEvents = lazy(() =>
+  import("./pages/information/PastEvents").then((module) => ({
+    default: module.PastEvents,
+  }))
+);
 const EventDetails = lazy(() => import("./elements/EventDetails"));
 const EventReflection = lazy(() => import("./elements/EventReflection"));
 const MemberPurchase = lazy(() => import("./pages/MemberPurchase"));
@@ -111,6 +121,8 @@ const Root = () => {
             <Route exact path={`/board-members`} component={Board} />
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
+            <Route exact path={`/future-events`} component={FutureEvents} />
+            <Route exact path={`/past-events`} component={PastEvents} />
 
             <Route
               path={`/portfolio-details/:eventId`}

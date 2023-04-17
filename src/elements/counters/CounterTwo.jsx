@@ -15,7 +15,7 @@ class CounterOne extends Component{
     render(){
         let Data = [
             {
-                countNum : 70,
+                countNum : 52,
                 countTitle: 'Average tickets sold per event',
             },
             {
