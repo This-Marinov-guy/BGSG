@@ -7,7 +7,7 @@ import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit, FiChevronUp, FiX} from "react-icons/fi";
+import { FiCircle, FiEdit, FiChevronUp, FiX } from "react-icons/fi";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -98,33 +98,49 @@ const User = () => {
             className="inner"
             validationSchema={schema}
             onSubmit={async (values) => {
-              try {
-                const formData = new FormData();
-                if (values.image) {
-                  formData.append(
-                    "image",
-                    values.image,
-                    currentUser.name + currentUser.surname + currentUser.birth
+              const formData = new FormData();
+              if (values.image) {
+                formData.append(
+                  "image",
+                  values.image,
+                  currentUser.name + currentUser.surname + currentUser.birth
+                );
+              } else {
+                formData.append("image", null);
+              }
+              formData.append("name", values.name);
+              formData.append("surname", values.surname);
+              formData.append("birth", values.birth);
+              formData.append("phone", values.phone);
+              formData.append("email", values.email);
+              formData.append("university", values.university);
+              formData.append(
+                "otherUniversityName",
+                values.otherUniversityName
+              );
+              formData.append("course", values.course);
+              formData.append("studentNumber", values.studentNumber);
+              formData.append(
+                "notificationTypeTerms",
+                values.notificationTypeTerms
+              );
+              if (currentUser.email !== values.email) {
+                try {
+                  const responseData = await sendRequest(
+                    "user/check-email",
+                    "POST",
+                    JSON.stringify({
+                      email: values.email,
+                    }),
+                    {
+                      "Content-Type": "application/json",
+                    }
                   );
-                } else {
-                  formData.append("image", null);
+                } catch (err) {
+                  return;
                 }
-                formData.append("name", values.name);
-                formData.append("surname", values.surname);
-                formData.append("birth", values.birth);
-                formData.append("phone", values.phone);
-                formData.append("email", values.email);
-                formData.append("university", values.university);
-                formData.append(
-                  "otherUniversityName",
-                  values.otherUniversityName
-                );
-                formData.append("course", values.course);
-                formData.append("studentNumber", values.studentNumber);
-                formData.append(
-                  "notificationTypeTerms",
-                  values.notificationTypeTerms
-                );
+              }
+              try {
                 const responseData = await sendRequest(
                   `user/edit-info/${userId}`,
                   "PATCH",
@@ -339,12 +355,12 @@ const User = () => {
                   </Field>
                 </div>
                 <button
-                    disabled={loading}
-                    type="submit"
-                    className="rn-button-style--2 btn-solid mt--80"
-                  >
-                    {loading ? <Loader /> : <span>Update information</span>}
-                  </button>
+                  disabled={loading}
+                  type="submit"
+                  className="rn-button-style--2 btn-solid mt--80"
+                >
+                  {loading ? <Loader /> : <span>Update information</span>}
+                </button>
               </Form>
             )}
           </Formik>

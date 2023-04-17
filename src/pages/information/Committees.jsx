@@ -6,13 +6,12 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 
-const Committees = () => {
+const Committees = React.memo(() => {
   const [committee, setCommittee] = useState("Sports");
 
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Committees" />
-
       <Header
         headertransparent="header--transparent"
         colorblack="color--black"
@@ -51,7 +50,7 @@ const Committees = () => {
               Social and Culture
             </button>
           </div>
-          <div >
+          <div>
             <h2 className="center_text mb--20">
               {committee === "Culture"
                 ? "Social and Culture"
@@ -75,6 +74,6 @@ const Committees = () => {
       <Footer />
     </React.Fragment>
   );
-};
+});
 
 export default Committees;

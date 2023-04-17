@@ -8,7 +8,7 @@ const Loader = () => {
     <span style={{marginRight:"10px"}}>Processing </span>
       <Spinner
         className="center_div"
-        variant="light"
+        variant="danger"
         as="span"
         animation="border"
         size="s"

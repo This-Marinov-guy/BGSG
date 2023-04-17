@@ -25,7 +25,7 @@ const Header = (props) => {
     }
   }
 
-  let logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
+  let logoUrl = <img className="logo" src="/assets/images/logo/logo.png" alt="Digital Agency" />;
 
   return (
     <Fragment>

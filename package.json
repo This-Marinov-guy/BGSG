@@ -52,6 +52,7 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
+    "quicklink": "^2.3.0",
     "react": "^18.0.0",
     "react-accessible-accordion": "^3.3.5",
     "react-animate-on-scroll": "^2.1.5",

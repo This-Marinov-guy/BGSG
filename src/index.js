@@ -1,5 +1,5 @@
 // React and Redux Required
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
@@ -10,38 +10,48 @@ import { selectError, selectErrorMsg } from "./redux/error";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorker from "./util/serviceWorker";
+import { prefetch } from "./util/prefetch";
 
 // Create Import File
 import "./index.scss";
 
 import PageScrollTop from "./component/PageScrollTop";
+import Loader from "./elements/ui/Loader";
 
-// Home layout
-import Home from "./pages/Home";
-
-// Element Layout
-import About from "./pages/information/About";
-import Contact from "./pages/information/Contact";
-import Policy from "./pages/information/Policy";
-import Error404 from "./pages/Error404";
-import Board from "./pages/information/Board";
-import Committees from "./pages/information/Committees";
-
-import LogIn from "./pages/authentication/LogIn";
-import SignUp from "./pages/authentication/SignUp";
-import User from "./pages/authentication/User";
-import Events from "./pages/information/Events";
-import EventDetails from "./elements/EventDetails";
-import EventReflection from "./elements/EventReflection";
-import MemberPurchase from "./pages/MemberPurchase";
-import NonMemberPurchase from "./pages/NonMemberPurchase";
-import Error from "./elements/ui/Error";
-import StripePayment from "./elements/ui/StripePayment";
-import Success from "./pages/redirects/Success";
-import Fail from "./pages/redirects/Fail";
+// Pages
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/information/About"));
+const Contact = lazy(() => import("./pages/information/Contact"));
+const Policy = lazy(() => import("./pages/information/Policy"));
+const Error404 = lazy(() => import("./pages/Error404"));
+const Board = lazy(() => import("./pages/information/Board"));
+const Committees = lazy(() => import("./pages/information/Committees"));
+const LogIn = lazy(() => import("./pages/authentication/LogIn"));
+const SignUp = lazy(() => import("./pages/authentication/SignUp"));
+const User = lazy(() => import("./pages/authentication/User"));
+const Events = lazy(() => import("./pages/information/Events"));
+const EventDetails = lazy(() => import("./elements/EventDetails"));
+const EventReflection = lazy(() => import("./elements/EventReflection"));
+const MemberPurchase = lazy(() => import("./pages/MemberPurchase"));
+const NonMemberPurchase = lazy(() => import("./pages/NonMemberPurchase"));
+const Error = lazy(() => import("./elements/ui/Error"));
+const Success = lazy(() => import("./pages/redirects/Success"));
+const Fail = lazy(() => import("./pages/redirects/Fail"));
 
 const Root = () => {
+  //prefetch routes
+
+  prefetch("/");
+  prefetch("/about");
+  prefetch("/contact");
+  prefetch("/login");
+  prefetch("/signup");
+  prefetch("/board-members");
+  prefetch("/committees");
+  prefetch("/events");
+  prefetch("/purchase-ticket");
+
   const [notification, setNotification] = useState();
 
   const dispatch = useDispatch();
@@ -88,65 +98,63 @@ const Root = () => {
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
-        {notification}
-        {error && <Error errorMessage={errorMessage} />}
-        <Switch>
-          <Route exact path="/">
-            <Home setNotification={setNotification} />
-          </Route>
+        <Suspense fallback={null}>
+          {notification}
+          {error && <Error errorMessage={errorMessage} />}
+          <Switch>
+            <Route exact path="/" component={Home} />
 
-          {/* Element Layout */}
-          <Route exact path={`/contact`} component={Contact} />
-          <Route exact path={`/about`} component={About} />
-          <Route exact path={`/rules-and-regulations`} component={Policy} />
-          <Route exact path={`/board-members`} component={Board} />
-          <Route exact path={`/committees`} component={Committees} />
-          <Route exact path={`/events`} component={Events} />
-          <Route exact path={"/stripe"}>
-            <StripePayment amount={100} invoiceEmail="jchamp@abv.bg" />
-          </Route>
+            {/* Element Layout */}
+            <Route exact path={`/contact`} component={Contact} />
+            <Route exact path={`/about`} component={About} />
+            <Route exact path={`/rules-and-regulations`} component={Policy} />
+            <Route exact path={`/board-members`} component={Board} />
+            <Route exact path={`/committees`} component={Committees} />
+            <Route exact path={`/events`} component={Events} />
 
-          <Route path={`/portfolio-details/:eventId`}>
-            <EventDetails />
-          </Route>
-          <Route path={`/blog-details/:eventId`}>
-            <EventReflection />
-          </Route>
+            <Route
+              path={`/portfolio-details/:eventId`}
+              component={EventDetails}
+            />
+            <Route
+              path={`/blog-details/:eventId`}
+              component={EventReflection}
+            />
 
-          {/* Redirect pages */}
+            {/* Redirect pages */}
 
-          <Route exact path={`/success`} component={Success} />
-          <Route exact path={`/fail`} component={Fail} />
-          <Route exact path={`/404`} component={Error404} />
+            <Route exact path={`/success`} component={Success} />
+            <Route exact path={`/fail`} component={Fail} />
 
-          {/* Auth pages */}
-          {user.token ? (
-            <Switch>
-              <Route exact path={`/user/:userId`} component={User} />
-              <Route exact path={"/purchase-ticket/:userId"}>
-                <MemberPurchase setNotification={setNotification} />
-              </Route>
-              <Route path="*">
-                <Error404 />
-              </Route>
-            </Switch>
-          ) : (
-            <Switch>
-              <Route exact path={`/login`}>
-                <LogIn setNotification={setNotification} />
-              </Route>
-              <Route exact path={`/signup`}>
-                <SignUp setNotification={setNotification} />
-              </Route>
-              <Route exact path={"/purchase-ticket"}>
-                <NonMemberPurchase setNotification={setNotification} />
-              </Route>
-              <Route path="*">
-                <Error404 />
-              </Route>
-            </Switch>
-          )}
-        </Switch>
+            {/* Auth pages */}
+            {user.token ? (
+              <Switch>
+                <Route exact path={`/user/:userId`} component={User} />
+                <Route
+                  exact
+                  path={"/purchase-ticket/:userId"}
+                  component={MemberPurchase}
+                />
+                <Route path="*" component={Error404} />
+              </Switch>
+            ) : (
+              <Switch>
+                <Route exact path={`/login`}>
+                  <LogIn setNotification={setNotification} />
+                </Route>
+                <Route exact path={`/signup`} component={SignUp} />
+
+                <Route
+                  exact
+                  path={"/purchase-ticket"}
+                  component={NonMemberPurchase}
+                />
+
+                <Route path="*" component={Error404} />
+              </Switch>
+            )}
+          </Switch>
+        </Suspense>
       </PageScrollTop>
     </BrowserRouter>
   );

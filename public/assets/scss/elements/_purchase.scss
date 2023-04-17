@@ -1,12 +1,13 @@
 //  Purchase css
-
 .purchase_panel {
-  margin: 50px auto;
-  padding: 0 50px;
-  @media #{$smlg-device} {
-    width: 100%;
+  margin: auto;
+  width: 80%;
+  text-align: left;
+  @media #{$large-mobile} {
+    text-align: center;
   }
 }
+
 .title_img {
   max-width: 500px;
   object-fit: contain;

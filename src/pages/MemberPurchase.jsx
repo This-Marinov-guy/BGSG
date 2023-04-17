@@ -1,24 +1,19 @@
 import React, { Fragment, useEffect, useState } from "react";
 import PageHelmet from "../component/common/Helmet";
 import Header from "../component/header/Header";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useHttpClient } from "../hooks/http-hook";
 import Loader from "../elements/ui/Loader";
 import Locked from "../elements/ui/Locked";
-import Alert from "react-bootstrap/Alert";
-import { FiX } from "react-icons/fi";
+import ScrollToTop from "react-scroll-up";
+import { FiChevronUp } from "react-icons/fi";
+import Footer from "../component/footer/Footer";
 
-const MemberPurchase = (props) => {
+const MemberPurchase = () => {
   const [currentUser, setCurrentUser] = useState();
   const { loading, sendRequest } = useHttpClient();
 
-  const history = useHistory();
-
   const userId = useParams().userId;
-
-  const closeHandler = () => {
-    props.setNotification(null);
-  };
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -95,48 +90,55 @@ const MemberPurchase = (props) => {
         dark
       />
       {currentUser.status !== "active" && <Locked show={currentUser.status} />}
-      <div className="container mt--200">
+      <div className="container mt--200 mb--120">
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
-      </div>
-      <div
-        style={{ margin: "auto", width: "80%" }}
-        className="row slide-down center_div"
-      >
-        <img
-          src="/assets/images/portfolio/portfolio-big-01.jpg"
-          alt="Event"
-          className="title_img"
-        />
-      </div>
-      <div
-        style={{ width: "80%" }}
-        className="row purchase_panel team_member_border-3"
-      >
-        <div className="col-lg-6 col-md-12 col-12">
-          <div className="event_details">
-            <h2 className="mt--40">Event Details</h2>
-            <p>Name: Freedom Fest</p>
-            <p>Date: 23.1.2021</p>
-            <p>Time: 8:00</p>
-            <p>Address: Groningen</p>
-            <p>Price: 5 euro (discounted)</p>
+
+        <div className="row slide-down center_div">
+          <img
+            src="/assets/images/portfolio/portfolio-big-01.jpg"
+            alt="Event"
+            className="title_img"
+          />
+        </div>
+        <div
+          style={{ width: "80%", margin: "auto" }}
+          className="row team_member_border-3 mt--80 purchase_panel"
+        >
+          <div className="col-lg-6 col-md-12 col-12">
+            <div className="event_details">
+              <h2 className="mt--40">Event Details</h2>
+              <p>Name: Freedom Fest</p>
+              <p>Date: 23.1.2021</p>
+              <p>Time: 8:00</p>
+              <p>Address: Groningen</p>
+              <p>Price: 5 euro (discounted)</p>
+            </div>
+          </div>
+          <div className="col-lg-6 col-md-12 col-12">
+            <button
+              disabled={loading}
+              onClick={submitHandler}
+              className="rn-button-style--2 btn-solid mt--80"
+            >
+              {loading ? <Loader /> : <span>Proceed to paying</span>}
+            </button>
+            <p className="information mt--20">
+              The information for purchasing this ticket will be taken from your
+              account. Be sure it is accurate at it can be use as a prove of
+              your identity on the entry!
+            </p>
           </div>
         </div>
-        <div className="col-lg-6 col-md-12 col-12">
-          <button
-            disabled={loading}
-            onClick={submitHandler}
-            className="rn-button-style--2 btn-solid mt--80"
-          >
-            {loading ? <Loader /> : <span>Proceed to paying</span>}
-          </button>
-          <p className="information mt--20">
-            The information for purchasing this ticket will be taken from your
-            account. Be sure it is accurate at it can be use as a prove of your
-            identity on the entry!
-          </p>
-        </div>
       </div>
+      {/* Start Back To Top */}
+      <div className="backto-top">
+        <ScrollToTop showUnder={160}>
+          <FiChevronUp />
+        </ScrollToTop>
+      </div>
+      {/* End Back To Top */}
+
+      <Footer />
     </Fragment>
   ) : (
     <Loader />

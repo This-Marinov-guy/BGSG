@@ -15,20 +15,20 @@ class CounterOne extends Component{
     render(){
         let Data = [
             {
-                countNum : 660,
-                countTitle: 'HAPPY CLIENTS',
+                countNum : 70,
+                countTitle: 'Average tickets sold per event',
             },
             {
-                countNum : 894,
-                countTitle: 'STORES',
+                countNum : 5,
+                countTitle: 'Events hosted',
             },
             {
-                countNum : 500,
-                countTitle: 'AWWARDS',
+                countNum : 8,
+                countTitle: 'Active members, part of the society',
             },
             {
-                countNum : 640,
-                countTitle: 'AWESOME FEATURE',
+                countNum : 7,
+                countTitle: 'Board members',
             },
         ];
 

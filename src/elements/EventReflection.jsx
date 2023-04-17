@@ -54,7 +54,7 @@ const eventReflectionDetails = [
   },
 ];
 
-const EventReflection = (props) => {
+const EventReflection = React.memo((props) => {
   const eventId = useParams().eventId;
   console.log(eventId);
 
@@ -123,7 +123,7 @@ const EventReflection = (props) => {
       {/* End Picture Area */}
 
       {/* Start Sponsor Area */}
-    
+
       {/* End Sponsor Area */}
 
       {/* Start Back To Top */}
@@ -137,5 +137,5 @@ const EventReflection = (props) => {
       <Footer />
     </React.Fragment>
   );
-};
+});
 export default EventReflection;

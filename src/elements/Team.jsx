@@ -133,7 +133,6 @@ let TeamContent = [
 
 class Team extends Component {
   render() {
-    const { column } = this.props;
     return (
       <React.Fragment>
         <div className="container team_info">

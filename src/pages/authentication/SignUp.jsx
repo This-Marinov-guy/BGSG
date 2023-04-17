@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
@@ -6,16 +6,11 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import { FiUserPlus } from "react-icons/fi";
 import { useHttpClient } from "../../hooks/http-hook";
-import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login, selectUser } from "../../redux/user";
 import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
-import { showError } from "../../redux/error";
-import StripePayment from "../../elements/ui/StripePayment";
-import Alert from "react-bootstrap/Alert";
-import ModalWindow from "../../elements/ui/ModalWindow";
-import { FiX } from "react-icons/fi";
+import FooterTwo from "../../component/footer/FooterTwo";
+import ScrollToTop from "react-scroll-up";
+import { FiChevronUp } from "react-icons/fi";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -67,57 +62,7 @@ const options = [
   },
 ];
 const SignUp = (props) => {
-  const [purchase, setPurchase] = useState();
-  const [invoiceEmail, setInvoiceEmail] = useState();
-  const [formInputs, setFormInputs] = useState();
-
-  const dispatch = useDispatch();
-
-  const history = useHistory();
-
   const { loading, sendRequest } = useHttpClient();
-
-  const closeHandler = () => {
-    props.setNotification(null);
-  };
-
-  const handleSuccess = async () => {
-    try {
-      const responseData = await sendRequest(`user/signup`, "POST", formInputs);
-      dispatch(
-        login({
-          userId: responseData.userId,
-          token: responseData.token,
-          expirationDate: new Date(
-            new Date().getTime() + 36000000
-          ).toISOString(),
-        })
-      );
-      props.setNotification(
-        <Alert className="error_panel" variant="success">
-          <div className="action_btns">
-            <h3>Greetings New Member!</h3>
-            <FiX className="mr--20" onClick={closeHandler} />
-          </div>
-          <p>
-            Your payment was successful! Enjoy your membership status for the
-            term and hope we can see you soon!
-          </p>
-          <a
-            onClick={closeHandler}
-            href={`/user/${responseData.userId}`}
-            className="rn-button-style--2 rn-btn-green mt--40"
-          >
-            Go to Profile
-          </a>
-        </Alert>
-      );
-      history.push("/");
-      setTimeout(() => closeHandler(), 5000);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <React.Fragment>
@@ -127,15 +72,7 @@ const SignUp = (props) => {
         colorblack="color--black"
         logoname="logo.png"
       />
-      {purchase && (
-        <StripePayment
-          amount={500}
-          invoiceEmail={invoiceEmail}
-          purchase={purchase}
-          setPurchase={setPurchase}
-          handleSuccess={handleSuccess}
-        />
-      )}
+
       <div className="container mt--200">
         <h2 className="center_text">Become a Member</h2>
       </div>
@@ -205,37 +142,51 @@ const SignUp = (props) => {
             className="inner"
             validationSchema={schema}
             onSubmit={async (values) => {
+              const formData = new FormData();
+              if (values.image) {
+                formData.append(
+                  "image",
+                  values.image,
+                  values.name + values.surname + values.birth
+                );
+              } else {
+                formData.append("image", null);
+              }
+              formData.append("itemId", "price_1MvNo5IOw5UGbAo1dPRzKvLR");
+              formData.append("origin_url", window.location.origin);
+              formData.append("method", "signup");
+              formData.append("name", values.name);
+              formData.append("surname", values.surname);
+              formData.append("birth", values.birth);
+              formData.append("phone", values.phone);
+              formData.append("email", values.email);
+              formData.append("university", values.university);
+              formData.append(
+                "otherUniversityName",
+                values.otherUniversityName
+              );
+              formData.append("course", values.course);
+              formData.append("studentNumber", values.studentNumber);
+              formData.append("password", values.password);
+              formData.append(
+                "notificationTypeTerms",
+                values.notificationTypeTerms
+              );
               try {
-                const formData = new FormData();
-                if (values.image) {
-                  formData.append(
-                    "image",
-                    values.image,
-                    values.name + values.surname + values.birth
-                  );
-                } else {
-                  formData.append("image", null);
-                }
-                formData.append("itemId", "price_1MvNo5IOw5UGbAo1dPRzKvLR");
-                formData.append("origin_url", window.location.origin);
-                formData.append("method", "signup");
-                formData.append("name", values.name);
-                formData.append("surname", values.surname);
-                formData.append("birth", values.birth);
-                formData.append("phone", values.phone);
-                formData.append("email", values.email);
-                formData.append("university", values.university);
-                formData.append(
-                  "otherUniversityName",
-                  values.otherUniversityName
+                const responseData = await sendRequest(
+                  "user/check-email",
+                  "POST",
+                  JSON.stringify({
+                    email: values.email,
+                  }),
+                  {
+                    "Content-Type": "application/json",
+                  }
                 );
-                formData.append("course", values.course);
-                formData.append("studentNumber", values.studentNumber);
-                formData.append("password", values.password);
-                formData.append(
-                  "notificationTypeTerms",
-                  values.notificationTypeTerms
-                );
+              } catch (err) {
+                return;
+              }
+              try {
                 const responseData = await sendRequest(
                   "payment/checkout",
                   "POST",
@@ -539,12 +490,12 @@ const SignUp = (props) => {
                   />
                 </div>
                 <button
-                    disabled={loading}
-                    type="submit"
-                    className="rn-button-style--2 btn-solid mt--80"
-                  >
-                    {loading ? <Loader /> : <span>Proceed to paying</span>}
-                  </button>
+                  disabled={loading}
+                  type="submit"
+                  className="rn-button-style--2 btn-solid mt--80"
+                >
+                  {loading ? <Loader /> : <span>Proceed to paying</span>}
+                </button>
                 <div
                   style={{ alignItems: "flex-start" }}
                   className="action_btns"
@@ -559,6 +510,16 @@ const SignUp = (props) => {
         </div>
       </div>
       {/* End Form Area */}
+      {/* Start Footer Style  */}
+      <FooterTwo />
+      {/* End Footer Style  */}
+      {/* Start Back To Top */}
+      <div className="backto-top">
+        <ScrollToTop showUnder={160}>
+          <FiChevronUp />
+        </ScrollToTop>
+      </div>
+      {/* End Back To Top */}
     </React.Fragment>
   );
 };

@@ -52,7 +52,8 @@ class Events extends Component {
                   <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
                     <h2 className="title">What can you expect soon</h2>
                     <p>
-                      Click on an event for more information and buy a ticket on our website
+                      Click on an event for more information and buy a ticket on
+                      our website
                     </p>
                   </div>
                 </div>
@@ -60,11 +61,11 @@ class Events extends Component {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="slick-space-gutter--15 slickdot--20">
-                  <PortfolioList
-                styevariation="text-center mt--40"
-                column="col-lg-4 col-md-6 col-sm-6 col-12"
-                item="6"
-              />
+                    <PortfolioList
+                      styevariation="text-center mt--40"
+                      column="col-lg-4 col-md-6 col-sm-6 col-12"
+                      item="6"
+                    />
                   </div>
                 </div>
               </div>
@@ -94,27 +95,25 @@ class Events extends Component {
                     <Slider {...slickDot}>
                       {list.map((value, index) => (
                         <div className="portfolio" key={index}>
-                          <Link to={`/blog-details/${index}`}>
-                            <div className="thumbnail-inner">
-                              <img
-                                className="thumbnail"
-                                src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
-                                alt="Event Images"
-                              />
-                            </div>
-                            <div className="content">
-                              <div className="inner">
-                                <div className="portfolio-button">
-                                  <a
-                                    className="rn-btn"
-                                    href={`/blog-details/${index}`}
-                                  >
-                                    Tell me more
-                                  </a>
-                                </div>
+                          <div className="thumbnail-inner">
+                            <img
+                              className="thumbnail"
+                              src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                              alt="Event Images"
+                            />
+                          </div>
+                          <div className="content">
+                            <div className="inner">
+                              <div className="portfolio-button">
+                                <a
+                                  className="rn-btn"
+                                  href={`/blog-details/${index}`}
+                                >
+                                  Tell me more
+                                </a>
                               </div>
                             </div>
-                          </Link>
+                          </div>
                         </div>
                       ))}
                     </Slider>

@@ -12,6 +12,9 @@ import Alert from "react-bootstrap/Alert";
 import ModalWindow from "../../elements/ui/ModalWindow";
 import { FiX } from "react-icons/fi";
 import { removeModal, selectModal, showModal } from "../../redux/modal";
+import FooterTwo from "../../component/footer/FooterTwo";
+import ScrollToTop from "react-scroll-up";
+import { FiChevronUp } from "react-icons/fi";
 
 const schema = yup.object().shape({
   token: yup.string().required("Please provide the token send to you by email"),
@@ -91,7 +94,6 @@ const Login = (props) => {
           "Content-Type": "application/json",
         }
       );
-
       dispatch(
         login({
           userId: responseData.userId,
@@ -322,6 +324,16 @@ const Login = (props) => {
           </div>
         </div>
       </div>
+      {/* Start Footer Style  */}
+      <FooterTwo />
+      {/* End Footer Style  */}
+      {/* Start Back To Top */}
+      <div className="backto-top">
+        <ScrollToTop showUnder={160}>
+          <FiChevronUp />
+        </ScrollToTop>
+      </div>
+      {/* End Back To Top */}
     </React.Fragment>
   );
 };

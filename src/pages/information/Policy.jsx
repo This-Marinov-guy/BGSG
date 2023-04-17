@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PageHelmet from "../../component/common/Helmet";
-import Header from "../../component/header/Header";
+import HeaderTwo from "../../component/header/HeaderTwo";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 
-const Policy = () => {
+const Policy = React.memo(() => {
   return (
     <div className="watermark">
       <PageHelmet pageTitle="Policy" />
-      <Header
+      <HeaderTwo
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
@@ -133,6 +133,6 @@ const Policy = () => {
       {/* End Back To Top */}
     </div>
   );
-};
+});
 
 export default Policy;
