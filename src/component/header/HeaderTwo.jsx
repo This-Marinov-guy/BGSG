@@ -88,8 +88,16 @@ const HeaderTwo = () => {
                     </li>
                   </ul>
                 </li>
-                <li>
+                <li className="has-droupdown">
                   <Link to="/events">Events</Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link to="/future-events">Future Events</Link>
+                    </li>
+                    <li>
+                      <Link to="/past-events">Past Events</Link>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <Link to="/contact">Contact</Link>
