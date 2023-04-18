@@ -454,7 +454,7 @@ const SignUp = (props) => {
                       />
                     </div>
                   </div>
-                  <div className="col-lg-12 col-md-12 col-12 mt--40 mb--40 team_member_border-1">
+                  <div className="col-lg-6 col-md-12 col-12 mt--40 mb--40 team_member_border-1">
                     <div className="rnform-group">
                       <h3 className="center_text">
                         For users with already paid membership
