@@ -20,8 +20,13 @@ const schema = yup.object().shape({
   surname: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
-  policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
-  payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+  notificationTypeTerms: yup
+    .string()
+    .required("Please select a prefered way of being contacted"),
+  notificationTerms: yup
+    .bool()
+    .required()
+    .oneOf([true], "Terms must be accepted"),
 });
 
 const EventOtherDetails = (props) => {
@@ -43,7 +48,24 @@ const EventOtherDetails = (props) => {
   };
 
   const submitMemberForm = async () => {
-    console.log("hello");
+    try {
+      const responseData = await sendRequest(
+        "user/check-email",
+        "POST",
+        JSON.stringify({
+          name: currentUser.name,
+          surname: currentUser.surname,
+          phone: currentUser.phone,
+          email: currentUser.email,
+          notificationTypeTerms: currentUser.notificationTypeTerms
+            ? currentUser.notificationTypeTerms
+            : "Any",
+        }),
+        {
+          "Content-Type": "application/json",
+        }
+      );
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -94,83 +116,41 @@ const EventOtherDetails = (props) => {
             className="inner"
             validationSchema={schema}
             onSubmit={async (values) => {
-              const formData = new FormData();
-              if (values.image) {
-                formData.append(
-                  "image",
-                  values.image,
-                  currentUser.name + currentUser.surname + currentUser.birth
-                );
-              } else {
-                formData.append("image", null);
-              }
-              formData.append("name", values.name);
-              formData.append("surname", values.surname);
-              formData.append("phone", values.phone);
-              formData.append("email", values.email);
-              formData.append("university", values.university);
-              formData.append(
-                "otherUniversityName",
-                values.otherUniversityName
-              );
-              formData.append("course", values.course);
-              formData.append("studentNumber", values.studentNumber);
-              formData.append(
-                "notificationTypeTerms",
-                values.notificationTypeTerms
-              );
-              if (currentUser.email !== values.email) {
-                try {
-                  const responseData = await sendRequest(
-                    "user/check-email",
-                    "POST",
-                    JSON.stringify({
-                      email: values.email,
-                    }),
-                    {
-                      "Content-Type": "application/json",
-                    }
-                  );
-                } catch (err) {
-                  return;
-                }
-              }
               try {
                 const responseData = await sendRequest(
-                  `user/edit-info/${user.userId}`,
-                  "PATCH",
-                  formData
+                  "user/check-email",
+                  "POST",
+                  JSON.stringify({
+                    name: values.name,
+                    surname: values.surname,
+                    phone: values.phone,
+                    email: values.email,
+                    notificationTypeTerms: values.notificationTypeTerms,
+                  }),
+                  {
+                    "Content-Type": "application/json",
+                  }
                 );
-                window.location.reload();
               } catch (err) {}
             }}
             initialValues={{
-              image: "",
-              name: currentUser.name,
-              surname: currentUser.surname,
-              phone: currentUser.phone,
-              email: currentUser.email,
-              university: currentUser.university,
-              otherUniversityName: currentUser.otherUniversityName,
-              course: currentUser.course,
-              studentNumber: currentUser.studentNumber,
-              policyTerms: false,
-              dataTerms: false,
+              name: "",
+              surname: "",
+              phone: "",
+              email: "",
               notificationTerms: false,
-              notificationTypeTerms: currentUser.notificationTypeTerms,
-              payTerms: false,
+              notificationTypeTerms: "",
             }}
           >
-            {({ values, setFieldValue }) => (
+            {() => (
               <Form
                 encType="multipart/form-data"
+                className="center_section"
                 id="form"
                 style={{ padding: "50px" }}
               >
-                <div className="hor_section">
-                  <h3>Fill your details and register</h3>
-                  <FiX className="x_icon" onClick={closeHandler} />
-                </div>
+                <h3>Fill your details and register</h3>
+                <FiX className="x_icon" onClick={closeHandler} />
 
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
@@ -197,8 +177,6 @@ const EventOtherDetails = (props) => {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
@@ -216,8 +194,6 @@ const EventOtherDetails = (props) => {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field type="email" placeholder="Email" name="email" />
@@ -228,94 +204,39 @@ const EventOtherDetails = (props) => {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
-                    <Field as="select" name="university">
+                    <div className="hor_section_nospace mt--40">
+                      <Field
+                        style={{ maxWidth: "30px", margin: "10px" }}
+                        type="checkbox"
+                        name="notificationTerms"
+                      ></Field>
+                      <p className="information">
+                        I consent to being notified by the organizer through the
+                        below contact/s
+                      </p>
+                    </div>
+                    <ErrorMessage
+                      className="error"
+                      name="notificationTerms"
+                      component="div"
+                    />
+                    <Field as="select" name="notificationTypeTerms">
                       <option value="" disabled>
-                        Select your univerisity
+                        Contact By
                       </option>
-                      <option value="RUG">RUG</option>
-                      <option value="Hanze">Hanze</option>
-                      <option value="other">Other univerisity</option>
-                      <option value="working">Working</option>
+                      <option value="Email">Email</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                      <option value="Email & WhatsApp">Both</option>
                     </Field>
                     <ErrorMessage
                       className="error"
-                      name="university"
+                      name="notificationTypeTerms"
                       component="div"
                     />
                   </div>
-                  <div className="col-lg-6 col-md-12 col-12">
-                    {values.university === "other" && (
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="State the university"
-                          name="otherUniversityName"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="otherUniversityName"
-                          component="div"
-                        />
-                      </div>
-                    )}
-                  </div>
                 </div>
-                {values.university !== "working" && (
-                  <div className="row">
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Study Program"
-                          name="course"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="course"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Student Number"
-                          name="studentNumber"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="studentNumber"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40">
-                    <Field
-                      style={{ maxWidth: "30px", margin: "10px" }}
-                      type="checkbox"
-                      name="notificationTerms"
-                    ></Field>
-                    <p className="information">
-                      I consent to being notified by BGSG about events and
-                      discounts from us and our sponsors
-                    </p>
-                  </div>
-                  <Field as="select" name="notificationTypeTerms">
-                    <option value="" disabled>
-                      Contact By
-                    </option>
-                    <option value="Email">Email</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Email & WhatsApp">Both</option>
-                  </Field>
-                </div>
+
                 <button
                   disabled={loading}
                   type="submit"
