@@ -11,6 +11,9 @@ import ImageInput from "../../elements/ui/ImageInput";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/user";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -63,6 +66,10 @@ const options = [
 ];
 const SignUp = (props) => {
   const { loading, sendRequest } = useHttpClient();
+
+  const history = useHistory();
+
+  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
@@ -186,6 +193,42 @@ const SignUp = (props) => {
               } catch (err) {
                 return;
               }
+              if (values.memberKey) {
+                try {
+                  const responseData = await sendRequest(
+                    "user/check-member-key",
+                    "POST",
+                    JSON.stringify({
+                      key: values.memberKey,
+                    }),
+                    {
+                      "Content-Type": "application/json",
+                    }
+                  );
+                  if (responseData.message === "verifiedKey") {
+                    try {
+                      const responseData = await sendRequest(
+                        `user/signup`,
+                        "POST",
+                        formData
+                      );
+                      dispatch(
+                        login({
+                          userId: responseData.userId,
+                          token: responseData.token,
+                          expirationDate: new Date(
+                            new Date().getTime() + 36000000
+                          ).toISOString(),
+                        })
+                      );
+                      history.push("/");
+                      return;
+                    } catch (err) {}
+                  }
+                } catch (err) {
+                  return;
+                }
+              }
               try {
                 const responseData = await sendRequest(
                   "payment/checkout",
@@ -210,6 +253,7 @@ const SignUp = (props) => {
               studentNumber: "",
               password: "",
               confirmPassword: "",
+              memberKey: "",
               policyTerms: false,
               dataTerms: false,
               notificationTerms: false,
@@ -273,6 +317,9 @@ const SignUp = (props) => {
                         placeholder="Date of Birth"
                         name="birth"
                       />
+                      <p className="information">
+                        *Month is first and after that the Day
+                      </p>
                       <ErrorMessage
                         className="error"
                         name="birth"
@@ -405,6 +452,24 @@ const SignUp = (props) => {
                         name="confirmPassword"
                         component="div"
                       />
+                    </div>
+                  </div>
+                  <div className="col-lg-12 col-md-12 col-12 mt--40 mb--40 team_member_border-1">
+                    <div className="rnform-group">
+                      <h3 className="center_text">
+                        For users with already paid membership
+                      </h3>
+                      <Field
+                        type="text"
+                        placeholder="Access Key"
+                        name="memberKey"
+                      ></Field>
+                      <p className="information">
+                        This is a access key field for users that are already
+                        members. Please ignore it if you do not have an access
+                        key. If you use key that does not belong to you, your
+                        account will be suspended!
+                      </p>
                     </div>
                   </div>
                 </div>

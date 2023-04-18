@@ -16,13 +16,11 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 import Locked from "../../elements/ui/Locked";
-import { convertDate } from "../../util/convertDate";
 
 const schema = yup.object().shape({
   image: yup.string(),
   name: yup.string().required(),
   surname: yup.string().required(),
-  birth: yup.string().required("Date of Birth is a required field"),
   phone: yup.string().min(8).required(),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required(),
@@ -111,7 +109,6 @@ const User = () => {
               }
               formData.append("name", values.name);
               formData.append("surname", values.surname);
-              formData.append("birth", values.birth);
               formData.append("phone", values.phone);
               formData.append("email", values.email);
               formData.append("university", values.university);
@@ -154,7 +151,6 @@ const User = () => {
               image: "",
               name: currentUser.name,
               surname: currentUser.surname,
-              birth: currentUser.birth,
               phone: currentUser.phone,
               email: currentUser.email,
               university: currentUser.university,
@@ -222,22 +218,6 @@ const User = () => {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-lg-6 col-md-12 col-12">
-                    <div className="rnform-group">
-                      <Field
-                        type="date"
-                        min="1900-01-01"
-                        max="2100-12-30"
-                        placeholder="Date of Birth"
-                        name="birth"
-                      />
-                      <ErrorMessage
-                        className="error"
-                        name="birth"
-                        component="div"
-                      />
-                    </div>
-                  </div>
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
@@ -403,7 +383,7 @@ const User = () => {
                       </li>
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> Date of Birth:{" "}
-                        {convertDate(currentUser.birth)}
+                        {currentUser.birth}
                       </li>
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> Email:{" "}
@@ -416,6 +396,10 @@ const User = () => {
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> University:{" "}
                         {currentUser.university}
+                      </li>
+                      <li style={{ fontWeight: "bold" }}>
+                        <FiCircle style={{ fontSize: "14px" }} /> Membership
+                        Expires: {currentUser.expireDate}
                       </li>
                     </ul>
                   </div>
