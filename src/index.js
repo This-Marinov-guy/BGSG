@@ -148,7 +148,7 @@ const Root = () => {
                   path={"/purchase-ticket/:userId"}
                   component={MemberPurchase}
                 />
-                <Route exact path={"/other-event-details/:eventId/:userId"}>
+                <Route exact path={"/other-event-details/:eventId"}>
                   <NonSocietyEvent setNotification={setNotification} />
                 </Route>
                 <Route path="*" component={Error404} />
