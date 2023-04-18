@@ -41,6 +41,7 @@ const PastEvents = lazy(() =>
     default: module.PastEvents,
   }))
 );
+const EventOtherDetails = lazy(() => import("./elements/EventOtherDetails"));
 const EventDetails = lazy(() => import("./elements/EventDetails"));
 const EventReflection = lazy(() => import("./elements/EventReflection"));
 const MemberPurchase = lazy(() => import("./pages/MemberPurchase"));
@@ -147,6 +148,11 @@ const Root = () => {
                   path={"/purchase-ticket/:userId"}
                   component={MemberPurchase}
                 />
+                <Route
+                  exact
+                  path={"/other-event-details/:eventId/:userId"}
+                  component={EventOtherDetails}
+                />
                 <Route path="*" component={Error404} />
               </Switch>
             ) : (
@@ -155,13 +161,16 @@ const Root = () => {
                   <LogIn setNotification={setNotification} />
                 </Route>
                 <Route exact path={`/signup`} component={SignUp} />
-
                 <Route
                   exact
                   path={"/purchase-ticket"}
                   component={NonMemberPurchase}
                 />
-
+                <Route
+                  exact
+                  path={"/other-event-details/:eventId"}
+                  component={EventOtherDetails}
+                />
                 <Route path="*" component={Error404} />
               </Switch>
             )}
