@@ -9,6 +9,7 @@ import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
 import ModalWindow from "./ui/ModalWindow";
 import Locked from "./ui/Locked";
+import Alert from "react-bootstrap/Alert";
 import Loader from "./ui/Loader";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,7 +30,7 @@ const schema = yup.object().shape({
     .oneOf([true], "Terms must be accepted"),
 });
 
-const EventOtherDetails = (props) => {
+const NonSocietyEvent = (props) => {
   const [currentUser, setCurrentUser] = useState();
 
   const { loading, sendRequest } = useHttpClient();
@@ -47,14 +48,20 @@ const EventOtherDetails = (props) => {
     dispatch(removeModal());
   };
 
+  const closeNotificationHandler = () => {
+    dispatch(removeModal());
+    props.setNotification(null);
+  };
+
   const submitMemberForm = async () => {
     try {
       const responseData = await sendRequest(
-        "user/check-email",
+        "event/register/non-society-event",
         "POST",
         JSON.stringify({
-          name: currentUser.name,
-          surname: currentUser.surname,
+          event: "barista course",
+          user: "member",
+          name: currentUser.name + " " + currentUser.surname,
           phone: currentUser.phone,
           email: currentUser.email,
           notificationTypeTerms: currentUser.notificationTypeTerms
@@ -65,6 +72,20 @@ const EventOtherDetails = (props) => {
           "Content-Type": "application/json",
         }
       );
+      props.setNotification(
+        <Alert className="error_panel" variant="success">
+          <div className="action_btns">
+            <h3>Thank you for the interest!</h3>
+            <FiX className="mr--20" onClick={closeHandler} />
+          </div>
+          <p>
+            Your registration for the event is complete! The organizer will soon
+            contact you!
+          </p>
+        </Alert>
+      );
+      history.push("/");
+      setTimeout(() => closeNotificationHandler(), 5000);
     } catch (err) {}
   };
 
@@ -118,11 +139,12 @@ const EventOtherDetails = (props) => {
             onSubmit={async (values) => {
               try {
                 const responseData = await sendRequest(
-                  "user/check-email",
+                  "event/register/non-society-event",
                   "POST",
                   JSON.stringify({
-                    name: values.name,
-                    surname: values.surname,
+                    event: "barista course",
+                    user: "normal",
+                    name: values.name + " " + values.surname,
                     phone: values.phone,
                     email: values.email,
                     notificationTypeTerms: values.notificationTypeTerms,
@@ -131,6 +153,20 @@ const EventOtherDetails = (props) => {
                     "Content-Type": "application/json",
                   }
                 );
+                props.setNotification(
+                  <Alert className="error_panel" variant="success">
+                    <div className="action_btns">
+                      <h3>Thank you for the interest!</h3>
+                      <FiX className="mr--20" onClick={closeHandler} />
+                    </div>
+                    <p>
+                      Your registration for the event is complete! The organizer
+                      will soon contact you!
+                    </p>
+                  </Alert>
+                );
+                history.push("/");
+                setTimeout(() => closeNotificationHandler(), 5000);
               } catch (err) {}
             }}
             initialValues={{
@@ -369,4 +405,4 @@ const EventOtherDetails = (props) => {
     </React.Fragment>
   );
 };
-export default EventOtherDetails;
+export default NonSocietyEvent;
