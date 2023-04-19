@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 const PostList = [
   {
@@ -10,35 +9,37 @@ const PostList = [
   },
 ];
 
-class PortfolioList extends Component {
-  render() {
-    const { column, styevariation } = this.props;
-    return (
-      <React.Fragment>
-        {PostList.map((value, index) => (
-          <div className={`${column} mb--80`} key={index}>
-            <div className={`portfolio ${styevariation}`}>
-              <div className="thumbnail-inner">
-                  <img
-                    className="thumbnail"
-                    src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
-                    alt="Event Images"
-                  />
-              </div>
-              <div className="content">
-                <div className="inner">
-                  <div className="portfolio-button">
-                    <a className="rn-btn" href={`/event-details/${index}`}>
-                      View Details
-                    </a>
-                  </div>
+const PortfolioList = (props) => {
+  return (
+    <React.Fragment>
+      {PostList.map((value, index) => (
+        <div className={`${props.column} mb--80`} key={index}>
+          <div className={`portfolio ${props.styevariation}`}>
+            <div
+              className={
+                props.style === "1" ? "thumbnail-inner" : "thumbnail-inner-2"
+              }
+            >
+              <img
+                className="thumbnail"
+                src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                alt="Event Images"
+              />
+            </div>
+            <div className="content">
+              <div className="inner">
+                <div className="portfolio-button">
+                  <a className="rn-btn" href={`/event-details/${index}`}>
+                    View Details
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        ))}
-      </React.Fragment>
-    );
-  }
-}
+        </div>
+      ))}
+    </React.Fragment>
+  );
+};
+
 export default PortfolioList;

@@ -43,7 +43,7 @@ class PastEventsContent extends Component {
                   <Slider {...slickDot}>
                     {list.map((value, index) => (
                       <div className="portfolio" key={index}>
-                        <div className="thumbnail-inner">
+                        <div className="thumbnail-inner-2">
                           <img
                             className="thumbnail"
                             src={`/assets/images/portfolio/portfolio-${

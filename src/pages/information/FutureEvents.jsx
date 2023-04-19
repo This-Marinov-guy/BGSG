@@ -31,6 +31,42 @@ class FutureEventsContent extends Component {
                     styevariation="text-center mt--40"
                     column="col-lg-4 col-md-6 col-sm-6 col-12"
                     item="6"
+                    style="1"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class FutureOtherEventsContent extends Component {
+  render() {
+    return (
+      <div className="portfolio-area pt--20 pb--100 bg_color--5">
+        <div className="rn-slick-dot">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
+                  <h3 className="title">Other events</h3>
+                  <p>
+                    Events that you might find interesting from other organizers
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="slick-space-gutter--15 slickdot--20">
+                  <PortfolioList
+                    styevariation="text-center mt--40"
+                    column="col-lg-4 col-md-6 col-sm-6 col-12"
+                    item="6"
+                    style="2"
                   />
                 </div>
               </div>
@@ -58,7 +94,7 @@ class FutureEvents extends Component {
         {/* End Breadcrump Area */}
 
         {/* Start Future Events Area */}
-        <FutureEventsContent/>
+        <FutureEventsContent />
         {/* End Future Events Area */}
 
         {/* Start Back To Top */}
@@ -74,4 +110,4 @@ class FutureEvents extends Component {
     );
   }
 }
-export { FutureEvents, FutureEventsContent };
+export { FutureEvents, FutureEventsContent, FutureOtherEventsContent };

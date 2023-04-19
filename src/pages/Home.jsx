@@ -9,6 +9,7 @@ import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
+import { FutureEventsContent, FutureOtherEventsContent } from "./information/FutureEvents";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 const SlideList = [
@@ -112,27 +113,8 @@ const Home = () => {
       {/* End News Area */}
 
       {/* Start Upcoming Events Area */}
-      <div className="portfolio-area pb--60 bg_color--1 mt--80">
-        <div className="portfolio-sacousel-inner mb--55 mb_sm--0">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="mb--30 mb_sm--0">
-                  <h2 className="title">Upcoming Events</h2>
-                  <p>Expect soon - check for more information</p>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <PortfolioList
-                styevariation="text-center mt--40"
-                column="col-lg-4 col-md-6 col-sm-6 col-12"
-                item="6"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <FutureEventsContent />
+      <FutureOtherEventsContent/>
       {/* End Upcoming Events Area */}
 
       {/* Start Footer Style  */}
