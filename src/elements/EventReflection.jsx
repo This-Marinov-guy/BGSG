@@ -24,7 +24,8 @@ const eventReflectionDetails = [
     ],
   },
   {
-    title: "Trifon Zarezan | Wine Tasting",
+    title: "Trifon Zarezan",
+    secondTitle: " | Wine Tasting",
     bgImage: "13",
     date: "14th February",
     attendance: "30",
@@ -56,7 +57,16 @@ const eventReflectionDetails = [
 
 const EventReflection = React.memo((props) => {
   const eventId = useParams().eventId;
+
   console.log(eventId);
+
+  let index;
+
+  for (let i = 0; i < eventReflectionDetails.length; i++) {
+    if (eventReflectionDetails[i].title === eventId) {
+      index = i; // Return the index of the matching object
+    }
+  }
 
   return (
     <React.Fragment>
@@ -68,9 +78,7 @@ const EventReflection = React.memo((props) => {
 
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${
-          eventReflectionDetails[Number(eventId)].bgImage
-        }`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${eventReflectionDetails[index].bgImage}`}
         data-black-overlay="7"
       >
         <div className="container">
@@ -78,20 +86,23 @@ const EventReflection = React.memo((props) => {
             <div className="col-lg-12">
               <div className="blog-single-page-title text-center pt--100">
                 <h2 className="title theme-gradient">
-                  {eventReflectionDetails[Number(eventId)].title}
+                  {eventReflectionDetails[index].secondTitle
+                    ? eventReflectionDetails[index].title +
+                      eventReflectionDetails[index].secondTitle
+                    : eventReflectionDetails[index].title}
                 </h2>
                 <ul className="blog-meta d-flex justify-content-center align-items-center">
                   <li>
                     <FiClock />
-                    {eventReflectionDetails[Number(eventId)].date}
+                    {eventReflectionDetails[index].date}
                   </li>
                   <li>
                     <FiUser />
-                    {eventReflectionDetails[Number(eventId)].attendance} people
+                    {eventReflectionDetails[index].attendance} people
                   </li>
                   <li>
                     <FiMessageCircle />
-                    {eventReflectionDetails[Number(eventId)].comments} Comments
+                    {eventReflectionDetails[index].comments} Comments
                   </li>
                 </ul>
               </div>
@@ -109,7 +120,7 @@ const EventReflection = React.memo((props) => {
               <div className="inner-wrapper">
                 <h2 className="title">Event Description</h2>
                 <div className="inner mt--80">
-                  <p>{eventReflectionDetails[Number(eventId)].text}</p>
+                  <p>{eventReflectionDetails[index].text}</p>
                 </div>
               </div>
             </div>
@@ -119,7 +130,7 @@ const EventReflection = React.memo((props) => {
       {/* End Blog Details */}
 
       {/* Start Picture Area */}
-      <PhotoGallery target={eventReflectionDetails[Number(eventId)].images} />
+      <PhotoGallery target={eventReflectionDetails[index].images} />
       {/* End Picture Area */}
 
       {/* Start Sponsor Area */}

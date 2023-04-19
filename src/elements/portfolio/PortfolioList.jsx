@@ -19,18 +19,16 @@ class PortfolioList extends Component {
           <div className={`${column} mb--80`} key={index}>
             <div className={`portfolio ${styevariation}`}>
               <div className="thumbnail-inner">
-                <Link to={`/portfolio-details/${index}`}>
                   <img
                     className="thumbnail"
                     src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
                     alt="Event Images"
                   />
-                </Link>
               </div>
               <div className="content">
                 <div className="inner">
                   <div className="portfolio-button">
-                    <a className="rn-btn" href={`/portfolio-details/${index}`}>
+                    <a className="rn-btn" href={`/event-details/${index}`}>
                       View Details
                     </a>
                   </div>

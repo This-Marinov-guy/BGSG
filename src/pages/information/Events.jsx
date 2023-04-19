@@ -12,23 +12,6 @@ import PortfolioList from "../../elements/portfolio/PortfolioList";
 import { FutureEventsContent } from "./FutureEvents";
 import { PastEventsContent } from "./PastEvents";
 
-const list = [
-  {
-    image: "1",
-    category: "Bulgarian Dinner",
-    title: "Try our traditional cuisine",
-  },
-  {
-    image: "2",
-    category: "Trifon Zarezan",
-    title: "No valantine - wine is always there for us ",
-  },
-  {
-    image: "3",
-    category: "Freedom Fest",
-    title: "Celebration of the national day of Bulgaria",
-  },
-];
 
 class Events extends Component {
   render() {

@@ -50,6 +50,42 @@ const Error = lazy(() => import("./elements/ui/Error"));
 const Success = lazy(() => import("./pages/redirects/Success"));
 const Fail = lazy(() => import("./pages/redirects/Fail"));
 
+const openSocietyEvents = [
+  {
+    title: "Freedom Fest",
+    description: "National day of Bulgaria",
+    bgImage: "4",
+    when: "3.3.2023, 20:00",
+    where: "Business Hall",
+    entry: 8,
+    memberEntry: 5,
+    price_id: "",
+    memberPrice_id: "",
+    text: [
+      "Wild party",
+      "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
+    ],
+    images: ["portfolio-big-01.jpg"],
+  },
+];
+
+const openNonSocietyEvents = [
+  {
+    title: "Barista Course",
+    description: "Master the profession of a barista",
+    bgImage: "4",
+    when: "TBD",
+    where: "TBD",
+    entry: 30,
+    memberEntry: 5,
+    text: [
+      "Wild party",
+      "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
+    ],
+    images: ["portfolio-big-01.jpg"],
+  },
+];
+
 const Root = () => {
   //prefetch routes
 
@@ -125,12 +161,9 @@ const Root = () => {
             <Route exact path={`/future-events`} component={FutureEvents} />
             <Route exact path={`/past-events`} component={PastEvents} />
 
+            <Route path={`/event-details/:eventId`} component={EventDetails} />
             <Route
-              path={`/portfolio-details/:eventId`}
-              component={EventDetails}
-            />
-            <Route
-              path={`/blog-details/:eventId`}
+              path={`/event-reflection/:eventId`}
               component={EventReflection}
             />
 

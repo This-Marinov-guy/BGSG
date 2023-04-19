@@ -10,19 +10,13 @@ import Footer from "../../component/footer/Footer";
 
 const list = [
   {
-    image: "1",
-    category: "Bulgarian Dinner",
-    title: "Try our traditional cuisine",
+    url: "Bulgarian Dinner",
   },
   {
-    image: "2",
-    category: "Trifon Zarezan",
-    title: "No valantine - wine is always there for us ",
+    url: "Trifon Zarezan",
   },
   {
-    image: "3",
-    category: "Freedom Fest",
-    title: "Celebration of the national day of Bulgaria",
+    url: "Freedom Fest",
   },
 ];
 
@@ -52,7 +46,9 @@ class PastEventsContent extends Component {
                         <div className="thumbnail-inner">
                           <img
                             className="thumbnail"
-                            src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                            src={`/assets/images/portfolio/portfolio-${
+                              index + 1
+                            }.jpg`}
                             alt="Event Images"
                           />
                         </div>
@@ -61,7 +57,7 @@ class PastEventsContent extends Component {
                             <div className="portfolio-button">
                               <a
                                 className="rn-btn"
-                                href={`/blog-details/${index}`}
+                                href={`/event-reflection/${value.url}`}
                               >
                                 Tell me more
                               </a>
