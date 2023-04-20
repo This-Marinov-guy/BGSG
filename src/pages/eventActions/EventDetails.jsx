@@ -1,34 +1,17 @@
 import React, { Component } from "react";
-import PageHelmet from "../component/common/Helmet";
+import PageHelmet from "../../component/common/Helmet";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
-import { useParams } from "react-router-dom";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
 import { useSelector } from "react-redux";
-import { selectUser } from "../redux/user";
-
-const eventDetails = [
-  {
-    id: "0",
-    title: "Freedom Fest",
-    description: "National day of Bulgaria",
-    bgImage: "4",
-    when: "3.3.2023, 20:00",
-    where: "Business Hall",
-    entry: 8,
-    text: [
-      "Wild party",
-      "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
-    ],
-    images: ["portfolio-big-01.jpg"],
-  },
-];
+import { selectUser } from "../../redux/user";
+import { useObjectGrabUrl } from "../../hooks/object-hook";
 
 const EventDetails = (props) => {
-  const eventId = useParams().eventId;
-
   const user = useSelector(selectUser);
+
+  const target = useObjectGrabUrl(props.openSocietyEvents);
 
   return (
     <React.Fragment>
@@ -42,19 +25,15 @@ const EventDetails = (props) => {
 
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${
-          eventDetails[Number(eventId)].bgImage
-        }`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${target.bgImage}`}
         data-black-overlay="7"
       >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="rn-page-title text-center pt--100">
-                <h2 className="title theme-gradient">
-                  {eventDetails[Number(eventId)].title}
-                </h2>
-                <p>{eventDetails[Number(eventId)].description}</p>
+                <h2 className="title theme-gradient">{target.title}</h2>
+                <p>{target.description}</p>
               </div>
             </div>
           </div>
@@ -70,32 +49,44 @@ const EventDetails = (props) => {
               <div className="portfolio-details">
                 <div className="inner">
                   <h2>About</h2>
-                  <p className="subtitle">
-                    {eventDetails[Number(eventId)].text[0]}
-                  </p>
-                  <p>{eventDetails[Number(eventId)].text[1]}</p>
+                  <p className="subtitle">{target.text[0]}</p>
+                  <p>{target.text[1]}</p>
 
                   <div className="portfolio-view-list d-flex flex-wrap">
                     <div className="port-view">
                       <span>When</span>
-                      <h4>{eventDetails[Number(eventId)].when}</h4>
+                      <h4>{target.date + ", " + target.time}</h4>
+                      {target.correctedDate && (
+                        <p style={{ color: "#f80707" }} className="error">
+                          {"Updated Date -> " + target.correctedDate}
+                        </p>
+                      )}
+                      {target.correctedTime && (
+                        <p style={{ color: "#f80707" }} className="error">
+                          {"Updated Time -> " + target.correctedTime}
+                        </p>
+                      )}
                     </div>
 
                     <div className="port-view">
                       <span>Where</span>
-                      <h4>{eventDetails[Number(eventId)].where}</h4>
+                      <h4>{target.where}</h4>
                     </div>
 
                     <div className="port-view">
                       <span>Entry fee</span>
-                      <h4>{eventDetails[Number(eventId)].entry} euro</h4>
+                      <h4>
+                        {user.token
+                          ? target.memberEntry + " euro (discounted)"
+                          : target.entry + " euro"}
+                      </h4>
                     </div>
                   </div>
                   <a
                     href={
                       user.token
-                        ? `/purchase-ticket/${user.userId}`
-                        : "/purchase-ticket"
+                        ? `/purchase-ticket/${target.title}/${user.userId}`
+                        : `/purchase-ticket/${target.title}`
                     }
                     className="rn-button-style--2 btn-solid"
                   >
@@ -124,12 +115,7 @@ const EventDetails = (props) => {
                 <br />
                 <div className="portfolio-thumb-inner">
                   <div className="thumb position-relative mb--30">
-                    <img
-                      src={`/assets/images/portfolio/${
-                        eventDetails[Number(eventId)].images[0]
-                      }`}
-                      alt="Portfolio Images"
-                    />
+                    <img src={target.images[0]} alt="Portfolio Images" />
                   </div>
                 </div>
               </div>

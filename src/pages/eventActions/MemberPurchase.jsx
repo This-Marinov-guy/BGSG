@@ -1,19 +1,22 @@
 import React, { Fragment, useEffect, useState } from "react";
-import PageHelmet from "../component/common/Helmet";
-import Header from "../component/header/Header";
+import PageHelmet from "../../component/common/Helmet";
+import Header from "../../component/header/Header";
 import { useParams } from "react-router-dom";
-import { useHttpClient } from "../hooks/http-hook";
-import Loader from "../elements/ui/Loader";
-import Locked from "../elements/ui/Locked";
+import { useHttpClient } from "../../hooks/http-hook";
+import Loader from "../../elements/ui/Loader";
+import Locked from "../../elements/ui/Locked";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import Footer from "../component/footer/Footer";
+import Footer from "../../component/footer/Footer";
+import { useObjectGrabUrl } from "../../hooks/object-hook";
 
-const MemberPurchase = () => {
+const MemberPurchase = (props) => {
   const [currentUser, setCurrentUser] = useState();
   const { loading, sendRequest } = useHttpClient();
 
   const userId = useParams().userId;
+
+  const target = useObjectGrabUrl(props.openSocietyEvents);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -33,7 +36,7 @@ const MemberPurchase = () => {
       var canvas = document.createElement("canvas");
       var layout = canvas.getContext("2d");
       let ticket = new Image();
-      ticket.src = "/assets/images/tickets/ticket.png";
+      ticket.src = target.ticket_img;
       //image
       canvas.width = ticket.naturalWidth;
       canvas.height = ticket.naturalHeight;
@@ -62,13 +65,13 @@ const MemberPurchase = () => {
       formData.append(
         "image",
         dataBlob,
-        "freedom_fest_" + currentUser.name + currentUser.surname + "_MEMBER"
+        target.title + "_" + currentUser.name + currentUser.surname + "_MEMBER"
       );
-      formData.append("itemId", "price_1MudzeIOw5UGbAo1K0l3xJ9y");
+      formData.append("itemId", target.memberPrice_id);
       formData.append("origin_url", window.location.origin);
       formData.append("method", "buy_member_ticket");
-      formData.append("eventName", "freedom fest");
-      formData.append("eventDate", "03.03.2023");
+      formData.append("eventName", target.title);
+      formData.append("eventDate", target.date);
       formData.append("userId", userId);
       const responseData = await sendRequest(
         "payment/checkout",
@@ -95,11 +98,7 @@ const MemberPurchase = () => {
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
 
         <div className="row slide-down center_div">
-          <img
-            src="/assets/images/portfolio/portfolio-big-01.jpg"
-            alt="Event"
-            className="title_img"
-          />
+          <img src={target.images[0]} alt="Event" className="title_img" />
         </div>
         <div
           style={{ width: "80%", margin: "auto" }}
@@ -108,11 +107,21 @@ const MemberPurchase = () => {
           <div className="col-lg-6 col-md-12 col-12">
             <div className="event_details">
               <h2 className="mt--40">Event Details</h2>
-              <p>Name: Freedom Fest</p>
-              <p>Date: 23.1.2021</p>
-              <p>Time: 8:00</p>
-              <p>Address: Groningen</p>
-              <p>Price: 5 euro (discounted)</p>
+              <p>Name:{" "} {target.title}</p>
+              <p>
+                Date:{" "}
+                {target.correctedDate
+                  ? target.correctedDate + " Updated!"
+                  : target.date}
+              </p>
+              <p>
+                Time:{" "}
+                {target.correctedTime
+                  ? target.correctedTime + " Updated!"
+                  : target.time}
+              </p>
+              <p>Address:{" "} {target.where}</p>
+              <p>Price:{" "} {target.memberEntry} euro (discounted)</p>
             </div>
           </div>
           <div className="col-lg-6 col-md-12 col-12">

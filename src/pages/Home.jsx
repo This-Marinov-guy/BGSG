@@ -9,7 +9,10 @@ import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
-import { FutureEventsContent, FutureOtherEventsContent } from "./information/FutureEvents";
+import {
+  FutureEventsContent,
+  FutureOtherEventsContent,
+} from "./information/FutureEvents";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 const SlideList = [
@@ -23,7 +26,7 @@ const SlideList = [
   },
 ];
 
-const Home = () => {
+const Home = (props) => {
   const user = useSelector(selectUser);
 
   return (
@@ -113,8 +116,8 @@ const Home = () => {
       {/* End News Area */}
 
       {/* Start Upcoming Events Area */}
-      <FutureEventsContent />
-      <FutureOtherEventsContent/>
+      <FutureEventsContent openSocietyEvents={props.openSocietyEvents} />
+      <FutureOtherEventsContent openNonSocietyEvents={props.openNonSocietyEvents} />
       {/* End Upcoming Events Area */}
 
       {/* Start Footer Style  */}

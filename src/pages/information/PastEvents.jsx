@@ -11,12 +11,15 @@ import Footer from "../../component/footer/Footer";
 const list = [
   {
     url: "Bulgarian Dinner",
+    image: "1",
   },
   {
     url: "Trifon Zarezan",
+    image: "2",
   },
   {
     url: "Freedom Fest",
+    image: "3",
   },
 ];
 
@@ -46,9 +49,7 @@ class PastEventsContent extends Component {
                         <div className="thumbnail-inner-2">
                           <img
                             className="thumbnail"
-                            src={`/assets/images/portfolio/portfolio-${
-                              index + 1
-                            }.jpg`}
+                            src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
                             alt="Event Images"
                           />
                         </div>

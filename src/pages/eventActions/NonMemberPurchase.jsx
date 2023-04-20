@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useHttpClient } from "../hooks/http-hook";
-import PageHelmet from "../component/common/Helmet";
-import Header from "../component/header/Header";
+import { useHttpClient } from "../../hooks/http-hook";
+import PageHelmet from "../../component/common/Helmet";
+import Header from "../../component/header/Header";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import Footer from "../component/footer/Footer";
-import Loader from "../elements/ui/Loader";
+import Footer from "../../component/footer/Footer";
+import Loader from "../../elements/ui/Loader";
+import { useObjectGrabUrl } from "../../hooks/object-hook";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -20,6 +21,8 @@ const schema = yup.object().shape({
 
 const NonMemberPurchase = (props) => {
   const { loading, sendRequest } = useHttpClient();
+
+  const target = useObjectGrabUrl(props.openSocietyEvents);
 
   return (
     <Fragment>
@@ -37,17 +40,23 @@ const NonMemberPurchase = (props) => {
         <div className="row">
           <div className="col-lg-4 col-md-12 col-12">
             <div className="event_details">
-              <img
-                src="/assets/images/portfolio/portfolio-big-01.jpg"
-                alt="Event"
-                className="title_img"
-              />
+              <img src={target.images[0]} alt="Event" className="title_img" />
               <h2 className="mt--40">Event Details</h2>
-              <p>Name: Freedom Fest</p>
-              <p>Date: 23.1.2021</p>
-              <p>Time: 8:00</p>
-              <p>Address: Groningen</p>
-              <p>Price: 8 euro</p>
+              <p>Name: {target.title}</p>
+              <p>
+                Date:{" "}
+                {target.correctedDate
+                  ? target.correctedDate + " Updated!"
+                  : target.date}
+              </p>
+              <p>
+                Time:{" "}
+                {target.correctedTime
+                  ? target.correctedTime + " Updated!"
+                  : target.time}
+              </p>
+              <p>Address: {target.where}</p>
+              <p>Price: {target.entry} euro</p>
               <div className="team_member_border-3 center_section mt--80">
                 <p className="information center_text">
                   By becoming a member the cost of the ticket will be reduced
@@ -75,7 +84,7 @@ const NonMemberPurchase = (props) => {
                     var canvas = document.createElement("canvas");
                     var layout = canvas.getContext("2d");
                     let ticket = new Image();
-                    ticket.src = "/assets/images/tickets/ticket.png";
+                    ticket.src = target.ticket_img;
                     //image
                     canvas.width = ticket.naturalWidth;
                     canvas.height = ticket.naturalHeight;
@@ -110,13 +119,13 @@ const NonMemberPurchase = (props) => {
                     formData.append(
                       "image",
                       dataBlob,
-                      "freedom_fest_" + values.name + values.surname + "_GUEST"
+                      target.title + '_' + values.name + values.surname + "_GUEST"
                     );
-                    formData.append("itemId", "price_1MudzFIOw5UGbAo1w66nEEEv");
+                    formData.append("itemId", target.price_id);
                     formData.append("origin_url", window.location.origin);
                     formData.append("method", "buy_guest_ticket");
-                    formData.append("eventName", "freedom fest");
-                    formData.append("eventDate", "03.03.2023");
+                    formData.append("eventName", target.title);
+                    formData.append("eventDate", target.date);
                     formData.append("guestEmail", values.email);
                     formData.append(
                       "guestName",

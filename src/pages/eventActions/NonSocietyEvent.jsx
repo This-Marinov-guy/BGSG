@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from "react";
-import PageHelmet from "../component/common/Helmet";
+import PageHelmet from "../../component/common/Helmet";
 import ScrollToTop from "react-scroll-up";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useHttpClient } from "../hooks/http-hook";
+import { useHttpClient } from "../../hooks/http-hook";
 import { FiChevronUp, FiX } from "react-icons/fi";
-import Header from "../component/header/Header";
-import Footer from "../component/footer/Footer";
-import ModalWindow from "./ui/ModalWindow";
-import Locked from "./ui/Locked";
+import Header from "../../component/header/Header";
+import Footer from "../../component/footer/Footer";
+import ModalWindow from "../../elements/ui/ModalWindow";
+import Locked from "../../elements/ui/Locked";
 import Alert from "react-bootstrap/Alert";
-import Loader from "./ui/Loader";
+import Loader from "../../elements/ui/Loader";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser } from "../redux/user";
-import { removeModal, selectModal, showModal } from "../redux/modal";
+import { selectUser } from "../../redux/user";
+import { removeModal, selectModal, showModal } from "../../redux/modal";
+import { useObjectGrabUrl } from "../../hooks/object-hook";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -35,7 +36,7 @@ const NonSocietyEvent = (props) => {
 
   const { loading, sendRequest } = useHttpClient();
 
-  const eventId = useParams().eventId;
+  const target = useObjectGrabUrl(props.openNonSocietyEvents);
 
   const user = useSelector(selectUser);
   const modal = useSelector(selectModal);
@@ -103,22 +104,6 @@ const NonSocietyEvent = (props) => {
     }
   }, [sendRequest, user]);
 
-  const eventDetails = [
-    {
-      id: "0",
-      title: "Freedom Fest",
-      description: "National day of Bulgaria",
-      bgImage: "4",
-      when: "3.3.2023, 20:00",
-      where: "Business Hall",
-      entry: user.token ? 20 : 30,
-      text: [
-        "Wild party",
-        "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
-      ],
-      images: ["portfolio-big-01.jpg"],
-    },
-  ];
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Portfolio Details" />
@@ -142,7 +127,7 @@ const NonSocietyEvent = (props) => {
                   "event/register/non-society-event",
                   "POST",
                   JSON.stringify({
-                    event: "barista course",
+                    event: target.title,
                     user: "normal",
                     name: values.name + " " + values.surname,
                     phone: values.phone,
@@ -157,7 +142,10 @@ const NonSocietyEvent = (props) => {
                   <Alert className="error_panel" variant="success">
                     <div className="action_btns">
                       <h3>Thank you for the interest!</h3>
-                      <FiX className="mr--20" onClick={closeNotificationHandler} />
+                      <FiX
+                        className="mr--20"
+                        onClick={closeNotificationHandler}
+                      />
                     </div>
                     <p>
                       Your registration for the event is complete! The organizer
@@ -287,19 +275,15 @@ const NonSocietyEvent = (props) => {
       )}
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${
-          eventDetails[Number(eventId)].bgImage
-        }`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${target.bgImage}`}
         data-black-overlay="7"
       >
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="rn-page-title text-center pt--100">
-                <h2 className="title theme-gradient">
-                  {eventDetails[Number(eventId)].title}
-                </h2>
-                <p>{eventDetails[Number(eventId)].description}</p>
+                <h2 className="title theme-gradient">{target.title}</h2>
+                <p>{target.description}</p>
               </div>
             </div>
           </div>
@@ -315,25 +299,25 @@ const NonSocietyEvent = (props) => {
               <div className="portfolio-details">
                 <div className="inner">
                   <h2>About</h2>
-                  <p className="subtitle">
-                    {eventDetails[Number(eventId)].text[0]}
-                  </p>
-                  <p>{eventDetails[Number(eventId)].text[1]}</p>
+                  <p className="subtitle">{target.text[0]}</p>
+                  <p>{target.text[1]}</p>
 
                   <div className="portfolio-view-list d-flex flex-wrap">
                     <div className="port-view">
                       <span>When</span>
-                      <h4>{eventDetails[Number(eventId)].when}</h4>
+                      <h4>{target.when}</h4>
                     </div>
 
                     <div className="port-view">
                       <span>Where</span>
-                      <h4>{eventDetails[Number(eventId)].where}</h4>
+                      <h4>{target.where}</h4>
                     </div>
 
                     <div className="port-view">
                       <span>Fee</span>
-                      <h4>{eventDetails[Number(eventId)].entry} euro</h4>
+                      <h4>{user.token
+                          ? target.memberEntry + " euro (discounted)"
+                          : target.entry + " euro"}</h4>
                     </div>
                   </div>
                   <button
@@ -379,9 +363,7 @@ const NonSocietyEvent = (props) => {
                 <div className="portfolio-thumb-inner">
                   <div className="thumb position-relative mb--30">
                     <img
-                      src={`/assets/images/portfolio/${
-                        eventDetails[Number(eventId)].images[0]
-                      }`}
+                      src={`/assets/images/portfolio/${target.images[0]}`}
                       alt="Portfolio Images"
                     />
                   </div>
