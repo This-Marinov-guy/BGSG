@@ -25,7 +25,7 @@ const EventDetails = (props) => {
 
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${target.bgImage}`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--1`}
         data-black-overlay="7"
       >
         <div className="container">

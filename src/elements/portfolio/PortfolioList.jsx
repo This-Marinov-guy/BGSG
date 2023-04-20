@@ -8,19 +8,28 @@ const PortfolioList = (props) => {
           <div className={`portfolio ${props.styevariation}`}>
             <div
               className={
-                props.style === "society" ? "thumbnail-inner" : "thumbnail-inner-2"
+                props.style === "society"
+                  ? "thumbnail-inner"
+                  : "thumbnail-inner-2"
               }
             >
               <img
                 className="thumbnail"
-                src={`/assets/images/portfolio/portfolio-${value.bgImage}.jpg`}
+                src={value.thumbnail}
                 alt="Event Images"
               />
             </div>
             <div className="content">
               <div className="inner">
                 <div className="portfolio-button">
-                  <a className="rn-btn" href={props.style === "society" ? `/event-details/${value.title}` : `/other-event-details/${value.title}`}>
+                  <a
+                    className="rn-btn"
+                    href={
+                      props.style === "society"
+                        ? `/event-details/${value.title}`
+                        : `/other-event-details/${value.title}`
+                    }
+                  >
                     View Details
                   </a>
                 </div>

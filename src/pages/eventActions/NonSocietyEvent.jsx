@@ -275,7 +275,7 @@ const NonSocietyEvent = (props) => {
       )}
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${target.bgImage}`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--1`}
         data-black-overlay="7"
       >
         <div className="container">
@@ -315,9 +315,11 @@ const NonSocietyEvent = (props) => {
 
                     <div className="port-view">
                       <span>Fee</span>
-                      <h4>{user.token
+                      <h4>
+                        {user.token
                           ? target.memberEntry + " euro (discounted)"
-                          : target.entry + " euro"}</h4>
+                          : target.entry + " euro"}
+                      </h4>
                     </div>
                   </div>
                   <button
@@ -362,10 +364,7 @@ const NonSocietyEvent = (props) => {
                 <br />
                 <div className="portfolio-thumb-inner">
                   <div className="thumb position-relative mb--30">
-                    <img
-                      src={`/assets/images/portfolio/${target.images[0]}`}
-                      alt="Portfolio Images"
-                    />
+                    <img src={target.images[0]} alt="Portfolio Images" />
                   </div>
                 </div>
               </div>

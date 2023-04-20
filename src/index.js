@@ -76,6 +76,7 @@ const openSocietyEvents = [
       "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
     ],
     images: ["/assets/images/portfolio/portfolio-big-01.jpg"],
+    thumbnail: "/assets/images/portfolio/portfolio-big-01.jpg",
     ticket_img: "/assets/images/tickets/ticket.png",
   },
 ];
@@ -95,7 +96,8 @@ const openNonSocietyEvents = [
       "Wild party",
       "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
     ],
-    images: ["portfolio-big-01.jpg"],
+    images: ["/assets/images/portfolio/portfolio-4.jpg"],
+    thumbnail: "/assets/images/portfolio/portfolio-4.jpg",
   },
 ];
 
