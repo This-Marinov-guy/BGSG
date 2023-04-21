@@ -26,12 +26,18 @@ const FutureEventsContent = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
-                <PortfolioList
-                  style="society"
-                  target={props.openSocietyEvents}
-                  styevariation="text-center mt--40"
-                  column="col-lg-4 col-md-6 col-sm-6 col-12"
-                />
+                {props.openSocietyEvents ? (
+                  <PortfolioList
+                    style="society"
+                    target={props.openSocietyEvents}
+                    styevariation="text-center mt--40"
+                    column="col-lg-4 col-md-6 col-sm-6 col-12"
+                  />
+                ) : (
+                  <p className="mt--20 mb--20">
+                    No events for now ... check later!
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -59,12 +65,18 @@ const FutureOtherEventsContent = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
-                <PortfolioList
-                  style="other"
-                  target={props.openNonSocietyEvents}
-                  styevariation="text-center mt--40"
-                  column="col-lg-4 col-md-6 col-sm-6 col-12"
-                />
+                {props.openNonSocietyEvents ? (
+                  <PortfolioList
+                    style="other"
+                    target={props.openNonSocietyEvents}
+                    styevariation="text-center mt--40"
+                    column="col-lg-4 col-md-6 col-sm-6 col-12"
+                  />
+                ) : (
+                  <p className="mt--20 mb--20">
+                    No other events for now ... check later!
+                  </p>
+                )}
               </div>
             </div>
           </div>

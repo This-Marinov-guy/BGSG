@@ -1,52 +1,49 @@
-import React, { Component } from "react";
+import React from "react";
 import PageHelmet from "../../component/common/Helmet";
 import Breadcrumb from "../../elements/common/Breadcrumb";
-import Slider from "react-slick";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import { slickDot } from "../../page-demo/script";
+import { FutureEventsContent } from "./FutureEvents";
+import { FutureOtherEventsContent } from "./FutureEvents";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
-import PortfolioList from "../../elements/portfolio/PortfolioList";
-import { FutureEventsContent } from "./FutureEvents";
 import { PastEventsContent } from "./PastEvents";
 
+const Events = (props) => {
+  return (
+    <React.Fragment>
+      <PageHelmet pageTitle="Events" />
 
-class Events extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <PageHelmet pageTitle="Events" />
+      <Header
+        headertransparent="header--transparent"
+        colorblack="color--black"
+        logoname="logo.png"
+      />
+      {/* Start Breadcrump Area */}
+      <Breadcrumb title={"Events"} />
+      {/* End Breadcrump Area */}
 
-        <Header
-          headertransparent="header--transparent"
-          colorblack="color--black"
-          logoname="logo.png"
-        />
-        {/* Start Breadcrump Area */}
-        <Breadcrumb title={"Events"} />
-        {/* End Breadcrump Area */}
+      {/* Start Future Events Area */}
+      <FutureEventsContent openSocietyEvents={props.openSocietyEvents} />
+      <FutureOtherEventsContent
+        openNonSocietyEvents={props.openNonSocietyEvents}
+      />
+      {/* End Future Events Area */}
 
-        {/* Start Future Events Area */}
-        <FutureEventsContent />
-        {/* End Future Events Area */}
+      {/* Start Past Events Area */}
+      <PastEventsContent />
+      {/* End Past Events Area */}
 
-        {/* Start Past Events Area */}
-        <PastEventsContent />
-        {/* End Past Events Area */}
+      {/* Start Back To Top */}
+      <div className="backto-top">
+        <ScrollToTop showUnder={160}>
+          <FiChevronUp />
+        </ScrollToTop>
+      </div>
+      {/* End Back To Top */}
 
-        {/* Start Back To Top */}
-        <div className="backto-top">
-          <ScrollToTop showUnder={160}>
-            <FiChevronUp />
-          </ScrollToTop>
-        </div>
-        {/* End Back To Top */}
-
-        <Footer />
-      </React.Fragment>
-    );
-  }
-}
+      <Footer />
+    </React.Fragment>
+  );
+};
 export default Events;

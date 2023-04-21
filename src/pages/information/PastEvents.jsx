@@ -10,16 +10,24 @@ import Footer from "../../component/footer/Footer";
 
 const list = [
   {
-    url: "Bulgarian Dinner",
-    image: "1",
+    url: "Easter Lunch",
+    image: "6",
+  },
+  {
+    url: "Entrepreneur Series",
+    image: "5",
+  },
+  {
+    url: "Freedom Fest",
+    image: "3",
   },
   {
     url: "Trifon Zarezan",
     image: "2",
   },
   {
-    url: "Freedom Fest",
-    image: "3",
+    url: "Bulgarian Dinner",
+    image: "1",
   },
 ];
 

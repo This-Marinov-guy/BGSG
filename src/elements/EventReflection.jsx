@@ -54,6 +54,28 @@ const eventReflectionDetails = [
       { id: "13", image: "freedom-fest/13.jpeg", text: "" },
     ],
   },
+  {
+    title: "Entrepreneur Series",
+    bgImage: "18",
+    date: "16th April",
+    attendance: "25",
+    comments: "10",
+    text: `Toni, a 21-year old student and entrepreneur from Bulgaria, was our guest in our Entrepreneurship series where people share their stories about developing their own projects and businesses. Toni has experience with organizing parties at Toni’s Villa, has his own clothing brand - Yunak Brand, as well as a successful podcast and a Youtube channel (@tonienchev). He shared his experience and motivated students to follow their passion by taking small steps towards bigger goals`,
+    images: [
+      { id: "1", image: "entrepreneur-series/ent-I.png", text: "" },
+      { id: "2", image: "entrepreneur-series/ent-II.png", text: "" },
+      
+    ],
+  },
+  {
+    title: "Easter Lunch",
+    bgImage: "18",
+    date: "16th April",
+    attendance: "25",
+    comments: "10",
+    text: `To celebrate the Orthodox Easter we organized an Easter Lunch including a chicken soup, sarmi, snow white salad and kozunak - traditional Bulgarian dishes. Part of the event was also the Eastern tradition of painting eggs.`,
+    images: [],
+  },
 ];
 
 const EventReflection = React.memo((props) => {
