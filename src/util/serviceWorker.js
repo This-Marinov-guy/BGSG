@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
-import packageJson from '../../package.json';
+import packageJson from "../../package.json";
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -96,6 +96,16 @@ function registerValidSW(swUrl, config) {
     .catch((error) => {
       console.error("Error registering service worker:", error);
     });
+
+  if (config && config.cacheName) {
+    let CACHE_NAME = config.cacheName;
+    navigator.serviceWorker.ready.then(function (registration) {
+      registration.active.postMessage({
+        action: "change-cache-name",
+        newCacheName: CACHE_NAME,
+      });
+    });
+  }
 }
 
 function checkValidServiceWorker(swUrl, config) {
