@@ -15,6 +15,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const safePostCssParser = require("postcss-safe-parser");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
 // const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
@@ -24,6 +25,7 @@ const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
+const packageJson = require('../package.json'); // Import package.json
 
 const postcssNormalize = require("postcss-normalize");
 
@@ -568,6 +570,37 @@ module.exports = function (webpackEnv) {
       new webpack.DefinePlugin({
         APP_VERSION: JSON.stringify(require("../package.json").version),
       }),
+      // Generate a service worker script that will precache, and keep up to date,
+      // the HTML & assets that are part of the Webpack build.
+      isEnvProduction &&
+        new WorkboxWebpackPlugin.GenerateSW({
+          clientsClaim: true,
+          exclude: [/\.map$/, /asset-manifest\.json$/],
+          importWorkboxFrom: "cdn",
+          navigateFallback: publicUrl + "/index.html",
+          navigateFallbackBlacklist: [
+            // Exclude URLs starting with /_, as they're likely an API call
+            new RegExp("^/_"),
+            // Exclude URLs containing a dot, as they're likely a resource in
+            // public/ and not a SPA route
+            new RegExp("/[^/]+\\.[^/]+$"),
+          ],
+          runtimeCaching: [
+            {
+              urlPattern: /^https?.*/,
+              handler: "NetworkFirst",
+              options: {
+                cacheName: `bgsg-static-v${packageJson.version}`,
+                expiration: {
+                  maxAgeSeconds: 60 * 60 * 24 * 30, // cache for 30 days
+                },
+                backgroundSync: {
+                  name: `bgsg-static-queue-v${packageJson.version}`,
+                },
+              },
+            },
+          ],
+        }),
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({
