@@ -10,6 +10,10 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+import packageJson from '../../package.json';
+
+const APP_VERSION = packageJson.version;
+
 const CACHE_NAME = `bgsg-static-v${APP_VERSION}`;
 
 const isLocalhost = Boolean(
