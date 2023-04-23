@@ -18,7 +18,7 @@ const SlideList = [
   {
     textPosition: "text-center",
     category: "",
-    title: "Bulgarian wow Groningen",
+    title: "Bulgarian Society Groningen",
     description: "",
     buttonText: "Become a Member",
     buttonLink: "/signup",
