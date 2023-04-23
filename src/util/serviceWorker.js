@@ -12,10 +12,6 @@
 
 import packageJson from '../../package.json';
 
-const APP_VERSION = packageJson.version;
-
-const CACHE_NAME = `bgsg-static-v${APP_VERSION}`;
-
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
     // [::1] is the IPv6 localhost address.
@@ -68,6 +64,7 @@ function registerValidSW(swUrl, config) {
       }
 
       registration.addEventListener("activate", () => {
+        let CACHE_NAME = `bgsg-static-v${packageJson.version}`;
         console.log("Service worker activated!");
         // clear the old cache
         caches.keys().then(function (cacheNames) {
