@@ -1,4 +1,4 @@
-const CACHE_NAME = `myapp-static-v${APP_VERSION}`;
+const CACHE_NAME = `bgsg-static-v${APP_VERSION}`;
 
 self.addEventListener("install", function (event) {
   console.log("Installing service worker...");
