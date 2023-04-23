@@ -48,28 +48,50 @@ export function register(config) {
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
-    .then(registration => {
-      registration.addEventListener('updatefound', () => {
-        console.log('New version available, refreshing...');
+    .then((registration) => {
+      registration.addEventListener("updatefound", () => {
+        console.log("New version available, refreshing...");
         if (registration.active) {
-          registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+          registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
       });
 
       if (registration.waiting) {
-        console.log('Service worker already waiting, refreshing...');
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+        console.log("Service worker already waiting, refreshing...");
+        registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
-      registration.addEventListener('activate', () => {
-        console.log('Service worker activated!');
+      registration.addEventListener("activate", () => {
+        console.log("Service worker activated!");
+        // clear the old cache
+        caches.keys().then(function (cacheNames) {
+          return Promise.all(
+            cacheNames.map(function (cacheName) {
+              if (cacheName !== CACHE_NAME) {
+                console.log("Deleting old cache:", cacheName);
+                return caches.delete(cacheName);
+              }
+            })
+          );
+        });
+        // add the new cache
+        caches.open(CACHE_NAME).then(function (cache) {
+          console.log("Adding new cache:", CACHE_NAME);
+          return cache.addAll([
+            "/",
+            "/index.html",
+            "/manifest.json",
+            "/static/js/bundle.[hash].js",
+            "/static/css/main.[hash].css",
+          ]);
+        });
         registration.active.skipWaiting();
       });
 
-      console.log('Service worker registered!');
+      console.log("Service worker registered!");
     })
-    .catch(error => {
-      console.error('Error registering service worker:', error);
+    .catch((error) => {
+      console.error("Error registering service worker:", error);
     });
 }
 
