@@ -10,7 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
-import packageJson from '../../package.json';
+import packageJson from "../../package.json";
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -64,31 +64,41 @@ function registerValidSW(swUrl, config) {
       }
 
       registration.addEventListener("activate", () => {
-        let CACHE_NAME = `bgsg-static-v${packageJson.version}`;
-        console.log("Service worker activated!");
-        // clear the old cache
-        caches.keys().then(function (cacheNames) {
-          return Promise.all(
-            cacheNames.map(function (cacheName) {
-              if (cacheName !== CACHE_NAME) {
-                console.log("Deleting old cache:", cacheName);
-                return caches.delete(cacheName);
-              }
-            })
-          );
-        });
-        // add the new cache
-        caches.open(CACHE_NAME).then(function (cache) {
-          console.log("Adding new cache:", CACHE_NAME);
-          return cache.addAll([
-            "/",
-            "/index.html",
-            "/manifest.json",
-            "/static/js/bundle.[hash].js",
-            "/static/css/main.[hash].css",
-          ]);
-        });
-        registration.active.skipWaiting();
+        // get the current version of package.json
+        fetch("/package.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const newestVersion = data.version;
+            const CACHE_NAME = `bgsg-static-v${newestVersion}`;
+
+            console.log("Service worker activated!");
+            // clear the old cache
+            caches.keys().then(function (cacheNames) {
+              return Promise.all(
+                cacheNames.map(function (cacheName) {
+                  if (cacheName !== CACHE_NAME) {
+                    console.log("Deleting old cache:", cacheName);
+                    return caches.delete(cacheName);
+                  }
+                })
+              );
+            });
+            // add the new cache
+            caches.open(CACHE_NAME).then(function (cache) {
+              console.log("Adding new cache:", CACHE_NAME);
+              return cache.addAll([
+                "/",
+                "/index.html",
+                "/manifest.json",
+                "/static/js/bundle.[hash].js",
+                "/static/css/main.[hash].css",
+              ]);
+            });
+            registration.active.skipWaiting();
+          })
+          .catch((error) => {
+            console.error("Error fetching package.json:", error);
+          });
       });
 
       console.log("Service worker registered!");
