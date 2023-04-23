@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { Parallax } from "react-parallax";
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux/user";
-import PortfolioList from "../elements/portfolio/PortfolioList";
 import Header from "../component/header/Header";
 import AboutUs from "../component/HomeLayout/homeOne/AboutUs";
 import FooterTwo from "../component/footer/FooterTwo";
@@ -19,7 +18,7 @@ const SlideList = [
   {
     textPosition: "text-center",
     category: "",
-    title: "Bulgarian wow Groningen",
+    title: "Bulgarian Society Groningen",
     description: "",
     buttonText: "Become a Member",
     buttonLink: "/signup",
