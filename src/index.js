@@ -11,13 +11,11 @@ import { selectError, selectErrorMsg } from "./redux/error";
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import * as serviceWorker from "./util/serviceWorker";
-import { prefetch } from "./util/prefetch";
 
 // Create Import File
 import "./index.scss";
 
 import PageScrollTop from "./component/PageScrollTop";
-import Loader from "./elements/ui/Loader";
 
 // Pages
 const Home = lazy(() => import("./pages/Home"));
@@ -102,17 +100,6 @@ const openNonSocietyEvents = [
 ];
 
 const Root = () => {
-  //prefetch routes
-
-  // prefetch("/");
-  // prefetch("/about");
-  // prefetch("/contact");
-  // prefetch("/login");
-  // prefetch("/signup");
-  // prefetch("/board-members");
-  // prefetch("/committees");
-  // prefetch("/events");
-  // prefetch("/purchase-ticket");
 
   const [notification, setNotification] = useState();
 
@@ -244,4 +231,4 @@ root.render(
   </Provider>
 );
 
-serviceWorker.unregister();
+serviceWorker.register();

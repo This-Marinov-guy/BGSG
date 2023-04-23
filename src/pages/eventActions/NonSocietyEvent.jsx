@@ -60,7 +60,8 @@ const NonSocietyEvent = (props) => {
         "event/register/non-society-event",
         "POST",
         JSON.stringify({
-          event: "barista course",
+          event: target.title,
+          date: target.when,
           user: "member",
           name: currentUser.name + " " + currentUser.surname,
           phone: currentUser.phone,
@@ -128,6 +129,7 @@ const NonSocietyEvent = (props) => {
                   "POST",
                   JSON.stringify({
                     event: target.title,
+                    date: target.when,
                     user: "normal",
                     name: values.name + " " + values.surname,
                     phone: values.phone,
