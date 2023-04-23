@@ -14,19 +14,21 @@ import {
 } from "./information/FutureEvents";
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
-const SlideList = [
-  {
-    textPosition: "text-center",
-    category: "",
-    title: "Bulgarian Society Groningen",
-    description: "",
-    buttonText: "Become a Member",
-    buttonLink: "/signup",
-  },
-];
 
 const Home = (props) => {
   const user = useSelector(selectUser);
+
+  const SlideList = [
+    {
+      textPosition: "text-center",
+      category: "",
+      title: "Bulgarian bomba Groningen",
+      description: "",
+      buttonText: user.token ? "Go To Profile" : "Become a Member",
+      style: user.token ? " rn-btn-reverse-green" : " btn-primary-color",
+      buttonLink: user.token ? `/user/${user.userId}` : "/signup",
+    },
+  ];
 
   return (
     <Fragment>
@@ -55,24 +57,14 @@ const Home = (props) => {
                       ) : (
                         ""
                       )}
-                      {value.buttonText && !user.token ? (
+                      {value.buttonText && (
                         <div className="slide-btn">
                           <a
                             style={{ fontSize: "24px" }}
-                            className="rn-button-style--2 btn-primary-color"
-                            href={`${value.buttonLink}`}
+                            className={"rn-button-style--2" + value.style}
+                            href={value.buttonLink}
                           >
                             {value.buttonText}
-                          </a>
-                        </div>
-                      ) : (
-                        <div className="slide-btn">
-                          <a
-                            style={{ fontSize: "24px" }}
-                            className="rn-button-style--2 rn-btn-reverse-green"
-                            href={`/user/${user.userId}`}
-                          >
-                            Go to Profile
                           </a>
                         </div>
                       )}
@@ -116,7 +108,9 @@ const Home = (props) => {
 
       {/* Start Upcoming Events Area */}
       <FutureEventsContent openSocietyEvents={props.openSocietyEvents} />
-      <FutureOtherEventsContent openNonSocietyEvents={props.openNonSocietyEvents} />
+      <FutureOtherEventsContent
+        openNonSocietyEvents={props.openNonSocietyEvents}
+      />
       {/* End Upcoming Events Area */}
 
       {/* Start Footer Style  */}
