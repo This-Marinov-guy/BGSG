@@ -6,7 +6,7 @@
 
 #hosting
 /.firebase
-firebaserc
+.firebaserc
 firebase.json
 
 # testing
