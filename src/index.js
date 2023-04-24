@@ -67,8 +67,8 @@ const openSocietyEvents = [
     where: "Business Hall",
     entry: 8,
     memberEntry: 5,
-    price_id: "price_1MudzFIOw5UGbAo1w66nEEEv",
-    memberPrice_id: "price_1MudzeIOw5UGbAo1K0l3xJ9y",
+    price_id: "price_1MwA1eIOw5UGbAo12l33bqnE",
+    memberPrice_id: "price_1N0LPTIOw5UGbAo1UsHKyBQh",
     text: [
       "Wild party",
       "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
@@ -89,8 +89,8 @@ const openSocietyEvents = [
     where: "Business Hall",
     entry: 8,
     memberEntry: 5,
-    price_id: "price_1MudzFIOw5UGbAo1w66nEEEv",
-    memberPrice_id: "price_1MudzeIOw5UGbAo1K0l3xJ9y",
+    price_id: "price_1MwA1eIOw5UGbAo12l33bqnE",
+    memberPrice_id: "price_1N0LPTIOw5UGbAo1UsHKyBQh",
     text: [
       "Wild party",
       "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
