@@ -585,17 +585,21 @@ module.exports = function (webpackEnv) {
           ],
           runtimeCaching: [
             {
-              urlPattern: new RegExp("^https://.*"),
-              handler: "CacheFirst",
+              urlPattern: /^https?.*/,
+              handler: "NetworkFirst",
               options: {
                 cacheName: `bgsg-static-v${packageJson.version}`,
                 expiration: {
-                  maxAgeSeconds: 60 * 60 * 24 * 7, // cache for 1 week
+                  maxAgeSeconds: 60 * 60 * 24 * 30, // cache for 30 days
+                },
+                backgroundSync: {
+                  name: `bgsg-static-queue-v${packageJson.version}`,
                 },
               },
             },
           ],
         }),
+
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({
