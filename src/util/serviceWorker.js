@@ -102,7 +102,6 @@ function registerValidSW(swUrl, config) {
         });
         registration.active.skipWaiting();
       });
-
     })
     .catch((error) => {
       console.error("Error registering service worker:", error);
@@ -115,6 +114,38 @@ function registerValidSW(swUrl, config) {
         action: "change-cache-name",
         newCacheName: CACHE_NAME,
       });
+
+      registration.active.postMessage({
+        action: "get-cache-name",
+      });
+      registration.active.onmessage = (event) => {
+        if (event.data.action === "get-cache-name-reply") {
+          const currentCacheName = event.data.currentCacheName;
+          if (currentCacheName !== CACHE_NAME) {
+            // clear the old cache
+            caches.keys().then(function (cacheNames) {
+              return Promise.all(
+                cacheNames.map(function (cacheName) {
+                  if (cacheName !== CACHE_NAME) {
+                    console.log("Deleting old cache:", cacheName);
+                    return caches.delete(cacheName);
+                  }
+                })
+              );
+            });
+            // add the new cache
+            caches.open(CACHE_NAME).then(function (cache) {
+              return cache.addAll([
+                "/",
+                "/index.html",
+                "/manifest.json",
+                "/static/js/bundle.[hash].js",
+                "/static/css/main.[hash].css",
+              ]);
+            });
+          }
+        }
+      };
     });
   }
 }
