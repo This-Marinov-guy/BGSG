@@ -586,14 +586,23 @@ module.exports = function (webpackEnv) {
           runtimeCaching: [
             {
               urlPattern: new RegExp("^https://.*"),
+              handler: "StaleWhileRevalidate",
               options: {
                 cacheName: `bgsg-static-v${packageJson.version}`,
                 expiration: {
-                  maxAgeSeconds: 60 * 60 * 24 * 30, // cache for 30 days
+                  maxAgeSeconds: 60, // cache for 1 minute
                 },
                 backgroundSync: {
                   name: `bgsg-static-queue-v${packageJson.version}`,
                 },
+                plugins: [
+                  new workbox.cacheableResponse.Plugin({
+                    statuses: [0, 200],
+                  }),
+                  new workbox.broadcastUpdate.Plugin({
+                    channelName: "cache-updates",
+                  }),
+                ],
               },
             },
           ],
