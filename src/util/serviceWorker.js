@@ -24,13 +24,13 @@ const isLocalhost = Boolean(
 
 export function register(config) {
   if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-    const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+    const publicUrl = new URL(process.env.REACT_APP_URL, window.location.href);
     if (publicUrl.origin !== window.location.origin) {
       return;
     }
 
     window.addEventListener("load", () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${process.env.REACT_APP_URL}/service-worker.js`;
 
       if (isLocalhost) {
         checkValidServiceWorker(swUrl, config);
@@ -65,33 +65,44 @@ function registerValidSW(swUrl, config) {
 
       registration.addEventListener("activate", () => {
         let CACHE_NAME = `bgsg-static-v${packageJson.version}`;
-        console.log("Service worker activated!");
-        // clear the old cache
-        caches.keys().then(function (cacheNames) {
-          return Promise.all(
-            cacheNames.map(function (cacheName) {
-              if (cacheName !== CACHE_NAME) {
-                console.log("Deleting old cache:", cacheName);
-                return caches.delete(cacheName);
-              }
-            })
-          );
+        registration.active.postMessage({
+          action: "get-cache-name",
         });
-        // add the new cache
-        caches.open(CACHE_NAME).then(function (cache) {
-          console.log("Adding new cache:", CACHE_NAME);
-          return cache.addAll([
-            "/",
-            "/index.html",
-            "/manifest.json",
-            "/static/js/bundle.[hash].js",
-            "/static/css/main.[hash].css",
-          ]);
+        registration.active.onmessage = (event) => {
+          if (event.data.action === "get-cache-name-reply") {
+            const currentCacheName = event.data.currentCacheName;
+            if (currentCacheName !== CACHE_NAME) {
+              // clear the old cache
+              caches.keys().then(function (cacheNames) {
+                return Promise.all(
+                  cacheNames.map(function (cacheName) {
+                    if (cacheName !== CACHE_NAME) {
+                      console.log("Deleting old cache:", cacheName);
+                      return caches.delete(cacheName);
+                    }
+                  })
+                );
+              });
+              // add the new cache
+              caches.open(CACHE_NAME).then(function (cache) {
+                return cache.addAll([
+                  "/",
+                  "/index.html",
+                  "/manifest.json",
+                  "/static/js/bundle.[hash].js",
+                  "/static/css/main.[hash].css",
+                ]);
+              });
+            }
+          }
+        };
+        registration.active.postMessage({
+          action: "set-cache-name",
+          newCacheName: CACHE_NAME,
         });
         registration.active.skipWaiting();
       });
 
-      console.log("Service worker registered!");
     })
     .catch((error) => {
       console.error("Error registering service worker:", error);

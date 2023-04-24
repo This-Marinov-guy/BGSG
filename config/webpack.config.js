@@ -25,7 +25,7 @@ const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const ForkTsCheckerWebpackPlugin = require("react-dev-utils/ForkTsCheckerWebpackPlugin");
 const typescriptFormatter = require("react-dev-utils/typescriptFormatter");
-const packageJson = require('../package.json'); // Import package.json
+const packageJson = require("../package.json"); // Import package.json
 
 const postcssNormalize = require("postcss-normalize");
 
@@ -567,7 +567,7 @@ module.exports = function (webpackEnv) {
       // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
       // You can remove this if you don't use Moment.js:
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  
+
       // Generate a service worker script that will precache, and keep up to date,
       // the HTML & assets that are part of the Webpack build.
       isEnvProduction &&
@@ -585,8 +585,6 @@ module.exports = function (webpackEnv) {
           ],
           runtimeCaching: [
             {
-              urlPattern: /^https?.*/,
-              handler: "NetworkFirst",
               options: {
                 cacheName: `bgsg-static-v${packageJson.version}`,
                 expiration: {
