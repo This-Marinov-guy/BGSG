@@ -52,7 +52,6 @@ function registerValidSW(swUrl, config) {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
-          console.log('Service worker is registered');
           return;
         }
         installingWorker.onstatechange = () => {
@@ -80,6 +79,8 @@ function registerValidSW(swUrl, config) {
               if (config && config.onSuccess) {
                 config.onSuccess(registration);
               }
+              console.log('Service worker is registered');
+
             }
           }
         };
