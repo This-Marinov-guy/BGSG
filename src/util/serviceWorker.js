@@ -51,61 +51,31 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      registration.addEventListener("updatefound", () => {
-        console.log("New version available, refreshing...");
-        if (registration.active) {
-          registration.waiting.postMessage({ type: "SKIP_WAITING" });
+      registration.onupdatefound = () => {
+        const installingWorker = registration.installing;
+        if (installingWorker == null) {
+          return;
         }
-      });
-
-      if (registration.waiting) {
-        console.log("Service worker already waiting, refreshing...");
-        registration.waiting.postMessage({ type: "SKIP_WAITING" });
-      }
-
-      registration.addEventListener("activate", () => {
-        let CACHE_NAME = `bgsg-static-v${packageJson.version}`;
-        console.log("Service worker activated!");
-        // clear the old cache
-        caches.keys().then(function (cacheNames) {
-          return Promise.all(
-            cacheNames.map(function (cacheName) {
-              if (cacheName !== CACHE_NAME) {
-                console.log("Deleting old cache:", cacheName);
-                return caches.delete(cacheName);
+        installingWorker.onstatechange = () => {
+          if (installingWorker.state === "installed") {
+            if (navigator.serviceWorker.controller) {
+              console.log("New content is available; please refresh.");
+              if (config && config.onUpdate) {
+                config.onUpdate(registration);
               }
-            })
-          );
-        });
-        // add the new cache
-        caches.open(CACHE_NAME).then(function (cache) {
-          console.log("Adding new cache:", CACHE_NAME);
-          return cache.addAll([
-            "/",
-            "/index.html",
-            "/manifest.json",
-            "/static/js/bundle.[hash].js",
-            "/static/css/main.[hash].css",
-          ]);
-        });
-        registration.active.skipWaiting();
-      });
-
-      console.log("Service worker registered!");
+            } else {
+              console.log("Content is cached for offline use.");
+              if (config && config.onSuccess) {
+                config.onSuccess(registration);
+              }
+            }
+          }
+        };
+      };
     })
     .catch((error) => {
-      console.error("Error registering service worker:", error);
+      console.error("Error during service worker registration:", error);
     });
-
-  if (config && config.cacheName) {
-    let CACHE_NAME = config.cacheName;
-    navigator.serviceWorker.ready.then(function (registration) {
-      registration.active.postMessage({
-        action: "change-cache-name",
-        newCacheName: CACHE_NAME,
-      });
-    });
-  }
 }
 
 function checkValidServiceWorker(swUrl, config) {

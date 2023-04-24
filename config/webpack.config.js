@@ -583,21 +583,6 @@ module.exports = function (webpackEnv) {
             // public/ and not a SPA route
             new RegExp("/[^/]+\\.[^/]+$"),
           ],
-          runtimeCaching: [
-            {
-              urlPattern: /^https?.*/,
-              handler: "StaleWhileRevalidate",
-              options: {
-                cacheName: `bgsg-static-v${packageJson.version}`,
-                expiration: {
-                  maxAgeSeconds: 60 * 60 * 24 * 30, // cache for 30 days
-                },
-                backgroundSync: {
-                  name: `bgsg-static-queue-v${packageJson.version}`,
-                },
-              },
-            },
-          ],
         }),
 
       // TypeScript type checking
