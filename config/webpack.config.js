@@ -586,7 +586,7 @@ module.exports = function (webpackEnv) {
           runtimeCaching: [
             {
               urlPattern: /^https?.*/,
-              handler: "NetworkFirst",
+              handler: "StaleWhileRevalidate",
               options: {
                 cacheName: `bgsg-static-v${packageJson.version}`,
                 expiration: {
