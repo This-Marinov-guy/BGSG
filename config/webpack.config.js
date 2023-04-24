@@ -585,6 +585,7 @@ module.exports = function (webpackEnv) {
           ],
           runtimeCaching: [
             {
+              urlPattern: new RegExp("^https://.*"),
               options: {
                 cacheName: `bgsg-static-v${packageJson.version}`,
                 expiration: {
