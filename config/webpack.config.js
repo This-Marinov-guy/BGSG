@@ -583,10 +583,18 @@ module.exports = function (webpackEnv) {
             // public/ and not a SPA route
             new RegExp("/[^/]+\\.[^/]+$"),
           ],
-          cacheNames: {
-            prefix: "bgsg",
-            suffix: `v${packageJson.version}`,
-          }, // Set the cache name
+          runtimeCaching: [
+            {
+              urlPattern: new RegExp("^https://.*"),
+              handler: "CacheFirst",
+              options: {
+                cacheName: `bgsg-static-v${packageJson.version}`,
+                expiration: {
+                  maxAgeSeconds: 60 * 60 * 24 * 7, // cache for 1 week
+                },
+              },
+            },
+          ],
         }),
       // TypeScript type checking
       useTypeScript &&
