@@ -17,9 +17,10 @@ export const useHttpClient = () => {
       activeHttpRequests.current.push(httpAbortCtrl);
 
       try {
-        //for production --> process.env.REACT_SERVER_URL
+        //for production --> process.env.REACT_APP_SERVER_URL
         //for testing -----> "http://localhost:80/api/"
-        const response = await fetch(process.env.REACT_SERVER_URL + url, {
+        console.log(process.env.REACT_APP_SERVER_URL);
+        const response = await fetch(process.env.REACT_APP_SERVER_URL + url, {
           method,
           body,
           headers,
