@@ -26,7 +26,7 @@ export function register(config) {
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
     console.log('process.env.PUBLIC_URL ', process.env.PUBLIC_URL);
     console.log('publicUrl ', publicUrl);
-    lo
+  
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
