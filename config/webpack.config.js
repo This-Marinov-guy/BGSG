@@ -16,6 +16,7 @@ const safePostCssParser = require("postcss-safe-parser");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const InterpolateHtmlPlugin = require("react-dev-utils/InterpolateHtmlPlugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
+const { cacheableResponse, broadcastUpdate } = require("workbox-webpack-plugin");
 const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeModulesPlugin");
 // const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getCSSModuleLocalIdent = require("react-dev-utils/getCSSModuleLocalIdent");
@@ -590,16 +591,16 @@ module.exports = function (webpackEnv) {
               options: {
                 cacheName: `bgsg-static-v${packageJson.version}`,
                 expiration: {
-                  maxAgeSeconds: 60, // cache for 1 minute
+                  maxAgeSeconds: 60 * 60 * 24, // cache for 1 day
                 },
                 backgroundSync: {
                   name: `bgsg-static-queue-v${packageJson.version}`,
                 },
                 plugins: [
-                  new WorkboxWebpackPlugin.cacheableResponse.Plugin({
+                  new cacheableResponse.Plugin({
                     statuses: [0, 200],
                   }),
-                  new WorkboxWebpackPlugin.broadcastUpdate.Plugin({
+                  new broadcastUpdate.Plugin({
                     channelName: "cache-updates",
                   }),
                 ],
