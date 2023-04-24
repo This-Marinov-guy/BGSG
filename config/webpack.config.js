@@ -596,10 +596,10 @@ module.exports = function (webpackEnv) {
                   name: `bgsg-static-queue-v${packageJson.version}`,
                 },
                 plugins: [
-                  new workbox.cacheableResponse.Plugin({
+                  new WorkboxWebpackPlugin.cacheableResponse.Plugin({
                     statuses: [0, 200],
                   }),
-                  new workbox.broadcastUpdate.Plugin({
+                  new WorkboxWebpackPlugin.broadcastUpdate.Plugin({
                     channelName: "cache-updates",
                   }),
                 ],
