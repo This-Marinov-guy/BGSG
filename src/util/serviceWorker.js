@@ -71,13 +71,12 @@ function registerValidSW(swUrl, config) {
             const newestVersion = data.version;
             const CACHE_NAME = `bgsg-static-v${newestVersion}`;
 
-            console.log("Service worker activated!");
+            // console.log("Service worker activated!");
             // clear the old cache
             caches.keys().then(function (cacheNames) {
               return Promise.all(
                 cacheNames.map(function (cacheName) {
                   if (cacheName !== CACHE_NAME) {
-                    console.log("Deleting old cache:", cacheName);
                     return caches.delete(cacheName);
                   }
                 })
@@ -85,7 +84,6 @@ function registerValidSW(swUrl, config) {
             });
             // add the new cache
             caches.open(CACHE_NAME).then(function (cache) {
-              console.log("Adding new cache:", CACHE_NAME);
               return cache.addAll([
                 "/",
                 "/index.html",
@@ -101,7 +99,7 @@ function registerValidSW(swUrl, config) {
           });
       });
 
-      console.log("Service worker registered!");
+      // console.log("Service worker registered!");
     })
     .catch((error) => {
       console.error("Error registering service worker:", error);
