@@ -1,6 +1,9 @@
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
+import { useDispatch } from "react-redux";
+import { showWarning } from "../redux/modal";
+
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
 // will only see deployed updates on subsequent visits to a page, after all the
@@ -19,6 +22,8 @@ const isLocalhost = Boolean(
       /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
     )
 );
+
+let updateFlag = false;
 
 export function register(config) {
   window.addEventListener("load", () => {
@@ -42,12 +47,16 @@ export function register(config) {
     }
   });
 }
+
 function registerValidSW(swUrl, config) {
+  const dispatch = useDispatch();
+
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
         console.log("New version available, refreshing...");
+       dispatch(showWarning())
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
