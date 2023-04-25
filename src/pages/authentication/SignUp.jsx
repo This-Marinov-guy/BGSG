@@ -348,18 +348,6 @@ const SignUp = (props) => {
                 </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
-                    <div className="rnform-group">
-                      <Field type="email" placeholder="Email" name="email" />
-                      <ErrorMessage
-                        className="error"
-                        name="email"
-                        component="div"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-lg-6 col-md-12 col-12">
                     <Field as="select" name="university">
                       <option value="" disabled>
                         Select your university
@@ -438,6 +426,18 @@ const SignUp = (props) => {
                         name="password"
                         component="div"
                       />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-6 col-md-12 col-12">
+                      <div className="rnform-group">
+                        <Field type="email" placeholder="Email" name="email" />
+                        <ErrorMessage
+                          className="error"
+                          name="email"
+                          component="div"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="col-lg-6 col-md-12 col-12">
