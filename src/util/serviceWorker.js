@@ -60,6 +60,7 @@ function registerValidSW(swUrl, config) {
 
       if (registration.waiting) {
         console.log("Service worker already waiting, refreshing...");
+        store.dispatch(modalSlice.actions.showWarning());
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
