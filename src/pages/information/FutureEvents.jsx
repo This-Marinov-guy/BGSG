@@ -26,7 +26,7 @@ const FutureEventsContent = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
-                {props.openSocietyEvents ? (
+                {props.openSocietyEvents.length > 0 ? (
                   <PortfolioList
                     style="society"
                     target={props.openSocietyEvents}
@@ -65,7 +65,7 @@ const FutureOtherEventsContent = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
-                {props.openNonSocietyEvents ? (
+                {props.openNonSocietyEvents.length > 0 ? (
                   <PortfolioList
                     style="other"
                     target={props.openNonSocietyEvents}

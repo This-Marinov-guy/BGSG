@@ -108,7 +108,6 @@ const NonSocietyEvent = (props) => {
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Portfolio Details" />
-
       <Header
         headertransparent="header--transparent"
         colorblack="color--black"

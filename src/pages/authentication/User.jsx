@@ -361,7 +361,7 @@ const User = () => {
             </div>
             <div className="col-lg-6 col-md-12 col-12">
               <div className="service service__style--2 user_border">
-                <div style={{ width: "100%" }} className="content">
+                <div className="content">
                   <h2>Hello again, {currentUser.name}!</h2>
                   <div className="hor_section mb--40">
                     <p className="mt--20">Your information</p>
