@@ -151,7 +151,7 @@ const Root = () => {
         <Suspense fallback={null}>
           {notification}
           {error && <Error errorMessage={errorMessage} />}
-          {warning && <Update />}
+          {!warning && <Update />}
           <Switch>
             <Route exact path="/">
               <Home

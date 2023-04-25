@@ -9,12 +9,15 @@ import packageJson from "../../../package.json";
 const Update = () => {
   const warning = useSelector(selectWarning);
 
+  window.onscroll = function () {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+
   return (
     <Modal
-      show={warning}
+      show={!warning}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
-      freeze
     >
       <Alert className="error_panel" variant="info">
         <div className="action_btns">
