@@ -47,8 +47,6 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
-  const dispatch = useDispatch();
-
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
