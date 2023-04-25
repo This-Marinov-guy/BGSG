@@ -14,7 +14,7 @@
 }
 
 .team_member_border-1 {
-  border: 50px solid transparent;
+  border: 30px solid transparent;
   border-image-source: url(/assets/images/border-1.png);
   border-image-slice: 181 188 170 181;
   border-image-width: 50px 50px 50px 50px;
@@ -23,7 +23,7 @@
 }
 
 .team_member_border-2 {
-  border: 50px solid transparent;
+  border: 30px solid transparent;
   border-image-source: url(/assets/images/border-2.png);
   border-image-slice: 162 162 166 159;
   border-image-width: 50px 50px 50px 50px;
@@ -32,7 +32,7 @@
 }
 
 .team_member_border-3 {
-  border: 50px solid transparent;
+  border: 30px solid transparent;
   border-image-source: url(/assets/images/border-3.png);
   border-image-slice: 162 162 166 159;
   border-image-width: 50px 50px 50px 50px;
@@ -41,7 +41,7 @@
 }
 
 .team_member_border-4 {
-  border: 50px solid transparent;
+  border: 30px solid transparent;
   border-image-source: url(/assets/images/border-4.png);
   border-image-slice: 162 162 166 159;
   border-image-width: 50px 50px 50px 50px;
@@ -56,7 +56,6 @@
   border-image-width: 100px 120px 100px 0px;
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: stretch stretch;
-
 }
 
 .team_img {
