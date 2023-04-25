@@ -78,7 +78,7 @@ const NonSocietyEvent = (props) => {
         <Alert className="error_panel" variant="success">
           <div className="action_btns">
             <h3>Thank you for the interest!</h3>
-            <FiX className="mr--20" onClick={closeNotificationHandler} />
+            <FiX className="x_icon" onClick={closeNotificationHandler} />
           </div>
           <p>
             Your registration for the event is complete! The organizer will soon
@@ -144,7 +144,7 @@ const NonSocietyEvent = (props) => {
                     <div className="action_btns">
                       <h3>Thank you for the interest!</h3>
                       <FiX
-                        className="mr--20"
+                        className="x_icon"
                         onClick={closeNotificationHandler}
                       />
                     </div>

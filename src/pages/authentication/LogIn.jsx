@@ -107,7 +107,7 @@ const Login = (props) => {
         <Alert className="error_panel" variant="success">
           <div className="action_btns">
             <h3>Welcome Back!</h3>
-            <FiX className="mr--20" onClick={closeHandler} />
+            <FiX className="x_icon" onClick={closeHandler} />
           </div>
           <p>
             Nice seeing you again! Please check the news section so you are up
@@ -147,7 +147,7 @@ const Login = (props) => {
                   You are about to start proceedure for changing password!
                   Please enter your account email!
                 </h3>
-                <FiX className="mr--20" onClick={closeHandler} />
+                <FiX className="x_icon" onClick={closeHandler} />
               </div>
               <input
                 type="email"
@@ -186,7 +186,7 @@ const Login = (props) => {
                     <Alert className="error_panel" variant="success">
                       <div className="action_btns">
                         <h3>Success!</h3>
-                        <FiX className="mr--20" onClick={closeHandler} />
+                        <FiX className="x_icon" onClick={closeHandler} />
                       </div>
                       <p>You successesfully changed your password!</p>
                     </Alert>
@@ -206,7 +206,7 @@ const Login = (props) => {
                 <Form id="form" style={{ padding: "50px" }}>
                   <div className="hor_section">
                     <h3>Reset you password</h3>
-                    <FiX className="mr--20" onClick={closeHandler} />
+                    <FiX className="x_icon" onClick={closeHandler} />
                   </div>
                   <div className="row">
                     <div className="col-lg-12 col-md-12 col-12">
