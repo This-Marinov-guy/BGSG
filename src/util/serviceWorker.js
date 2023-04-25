@@ -42,7 +42,6 @@ export function register(config) {
     }
   });
 }
-
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
@@ -61,9 +60,9 @@ function registerValidSW(swUrl, config) {
 
       registration.addEventListener("activate", () => {
         // get the current version of package.json
-        fetch('/package.json')
-          .then(response => response.json())
-          .then(data => {
+        fetch("/package.json")
+          .then((response) => response.json())
+          .then((data) => {
             const newestVersion = data.version;
             const CACHE_NAME = `bgsg-static-v${newestVersion}`;
 
