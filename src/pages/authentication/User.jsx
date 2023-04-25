@@ -395,7 +395,9 @@ const User = () => {
                       </li>
                       <li>
                         <FiCircle style={{ fontSize: "14px" }} /> University:{" "}
-                        {currentUser.university}
+                        {currentUser.university === "other"
+                          ? currentUser.otherUniversityName
+                          : currentUser.university}
                       </li>
                       <li style={{ fontWeight: "bold" }}>
                         <FiCircle style={{ fontSize: "14px" }} /> Membership

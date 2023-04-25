@@ -461,7 +461,7 @@ const SignUp = (props) => {
                         For users with already paid membership
                       </h3>
                       <Field
-                        type="text"
+                        type="password"
                         placeholder="Access Key"
                         name="memberKey"
                       ></Field>
