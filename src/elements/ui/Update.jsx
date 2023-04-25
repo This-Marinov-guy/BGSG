@@ -15,7 +15,7 @@ const Update = () => {
 
   return (
     <Modal
-      show={!warning}
+      show={warning}
       size="md"
       aria-labelledby="contained-modal-title-vcenter"
     >
