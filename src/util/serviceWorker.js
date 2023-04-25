@@ -47,43 +47,60 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
-        if (installingWorker == null) {
-          return;
+      registration.addEventListener("updatefound", () => {
+        console.log("New version available, refreshing...");
+        if (registration.active) {
+          registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === "installed") {
-            if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
-              console.log(
-                "New content is available and will be used when all " +
-                  "tabs for this page are closed. See https://bit.ly/CRA-PWA."
+      });
+
+      if (registration.waiting) {
+        console.log("Service worker already waiting, refreshing...");
+        registration.waiting.postMessage({ type: "SKIP_WAITING" });
+      }
+
+      registration.addEventListener("activate", () => {
+        // get the current version of package.json
+        fetch('/package.json')
+          .then(response => response.json())
+          .then(data => {
+            const newestVersion = data.version;
+            const CACHE_NAME = `bgsg-static-v${newestVersion}`;
+
+            console.log("Service worker activated!");
+            // clear the old cache
+            caches.keys().then(function (cacheNames) {
+              return Promise.all(
+                cacheNames.map(function (cacheName) {
+                  if (cacheName !== CACHE_NAME) {
+                    console.log("Deleting old cache:", cacheName);
+                    return caches.delete(cacheName);
+                  }
+                })
               );
+            });
+            // add the new cache
+            caches.open(CACHE_NAME).then(function (cache) {
+              console.log("Adding new cache:", CACHE_NAME);
+              return cache.addAll([
+                "/",
+                "/index.html",
+                "/manifest.json",
+                "/static/js/bundle.[hash].js",
+                "/static/css/main.[hash].css",
+              ]);
+            });
+            registration.active.skipWaiting();
+          })
+          .catch((error) => {
+            console.error("Error fetching package.json:", error);
+          });
+      });
 
-              // Execute callback
-              if (config && config.onUpdate) {
-                config.onUpdate(registration);
-              }
-            } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
-              console.log("Content is cached for offline use.");
-
-              // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
-            }
-          }
-        };
-      };
+      console.log("Service worker registered!");
     })
     .catch((error) => {
-      console.error("Error during service worker registration:", error);
+      console.error("Error registering service worker:", error);
     });
 }
 
