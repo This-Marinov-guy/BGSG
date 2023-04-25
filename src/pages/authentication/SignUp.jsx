@@ -460,7 +460,7 @@ const SignUp = (props) => {
                   </div>
                 </div>
                 <div className="row">
-                  <div className="col-lg-6 col-md-6 col-12 pr--80">
+                  <div className="col-lg-6 col-md-6 col-12">
                     <div className="hor_section_nospace mt--40">
                       <Field
                         style={{ maxWidth: "30px", margin: "10px" }}
