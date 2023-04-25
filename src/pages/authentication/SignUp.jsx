@@ -17,12 +17,12 @@ import { login } from "../../redux/user";
 
 const schema = yup.object().shape({
   image: yup.string(),
-  name: yup.string().required(),
-  surname: yup.string().required(),
-  birth: yup.string().required("Date of Birth is a required field"),
-  phone: yup.string().min(8).required(),
+  name: yup.string().required("Name is required"),
+  surname: yup.string().required("Surname is required"),
+  birth: yup.string().required("Date of birth is required"),
+  phone: yup.string().min(8).required("Phone is required"),
   email: yup.string().email("Please enter a valid email").required(),
-  university: yup.string().required(),
+  university: yup.string().required("Your university is required"),
   otherUniversityName: yup.string().when("university", {
     is: "other",
     then: () => yup.string().required("Please state which university"),
@@ -30,13 +30,13 @@ const schema = yup.object().shape({
   }),
   course: yup.string().when("university", {
     is: true,
-    then: () => yup.string().required("Your course is a required filed"),
+    then: () => yup.string().required("Your course is required"),
     otherwise: () => yup.string(),
   }),
   studentNumber: yup.string().when("university", {
     is: true,
     then: () =>
-      yup.string().required("Your student number is a required filed"),
+      yup.string().required("Your student number is required"),
     otherwise: () => yup.string(),
   }),
   password: yup
@@ -271,17 +271,18 @@ const SignUp = (props) => {
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">
                   <div className="col-lg-12 col-md-12 col-12">
-                    <h3 className="center_text">Profile picture</h3>
+                    <h3 className="center_text label">Profile picture</h3>
                     <ImageInput
                       onChange={(event) => {
                         setFieldValue("image", event.target.files[0]);
                       }}
                     />
                     <p className="mt--10 information center_text">
-                      *optional - we will asign you a cool traditional avatar
+                      *optional - we will assign you a cool avatar
                     </p>
                   </div>
                 </div>
+                <h3 className="mt--30 label">Personal details</h3>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
@@ -412,6 +413,19 @@ const SignUp = (props) => {
                     </div>
                   </div>
                 )}
+                <h3 className="mt--30 label">Login details</h3>
+                <div className="row">
+                  <div className="col-lg-6 col-md-12 col-12">
+                    <div className="rnform-group">
+                      <Field type="email" placeholder="Email" name="email" />
+                      <ErrorMessage
+                        className="error"
+                        name="email"
+                        component="div"
+                      />
+                    </div>
+                  </div>
+                </div>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
@@ -428,18 +442,7 @@ const SignUp = (props) => {
                       />
                     </div>
                   </div>
-                  <div className="row">
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field type="email" placeholder="Email" name="email" />
-                        <ErrorMessage
-                          className="error"
-                          name="email"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
@@ -455,12 +458,95 @@ const SignUp = (props) => {
                       />
                     </div>
                   </div>
-                  <div className="col-lg-6 col-md-12 col-12 mt--40 mb--40 team_member_border-1">
+                </div>
+                <div className="row">
+                  <div className="col-lg-6 col-md-6 col-12 pr--80">
+                    <div className="hor_section_nospace mt--40">
+                      <Field
+                        style={{ maxWidth: "30px", margin: "10px" }}
+                        type="checkbox"
+                        name="policyTerms"
+                      ></Field>
+                      <p className="information">
+                        I have read and accept the&nbsp;
+                        <a
+                          style={{ color: "#017363" }}
+                          href="/rules-and-regulations"
+                          target="_blank"
+                        >
+                          society's rules and regulations
+                        </a>
+                      </p>
+                    </div>
+                    <ErrorMessage
+                      className="error"
+                      name="policyTerms"
+                      component="div"
+                    />
+
+                    <div className="hor_section_nospace mt--40">
+                      <Field
+                        style={{ maxWidth: "30px", margin: "10px" }}
+                        type="checkbox"
+                        name="dataTerms"
+                      ></Field>
+                      <p className="information">
+                        I consent to my data being processed confidentially for
+                        the purposes of the organization
+                      </p>
+                    </div>
+                    <ErrorMessage
+                      className="error"
+                      name="dataTerms"
+                      component="div"
+                    />
+
+                    <div className="hor_section_nospace mt--40">
+                      <Field
+                        style={{ maxWidth: "30px", margin: "10px" }}
+                        type="checkbox"
+                        name="notificationTerms"
+                      ></Field>
+                      <p className="information">
+                        I consent to being notified by BGSG about events and
+                        discounts from us and our sponsors
+                      </p>
+                    </div>
+                    <Field as="select" name="notificationTypeTerms">
+                      <option value="" disabled>
+                        Contact By
+                      </option>
+                      <option value="Email">Email</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                      <option value="Email & WhatsApp">Both</option>
+                    </Field>
+
+                    <div className="hor_section_nospace mt--40">
+                      <Field
+                        style={{ maxWidth: "30px", margin: "10px" }}
+                        type="checkbox"
+                        name="payTerms"
+                      ></Field>
+                      <p className="information">
+                        I understand that my registration is complete after
+                        paying the link I will receive on my email.
+                      </p>
+                    </div>
+                    <ErrorMessage
+                      className="error"
+                      name="payTerms"
+                      component="div"
+                    />
+                  </div>
+                  <div
+                    className="col-lg-6 col-md-6 col-12 mt--60 mb--60 center_div team_member_border-1"
+                  >
                     <div className="rnform-group">
                       <h3 className="center_text">
                         For users with already paid membership
                       </h3>
                       <Field
+                        autoComplete="off"
                         type="password"
                         placeholder="Access Key"
                         name="memberKey"
@@ -473,87 +559,6 @@ const SignUp = (props) => {
                       </p>
                     </div>
                   </div>
-                </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40">
-                    <Field
-                      style={{ maxWidth: "30px", margin: "10px" }}
-                      type="checkbox"
-                      name="policyTerms"
-                    ></Field>
-                    <p className="information">
-                      I have read and accept the&nbsp;
-                      <a
-                        style={{ color: "#017363" }}
-                        href="/rules-and-regulations"
-                        target="_blank"
-                      >
-                        society's rules and regulations
-                      </a>
-                    </p>
-                  </div>
-                  <ErrorMessage
-                    className="error"
-                    name="policyTerms"
-                    component="div"
-                  />
-                </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40">
-                    <Field
-                      style={{ maxWidth: "30px", margin: "10px" }}
-                      type="checkbox"
-                      name="dataTerms"
-                    ></Field>
-                    <p className="information">
-                      I consent to my data being processed confidentially for
-                      the purposes of the organization
-                    </p>
-                  </div>
-                  <ErrorMessage
-                    className="error"
-                    name="dataTerms"
-                    component="div"
-                  />
-                </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40">
-                    <Field
-                      style={{ maxWidth: "30px", margin: "10px" }}
-                      type="checkbox"
-                      name="notificationTerms"
-                    ></Field>
-                    <p className="information">
-                      I consent to being notified by BGSG about events and
-                      discounts from us and our sponsors
-                    </p>
-                  </div>
-                  <Field as="select" name="notificationTypeTerms">
-                    <option value="" disabled>
-                      Contact By
-                    </option>
-                    <option value="Email">Email</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Email & WhatsApp">Both</option>
-                  </Field>
-                </div>
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40">
-                    <Field
-                      style={{ maxWidth: "30px", margin: "10px" }}
-                      type="checkbox"
-                      name="payTerms"
-                    ></Field>
-                    <p className="information">
-                      I understand that my registration is complete after paying
-                      the link I will receive on my email.
-                    </p>
-                  </div>
-                  <ErrorMessage
-                    className="error"
-                    name="payTerms"
-                    component="div"
-                  />
                 </div>
                 <button
                   disabled={loading}
