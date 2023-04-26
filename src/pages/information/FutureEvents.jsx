@@ -6,8 +6,10 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import PortfolioList from "../../elements/portfolio/PortfolioList";
+import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
+import { OPEN_NON_SOCIETY_EVENTS } from "../../util/EVENTS";
 
-const FutureEventsContent = (props) => {
+const FutureEventsContent = () => {
   return (
     <div className="portfolio-area pt--120 pb--100 bg_color--5">
       <div className="rn-slick-dot">
@@ -26,10 +28,10 @@ const FutureEventsContent = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
-                {props.openSocietyEvents.length > 0 ? (
+                {OPEN_SOCIETY_EVENTS.length > 0 ? (
                   <PortfolioList
                     style="society"
-                    target={props.openSocietyEvents}
+                    target={OPEN_SOCIETY_EVENTS}
                     styevariation="text-center mt--40"
                     column="col-lg-4 col-md-6 col-sm-6 col-12"
                   />
@@ -47,7 +49,7 @@ const FutureEventsContent = (props) => {
   );
 };
 
-const FutureOtherEventsContent = (props) => {
+const FutureOtherEventsContent = () => {
   return (
     <div className="portfolio-area pt--20 pb--100 bg_color--5">
       <div className="rn-slick-dot">
@@ -65,10 +67,10 @@ const FutureOtherEventsContent = (props) => {
           <div className="row">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
-                {props.openNonSocietyEvents.length > 0 ? (
+                {OPEN_NON_SOCIETY_EVENTS.length > 0 ? (
                   <PortfolioList
                     style="other"
-                    target={props.openNonSocietyEvents}
+                    target={OPEN_NON_SOCIETY_EVENTS}
                     styevariation="text-center mt--40"
                     column="col-lg-4 col-md-6 col-sm-6 col-12"
                   />

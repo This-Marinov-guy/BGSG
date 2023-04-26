@@ -56,51 +56,6 @@ const Error = lazy(() => import("./elements/ui/Error"));
 const Success = lazy(() => import("./pages/redirects/Success"));
 const Fail = lazy(() => import("./pages/redirects/Fail"));
 
-const openSocietyEvents = [
-  // {
-  //   title: "Freedom Fest",
-  //   description: "National day of Bulgaria",
-  //   bgImage: "4",
-  //   date: "3.3.2023",
-  //   time: "20:00",
-  //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-  //   correctedDate: "",
-  //   correctedTime: "",
-  //   where: "Business Hall",
-  //   entry: 8,
-  //   memberEntry: 5,
-  //   price_id: "price_1MwA1eIOw5UGbAo12l33bqnE",
-  //   memberPrice_id: "price_1N0LPTIOw5UGbAo1UsHKyBQh",
-  //   text: [
-  //     "Wild party",
-  //     "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
-  //   ],
-  //   images: ["/assets/images/portfolio/portfolio-big-01.jpg"],
-  //   thumbnail: "/assets/images/portfolio/portfolio-big-01.jpg",
-  //   ticket_img: "/assets/images/tickets/ticket.png",
-  // },
-];
-
-const openNonSocietyEvents = [
-  {
-    title: "Barista Course",
-    description: "Master the profession of a barista",
-    bgImage: "4",
-    when: "TBD",
-    //Use the corrected when for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-    correctedWhen: "",
-    where: "TBD",
-    entry: 30,
-    memberEntry: 5,
-    text: [
-      "Wild party",
-      "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
-    ],
-    images: ["/assets/images/portfolio/portfolio-7.jpg"],
-    thumbnail: "/assets/images/portfolio/portfolio-7.jpg",
-  },
-];
-
 const Root = () => {
   const [notification, setNotification] = useState();
 
@@ -153,12 +108,7 @@ const Root = () => {
           {error && <Error errorMessage={errorMessage} />}
           {warning && <Update />}
           <Switch>
-            <Route exact path="/">
-              <Home
-                openSocietyEvents={openSocietyEvents}
-                openNonSocietyEvents={openNonSocietyEvents}
-              />
-            </Route>
+            <Route exact path="/" component={Home} />
 
             {/* Element Layout */}
             <Route exact path={`/contact`} component={Contact} />
@@ -166,27 +116,15 @@ const Root = () => {
             <Route exact path={`/rules-and-regulations`} component={Policy} />
             <Route exact path={`/board-members`} component={Board} />
             <Route exact path={`/committees`} component={Committees} />
-            <Route exact path={`/events`}>
-              <Events
-                openSocietyEvents={openSocietyEvents}
-                openNonSocietyEvents={openNonSocietyEvents}
-              />
-            </Route>
-            <Route exact path={`/future-events`}>
-              <FutureEvents
-                openSocietyEvents={openSocietyEvents}
-                openNonSocietyEvents={openNonSocietyEvents}
-              />
-            </Route>
+            <Route exact path={`/events`} component={Events} />
+
+            <Route exact path={`/future-events`} component={FutureEvents} />
+
             <Route exact path={`/past-events`} component={PastEvents} />
-            <Route path={`/event-details/:eventId`}>
-              <EventDetails openSocietyEvents={openSocietyEvents} />
-            </Route>
+            <Route path={`/event-details/:eventId`} component={EventDetails} />
+
             <Route exact path={"/other-event-details/:eventId"}>
-              <NonSocietyEvent
-                openNonSocietyEvents={openNonSocietyEvents}
-                setNotification={setNotification}
-              />
+              <NonSocietyEvent setNotification={setNotification} />
             </Route>
             <Route
               path={`/event-reflection/:eventId`}
@@ -202,9 +140,12 @@ const Root = () => {
             {user.token ? (
               <Switch>
                 <Route exact path={`/user/:userId`} component={User} />
-                <Route exact path={"/purchase-ticket/:eventId/:userId"}>
-                  <MemberPurchase openSocietyEvents={openSocietyEvents} />
-                </Route>
+                <Route
+                  exact
+                  path={"/purchase-ticket/:eventId/:userId"}
+                  component={MemberPurchase}
+                />
+
                 <Route path="*" component={Error404} />
               </Switch>
             ) : (
@@ -213,9 +154,12 @@ const Root = () => {
                   <LogIn setNotification={setNotification} />
                 </Route>
                 <Route exact path={`/signup`} component={SignUp} />
-                <Route exact path={"/purchase-ticket/:eventId"}>
-                  <NonMemberPurchase openSocietyEvents={openSocietyEvents} />
-                </Route>
+                <Route
+                  exact
+                  path={"/purchase-ticket/:eventId"}
+                  component={NonMemberPurchase}
+                />
+
                 <Route path="*" component={Error404} />
               </Switch>
             )}

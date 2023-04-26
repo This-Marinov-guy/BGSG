@@ -7,11 +7,12 @@ import Footer from "../../component/footer/Footer";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/user";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
+import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 
-const EventDetails = (props) => {
+const EventDetails = () => {
   const user = useSelector(selectUser);
 
-  const target = useObjectGrabUrl(props.openSocietyEvents);
+  const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
 
   return (
     <React.Fragment>

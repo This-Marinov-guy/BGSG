@@ -15,7 +15,7 @@ import {
 
 const image1 = "/assets/images/bg/paralax/groningen.jpg";
 
-const Home = (props) => {
+const Home = () => {
   const user = useSelector(selectUser);
 
   const SlideList = [
@@ -107,9 +107,9 @@ const Home = (props) => {
       {/* End News Area */}
 
       {/* Start Upcoming Events Area */}
-      <FutureEventsContent openSocietyEvents={props.openSocietyEvents} />
+      <FutureEventsContent />
       <FutureOtherEventsContent
-        openNonSocietyEvents={props.openNonSocietyEvents}
+       
       />
       {/* End Upcoming Events Area */}
 

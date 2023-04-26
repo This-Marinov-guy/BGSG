@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../../redux/user";
 import { removeModal, selectModal, showModal } from "../../redux/modal";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
+import { OPEN_NON_SOCIETY_EVENTS } from "../../util/EVENTS";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -36,7 +37,7 @@ const NonSocietyEvent = (props) => {
 
   const { loading, sendRequest } = useHttpClient();
 
-  const target = useObjectGrabUrl(props.openNonSocietyEvents);
+  const target = useObjectGrabUrl(OPEN_NON_SOCIETY_EVENTS);
 
   const user = useSelector(selectUser);
   const modal = useSelector(selectModal);

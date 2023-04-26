@@ -9,6 +9,7 @@ import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
 import Loader from "../../elements/ui/Loader";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
+import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -19,10 +20,10 @@ const schema = yup.object().shape({
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
 
-const NonMemberPurchase = (props) => {
+const NonMemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
 
-  const target = useObjectGrabUrl(props.openSocietyEvents);
+  const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
 
   return (
     <Fragment>

@@ -9,14 +9,15 @@ import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
+import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 
-const MemberPurchase = (props) => {
+const MemberPurchase = () => {
   const [currentUser, setCurrentUser] = useState();
   const { loading, sendRequest } = useHttpClient();
 
   const userId = useParams().userId;
 
-  const target = useObjectGrabUrl(props.openSocietyEvents);
+  const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {

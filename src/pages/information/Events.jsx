@@ -9,7 +9,7 @@ import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import { PastEventsContent } from "./PastEvents";
 
-const Events = (props) => {
+const Events = () => {
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Events" />
@@ -24,9 +24,9 @@ const Events = (props) => {
       {/* End Breadcrump Area */}
 
       {/* Start Future Events Area */}
-      <FutureEventsContent openSocietyEvents={props.openSocietyEvents} />
+      <FutureEventsContent/>
       <FutureOtherEventsContent
-        openNonSocietyEvents={props.openNonSocietyEvents}
+       
       />
       {/* End Future Events Area */}
 
