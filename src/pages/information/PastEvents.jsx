@@ -7,6 +7,7 @@ import { FiChevronUp } from "react-icons/fi";
 import { slickDot } from "../../page-demo/script";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
+import ImageFb from "../../elements/ui/ImageFb";
 
 const list = [
   {
@@ -55,9 +56,10 @@ class PastEventsContent extends Component {
                     {list.map((value, index) => (
                       <div className="portfolio" key={index}>
                         <div className="thumbnail-inner-2">
-                          <img
+                          <ImageFb
                             className="thumbnail"
-                            src={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                            src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
+                            fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
                             alt="Event Images"
                           />
                         </div>

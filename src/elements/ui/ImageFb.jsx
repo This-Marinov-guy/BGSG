@@ -5,12 +5,12 @@ const ImageFb = (props) => {
     <picture>
       <source
         srcSet={props.src}
-        type={props.type ? props.type : 'image/webp'}
+        type={props.type ? props.type : "image/webp"}
       />
       <img
         src={props.fallback}
         className={props.className}
-        alt="Image with fallback"
+        alt={props.alt ? props.alt : "Fallback image"}
       />
     </picture>
   );

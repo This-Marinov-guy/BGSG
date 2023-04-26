@@ -1,4 +1,5 @@
 import React from "react";
+import ImageFb from "../ui/ImageFb";
 
 const PortfolioList = (props) => {
   return (
@@ -13,9 +14,10 @@ const PortfolioList = (props) => {
                   : "thumbnail-inner-2"
               }
             >
-              <img
+              <ImageFb
                 className="thumbnail"
-                src={value.thumbnail}
+                src={`${value.thumbnail}.webp`}
+                fallback={`${value.thumbnail}.jpg`}
                 alt="Event Images"
               />
             </div>

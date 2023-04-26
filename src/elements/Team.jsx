@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import ImageFb from "./ui/ImageFb";
 
 let TeamContent = [
   {
@@ -146,9 +147,10 @@ class Team extends Component {
                 }
                 key={value.id}
               >
-                <img
+                <ImageFb
                   className="team_img"
-                  src={`/assets/images/team/team-${value.images}.jpg`}
+                  src={`/assets/images/team/team-${value.images}.webp`}
+                  fallback={`/assets/images/team/team-${value.images}.jpg`}
                   alt="Blog Images"
                 />
                 <div
