@@ -70,6 +70,12 @@
   object-fit: cover;
   height: 500px;
   width: 400px;
+  @media #{$md-layout} {
+    margin: 70px 0;
+  }
+  @media #{$sm-layout} {
+    margin: 70px 0;
+  }
 }
 
 .gallery_img {

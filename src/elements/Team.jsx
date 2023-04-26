@@ -151,7 +151,7 @@ class Team extends Component {
                   className="team_img"
                   src={`/assets/images/team/team-${value.images}.webp`}
                   fallback={`/assets/images/team/team-${value.images}.jpg`}
-                  alt="Blog Images"
+                  alt="Team Images"
                 />
                 <div
                   className={
