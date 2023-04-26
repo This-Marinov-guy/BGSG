@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import Alert from "react-bootstrap/Alert";
 import GoogleTranslate from "../../elements/ui/GoogleTranslate";
+import ImageFb from "../../elements/ui/ImageFb";
 
 const Header = (props) => {
   const [isMenuOpened, setIsMenuOpened] = useState();
@@ -27,10 +28,11 @@ const Header = (props) => {
   }
 
   let logoUrl = (
-    <img
+    <ImageFb
       className="logo"
-      src="/assets/images/logo/logo.png"
-      alt="Digital Agency"
+      src="/assets/images/logo/logo.webp"
+      fallback="/assets/images/logo/logo.jpg"
+      alt="Logo"
     />
   );
 

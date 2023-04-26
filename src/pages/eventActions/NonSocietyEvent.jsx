@@ -366,7 +366,7 @@ const NonSocietyEvent = (props) => {
                 <br />
                 <div className="portfolio-thumb-inner">
                   <div className="thumb position-relative mb--30">
-                    <img src={target.images[0]} alt="Portfolio Images" />
+                    <img src={`${target.images[0]}.jpg`} alt="Portfolio Images" />
                   </div>
                 </div>
               </div>

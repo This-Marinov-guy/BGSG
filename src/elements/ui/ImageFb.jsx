@@ -10,6 +10,7 @@ const ImageFb = (props) => {
       <img
         src={props.fallback}
         className={props.className}
+        style={props.style}
         alt={props.alt ? props.alt : "Fallback image"}
       />
     </picture>
