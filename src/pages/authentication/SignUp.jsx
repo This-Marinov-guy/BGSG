@@ -35,8 +35,7 @@ const schema = yup.object().shape({
   }),
   studentNumber: yup.string().when("university", {
     is: true,
-    then: () =>
-      yup.string().required("Your student number is required"),
+    then: () => yup.string().required("Your student number is required"),
     otherwise: () => yup.string(),
   }),
   password: yup
@@ -539,6 +538,7 @@ const SignUp = (props) => {
                     />
                   </div>
                   <div
+                    style={{ borderWidth: "30px" }}
                     className="col-lg-6 col-md-6 col-12 mt--60 mb--60 center_div team_member_border-1"
                   >
                     <div className="rnform-group">

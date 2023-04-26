@@ -17,7 +17,6 @@ const PhotoGallery = (props) => {
               <div key={index} className="col-lg-6 col-md-6 col-12">
                 <div className="mb--30 mb_sm--0 center_section">
                   <img
-                    style={{ borderWidth: '37px' }}
                     className={
                       index % 2 !== 0
                         ? "team_member_border-3 mb--20"
