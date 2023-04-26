@@ -12,7 +12,6 @@ const About = React.memo(() => {
   return (
     <React.Fragment>
       <PageHelmet pageTitle="About" />
-
       <Header
         headertransparent="header--transparent"
         colorblack="color--black"

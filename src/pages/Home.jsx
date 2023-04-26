@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Parallax } from "react-parallax";
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux/user";
 import Header from "../component/header/Header";
@@ -12,8 +11,7 @@ import {
   FutureEventsContent,
   FutureOtherEventsContent,
 } from "./information/FutureEvents";
-
-const image1 = "/assets/images/bg/paralax/groningen.jpg";
+import ImageFb from "../elements/ui/ImageFb";
 
 const Home = () => {
   const user = useSelector(selectUser);
@@ -36,45 +34,48 @@ const Home = () => {
       <Header logo="light" />
       {/* Start Slider Area   */}
       <div className="slider-activation slider-creative-agency">
-        <Parallax bgImage={image1} strength={100}>
-          {SlideList.map((value, index) => (
-            <div
-              className="slide slide-style-2 slider-paralax d-flex align-items-center justify-content-center"
-              key={index}
-            >
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-12">
-                    <div className={`inner ${value.textPosition}`}>
-                      {value.category ? <span>{value.category}</span> : ""}
-                      {value.title ? (
-                        <h1 className="title theme-gradient">{value.title}</h1>
-                      ) : (
-                        ""
-                      )}
-                      {value.description ? (
-                        <p className="description">{value.description}</p>
-                      ) : (
-                        ""
-                      )}
-                      {value.buttonText && (
-                        <div className="slide-btn">
-                          <a
-                            style={{ fontSize: "24px" }}
-                            className={"rn-button-style--2" + value.style}
-                            href={value.buttonLink}
-                          >
-                            {value.buttonText}
-                          </a>
-                        </div>
-                      )}
-                    </div>
+        <ImageFb
+          src="/assets/images/bg/paralax/groningen.webp"
+          fallback="/assets/images/bg/paralax/groningen.jpeg"
+          className="home_bg"
+        />
+        {SlideList.map((value, index) => (
+          <div
+            className="slide slide-style-2 slider-paralax d-flex align-items-center justify-content-center"
+            key={index}
+          >
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className={`inner ${value.textPosition}`}>
+                    {value.category ? <span>{value.category}</span> : ""}
+                    {value.title ? (
+                      <h1 className="title theme-gradient">{value.title}</h1>
+                    ) : (
+                      ""
+                    )}
+                    {value.description ? (
+                      <p className="description">{value.description}</p>
+                    ) : (
+                      ""
+                    )}
+                    {value.buttonText && (
+                      <div className="slide-btn">
+                        <a
+                          style={{ fontSize: "24px" }}
+                          className={"rn-button-style--2" + value.style}
+                          href={value.buttonLink}
+                        >
+                          {value.buttonText}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </Parallax>
+          </div>
+        ))}
       </div>
       {/* End Slider Area   */}
       {/* Start Sponsor Area */}
@@ -108,9 +109,7 @@ const Home = () => {
 
       {/* Start Upcoming Events Area */}
       <FutureEventsContent />
-      <FutureOtherEventsContent
-       
-      />
+      <FutureOtherEventsContent />
       {/* End Upcoming Events Area */}
 
       {/* Start Footer Style  */}
