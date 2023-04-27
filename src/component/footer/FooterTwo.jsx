@@ -1,6 +1,7 @@
 import React from "react";
 import { FaInstagram, FaFlickr, FaFacebookF } from "react-icons/fa";
 import ImageFb from "../../elements/ui/ImageFb";
+import packageJson from "../../../package.json";
 
 const SocialShare = [
   {
@@ -60,6 +61,10 @@ const FooterTwo = () => {
                 <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> and
                 licensed by CC BY 3.0
               </div>
+              <p
+                style={{ fontSize: "15px" }}
+                className="information"
+              >{`Version ${packageJson.version}`}</p>
             </div>
           </div>
         </div>
