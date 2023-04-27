@@ -18,7 +18,7 @@ const Board = React.memo(() => {
         logoname="logo.png"
       />
       {/* Start Breadcrump Area */}
-      <Breadcrumb title={"Board Members"} />
+      <Breadcrumb title={"Board"} />
       {/* End Breadcrump Area */}
 
       {/* Start Team Area  */}

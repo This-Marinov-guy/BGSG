@@ -20,7 +20,7 @@ const SocialShare = [
   },
   {
     Social: <FaFlickr />,
-    link: "https://www.instagram.com/bulgariansociety.gro/?igshid=YmMyMTA2M2Y%3D",
+    link: "https://flickr.com/photos/197725983@N03/albums",
   },
 ];
 

@@ -8,15 +8,20 @@ import { slickDot } from "../../page-demo/script";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import ImageFb from "../../elements/ui/ImageFb";
+import { Link } from "react-router-dom";
 
 const list = [
+  {
+    url: "The Entrepreneur Series II",
+    image: "5",
+  },
   {
     url: "Easter Lunch",
     image: "6",
   },
   {
-    url: "Entrepreneur Series",
-    image: "5",
+    url: "The Entrepreneur Series I",
+    image: "4",
   },
   {
     url: "Freedom Fest",
@@ -88,6 +93,50 @@ class PastEventsContent extends Component {
   }
 }
 
+class PastEventsListed extends Component {
+  render() {
+    return (
+      <div className="portfolio-area pt--120 pb--140 bg_color--5">
+        <div className="rn-slick-dot">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6">
+                <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
+                  <h2 className="title">Past Events</h2>
+                  <p>
+                    Let us introduce you to our events that brought success
+                    beyond our expectations
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+                {list.map((value, index) => (
+                  <div
+                    className="portfolio col-lg-4 col-md-6 col-12 m--10"
+                    key={index}
+                  >
+                    <Link
+                      to={`/event-reflection/${value.url}`}
+                      className="thumbnail-inner-2"
+                    >
+                      <ImageFb
+                        className="thumbnail"
+                        src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
+                        fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                        alt="Event Images"
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+    );
+  }
+}
+
 class PastEvents extends Component {
   render() {
     return (
@@ -103,7 +152,7 @@ class PastEvents extends Component {
         {/* End Breadcrump Area */}
 
         {/* Start Past Events Area */}
-        <PastEventsContent />
+        <PastEventsListed />
         {/* End Past Events Area */}
 
         {/* Start Back To Top */}
@@ -119,4 +168,4 @@ class PastEvents extends Component {
     );
   }
 }
-export { PastEvents, PastEventsContent };
+export { PastEvents, PastEventsContent, PastEventsListed };

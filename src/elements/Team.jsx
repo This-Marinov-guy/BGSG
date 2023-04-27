@@ -10,8 +10,8 @@ let TeamContent = [
     title: "| President",
     designation: [
       "Study: MSc Artificial Intelligence",
-      "Age: 25",
-      "Interests: Jiu-Jitsu, Programming, Reading",
+      "Age: 26",
+      "Interests: MMA, Literature, Personal Development",
     ],
     socialNetwork: [
       {
@@ -103,7 +103,7 @@ let TeamContent = [
     title: "| Treasurer",
     designation: [
       "Study: BA International Business",
-      "Age: 21",
+      "Age: 22",
       "Interests: Music, DJ-ing, Business, Jiu-Jitsu",
     ],
     socialNetwork: [

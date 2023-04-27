@@ -30,7 +30,7 @@ class AboutUs extends Component {
                       <div className="about-us-list">
                         <h3 className="title">Goal</h3>
                         <p>
-                          We aim to bring Bulgarian students in Groningen
+                          We aim to bring the Bulgarian students of Groningen
                           together
                         </p>
                       </div>
@@ -50,8 +50,8 @@ class AboutUs extends Component {
                       <div className="about-us-list">
                         <h3 className="title">Culture</h3>
                         <p>
-                          We nurture and develop the Bulgarian culture in the
-                          city
+                          We aim to nurture and develop the Bulgarian culture in
+                          the city of Groningen
                         </p>
                       </div>
                     </div>

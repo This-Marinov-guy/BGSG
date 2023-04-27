@@ -13,7 +13,7 @@ const SocialShare = [
   },
   {
     Social: <FaFlickr />,
-    link: "https://flickr.com/photos/197725983@N03",
+    link: "https://flickr.com/photos/197725983@N03/albums",
   },
 ];
 class Footer extends Component {

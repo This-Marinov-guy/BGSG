@@ -83,7 +83,7 @@ const HeaderTwo = () => {
                       <Link to="/about">About Us</Link>
                     </li>
                     <li>
-                      <Link to="/board-members">Meet the Board</Link>
+                      <Link to="/board">Meet the Board</Link>
                     </li>
                     <li>
                       <Link to="/committees">Meet the Committees</Link>

@@ -110,6 +110,10 @@
 }
 
 @for $i from 1 through 40 {
+  .m--#{5 * $i} {
+    margin: 5px * $i;
+  }
+
   .ptb--#{5 * $i} {
     padding: 5px * $i 0;
   }
@@ -434,7 +438,7 @@
 }
 
 .center_text {
-  text-align: center;
+  text-align: center !important;
 }
 
 .center_div {

@@ -115,7 +115,7 @@ const Root = () => {
             <Route exact path={`/contact`} component={Contact} />
             <Route exact path={`/about`} component={About} />
             <Route exact path={`/rules-and-regulations`} component={Policy} />
-            <Route exact path={`/board-members`} component={Board} />
+            <Route exact path={`/board`} component={Board} />
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
 

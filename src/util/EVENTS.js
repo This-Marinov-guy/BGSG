@@ -92,18 +92,29 @@ export const EVENT_REFLECTION_DETAILS = [
     ],
   },
   {
-    title: "Entrepreneur Series",
+    title: "The Entrepreneur Series II",
     bgImage: "4",
-    date: "16th March / 22th April",
-    attendance: "17 / 25",
-    comments: "30",
+    date: "22th April",
+    attendance: "25",
+    comments: "25",
     text: [
-      `Henri holds a Bachelors Degree in Philosophy and Political Science and will be Graduating with Honours and an LLB in International and European Technology Law in June 2023. Beside his studies, he has managed and owns two successful businesses - Revista Coffee and Moonshadow Sailing. Hs has been the VP for marketing and the President of the European Law Student Association, Groningen. His areas of expertise include small-business management, critical thinking, public speaking, and competition law. His lecture was about his legacy so far, how he founded his business and the advice he wanted to give to any future and present entrepreneur. `,
       `The second one was about Toni, a 21-year old student and entrepreneur from Bulgaria, was our guest in our Entrepreneurship series where people share their stories about developing their own projects and businesses. Toni has experience with organizing parties at Toni’s Villa, has his own clothing brand - Yunak Brand, as well as a successful podcast and a Youtube channel (@tonienchev). He shared his experience and motivated students to follow their passion by taking small steps towards bigger goals`,
     ],
     images: [
-      { id: "1", image: "entrepreneur-series/ent-I", text: "" },
       { id: "2", image: "entrepreneur-series/ent-II", text: "" },
+    ],
+  },
+  {
+    title: "The Entrepreneur Series I",
+    bgImage: "4",
+    date: "16th March",
+    attendance: "17",
+    comments: "15",
+    text: [
+      `Henri holds a Bachelors Degree in Philosophy and Political Science and will be Graduating with Honours and an LLB in International and European Technology Law in June 2023. Beside his studies, he has managed and owns two successful businesses - Revista Coffee and Moonshadow Sailing. Hs has been the VP for marketing and the President of the European Law Student Association, Groningen. His areas of expertise include small-business management, critical thinking, public speaking, and competition law. His lecture was about his legacy so far, how he founded his business and the advice he wanted to give to any future and present entrepreneur. `,
+    ],
+    images: [
+      { id: "1", image: "entrepreneur-series/ent-I", text: "" },
     ],
   },
   {
