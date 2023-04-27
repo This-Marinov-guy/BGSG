@@ -36,7 +36,7 @@ const FutureEventsContent = () => {
                     column="col-lg-4 col-md-6 col-sm-6 col-12"
                   />
                 ) : (
-                  <p className="mt--20 mb--20">
+                  <p className="col-lg-6 mt--20 mb--20">
                     No events for now ... check later!
                   </p>
                 )}
@@ -75,7 +75,7 @@ const FutureOtherEventsContent = () => {
                     column="col-lg-4 col-md-6 col-sm-6 col-12"
                   />
                 ) : (
-                  <p className="mt--20 mb--20">
+                  <p className="col-lg-6 mt--20 mb--20">
                     No other events for now ... check later!
                   </p>
                 )}
