@@ -21,11 +21,11 @@ const Update = () => {
     >
       <Alert className="error_panel" variant="info">
         <div className="action_btns">
-          <h3>{"Version update  " + packageJson.version + " !"}</h3>
+          <h3>"Version update!"</h3>
         </div>
         <p>
-          Your website is outdated! Please close all your running tabs with this
-          website and open it again!
+          {`Your website version ${packageJson.version} is outdated! Please close
+          all your running tabs with this website and open it again!`}
         </p>
       </Alert>
     </Modal>
