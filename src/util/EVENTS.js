@@ -19,7 +19,7 @@ export const OPEN_SOCIETY_EVENTS = [
   //   ],
   //   images: ["/assets/images/portfolio/portfolio-big-01"],
   //   thumbnail: "/assets/images/portfolio/portfolio-big-01",
-  //   ticket_img: "/assets/images/tickets/ticket.jpg",
+  //   ticket_img: "/assets/images/tickets/ticket.webp",
   // },
 ];
 
