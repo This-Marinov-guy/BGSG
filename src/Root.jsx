@@ -7,10 +7,6 @@ import { selectError, selectErrorMsg } from "./redux/error";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import * as serviceWorker from "./util/serviceWorker";
-
-// Create Import File
-import "./index.scss";
 
 import PageScrollTop from "./component/PageScrollTop";
 import Update from "./elements/ui/Update";
@@ -167,3 +163,5 @@ const Root = () => {
     </BrowserRouter>
   );
 };
+
+export default Root;

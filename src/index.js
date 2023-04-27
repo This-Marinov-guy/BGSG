@@ -5,6 +5,9 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import PageLoading from "./elements/ui/PageLoading";
 
+// Create Import File
+import "./index.scss";
+
 import * as serviceWorker from "./util/serviceWorker";
 
 const Root = lazy(() => import("./Root"));
