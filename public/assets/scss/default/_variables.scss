@@ -18,7 +18,7 @@ $white: #faf9f6;
 
 @font-face {
   font-family: Archive;
-  src: url(/assets/fonts/Arhive-Regular.ttf) format("truetype");
+  src: url(/assets/fonts/Archive-Regular.ttf) format("truetype");
 }
 
 $body-font: "Mozer";
@@ -27,6 +27,7 @@ $heading-font: "Mozer";
 // Heading Font List
 $font-1: "Mozer";
 $fontList: $font-1;
+$title-font: "Archive";
 
 /*===============================
     Color Variation 

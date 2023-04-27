@@ -33,6 +33,15 @@
 /*----------------------
 Slider Default Style 
 ------------------------*/
+
+@font-face {
+    font-family: Archive;
+    src: url(/assets/fonts/Arhive-Regular.ttf) format("truetype");
+  }
+
+  $title-font: "Archive";
+
+
 .slide {
     .inner {
         padding-top: 100px;
@@ -47,7 +56,7 @@ Slider Default Style
                 font-size: 125px;
                 font-weight: 900;
                 text-transform: uppercase;
-                font-family: 'Archive';
+                font-family: $title-font;
                 font-weight: 900;
                 line-height: 130px;
                 @media #{$laptop-device} {
