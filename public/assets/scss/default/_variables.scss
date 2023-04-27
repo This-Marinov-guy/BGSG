@@ -12,14 +12,12 @@ $white: #faf9f6;
 =================================*/
 @font-face {
   font-family: Mozer;
-  src: url(/assets/fonts/Mozer-Book.woff2) format("woff2"),
-    url(/assets/fonts/Mozer-Book.ttf) format("truetype");
+  src: url(/assets/fonts/MozerRegular.otf) format("opentype");
 }
 
 @font-face {
   font-family: Archive;
-  src: url(/assets/fonts/Archive.woff2) format("woff2"),
-    url(/assets/fonts/Archive.ttf) format("truetype");
+  src: url(/assets/fonts/Arhive.otf) format("opentype");
 }
 
 $body-font: "Mozer";
