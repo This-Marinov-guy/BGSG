@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ImageFb from "../../../elements/ui/ImageFb";
 
 class AboutUs extends Component {
   render() {
@@ -10,9 +11,10 @@ class AboutUs extends Component {
             <div className="row row--35 align-items-center">
               <div className="col-lg-5 col-md-12">
                 <div className="thumbnail">
-                  <img
+                  <ImageFb
                     className="w-100"
-                    src="/assets/images/about/board.jpg"
+                    src="/assets/images/about/board.webp"
+                    fallback="/assets/images/about/board.jpg"
                     alt="About Images"
                   />
                 </div>

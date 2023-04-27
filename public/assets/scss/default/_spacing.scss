@@ -450,6 +450,14 @@
   justify-content: space-around;
 }
 
+.center_screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .hor_section {
   display: flex;
   flex-direction: row;

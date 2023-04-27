@@ -17,6 +17,7 @@ import "./index.scss";
 
 import PageScrollTop from "./component/PageScrollTop";
 import Update from "./elements/ui/Update";
+import PageLoading from "./elements/ui/PageLoading";
 import { selectWarning } from "./redux/modal";
 
 // Pages
@@ -103,7 +104,7 @@ const Root = () => {
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
-        <Suspense fallback={null}>
+        <Suspense fallback={<PageLoading />}>
           {notification}
           {error && <Error errorMessage={errorMessage} />}
           {warning && <Update />}

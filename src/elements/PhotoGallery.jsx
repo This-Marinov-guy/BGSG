@@ -1,5 +1,7 @@
 import React from "react";
+import ImageFb from "./ui/ImageFb";
 
+//works only with webp and jpg pair images
 const PhotoGallery = (props) => {
   if (props.target.length > 0) {
     return (
@@ -16,13 +18,14 @@ const PhotoGallery = (props) => {
             return (
               <div key={index} className="col-lg-6 col-md-6 col-12">
                 <div className="mb--30 mb_sm--0 center_section">
-                  <img
+                  <ImageFb
                     className={
                       index % 2 !== 0
                         ? "team_member_border-3 mb--20"
                         : "team_member_border-4 mb--20"
                     }
-                    src={`/assets/images/events/${event.image}`}
+                    src={`/assets/images/events/${event.image}.webp`}
+                    fallback={`/assets/images/events/${event.image}.jpg`}
                     alt="Blog Images"
                   />
                   {event.text && (

@@ -16,6 +16,7 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 import Locked from "../../elements/ui/Locked";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -355,7 +356,7 @@ const User = () => {
             <div className="col-lg-6 col-md-12 col-12 ">
               <div className="service service__style--2">
                 <div className="content center_div">
-                  <img src={currentUser.image} alt="profile" />
+                  <LazyLoadComponent src={currentUser.image} alt="profile" />
                 </div>
               </div>
             </div>

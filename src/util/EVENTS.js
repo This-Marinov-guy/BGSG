@@ -19,7 +19,7 @@ export const OPEN_SOCIETY_EVENTS = [
   //   ],
   //   images: ["/assets/images/portfolio/portfolio-big-01"],
   //   thumbnail: "/assets/images/portfolio/portfolio-big-01",
-  //   ticket_img: "/assets/images/tickets/ticket.png",
+  //   ticket_img: "/assets/images/tickets/ticket.jpg",
   // },
 ];
 
@@ -54,9 +54,9 @@ export const EVENT_REFLECTION_DETAILS = [
       `Our first event - a traditional Bulgarian Dinner consisting of 3 courses. The starter was tarator - a "cold soup" made with yogurt and cucumber, the main course was musaka and we finished with chocolate cake for dessert.`,
     ],
     images: [
-      { id: "1", image: "bulgarian-dinner/06.jpeg", text: "" },
-      { id: "2", image: "bulgarian-dinner/09.jpeg", text: "" },
-      { id: "3", image: "bulgarian-dinner/10.jpeg", text: "" },
+      { id: "1", image: "bulgarian-dinner/06", text: "" },
+      { id: "2", image: "bulgarian-dinner/09", text: "" },
+      { id: "3", image: "bulgarian-dinner/10", text: "" },
     ],
   },
   {
@@ -70,9 +70,9 @@ export const EVENT_REFLECTION_DETAILS = [
       `This event was available only for our members as a welcome event. We celebrated Trifon Zarezan together with a wine tasting event. It involved sampling and evaluating of different types of wines - 3 red wines and 2 white wines. We put our guests in groups of 2 and they had a list of wines and descriptions which they had to put together after tasting each of the wines. The group with the most right answers won a prize which was a special wine bought from Paris.`,
     ],
     images: [
-      { id: "1", image: "wine-tasting/01.jpeg", text: "" },
-      { id: "2", image: "wine-tasting/03.jpeg", text: "" },
-      { id: "3", image: "wine-tasting/06.jpeg", text: "" },
+      { id: "1", image: "wine-tasting/01", text: "" },
+      { id: "2", image: "wine-tasting/03", text: "" },
+      { id: "3", image: "wine-tasting/06", text: "" },
     ],
   },
   {
@@ -85,10 +85,10 @@ export const EVENT_REFLECTION_DETAILS = [
       `We celebrated the independence day of Bulgaria together by hosting a freedom fest. The event was a party with Bulgarian music which was made for anyone who wanted to get a taste of the Bulgarian culture.`,
     ],
     images: [
-      { id: "2", image: "freedom-fest/02.jpeg", text: "" },
-      { id: "4", image: "freedom-fest/04.jpeg", text: "" },
-      { id: "12", image: "freedom-fest/12.jpeg", text: "" },
-      { id: "13", image: "freedom-fest/13.jpeg", text: "" },
+      { id: "2", image: "freedom-fest/02", text: "" },
+      { id: "4", image: "freedom-fest/04", text: "" },
+      { id: "12", image: "freedom-fest/12", text: "" },
+      { id: "13", image: "freedom-fest/13", text: "" },
     ],
   },
   {
@@ -102,8 +102,8 @@ export const EVENT_REFLECTION_DETAILS = [
       `The second one was about Toni, a 21-year old student and entrepreneur from Bulgaria, was our guest in our Entrepreneurship series where people share their stories about developing their own projects and businesses. Toni has experience with organizing parties at Toni’s Villa, has his own clothing brand - Yunak Brand, as well as a successful podcast and a Youtube channel (@tonienchev). He shared his experience and motivated students to follow their passion by taking small steps towards bigger goals`,
     ],
     images: [
-      { id: "1", image: "entrepreneur-series/ent-I.webp", text: "" },
-      { id: "2", image: "entrepreneur-series/ent-II.webp", text: "" },
+      { id: "1", image: "entrepreneur-series/ent-I", text: "" },
+      { id: "2", image: "entrepreneur-series/ent-II", text: "" },
     ],
   },
   {
@@ -116,9 +116,9 @@ export const EVENT_REFLECTION_DETAILS = [
       `To celebrate the Orthodox Easter we organized an Easter Lunch including a chicken soup, sarmi, snow white salad and kozunak - traditional Bulgarian dishes. Part of the event was also the Eastern tradition of painting eggs.`,
     ],
     images: [
-      { id: "1", image: "easter/1.jpg", text: "" },
-      { id: "2", image: "easter/2.jpg", text: "" },
-      { id: "3", image: "easter/3.jpg", text: "" },
+      { id: "1", image: "easter/1", text: "" },
+      { id: "2", image: "easter/2", text: "" },
+      { id: "3", image: "easter/3", text: "" },
     ],
   },
 ];
