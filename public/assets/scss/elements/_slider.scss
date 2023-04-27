@@ -2,8 +2,6 @@
     Slider Area 
 ======================*/
 
-@import url(//db.onlinewebfonts.com/c/08aae9f020949051ff8331be100607cb?family=Archive);
-
 @media #{$sm-layout} {
     .bg_image--31 {
         background-position: 67% center !important;
@@ -49,7 +47,7 @@ Slider Default Style
                 font-size: 125px;
                 font-weight: 900;
                 text-transform: uppercase;
-                font-family: 'Archive', sans-serif;
+                font-family: 'Archive';
                 font-weight: 900;
                 line-height: 130px;
                 @media #{$laptop-device} {
