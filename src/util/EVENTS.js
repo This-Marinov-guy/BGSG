@@ -2,7 +2,7 @@ export const OPEN_SOCIETY_EVENTS = [
   // {
   //   title: "Freedom Fest",
   //   description: "National day of Bulgaria",
-  //   bgImage: "4",
+  //   bgImage: "1",
   //   date: "3.3.2023",
   //   time: "20:00",
   //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
@@ -19,7 +19,7 @@ export const OPEN_SOCIETY_EVENTS = [
   //   ],
   //   images: ["/assets/images/portfolio/portfolio-big-01"],
   //   thumbnail: "/assets/images/portfolio/portfolio-big-01",
-  //   ticket_img: "/assets/images/tickets/ticket.png",
+  //   ticket_img: "/assets/images/tickets/ticket.jpg",
   // },
 ];
 

@@ -45,13 +45,13 @@ const MemberPurchase = () => {
       // text
       let textName = currentUser.name;
       layout.rotate(4.71);
-      layout.font = "bold 70px Mozer";
+      layout.font = "70px Archive";
       layout.fillStyle = "#faf9f6";
       layout.textAlign = "center";
       layout.strokeText(textName, -340, 1520);
       layout.fillText(textName, -340, 1520);
 
-      layout.font = "bold 70px Mozer";
+      layout.font = "70px Archive";
       layout.fillStyle = "#faf9f6";
       let textSurname = currentUser.surname;
       layout.textAlign = "center";
@@ -59,7 +59,7 @@ const MemberPurchase = () => {
       layout.fillText(textSurname, -340, 1600);
       // blob
       const dataBlob = await new Promise((resolve) =>
-        canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+        canvas.toBlob((blob) => resolve(blob), "image/jpg")
       );
       // formData
       const formData = new FormData();
@@ -108,7 +108,7 @@ const MemberPurchase = () => {
           <div className="col-lg-6 col-md-12 col-12">
             <div className="event_details">
               <h2 className="mt--40">Event Details</h2>
-              <p>Name:{" "} {target.title}</p>
+              <p>Name: {target.title}</p>
               <p>
                 Date:{" "}
                 {target.correctedDate
@@ -121,8 +121,8 @@ const MemberPurchase = () => {
                   ? target.correctedTime + " Updated!"
                   : target.time}
               </p>
-              <p>Address:{" "} {target.where}</p>
-              <p>Price:{" "} {target.memberEntry} euro (discounted)</p>
+              <p>Address: {target.where}</p>
+              <p>Price: {target.memberEntry} euro (discounted)</p>
             </div>
           </div>
           <div className="col-lg-6 col-md-12 col-12">

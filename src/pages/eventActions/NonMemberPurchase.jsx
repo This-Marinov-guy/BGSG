@@ -99,13 +99,13 @@ const NonMemberPurchase = () => {
                     // text
                     let textName = values.name;
                     layout.rotate(4.71);
-                    layout.font = "bold 70px Mozer";
+                    layout.font = "70px Archive";
                     layout.fillStyle = "#faf9f6";
                     layout.textAlign = "center";
                     layout.strokeText(textName, -340, 1520);
                     layout.fillText(textName, -340, 1520);
 
-                    layout.font = "bold 70px Mozer";
+                    layout.font = "70px Archive";
                     layout.fillStyle = "#faf9f6";
                     let textSurname = values.surname;
                     layout.textAlign = "center";
@@ -113,7 +113,7 @@ const NonMemberPurchase = () => {
                     layout.fillText(textSurname, -340, 1600);
                     // blob
                     const dataBlob = await new Promise((resolve) =>
-                      canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+                      canvas.toBlob((blob) => resolve(blob), "image/jpg")
                     );
                     // formData
                     const formData = new FormData();

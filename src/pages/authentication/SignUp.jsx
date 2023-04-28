@@ -224,7 +224,9 @@ const SignUp = (props) => {
                       );
                       history.push("/");
                       return;
-                    } catch (err) {}
+                    } catch (err) {
+                      return
+                    }
                   }
                 } catch (err) {
                   return;
