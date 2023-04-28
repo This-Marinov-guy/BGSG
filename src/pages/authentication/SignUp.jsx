@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "date-fns";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiCheck } from "react-icons/fi";
@@ -125,7 +126,7 @@ const SignUp = (props) => {
                           Discounts for events
                         </li>
                         <li>
-                          <FiCheck /> Premium NFT collection of event tickets
+                          <FiCheck /> Premium Oss collection of event tickets
                         </li>
                         <li>
                           <FiCheck /> Discounts from sponsors
@@ -151,10 +152,14 @@ const SignUp = (props) => {
             onSubmit={async (values) => {
               const formData = new FormData();
               if (values.image) {
+                // modify the name of image with the birth that will be later saved in the database (I know it's not perfect but nothing is...)
+                const [y, m, d] = values.birth.split("-");
+                const modDate = new Date(y, parseInt(m, 10) - 1, d);
+                let b = format(modDate, "dd MMM yyyy");
                 formData.append(
                   "image",
                   values.image,
-                  values.name + values.surname + values.birth
+                  values.name + values.surname + b
                 );
               } else {
                 formData.append("image", null);
@@ -225,7 +230,7 @@ const SignUp = (props) => {
                       history.push("/");
                       return;
                     } catch (err) {
-                      return
+                      return;
                     }
                   }
                 } catch (err) {

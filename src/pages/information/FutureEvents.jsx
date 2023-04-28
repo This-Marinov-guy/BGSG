@@ -37,7 +37,7 @@ const FutureEventsContent = () => {
                   />
                 ) : (
                   <p className="col-lg-6 mt--20 mb--20">
-                    No events for now ... check later!
+                  Currently there are no upcoming events. Follow us for updates!
                   </p>
                 )}
               </div>
@@ -76,7 +76,7 @@ const FutureOtherEventsContent = () => {
                   />
                 ) : (
                   <p className="col-lg-6 mt--20 mb--20">
-                    No other events for now ... check later!
+                  Currently there are no upcoming other events. Follow us for updates!
                   </p>
                 )}
               </div>

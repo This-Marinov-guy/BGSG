@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { selectWarning } from "../../redux/modal";
 import Modal from "react-bootstrap/Modal";
 
-import packageJson from "../../../package.json";
-
 const Update = () => {
   const warning = useSelector(selectWarning);
 
@@ -21,12 +19,9 @@ const Update = () => {
     >
       <Alert className="error_panel" variant="info">
         <div className="action_btns">
-          <h3>"Version update!"</h3>
+          <h3>Version update!</h3>
         </div>
-        <p>
-          {`Your website version ${packageJson.version} is outdated! Please close
-          all your running tabs with this website and open it again!`}
-        </p>
+        <p>the website is being updated please close it or refresh the page</p>
       </Alert>
     </Modal>
   );
