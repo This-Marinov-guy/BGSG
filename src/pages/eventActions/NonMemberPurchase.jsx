@@ -120,7 +120,11 @@ const NonMemberPurchase = () => {
                     formData.append(
                       "image",
                       dataBlob,
-                      target.title + '_' + values.name + values.surname + "_GUEST"
+                      target.title +
+                        "_" +
+                        values.name +
+                        values.surname +
+                        "_GUEST"
                     );
                     formData.append("itemId", target.price_id);
                     formData.append("origin_url", window.location.origin);
@@ -134,7 +138,7 @@ const NonMemberPurchase = () => {
                     );
                     formData.append("guestPhone", values.phone);
                     const responseData = await sendRequest(
-                      "payment/checkout",
+                      "payment/checkout/guest",
                       "POST",
                       formData
                     );

@@ -75,7 +75,7 @@ const MemberPurchase = () => {
       formData.append("eventDate", target.date);
       formData.append("userId", userId);
       const responseData = await sendRequest(
-        "payment/checkout",
+        "payment/checkout/member",
         "POST",
         formData
       );

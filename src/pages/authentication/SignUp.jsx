@@ -118,16 +118,17 @@ const SignUp = (props) => {
                         className="list-style--1"
                       >
                         <li>
-                          <FiCheck /> Access to exclusive member events
+                          <FiCheck /> Exclusive member events
                         </li>
                         <li>
-                          <FiCheck /> Discounts to all events
+                          <FiCheck />
+                          Discounts for events
                         </li>
                         <li>
-                          <FiCheck /> Premium named event tickets
+                          <FiCheck /> Premium NFT collection of event tickets
                         </li>
                         <li>
-                          <FiCheck /> Collection of tickets at your page
+                          <FiCheck /> Discounts from sponsors
                         </li>
                       </ul>
                     </div>
@@ -231,7 +232,7 @@ const SignUp = (props) => {
               }
               try {
                 const responseData = await sendRequest(
-                  "payment/checkout",
+                  "payment/checkout/signup",
                   "POST",
                   formData
                 );

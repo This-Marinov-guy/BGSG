@@ -16,7 +16,7 @@ const EventDetails = () => {
 
   return (
     <React.Fragment>
-      <PageHelmet pageTitle="Portfolio Details" />
+      <PageHelmet pageTitle="Event Details" />
 
       <Header
         headertransparent="header--transparent"
@@ -26,7 +26,7 @@ const EventDetails = () => {
 
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--1`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${target.bgImage}`}
         data-black-overlay="7"
       >
         <div className="container">

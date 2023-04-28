@@ -756,3 +756,44 @@ Portfolio Style Three
   display: block;
   z-index: 9;
 }
+
+//past events
+.grid {
+  margin: 20px 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  grid-auto-rows: auto;
+  grid-auto-flow: dense;
+  align-content: start;
+  @media #{$lg-layout},#{$laptop-device},#{$extra-device} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media #{$md-layout} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media #{$sm-layout} {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    margin: 20px 110px;
+  }
+}
+
+.grid_item {
+  padding: 20px;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  @media #{$lg-layout},#{$laptop-device},#{$extra-device} {
+    margin-bottom: 60px;
+    margin-top: 60px;
+  }
+  @media #{$md-layout} {
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  @media #{$sm-layout} {
+    margin-bottom: 90px;
+    margin-top: 90px;
+  }
+}

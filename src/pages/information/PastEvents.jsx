@@ -110,29 +110,29 @@ class PastEventsListed extends Component {
                 </div>
               </div>
             </div>
-            <div className="row">
-                {list.map((value, index) => (
-                  <div
-                    className="portfolio col-lg-4 col-md-6 col-12 m--10"
-                    key={index}
-                  >
-                    <Link
-                      to={`/event-reflection/${value.url}`}
-                      className="thumbnail-inner-2"
-                    >
-                      <ImageFb
-                        className="thumbnail"
-                        src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
-                        fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
-                        alt="Event Images"
-                      />
-                    </Link>
-                  </div>
-                ))}
+          </div>
+          <div className="grid">
+            {list.map((value, index) => (
+              <div
+                className="portfolio grid_item"
+                key={index}
+              >
+                <Link
+                  to={`/event-reflection/${value.url}`}
+                  className="thumbnail-inner-2"
+                >
+                  <ImageFb
+                    className="thumbnail"
+                    src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
+                    fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
+                    alt="Event Images"
+                  />
+                </Link>
               </div>
-            </div>
+            ))}
           </div>
         </div>
+      </div>
     );
   }
 }

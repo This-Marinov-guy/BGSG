@@ -108,7 +108,7 @@ const NonSocietyEvent = (props) => {
 
   return (
     <React.Fragment>
-      <PageHelmet pageTitle="Portfolio Details" />
+      <PageHelmet pageTitle="Other Event Details" />
       <Header
         headertransparent="header--transparent"
         colorblack="color--black"
@@ -275,9 +275,10 @@ const NonSocietyEvent = (props) => {
           </Formik>
         </ModalWindow>
       )}
+
       {/* Start Breadcrump Area */}
       <div
-        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--1`}
+        className={`rn-page-title-area pt--120 pb--190 bg_image bg_image--${target.bgImage}`}
         data-black-overlay="7"
       >
         <div className="container">
@@ -341,7 +342,7 @@ const NonSocietyEvent = (props) => {
                   <p className="information mt--20">
                     {user.token
                       ? "*As a member, your information will be taken directly from your profile so by pressing this button you will be automatically registered"
-                      : "Press the button to proceed to filling your details"}
+                      : "Press the button and fill your details"}
                   </p>
                 </div>
                 <br />
@@ -366,7 +367,10 @@ const NonSocietyEvent = (props) => {
                 <br />
                 <div className="portfolio-thumb-inner">
                   <div className="thumb position-relative mb--30">
-                    <img src={`${target.images[0]}.jpg`} alt="Portfolio Images" />
+                    <img
+                      src={`${target.images[0]}.jpg`}
+                      alt="Portfolio Images"
+                    />
                   </div>
                 </div>
               </div>
