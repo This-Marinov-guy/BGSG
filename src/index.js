@@ -10,15 +10,12 @@ import { selectError, selectErrorMsg } from "./redux/error";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import * as serviceWorker from "./util/serviceWorker";
 
 // Create Import File
 import "./index.scss";
 
 import PageScrollTop from "./component/PageScrollTop";
-import Update from "./elements/ui/Update";
 import PageLoading from "./elements/ui/PageLoading";
-import { selectWarning } from "./redux/modal";
 
 // Pages
 const Home = lazy(() => import("./pages/Home"));
@@ -63,7 +60,6 @@ const Root = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(selectUser);
-  const warning = useSelector(selectWarning);
   const error = useSelector(selectError);
   const errorMessage = useSelector(selectErrorMsg);
 
@@ -107,7 +103,6 @@ const Root = () => {
         <Suspense fallback={<PageLoading/>}>
           {notification}
           {error && <Error errorMessage={errorMessage} />}
-          {warning && <Update />}
           <Switch>
             <Route exact path="/" component={Home} />
 
@@ -178,4 +173,3 @@ root.render(
   </Provider>
 );
 
-serviceWorker.register();

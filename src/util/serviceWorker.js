@@ -49,7 +49,7 @@ function registerValidSW(swUrl, config) {
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
         console.log("New version available, refreshing...");
-        store.dispatch(modalSlice.actions.showWarning());
+        // store.dispatch(modalSlice.actions.showWarning());
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
@@ -57,7 +57,6 @@ function registerValidSW(swUrl, config) {
 
       if (registration.waiting) {
         console.log("Service worker already waiting, refreshing...");
-        store.dispatch(modalSlice.actions.showWarning());
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
