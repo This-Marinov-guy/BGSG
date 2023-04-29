@@ -91,7 +91,7 @@ const User = () => {
         colorblack="color--black"
         logoname="logo.png"
       />
-      {currentUser.status !== "active" && <Locked show={currentUser.status} />}
+      {currentUser.status !== "active" && <Locked case='locked' show={currentUser.status} />}
       {modal && (
         <ModalWindow show={modal}>
           <Formik

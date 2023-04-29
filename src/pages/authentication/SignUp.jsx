@@ -2,6 +2,8 @@ import React from "react";
 import { format } from "date-fns";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FiX } from "react-icons/fi";
+import Alert from "react-bootstrap/Alert";
 import { FiCheck } from "react-icons/fi";
 import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
@@ -70,6 +72,10 @@ const SignUp = (props) => {
   const history = useHistory();
 
   const dispatch = useDispatch();
+
+  const closeHandler = () => {
+    props.setNotification(null);
+  };
 
   return (
     <React.Fragment>
@@ -204,6 +210,7 @@ const SignUp = (props) => {
                     "user/check-member-key",
                     "POST",
                     JSON.stringify({
+                      email: values.email,
                       key: values.memberKey,
                     }),
                     {
@@ -227,7 +234,27 @@ const SignUp = (props) => {
                           ).toISOString(),
                         })
                       );
+                      props.setNotification(
+                        <Alert className="error_panel" variant="success">
+                          <div className="action_btns">
+                            <h3>Welcome User!</h3>
+                            <FiX className="x_icon" onClick={closeHandler} />
+                          </div>
+                          <p>
+                            You successfully created your account! Please check
+                            the news section in your profile for any updates!
+                          </p>
+                          <a
+                            onClick={closeHandler}
+                            href={`/user/${responseData.userId}`}
+                            className="rn-button-style--2 rn-btn-green mt--40"
+                          >
+                            Go to Profile
+                          </a>
+                        </Alert>
+                      );
                       history.push("/");
+                      setTimeout(() => closeHandler(), 5000);
                       return;
                     } catch (err) {
                       return;

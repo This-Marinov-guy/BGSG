@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { login, logout, selectUser } from "./redux/user";
 import { useDispatch } from "react-redux";
 import { selectError, selectErrorMsg } from "./redux/error";
-import * as serviceWorker from './util/serviceWorker';
+import * as serviceWorker from "./util/serviceWorker";
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -101,7 +101,7 @@ const Root = () => {
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
-        <Suspense fallback={<PageLoading/>}>
+        <Suspense fallback={<PageLoading />}>
           {notification}
           {error && <Error errorMessage={errorMessage} />}
           <Switch>
@@ -150,7 +150,9 @@ const Root = () => {
                 <Route exact path={`/login`}>
                   <LogIn setNotification={setNotification} />
                 </Route>
-                <Route exact path={`/signup`} component={SignUp} />
+                <Route exact path={`/signup`}>
+                  <SignUp setNotification={setNotification} />
+                </Route>
                 <Route
                   exact
                   path={"/purchase-ticket/:eventId"}

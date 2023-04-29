@@ -41,19 +41,25 @@ const Locked = (props) => {
   return (
     <ModalWindow static="static" show={props.show} freeze>
       <div style={{ padding: "40px" }} className="center_section">
-        <h2>Your account is locked</h2>
+        <h2>
+          {props.case === "locked"
+            ? "Your account is locked!"
+            : "Your account is suspended!"}
+        </h2>
         <p className="center_text">
-          To continue using the benefits of a member please pay the fee
-          subscription for the following semester! Otherwise, log out of your
-          account.
+          {props.case === "locked"
+            ? "To continue using the benefits of a member please pay the fee subscription for the following semester! Otherwise, log out of your account."
+            : "We have noticed some violation from your side. Unfortunately, we will need to block your account until further notice. Please contact: bulgariansociety.gro@gmail.com "}
         </p>
-        <button
-          disabled={loading}
-          onClick={handleUnlock}
-          className="rn-button-style--2 btn-solid mt--40"
-        >
-          {loading ? <Loader /> : <span>Proceed to paying</span>}
-        </button>
+        {props.case === "locked" && (
+          <button
+            disabled={loading}
+            onClick={handleUnlock}
+            className="rn-button-style--2 btn-solid mt--40"
+          >
+            {loading ? <Loader /> : <span>Proceed to paying</span>}
+          </button>
+        )}
         <a href="/" className="rn-button-style--2 rn-btn-green mt--40">
           Back to Home
         </a>
