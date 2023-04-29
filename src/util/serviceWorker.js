@@ -49,13 +49,16 @@ function registerValidSW(swUrl, config) {
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
         console.log("New version available, refreshing...");
-        window.location.reload();
         //display a warning that the site is updated
         // store.dispatch(modalSlice.actions.showWarning());
+        if (registration.active) {
+          registration.waiting.postMessage({ type: "SKIP_WAITING" });
+        }
       });
 
       if (registration.waiting) {
         console.log("Service worker already waiting, refreshing...");
+        window.location.reload();
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
