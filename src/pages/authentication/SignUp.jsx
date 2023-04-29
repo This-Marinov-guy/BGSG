@@ -218,7 +218,6 @@ const SignUp = (props) => {
                     }
                   );
                   if (responseData.message === "verifiedKey") {
-                    formData.append("memberKey", values.memberKey);
                     try {
                       const responseData = await sendRequest(
                         `user/signup`,
