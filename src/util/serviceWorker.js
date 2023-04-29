@@ -52,9 +52,6 @@ function registerValidSW(swUrl, config) {
         window.location.reload();
         //display a warning that the site is updated
         // store.dispatch(modalSlice.actions.showWarning());
-        if (registration.active) {
-          registration.waiting.postMessage({ type: "SKIP_WAITING" });
-        }
       });
 
       if (registration.waiting) {
