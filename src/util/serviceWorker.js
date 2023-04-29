@@ -1,5 +1,5 @@
-import { modalSlice } from "../redux/modal";
-import { store } from "../redux/store";
+// import { modalSlice } from "../redux/modal";
+// import { store } from "../redux/store";
 
 // This lets the app load faster on subsequent visits in production, and gives
 // it offline capabilities. However, it also means that developers (and users)
@@ -49,6 +49,7 @@ function registerValidSW(swUrl, config) {
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
         console.log("New version available, refreshing...");
+        window.location.reload();
         // store.dispatch(modalSlice.actions.showWarning());
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
@@ -67,7 +68,6 @@ function registerValidSW(swUrl, config) {
           .then((data) => {
             const newestVersion = data.version;
             const CACHE_NAME = `bgsg-static-v${newestVersion}`;
-
             // console.log("Service worker activated!");
             // clear the old cache
             caches.keys().then(function (cacheNames) {

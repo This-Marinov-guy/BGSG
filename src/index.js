@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { login, logout, selectUser } from "./redux/user";
 import { useDispatch } from "react-redux";
 import { selectError, selectErrorMsg } from "./redux/error";
+import * as serviceWorker from './serviceWorker';
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -173,3 +174,4 @@ root.render(
   </Provider>
 );
 
+serviceWorker.register();
