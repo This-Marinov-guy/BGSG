@@ -52,7 +52,7 @@ let TeamContent = [
     title: "| PR Manager",
     designation: [
       "Study: BA European languages and Cultures",
-      "Age: 20",
+      "Age: 21",
       "Interests: Reading, Travelling, Cinema, Pilates",
     ],
     socialNetwork: [
@@ -120,8 +120,8 @@ let TeamContent = [
     title: "| External Relations",
     designation: [
       "Study: BA CMGT",
-      "Age: 20",
-      "Interests: Concerts, Movies, Enterprenuership, Sports",
+      "Age: 21",
+      "Interests: Concerts, Movies, Entreprenuership, Sports",
     ],
     socialNetwork: [
       {

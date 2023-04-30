@@ -40,14 +40,6 @@ const EventReflection = React.memo(() => {
                     <FiClock />
                     {target.date}
                   </li>
-                  <li>
-                    <FiUser />
-                    {target.attendance} People
-                  </li>
-                  <li>
-                    <FiMessageCircle />
-                    {target.comments} Comments
-                  </li>
                 </ul>
               </div>
             </div>

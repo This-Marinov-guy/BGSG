@@ -75,7 +75,6 @@ const HeaderTwo = () => {
           <div className="header-right header-red">
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
-                <GoogleTranslate />
                 <li className="has-droupdown">
                   <Link to="/about">About</Link>
                   <ul className="submenu">

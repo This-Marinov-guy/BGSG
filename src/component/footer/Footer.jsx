@@ -29,7 +29,7 @@ class Footer extends Component {
                     <span>Have a Question?</span>
                     <h2>
                       Do not <br />
-                      hesitate to reach us
+                      hesitate to contact us
                     </h2>
                   </div>
                 </div>

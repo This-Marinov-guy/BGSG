@@ -76,7 +76,6 @@ const Header = (props) => {
           <div className="header-right">
             <nav className="mainmenunav d-lg-block">
               <ul className={props.dark ? "mainmenu dark_nav" : "mainmenu"}>
-                <GoogleTranslate />
                 <li className="has-droupdown">
                   <Link to="/about">About</Link>
                   <ul className="submenu">
