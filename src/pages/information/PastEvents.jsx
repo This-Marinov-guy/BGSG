@@ -62,6 +62,7 @@ class PastEventsContent extends Component {
                       <div className="portfolio" key={index}>
                         <div className="thumbnail-inner-2">
                           <ImageFb
+                            style={{ objectFit: "contain" }}
                             className="thumbnail"
                             src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
                             fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
@@ -113,15 +114,13 @@ class PastEventsListed extends Component {
           </div>
           <div className="grid">
             {list.map((value, index) => (
-              <div
-                className="portfolio grid_item"
-                key={index}
-              >
+              <div className="portfolio grid_item" key={index}>
                 <Link
                   to={`/event-reflection/${value.url}`}
                   className="thumbnail-inner-2"
                 >
                   <ImageFb
+                    style={{ objectFit: "contain" }}
                     className="thumbnail"
                     src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
                     fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
