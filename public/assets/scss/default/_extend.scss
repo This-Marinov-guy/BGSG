@@ -70,9 +70,6 @@ Common Css
 
 %bgwhitecolor {
   background: $white;
-  @media (prefers-color-scheme: dark) {
-    background: $white !important;
-  }
 }
 
 %bgBlack {

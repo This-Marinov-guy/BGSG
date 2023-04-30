@@ -11,7 +11,7 @@ import { OPEN_NON_SOCIETY_EVENTS } from "../../util/EVENTS";
 
 const FutureEventsContent = () => {
   return (
-    <div className="portfolio-area pt--120 pb--100 bg_color--5">
+    <div className="portfolio-area pt--120 pb--120 bg_color--5">
       <div className="rn-slick-dot">
         <div className="container">
           <div className="row">

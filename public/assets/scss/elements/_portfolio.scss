@@ -15,10 +15,10 @@
     min-height: 350px;
   }
   @media #{$md-layout} {
-    min-height: 350px;
+    min-height: 300px;
   }
   @media #{$sm-layout} {
-    min-height: 350px;
+    min-height: 200px;
   }
   .thumbnail-inner,
   .thumbnail-inner-2 {
@@ -30,7 +30,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     overflow: hidden;
     border-radius: 5px;
@@ -69,7 +69,8 @@
     background-size: cover;
     background-position: center;
     border-radius: 5px;
-    background-color: #0a0a0a;
+    object-fit: contain;
+    background-color: $white;
     transform: translateZ(0);
     backface-visibility: hidden;
     transition: transform 0.28s ease;

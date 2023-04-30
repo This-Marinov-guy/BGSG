@@ -18,6 +18,7 @@ import ModalWindow from "../../elements/ui/ModalWindow";
 import Locked from "../../elements/ui/Locked";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import WindowShift from "../../elements/ui/WindowShift";
+import ImageFb from "../../elements/ui/ImageFb";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -364,7 +365,7 @@ const User = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-12">
-              <div className="service service__style--2 user_border">
+              <div className="service service__style--2 team_member_border-5">
                 <div className="content">
                   <h2>Hello again, {currentUser.name}!</h2>
                   <div className="hor_section mb--40">
@@ -444,6 +445,185 @@ const User = () => {
                       We will soon post information for our 2nd member event.
                       Stay tuned!
                     </p>
+                  </li>
+                  <li className="mt--40">
+                    <p>Exclusive Articles</p>
+                    {/* Start Article  Details */}
+                    <div
+                      style={{ overflowWrap: "break-word" }}
+                      className="rn-blog-details pt--110 pb--70 bg_color--1"
+                    >
+                      <div className="inner-wrapper">
+                        <div className="inner">
+                          <h2 style={{ textAlign: "start" }}>
+                            The entrepreneurship series II: Toni Enchev Small
+                            steps towards big goals
+                          </h2>
+                          <p style={{ textAlign: "end" }}>
+                            Small steps towards big goals
+                          </p>
+                          <ImageFb
+                            src="/assets/images/profile/toni/1.jpeg"
+                            alt="Article Images"
+                          />
+                          <p>
+                            There are many variations of passages of Lorem Ipsum
+                            available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised
+                            words which don't look even slightly believable. If
+                            you are going to use a passage of Lorem Ipsum. You
+                            need to be sure there isn't anything embarrassing
+                            hidden in the middle of text. All the Lorem Ipsum
+                            generators on the Internet tend toitrrepeat
+                            predefined chunks.{" "}
+                          </p>
+                          <div className="thumbnail">
+                            <img
+                              src="/assets/images/profile/toni/2.jpeg"
+                              alt="Blog Images"
+                            />
+                          </div>
+                          <p className="mt--40">
+                            There are many variations of passages of Lorem Ipsum
+                            available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised
+                            words which don't look even slightly believable. If
+                            you are going to use a passage of Lorem Ipsum. You
+                            need to be sure there isn't anything embarrassing
+                            hidden in the middle of text. All the Lorem Ipsum
+                            generators on the Internet tend toitrrepeat
+                            predefined chunks.{" "}
+                          </p>
+                          <p>
+                            Necessary, making this the first true generator on
+                            the Internet. It re are many variations of passages
+                            of Lo rem Ipsum available, but the majority have
+                            suffered alteration in some form, by injectedeed
+                            eedhumour, or randomised words which don't look even
+                            slightly believable.
+                          </p>
+                          <blockquote className="rn-blog-quote">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing
+                            elit. Aenean commodo ligula eget dolor. Aenean
+                            massa. Cum sociis natoque penatibus et magnis dis
+                            parturient montes.
+                          </blockquote>
+                          <p>
+                            There are many variations of passages of Lorem Ipsum
+                            available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised
+                            words which don't look even slightly believable. If
+                            you are going to use a passage of Lorem Ipsum. You
+                            need to be sure there isn't anything embarrassing
+                            hidden in the middle of text. All the Lorem Ipsum
+                            generators on the Internet tend toitrrepeat
+                            predefined chunks. Necessary, making this the first
+                            true generator on the Internet. It re are many
+                            variations of passages of Lorem Ipsum available, but
+                            the majority have suffered alteration in some form,
+                            by injectedeed eedhumour, or randomised words which
+                            don't look even slightly believable.
+                          </p>
+                          <div className="blog-single-list-wrapper d-flex flex-wrap">
+                            <div className="thumbnail">
+                              <img
+                                className="w-100"
+                                src="/assets/images/profile/toni/2le-e01.png"
+                                alt="BLog Images"
+                              />
+                              <span>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do
+                              </span>
+                            </div>
+                            <div className="content">
+                              <p>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua.
+                                Quis ipsum suspendisse ultrices gravida. Risus
+                                commodo .
+                              </p>
+                              <h4 className="title">
+                                Ordered & Unordered Lists.
+                              </h4>
+                              <ul className="list-style">
+                                <li>
+                                  Yet this above sewed flirted opened ouch
+                                </li>
+                                <li>Goldfinch realistic sporadic ingenuous</li>
+                                <li>
+                                  Abominable this abidin far successfully then
+                                  like piquan
+                                </li>
+                                <li>Risus commodo viverra</li>
+                                <li>
+                                  Lorem ipsum dolor sit amet, consectetur
+                                  adipiscing
+                                </li>
+                              </ul>
+                              <h4 className="title">
+                                Ordered & Unordered Lists.
+                              </h4>
+                              <ul className="list-style">
+                                <li>
+                                  Yet this above sewed flirted opened ouch
+                                </li>
+                                <li>Goldfinch realistic sporadic ingenuous</li>
+                                <li>
+                                  Abominable this abidin far successfully then
+                                  like piquan
+                                </li>
+                                <li>Risus commodo viverra</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <p className="mt--25 mt_sm--5">
+                            There are many variations of passages of Lorem Ipsum
+                            available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised
+                            words which don't look even slightly believable. If
+                            you are going to use a passage of Lorem Ipsum. You
+                            need to be sure there isn't anything embarrassing
+                            hidden in the middle of text. All the Lorem Ipsum
+                            generators on the Internet tend toitrrepeat
+                            predefined chunks. Necessary, making this the first
+                            true generator on the Internet. It re are many
+                            variations of passages of Lorem Ipsum available, but
+                            the majority have suffered alteration in some form,
+                            by injectedeed eedhumour, or randomised words which
+                            don't look even slightly believable.
+                          </p>
+                          <div className="video-wrapper position-relative mb--40">
+                            <div className="thumbnail">
+                              <img
+                                src="/assets/images/profile/toni/2.jpeg"
+                                alt="Blog Images"
+                              />
+                            </div>
+                          </div>
+                          <p className="mb--0">
+                            There are many variations of passages of Lorem Ipsum
+                            available, but the majority have suffered alteration
+                            in some form, by injected humour, or randomised
+                            words which don't look even slightly believable. If
+                            you are going to use a passage of Lorem Ipsum. You
+                            need to be sure there isn't anything embarrassing
+                            hidden in the middle of text. All the Lorem Ipsum
+                            generators on the Internet tend toitrrepeat
+                            predefined chunks. Necessary, making this the first
+                            true generator on the Internet. It re are many
+                            variations of passages of Lorem Ipsum available, but
+                            the majority have suffered alteration in some form,
+                            by injectedeed eedhumour, or randomised words which
+                            don't look even slightly believable.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* End Article  Details */}
                   </li>
                 </ul>
               </div>

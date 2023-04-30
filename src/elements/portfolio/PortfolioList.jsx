@@ -21,8 +21,7 @@ const PortfolioList = (props) => {
               }
             >
               <ImageFb
-                style={{ objectFit: "contain" }}
-                className="thumbnail"
+                className="thumbnail portfolio-img"
                 src={`${value.thumbnail}.webp`}
                 fallback={`${value.thumbnail}.jpg`}
                 alt="Event Images"

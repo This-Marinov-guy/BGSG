@@ -40,7 +40,7 @@ const list = [
 class PastEventsContent extends Component {
   render() {
     return (
-      <div className="portfolio-area pt--120 pb--140 bg_color--5">
+      <div className="portfolio-area pt--80 pb--140 bg_color--5">
         <div className="rn-slick-dot">
           <div className="container">
             <div className="row">
@@ -62,7 +62,6 @@ class PastEventsContent extends Component {
                       <div className="portfolio" key={index}>
                         <div className="thumbnail-inner-2">
                           <ImageFb
-                            style={{ objectFit: "contain" }}
                             className="thumbnail"
                             src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
                             fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
