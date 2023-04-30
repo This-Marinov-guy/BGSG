@@ -50,10 +50,10 @@ function registerValidSW(swUrl, config) {
       registration.addEventListener("updatefound", () => {
         console.log("New version available, refreshing...");
         //display a warning that the site is updated
-        window.location.reload();
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
+        window.location.reload();
       });
 
       if (registration.waiting) {
@@ -62,6 +62,7 @@ function registerValidSW(swUrl, config) {
       }
 
       registration.addEventListener("activate", () => {
+        window.location.reload();
         // get the current version of package.json
         fetch("/package.json")
           .then((response) => response.json())
