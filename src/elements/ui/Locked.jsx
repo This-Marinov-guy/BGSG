@@ -48,8 +48,8 @@ const Locked = (props) => {
         </h2>
         <p className="center_text">
           {props.case === "locked"
-            ? "To continue using the benefits of a member please pay the fee subscription for the following semester! Otherwise, log out of your account."
-            : "We have noticed some violation from your side. Unfortunately, we will need to block your account until further notice. Please contact: bulgariansociety.gro@gmail.com "}
+            ? "To continue using the benefits of a member please pay the fee subscription for the following term! Otherwise, log out of your account."
+            : "We have noticed some violation from your side. Unfortunately, we will need to block your account until further notice. Please contact: bulgariansociety.gro@gmail.com"}
         </p>
         {props.case === "locked" && (
           <button
