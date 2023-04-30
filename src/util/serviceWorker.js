@@ -58,7 +58,6 @@ function registerValidSW(swUrl, config) {
 
       if (registration.waiting) {
         console.log("Service worker already waiting, refreshing...");
-        window.location.reload();
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
