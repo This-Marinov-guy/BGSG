@@ -1,14 +1,13 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import Breadcrumb from "../../elements/common/Breadcrumb";
 import PageHelmet from "../../component/common/Helmet";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
+import WindowShift from "../../elements/ui/WindowShift";
 
 const Committees = React.memo(() => {
-  const [committee, setCommittee] = useState("Sports");
-
   return (
     <React.Fragment>
       <PageHelmet pageTitle="Committees" />
@@ -23,43 +22,26 @@ const Committees = React.memo(() => {
 
       {/* Start Team Area  */}
       <div className="rn-team-area ptb--120 bg_color--5">
-        <div className="container">
-          <div className="options-btns-div">
-            <button
-              className={
-                committee === "Sports"
-                  ? "rn-button-style--2 btn-solid option-btn"
-                  : "rn-button-style--2 rn-btn-reverse option-btn"
-              }
-              onClick={() => {
-                setCommittee("Sports");
-              }}
-            >
-              Personal development and Sports
-            </button>
-            <button
-              className={
-                committee === "Culture"
-                  ? "rn-button-style--2 btn-solid option-btn"
-                  : "rn-button-style--2 rn-btn-reverse option-btn"
-              }
-              onClick={() => {
-                setCommittee("Culture");
-              }}
-            >
-              Social and Culture
-            </button>
-          </div>
-          <div>
-            <h2 className="center_text mb--20">
-              {committee === "Culture"
-                ? "Social and Culture"
-                : "Personal development and Sports"}
-            </h2>
-            <br />
-            <h2 className="center_text">Expect soon...</h2>
-          </div>
-        </div>
+        <WindowShift
+          main="Personal development and Sports"
+          secondary="Social and Culture"
+          mainContent={
+            <div>
+              <h2 className="center_text mb--20">
+                Personal development and Sports
+              </h2>
+              <br />
+              <h2 className="center_text">Expect soon...</h2>
+            </div>
+          }
+          secondaryContent={
+            <div>
+              <h2 className="center_text mb--20">Social and Culture</h2>
+              <br />
+              <h2 className="center_text">Expect soon...</h2>
+            </div>
+          }
+        />
       </div>
       {/* End Team Area  */}
 

@@ -22,7 +22,12 @@ body {
   color: $body-color;
   font-weight: 800;
 }
-
+@media (prefers-color-scheme: dark) {
+  body {
+    color: $body-color !important;
+    background-color: #fff !important;
+  }
+}
 a {
   transition: all 0.4s ease-in-out 0s;
 }
@@ -162,7 +167,7 @@ input,
 button,
 select,
 textarea {
-	font-family: $body-font;
+  font-family: $body-font;
   background: transparent;
   border: 1px solid $border-color;
   transition: all 0.4s ease-out 0s;
