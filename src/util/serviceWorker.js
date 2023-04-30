@@ -53,7 +53,7 @@ function registerValidSW(swUrl, config) {
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
-        window.location.reload();
+        window.location.reload(true);
       });
 
       if (registration.waiting) {
@@ -62,7 +62,6 @@ function registerValidSW(swUrl, config) {
       }
 
       registration.addEventListener("activate", () => {
-        window.location.reload();
         // get the current version of package.json
         fetch("/package.json")
           .then((response) => response.json())
