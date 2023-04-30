@@ -418,6 +418,7 @@ const User = () => {
       {/* End Info Area */}
       {/* Start User Collection */}
       <WindowShift
+        className="mt--80 mb--80"
         main="News"
         secondary="Ticket Collection"
         mainContent={
