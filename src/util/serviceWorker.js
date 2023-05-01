@@ -52,63 +52,58 @@ function registerValidSW(swUrl, config) {
         //display a warning that the site is updated
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
+          window.location.reload();
         }
-        // reload the page when the new service worker is activated
-        registration.installing.addEventListener("statechange", (event) => {
-          if (event.target.state === "activated") {
-            console.log("New service worker activated, reloading page...");
-            window.location.reload();
-          }
+
+        if (registration.waiting) {
+          console.log("Service worker already waiting, refreshing...");
+          registration.waiting.postMessage({ type: "SKIP_WAITING" });
+          window.location.reload();
+        }
+
+        // add event listener to activate the new service worker
+        registration.addEventListener("activate", () => {
+          // get the current version of package.json
+          fetch("/package.json")
+            .then((response) => response.json())
+            .then((data) => {
+              const newestVersion = data.version;
+              const CACHE_NAME = `bgsg-static-v${newestVersion}`;
+              // console.log("Service worker activated!");
+              // clear the old cache
+              caches.keys().then(function (cacheNames) {
+                return Promise.all(
+                  cacheNames.map(function (cacheName) {
+                    if (cacheName !== CACHE_NAME) {
+                      return caches.delete(cacheName);
+                    }
+                  })
+                );
+              });
+              // add the new cache
+              caches.open(CACHE_NAME).then(function (cache) {
+                return cache.addAll([
+                  "/",
+                  "/index.html",
+                  "/manifest.json",
+                  "/static/js/bundle.[hash].js",
+                  "/static/css/main.[hash].css",
+                ]);
+              });
+              // make the updated service worker take control of the page immediately
+              registration.waiting.postMessage({ type: "SKIP_WAITING" });
+            })
+            .catch((error) => {
+              console.error("Error fetching package.json:", error);
+            });
         });
-      });
 
-      if (registration.waiting) {
-        console.log("Service worker already waiting, refreshing...");
-        registration.waiting.postMessage({ type: "SKIP_WAITING" });
-      }
-
-      // add event listener to activate the new service worker
-      registration.addEventListener("activate", () => {
-        // get the current version of package.json
-        fetch("/package.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const newestVersion = data.version;
-            const CACHE_NAME = `bgsg-static-v${newestVersion}`;
-            // console.log("Service worker activated!");
-            // clear the old cache
-            caches.keys().then(function (cacheNames) {
-              return Promise.all(
-                cacheNames.map(function (cacheName) {
-                  if (cacheName !== CACHE_NAME) {
-                    return caches.delete(cacheName);
-                  }
-                })
-              );
-            });
-            // add the new cache
-            caches.open(CACHE_NAME).then(function (cache) {
-              return cache.addAll([
-                "/",
-                "/index.html",
-                "/manifest.json",
-                "/static/js/bundle.[hash].js",
-                "/static/css/main.[hash].css",
-              ]);
-            });
-            // make the updated service worker take control of the page immediately
-            registration.waiting.postMessage({ type: "SKIP_WAITING" });
-          })
-          .catch((error) => {
-            console.error("Error fetching package.json:", error);
-          });
-      });
-
-      // console.log("Service worker registered!");
+        // console.log("Service worker registered!");
+      })
+        .catch((error) => {
+          console.error("Error registering service worker:", error);
+        });
     })
-    .catch((error) => {
-      console.error("Error registering service worker:", error);
-    });
 }
 
 function checkValidServiceWorker(swUrl, config) {
