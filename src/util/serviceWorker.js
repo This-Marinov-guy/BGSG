@@ -12,12 +12,12 @@
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === "[::1]" ||
-    // 127.0.0.1/8 is considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+  // [::1] is the IPv6 localhost address.
+  window.location.hostname === "[::1]" ||
+  // 127.0.0.1/8 is considered localhost for IPv4.
+  window.location.hostname.match(
+    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+  )
 );
 
 export function register(config) {
@@ -33,7 +33,7 @@ export function register(config) {
       navigator.serviceWorker.ready.then(() => {
         console.log(
           "This web app is being served cache-first by a service " +
-            "worker. To learn more, visit https://bit.ly/CRA-PWA"
+          "worker. To learn more, visit https://bit.ly/CRA-PWA"
         );
       });
     } else {
@@ -48,6 +48,7 @@ function registerValidSW(swUrl, config) {
     .register(swUrl)
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
+        console.log("New version available, refreshing...");
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
@@ -58,7 +59,10 @@ function registerValidSW(swUrl, config) {
         console.log("Service worker already waiting, refreshing...");
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
-
+      // wait for the page to finish loading before triggering another reload
+      window.onload = function () {
+        window.location.reload();
+      };
       registration.addEventListener("activate", () => {
         // get the current version of package.json
         fetch("/package.json")
