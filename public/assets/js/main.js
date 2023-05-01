@@ -15,19 +15,27 @@ const isDarkModeExtension =
   document.body.classList.contains("dark-mode-extension") ||
   document.body.classList.contains("night-mode-extension");
 
-if (
-  (isDarkModeExtension ||
-    backgroundColor === "rgb(17, 17, 17)" ||
-    backgroundColor === "#111111" ||
-    backgroundColor === "#1a1a1a" ||
-    backgroundColor === "#121212" ||
-    backgroundColor === "#222222") &&
-  (textColor === "rgb(221, 221, 221)" || textColor === "#dddddd")
-) {
-  const elements = document.querySelectorAll("[class*=team_member_border]");
+window.onload = function () {
+  const elements = document.querySelectorAll('[class*=team_member_border]');
+  if ((isDarkModeExtension ||
+    backgroundColor === 'rgb(17, 17, 17)' ||
+    backgroundColor === '#111111' ||
+    backgroundColor === '#1a1a1a' ||
+    backgroundColor === '#121212' ||
+    backgroundColor === '#222222') &&
+    (textColor === 'rgb(221, 221, 221)' || textColor === '#dddddd')
+  ) {
+    // Loop through each element and remove the border
+    elements.forEach((element) => {
+      const classNames = element.className.split(' ');
 
-  // Loop through each element and remove the border
-  elements.forEach((element) => {
-    element.style.border = "none";
-  });
+      classNames.forEach((className) => {
+        if (className.indexOf('team_member_border') !== -1) {
+          element.classList.remove(className);
+        }
+      });
+    });
+  }
 }
+
+

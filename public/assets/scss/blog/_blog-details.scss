@@ -50,7 +50,8 @@ BLog Details Styles
       @media #{$sm-layout} {
         padding: 0 10px;
       }
-      p, li {
+      p,
+      li {
         font-size: 22px;
         line-height: 30px;
         color: rgba(29, 29, 36, 0.75);
@@ -131,7 +132,8 @@ BLog Details Styles
         padding-right: 0px;
         padding-left: 0px;
         margin-right: 0;
-        p, a{
+        p,
+        a {
           margin-top: 20px;
         }
       }
@@ -233,4 +235,10 @@ BLog Details Styles
   @media #{$sm-layout} {
     flex-direction: column;
   }
+}
+
+.author {
+  text-align: end;
+  font-size: 18px;
+  font-style: italic;
 }

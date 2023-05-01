@@ -466,9 +466,10 @@ const User = () => {
                     The entrepreneurship series II: Toni Enchev Small steps
                     towards big goals
                   </h2>
-                  <p style={{ textAlign: "end" }} className="mb--20">
+                  <p style={{ textAlign: "end" }} className="mb--10">
                     Small steps towards big goals
                   </p>
+                  <p className="author mb--20"> Written by Gergana Popova & Jordanka Daskalova      </p>
                   <ImageFb
                     className="mt--20 mb--40"
                     src="/assets/images/profile/toni/1.webp"
