@@ -20,7 +20,7 @@ const Home = () => {
     {
       textPosition: "text-center",
       category: "",
-      title: "Bulgarian Wow Groningen",
+      title: "Bulgarian Society Groningen",
       description: "",
       buttonText: user.token ? "Go To Profile" : "Become a Member",
       style: user.token ? " rn-btn-reverse-green" : " btn-primary-color",
