@@ -48,17 +48,14 @@ function registerValidSW(swUrl, config) {
     .register(swUrl)
     .then((registration) => {
       registration.addEventListener("updatefound", () => {
-        console.log("New version available, refreshing...");
-        //display a warning that the site is updated
+        window.location.reload();
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
-          window.location.reload();
         }
 
         if (registration.waiting) {
           console.log("Service worker already waiting, refreshing...");
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
-          window.location.reload();
         }
 
         // add event listener to activate the new service worker
