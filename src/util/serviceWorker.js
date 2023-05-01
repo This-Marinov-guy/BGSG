@@ -58,11 +58,11 @@ function registerValidSW(swUrl, config) {
       if (registration.waiting) {
         console.log("Service worker already waiting, refreshing...");
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
+        // wait for the page to finish loading before triggering another reload
+        window.onload = function () {
+          window.location.reload();
+        };
       }
-      // wait for the page to finish loading before triggering another reload
-      window.onload = function () {
-        window.location.reload();
-      };
       registration.addEventListener("activate", () => {
         // get the current version of package.json
         fetch("/package.json")
