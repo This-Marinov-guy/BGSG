@@ -97,12 +97,12 @@ const Home = () => {
       {/* Start News Area */}
       <div className="container mt--80 mb--80">
         <div className="row">
-          <div className="col-lg-12">
-            <div className="mb--30 mb_sm--0">
+          <div className="col-lg-6">
               <h2 className="title">News</h2>
-              <p>Stay tuned for more information</p>
+              <ul>
+              {user.token ? <Fragment><p>Check the exclusive article from The Entrepreneurship Series II about Toni and his business story: </p><a style={{fontSize:'20px'}} href={`/user/${user.userId}`}>Click here and scroll to News</a></Fragment> : <p>Stay tuned for more information</p>}
+              </ul>
             </div>
-          </div>
         </div>
       </div>
       {/* End News Area */}
