@@ -12,12 +12,12 @@
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === "[::1]" ||
-    // 127.0.0.1/8 is considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
+  // [::1] is the IPv6 localhost address.
+  window.location.hostname === "[::1]" ||
+  // 127.0.0.1/8 is considered localhost for IPv4.
+  window.location.hostname.match(
+    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
+  )
 );
 
 export function register(config) {
@@ -33,7 +33,7 @@ export function register(config) {
       navigator.serviceWorker.ready.then(() => {
         console.log(
           "This web app is being served cache-first by a service " +
-            "worker. To learn more, visit https://bit.ly/CRA-PWA"
+          "worker. To learn more, visit https://bit.ly/CRA-PWA"
         );
       });
     } else {
@@ -53,7 +53,13 @@ function registerValidSW(swUrl, config) {
         if (registration.active) {
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
         }
-        window.location.reload();
+        // reload the page when the new service worker is activated
+        registration.installing.addEventListener("statechange", (event) => {
+          if (event.target.state === "activated") {
+            console.log("New service worker activated, reloading page...");
+            window.location.reload();
+          }
+        });
       });
 
       if (registration.waiting) {
@@ -61,6 +67,7 @@ function registerValidSW(swUrl, config) {
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
 
+      // add event listener to activate the new service worker
       registration.addEventListener("activate", () => {
         // get the current version of package.json
         fetch("/package.json")
@@ -89,7 +96,8 @@ function registerValidSW(swUrl, config) {
                 "/static/css/main.[hash].css",
               ]);
             });
-            registration.active.skipWaiting();
+            // make the updated service worker take control of the page immediately
+            registration.waiting.postMessage({ type: "SKIP_WAITING" });
           })
           .catch((error) => {
             console.error("Error fetching package.json:", error);

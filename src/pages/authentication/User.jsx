@@ -151,7 +151,7 @@ const User = () => {
                   formData
                 );
                 window.location.reload();
-              } catch (err) {}
+              } catch (err) { }
             }}
             initialValues={{
               image: "",
@@ -466,7 +466,7 @@ const User = () => {
                     The entrepreneurship series II: Toni Enchev Small steps
                     towards big goals
                   </h2>
-                  <p style={{ textAlign: "end" }} className="mb--10">
+                  <p style={{ textAlign: "end", fontSize: '26px' }} className="mb--10">
                     Small steps towards big goals
                   </p>
                   <p className="author mb--20"> Written by Gergana Popova & Jordanka Daskalova      </p>
