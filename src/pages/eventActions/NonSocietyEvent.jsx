@@ -124,7 +124,7 @@ const NonSocietyEvent = (props) => {
               className="x_icon"
               onClick={closeNotificationHandler}
             />
-            <h3 className="center_text title">Finish registration as {currentUser.name + ' ' + currentUser.surname}</h3>
+            <h3 className="center_text title">Finish registration as {currentUser.name + ' ' + currentUser.surname + ' ?'}</h3>
             <button
               disabled={loading}
               onClick={submitMemberForm}
