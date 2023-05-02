@@ -5,6 +5,7 @@ import Header from "../component/header/Header";
 import AboutUs from "../component/HomeLayout/homeOne/AboutUs";
 import FooterTwo from "../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
+import BrandTwo from "../elements/BrandTwo";
 import { FiChevronUp } from "react-icons/fi";
 import Helmet from "../component/common/Helmet";
 import {
@@ -79,15 +80,9 @@ const Home = () => {
       </div>
       {/* End Slider Area   */}
       {/* Start Sponsor Area */}
-      {/* <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <BrandTwo />
-              </div>
-            </div>
-          </div>
-        </div> */}
+
+      <BrandTwo />
+
       {/* End Sponsor Area */}
 
       {/* Start About Area  */}
@@ -98,11 +93,11 @@ const Home = () => {
       <div className="container mt--80 mb--80">
         <div className="row">
           <div className="col-lg-6">
-              <h2 className="title">News</h2>
-              <ul>
-              {user.token ? <Fragment><p>Check the exclusive article from The Entrepreneurship Series II about Toni and his business story: </p><a style={{fontSize:'20px'}} href={`/user/${user.userId}`}>Click here and scroll to News</a></Fragment> : <p>Stay tuned for more information</p>}
-              </ul>
-            </div>
+            <h2 className="title">News</h2>
+            <ul>
+              {user.token ? <Fragment><p>Check the exclusive article from The Entrepreneurship Series II about Toni and his business story: </p><a style={{ fontSize: '20px' }} href={`/user/${user.userId}`}>Click here and scroll to News</a></Fragment> : <p>Stay tuned for more information</p>}
+            </ul>
+          </div>
         </div>
       </div>
       {/* End News Area */}

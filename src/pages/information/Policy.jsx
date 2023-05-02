@@ -35,63 +35,66 @@ const Policy = React.memo(() => {
           3.  The board consists of the President, Secretary, Treasurer, External  Relations, Creative Director, Internal Affairs, and Public Relations. Each board member has a specific role that they must adhere to:
 
         </p>
-      
-        <p className="mt--40 ml--30">
+
+        <p className="mt--40 ml--20">
           a. The role of the President is approval of ideas, taking initiative, and overseeing the executions of tasks within the Society.
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           b. The role of the Secretary is to communicate with the members of the association, ensure all member registrations are processed accordingly, take notes during the meetings, upkeep the Google Drive, and assist the president in their duties.
 
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           c. The role of the Treasurer is organisation and processing of all financial matters, this includes:  monitoring the income of the organisation, seeking out sources for funding, helping with the yearly fees, monitoring the spending, ensuring the association is running within the provided budget, doing the accounting of the organisation and distributing the budget to the committees accordingly.
 
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           d. The role of External Relations is to connect with third parties such as venues, prospective sponsors, other student associations.
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           e. The role of the Creative Director is to create the general idea and direction of how Bulgarian Society Groningen is going to present itself to the public.
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           f. The role of Internal Affairs is to ensure that there is no turmoil within the association and solve and prevent any conflicts that might arise. They should also make sure everyone feels welcome and included. Both Bulgarians and foreigners.
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           g. The role of Public relations is taking photos during events, supporting the creative director in their vision, and maintaining the social media of the Society.
 
         </p>
-        
+
         <p className="mt--40 ml--10">
           4.   Within the association there are various committees, each responsible for the organisation and execution of events. These include: Personal development and Sports committee, Social & Cultural committee. Each committee handles events of a certain nature:
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           a. The  Personal development and Sports committee is responsible for the organisation of sports events and events such as lectures and workshops, in addition to events related to networking and career.
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           b. The Social & Culture committee is responsible for the organisation of events such as dinners, parties, and entertainment nights.
 
 
         </p>
-        <p className="mt--40 ml--30">
+        <p className="mt--40 ml--20">
           c. At the beginning of each academic year, the board and committees make a decision to either keep or change the positions, names, committees, and number of board members. This is done through careful analysis of the demand from the previous academic year. Once this has been decided, the application process may commence. The existing board will then proceed to evaluate applicants through a series of interviews, and through this, will select members for the new board. Once the process of selecting the board members has been completed, the members of the committees are selected using the same procedure.
 
 
         </p>
         <h3 className="mt--80">Article 2. Rules and Regulations of the organisation</h3>
         <p className="mt--40">
-          Hereby the goals and intentions of the student association Bulgarian Society Groningen are stated.
+          The Board is responsible for creating a safe and friendly environment in which members within the organisation interact with each other respectfully. Violence and/or discrimination of any sort is prohibited. This includes discrimination on the basis of race, religious beliefs, gender, sexual orientation, ethnicity, or illness.
+
 
 
         </p>
         <h3 className="mt--80">Article 3. Goals for the organisation </h3>
+        <p className="mt--40">Hereby the goals and intentions of the student association Bulgarian Society Groningen are stated.
+        </p>
         <p className="mt--40 ml--10">
           1. First and foremost we aim to bring the Bulgarian students in the city of Groningen together.
           This goal will be achieved by actively promoting the organization through social media, posters, word-of-mouth, and other media.
@@ -113,7 +116,7 @@ const Policy = React.memo(() => {
           We will achieve this goal through traditional Bulgarian dances, cooking traditional Bulgarian food, Bulgarian music, politics, poetry, literature, and theater.
 
         </p>
-        <p className="mt--40 ml--10">
+        <p className="mt--40 mb--80 ml--10">
           5. We want to represent the Bulgarian culture in the city of Groningen.
           We are going to achieve this goal by collaborating with fellow student organizations in the creation of mixed events
 

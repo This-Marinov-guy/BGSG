@@ -1,6 +1,7 @@
 import React from "react";
 import PageHelmet from "../../component/common/Helmet";
 import Breadcrumb from "../../elements/common/Breadcrumb";
+import BrandTwo from "../../elements/BrandTwo";
 import CounterOne from "../../elements/counters/CounterOne";
 import AboutUs from "../../component/HomeLayout/homeOne/AboutUs";
 import ScrollToTop from "react-scroll-up";
@@ -66,9 +67,15 @@ const About = React.memo(() => {
           <h2 className="center_text mt--40">
             This is why we created Bulgarian Society Groningen!
           </h2>
+
         </div>
       </div>
       {/* End Speech Area */}
+      {/* Start Sponsor Area */}
+
+      <BrandTwo />
+
+      {/* End Sponsor Area */}
       {/* Start Back To Top */}
       <div className="backto-top">
         <ScrollToTop showUnder={160}>
