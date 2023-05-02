@@ -588,18 +588,6 @@ module.exports = function (webpackEnv) {
           // public/ and not a SPA route
           new RegExp("/[^/]+\\.[^/]+$"),
         ],
-        onUpdating: registration => {
-          // If a new service worker is found, ask the user to refresh the page
-          const worker = registration.waiting;
-          if (worker) {
-            worker.postMessage({ type: 'SKIP_WAITING' });
-            worker.addEventListener('statechange', () => {
-              if (worker.state === 'activated') {
-                window.location.reload();
-              }
-            });
-          }
-        }
       }),
       // TypeScript type checking
       useTypeScript &&

@@ -10,6 +10,8 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+import { Workbox } from "workbox-window";
+
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
   // [::1] is the IPv6 localhost address.
@@ -38,7 +40,15 @@ export function register(config) {
       });
     } else {
       // Is not localhost. Just register service worker
-      registerValidSW(swUrl, config);
+      if ('serviceWorker' in navigator) {
+        const wb = new Workbox('/service-worker.js');
+
+        wb.addEventListener('controlling', () => {
+          window.location.reload();
+        });
+
+        wb.register();
+      }
     }
   });
 }
