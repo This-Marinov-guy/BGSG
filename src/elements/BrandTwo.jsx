@@ -19,6 +19,7 @@ class BrandTwo extends Component {
                                 <li>
                                     <a href='https://www.stelstuff.com/' target='_blank'><img src="/assets/images/brand/brand-01.png" alt="Logo Images" /></a>
                                 </li>
+                                
                             </ul>
                         </div>
                     </div>
