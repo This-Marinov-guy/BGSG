@@ -51,11 +51,12 @@ function registerValidSW(swUrl, config) {
       if (registration.active) {
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
+
       if (registration.waiting) {
-        window.location.reload();
         console.log("Service worker waiting...");
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
+      window.location.reload();
     });
     registration.addEventListener("activate", () => {
       // get the current version of package.json
