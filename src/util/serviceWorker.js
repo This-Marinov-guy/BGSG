@@ -45,16 +45,16 @@ export function register(config) {
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker.register(swUrl).then((registration) => {
-    registration.installing.addEventListener("updatefound", () => {
+    registration.addEventListener("updatefound", () => {
       console.log("New version available");
 
       if (registration.active) {
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
       }
       if (registration.waiting) {
+        window.location.reload();
         console.log("Service worker waiting...");
         registration.waiting.postMessage({ type: "SKIP_WAITING" });
-        window.location.reload();
       }
     });
     registration.addEventListener("activate", () => {

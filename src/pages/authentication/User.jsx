@@ -16,6 +16,7 @@ import PageHelmet from "../../component/common/Helmet";
 import HeaderTwo from "../../component/header/HeaderTwo";
 import ModalWindow from "../../elements/ui/ModalWindow";
 import Locked from "../../elements/ui/Locked";
+import PageLoading from '../../elements/ui/PageLoading'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import WindowShift from "../../elements/ui/WindowShift";
 import ImageFb from "../../elements/ui/ImageFb";
@@ -793,7 +794,7 @@ const User = () => {
       {/* End Back To Top */}
     </React.Fragment>
   ) : (
-    <Loader />
+    <PageLoading />
   );
 };
 
