@@ -599,14 +599,14 @@ const SignUp = (props) => {
                   type="submit"
                   className="rn-button-style--2 btn-solid mt--80"
                 >
-                  {loading ? <Loader /> : <span>Proceed to paying</span>}
+                  {loading ? <Loader /> : <span>Finish Registration</span>}
                 </button>
                 <div
                   style={{ alignItems: "flex-start" }}
                   className="action_btns"
                 >
                   <a className="rn-button-style--1" href="/login">
-                    I am a member
+                    I already have a member account
                   </a>
                 </div>
               </Form>
