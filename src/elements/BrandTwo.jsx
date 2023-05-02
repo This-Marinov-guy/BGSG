@@ -4,7 +4,7 @@ class BrandTwo extends Component{
     render(){
         return(
             <React.Fragment>
-              <h3 style={{textAlign:'center'}}>With the help of</h3>
+              <h3 style={{textAlign:'center'}}>Partners</h3>
                 <ul className="brand-style-2">
                     
                     <li>
