@@ -60,26 +60,17 @@ class PastEventsContent extends Component {
                   <Slider {...slickDot}>
                     {list.map((value, index) => (
                       <div className="portfolio" key={index}>
-                        <div className="thumbnail-inner-2">
+                        <Link
+                          to={`/event-reflection/${value.url}`}
+                          className="thumbnail-inner-2"
+                        >
                           <ImageFb
                             className="thumbnail"
                             src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
                             fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
                             alt="Event Images"
                           />
-                        </div>
-                        <div className="content">
-                          <div className="inner">
-                            <div className="portfolio-button">
-                              <a
-                                className="rn-btn"
-                                href={`/event-reflection/${value.url}`}
-                              >
-                                Tell me more
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        </Link>
                       </div>
                     ))}
                   </Slider>
@@ -119,7 +110,6 @@ class PastEventsListed extends Component {
                   className="thumbnail-inner-2"
                 >
                   <ImageFb
-                    style={{ objectFit: "contain" }}
                     className="thumbnail"
                     src={`/assets/images/portfolio/portfolio-${value.image}.webp`}
                     fallback={`/assets/images/portfolio/portfolio-${value.image}.jpg`}
