@@ -40,15 +40,7 @@ export function register(config) {
       });
     } else {
       // Is not localhost. Just register service worker
-      if ('serviceWorker' in navigator) {
-        const wb = new Workbox('/service-worker.js');
-
-        wb.addEventListener('controlling', () => {
-          window.location.reload();
-        });
-
-        wb.register();
-      }
+      registerValidSW(swUrl, config);
     }
   });
 }
