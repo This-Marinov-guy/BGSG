@@ -405,9 +405,13 @@ const User = () => {
                           ? currentUser.otherUniversityName
                           : currentUser.university}
                       </li>
+
                       <li style={{ fontWeight: "bold" }}>
                         <FiCircle style={{ fontSize: "14px" }} /> Membership
                         Expires: {currentUser.expireDate}
+                      </li>
+                      <li>
+                        <FiCircle style={{ fontSize: "14px" }} /><a href='https://chat.whatsapp.com/HE2IVMvTTbs88NXWSE3Eqn' target='_blank'>Join the Member Chat</a>
                       </li>
                     </ul>
                   </div>
