@@ -349,11 +349,10 @@ const SignUp = (props) => {
                         type="date"
                         min="1900-01-01"
                         max="2100-12-30"
-                        placeholder="Date of Birth"
                         name="birth"
                       />
                       <p className="information">
-                        *Month is first and after that the Day
+                        *Month is first and after that the day
                       </p>
                       <ErrorMessage
                         className="error"

@@ -142,7 +142,6 @@ const Root = () => {
                   path={"/purchase-ticket/:eventId/:userId"}
                   component={MemberPurchase}
                 />
-
                 <Route path="*" component={Error404} />
               </Switch>
             ) : (
@@ -158,7 +157,6 @@ const Root = () => {
                   path={"/purchase-ticket/:eventId"}
                   component={NonMemberPurchase}
                 />
-
                 <Route path="*" component={Error404} />
               </Switch>
             )}

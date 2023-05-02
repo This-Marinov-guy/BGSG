@@ -2,11 +2,6 @@ import React, { Component, Fragment } from "react";
 import Header from "../component/header/Header";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import { useEffect } from "react";
-
-useEffect(() => { 
-  window.location.reload();
-}, [])
 
 const Error404 = () => {
   return (
