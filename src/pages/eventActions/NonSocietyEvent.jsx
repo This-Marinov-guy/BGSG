@@ -127,7 +127,7 @@ const NonSocietyEvent = (props) => {
             <h3 className="center_text title">Finish registration as {currentUser.name + ' ' + currentUser.surname}</h3>
             <button
               disabled={loading}
-              type="submit"
+              onClick={submitMemberForm}
               className="rn-button-style--2 btn-solid mt--30"
             >
               {loading ? <Loader/> : <span>Register</span>}
