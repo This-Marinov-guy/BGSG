@@ -16,10 +16,6 @@ const list = [
     image: "5",
   },
   {
-    url: "Easter Dinner",
-    image: "6",
-  },
-  {
     url: "Easter Lunch",
     image: "6",
   },

@@ -7,11 +7,7 @@ class PageHelmet extends Component {
       <React.Fragment>
         <Helmet>
           <title>BGSG || {this.props.pageTitle} </title>
-          <meta
-            name="description"
-            content="Welcome to the official Bulgarian society of Groningen! We aim to bring the Bulgarian people of Groningen
-    together, develop the Bulgarian culture and to showcase it among internationals in this beautiful city in the Netherlands."
-          />
+    
         </Helmet>
       </React.Fragment>
     );
