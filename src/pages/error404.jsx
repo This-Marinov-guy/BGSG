@@ -22,7 +22,7 @@ const Error404 = () => {
                 <span>The page you were looking for could not be found.</span>
                 <div className="error-button">
                   <a className="rn-button-style--2 btn-solid" href="/">
-                    Back To Homepage
+                    Back To Home
                   </a>
                 </div>
               </div>
