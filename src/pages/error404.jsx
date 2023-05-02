@@ -17,9 +17,9 @@ const Error404 = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="inner">
-                <h1 className="title theme-gradient">404</h1>
+                <h1 className="title theme-gradient">404!</h1>
                 <h3 className="sub-title">Page not found</h3>
-                <span>Try reloading the page or close all tabs and try the url!</span>
+                <span>The page you were looking for could not be found.</span>
                 <div className="error-button">
                   <a className="rn-button-style--2 btn-solid" href="/">
                     Back To Homepage
