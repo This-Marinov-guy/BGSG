@@ -19,6 +19,10 @@
   padding: 40px;
 }
 
+.pd--20 {
+  padding: 20px;
+}
+
 .plr--120 {
   @media #{$md-layout} {
     padding: 0 60px !important;

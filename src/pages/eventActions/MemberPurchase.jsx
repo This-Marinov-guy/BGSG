@@ -10,6 +10,7 @@ import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
+import PageLoading from "../../elements/ui/PageLoading";
 
 const MemberPurchase = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -82,7 +83,7 @@ const MemberPurchase = () => {
       if (responseData.url) {
         window.location.assign(responseData.url);
       }
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return currentUser ? (
@@ -152,7 +153,7 @@ const MemberPurchase = () => {
       <Footer />
     </Fragment>
   ) : (
-    <Loader />
+    <PageLoading />
   );
 };
 

@@ -89,7 +89,7 @@ const NonSocietyEvent = (props) => {
       );
       history.push("/");
       setTimeout(() => closeNotificationHandler(), 7000);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   useEffect(() => {
@@ -119,55 +119,67 @@ const NonSocietyEvent = (props) => {
       )}
       {modal && (
         <ModalWindow show={modal}>
-          <Formik
-            className="inner"
-            validationSchema={schema}
-            onSubmit={async (values) => {
-              try {
-                const responseData = await sendRequest(
-                  "event/register/non-society-event",
-                  "POST",
-                  JSON.stringify({
-                    event: target.title,
-                    date: target.when,
-                    user: "normal",
-                    name: values.name + " " + values.surname,
-                    phone: values.phone,
-                    email: values.email,
-                    notificationTypeTerms: values.notificationTypeTerms,
-                  }),
-                  {
-                    "Content-Type": "application/json",
-                  }
-                );
-                props.setNotification(
-                  <Alert className="error_panel" variant="success">
-                    <div className="action_btns">
-                      <h3>Thank you for the interest!</h3>
-                      <FiX
-                        className="x_icon"
-                        onClick={closeNotificationHandler}
-                      />
-                    </div>
-                    <p>
-                      Your registration for the event is complete! The organizer
-                      will soon contact you!
-                    </p>
-                  </Alert>
-                );
-                history.push("/");
-                setTimeout(() => closeNotificationHandler(), 7000);
-              } catch (err) {}
-            }}
-            initialValues={{
-              name: "",
-              surname: "",
-              phone: "",
-              email: "",
-              notificationTerms: false,
-              notificationTypeTerms: "",
-            }}
-          >
+          {user.token ? (currentUser ? <div className="center_section pd--20">
+            <FiX style={{ fontSize: '25px' }}
+              className="x_icon"
+              onClick={closeNotificationHandler}
+            />
+            <h3 className="center_text title">Finish registration as {currentUser.name + ' ' + currentUser.surname}</h3>
+            <button
+              disabled={loading}
+              type="submit"
+              className="rn-button-style--2 btn-solid mt--30"
+            >
+              {loading ? <Loader/> : <span>Register</span>}
+            </button></div> : <Loader center/>) : <Formik
+              className="inner"
+              validationSchema={schema}
+              onSubmit={async (values) => {
+                try {
+                  const responseData = await sendRequest(
+                    "event/register/non-society-event",
+                    "POST",
+                    JSON.stringify({
+                      event: target.title,
+                      date: target.when,
+                      user: "normal",
+                      name: values.name + " " + values.surname,
+                      phone: values.phone,
+                      email: values.email,
+                      notificationTypeTerms: values.notificationTypeTerms,
+                    }),
+                    {
+                      "Content-Type": "application/json",
+                    }
+                  );
+                  props.setNotification(
+                    <Alert className="error_panel" variant="success">
+                      <div className="action_btns">
+                        <h3>Thank you for the interest!</h3>
+                        <FiX
+                          className="x_icon"
+                          onClick={closeNotificationHandler}
+                        />
+                      </div>
+                      <p>
+                        Your registration for the event is complete! The organizer
+                        will soon contact you!
+                      </p>
+                    </Alert>
+                  );
+                  history.push("/");
+                  setTimeout(() => closeNotificationHandler(), 7000);
+                } catch (err) { }
+              }}
+              initialValues={{
+                name: "",
+                surname: "",
+                phone: "",
+                email: "",
+                notificationTerms: false,
+                notificationTypeTerms: "",
+              }}
+            >
             {() => (
               <Form
                 encType="multipart/form-data"
@@ -272,7 +284,7 @@ const NonSocietyEvent = (props) => {
                 </button>
               </Form>
             )}
-          </Formik>
+          </Formik>}
         </ModalWindow>
       )}
 
@@ -327,13 +339,9 @@ const NonSocietyEvent = (props) => {
                   </div>
                   <button
                     onClick={
-                      user.token
-                        ? () => {
-                            submitMemberForm();
-                          }
-                        : () => {
-                            dispatch(showModal());
-                          }
+                      () => {
+                        dispatch(showModal());
+                      }
                     }
                     className="rn-button-style--2 btn-solid"
                   >
@@ -341,7 +349,7 @@ const NonSocietyEvent = (props) => {
                   </button>
                   <p className="information mt--20">
                     {user.token
-                      ? "*As a member, your information will be taken directly from your profile so by pressing this button you will be automatically registered"
+                      ? "*As a member, your information will be taken directly from your profile"
                       : "Press the button and fill your details"}
                   </p>
                 </div>
