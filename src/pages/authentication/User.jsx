@@ -7,7 +7,7 @@ import Loader from "../../elements/ui/Loader";
 import ImageInput from "../../elements/ui/ImageInput";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { FiCircle, FiEdit, FiChevronUp, FiX } from "react-icons/fi";
+import { FiCircle, FiCheckCircle, FiEdit, FiChevronUp, FiX } from "react-icons/fi";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -411,7 +411,7 @@ const User = () => {
                         Expires: {currentUser.expireDate}
                       </li>
                       <li>
-                        <FiCircle style={{ fontSize: "14px" }} /><a href='https://chat.whatsapp.com/HE2IVMvTTbs88NXWSE3Eqn' target='_blank'>Join the Member Chat</a>
+                        <FiCheckCircle style={{ fontSize: "14px" }} /><a style={{ color: "#017363" }} href='https://chat.whatsapp.com/HE2IVMvTTbs88NXWSE3Eqn' target='_blank'>Join the Member Chat</a>
                       </li>
                     </ul>
                   </div>
