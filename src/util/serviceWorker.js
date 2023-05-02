@@ -49,11 +49,13 @@ function registerValidSW(swUrl, config) {
       if (registration.installing) {
         registration.installing.addEventListener("statechange", (event) => {
           if (event.target.state === "installed") {
-            console.log("New service worker installed, reloading page...");
+            console.log("New service worker installed");
           }
+          // window.location.reload();
         });
         
         if (registration.waiting) {
+          console.log("Service worker waiting...");
           registration.waiting.postMessage({ type: "SKIP_WAITING" });
           window.location.reload();
         }
