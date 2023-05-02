@@ -20,6 +20,10 @@ const list = [
     image: "6",
   },
   {
+    url: "Easter Dinner",
+    image: "6",
+  },
+  {
     url: "The Entrepreneur Series I",
     image: "4",
   },
