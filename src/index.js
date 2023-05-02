@@ -8,6 +8,7 @@ import { login, logout, selectUser } from "./redux/user";
 import { useDispatch } from "react-redux";
 import { selectError, selectErrorMsg } from "./redux/error";
 import * as serviceWorker from "./util/serviceWorker";
+import packageJSON from '../package.json'
 
 // Blocks Layout
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -98,6 +99,11 @@ const Root = () => {
     }
   }, [dispatch]);
 
+  //register service worker
+  useEffect(() => {
+    serviceWorker.register();
+  }, [packageJSON.version])
+
   return (
     <BrowserRouter basename={"/"}>
       <PageScrollTop>
@@ -176,5 +182,3 @@ root.render(
     <Root />
   </Provider>
 );
-
-serviceWorker.register();
