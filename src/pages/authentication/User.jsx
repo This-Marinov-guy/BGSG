@@ -434,7 +434,12 @@ const User = () => {
                 <div className="mb--30 mb_sm--0">
                   <h2 className="title">News</h2>
                   <ul>
-                    <li>
+                    <li >
+                      <p>
+                        Our first website event! <a href='/event-details/Board%20Game%20Night'>Check it out and enjoy the special member price!</a>
+                      </p>
+                    </li>
+                    <li className="mt--40">
                       <p>
                         Open submissions for Active members will be notified
                         here! Check you profile or expect news from us!
