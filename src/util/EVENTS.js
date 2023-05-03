@@ -16,7 +16,10 @@ export const OPEN_SOCIETY_EVENTS = [
     memberPrice_id: "price_1N3cx2IOw5UGbAo1TChIppD6",
     text: [
       `Are you tired of constantly getting checkmated? This is your chance to pull an UNO Reverse Card and win the game! On 12.05 from 18:00 at Xior, Oosterhamikkade we are organizing a “Board Games Night”, where you will have the chance to show off your skills in Chess, Belot, Jenga, Uno and more. You can also bring your favourite game and prove to us that you're the best at it.`,
-      `Disclaimer: If you are not ready to fight with all your friends over the game, do you even want to win!?`],
+      `Disclaimer: If you are not ready to fight with all your friends over the game, do you even want to win!?`,
+      '...',
+      `Писна ли ти все да си шах и мат? Това е твоят шанс да сложиш UNO Reverse Card и да победиш! На 12.05 от 18:00 в Xior, Oosterhamikkade организираме “Вечер на настолните игри”, където ще имаш възможността да покажеш уменията си на шах, белот, дженга, уно и други. Може да донесеш и любимата си игра и да покажеш на всички колко си добър в нея. Ако загубиш обаче, не се сърди, човече.`,
+      `ВНИМАНИЕ: Ако не си готов да се скараш с всичките си приятели по време на играта, изобщо готов ли си да победиш!?`],
     images: ["/assets/images/portfolio/portfolio-8"],
     thumbnail: "/assets/images/portfolio/portfolio-8",
     ticket_img: "/assets/images/tickets/ticket-2.jpg",
