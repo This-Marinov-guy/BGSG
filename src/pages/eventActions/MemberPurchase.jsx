@@ -36,7 +36,7 @@ const MemberPurchase = () => {
   const submitHandler = async () => {
     try {
       // Create a canvas element, add the image and text, covert to blob
-      //for 1500x485 images
+      //for 1500 x 485 images
       var canvas = document.createElement("canvas");
       var layout = canvas.getContext("2d");
       let ticket = new Image();
