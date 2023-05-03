@@ -167,12 +167,12 @@ const Root = () => {
   );
 };
 
-serviceWorker.register();
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <Root />
   </Provider>
 );
+
+serviceWorker.unregister();
 

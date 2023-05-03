@@ -129,20 +129,5 @@ export const EVENT_REFLECTION_DETAILS = [
       { id: "3", image: "easter/3", text: "" },
     ],
   },
-  {
-    title: "Easter Dinner",
-    bgImage: "18",
-    date: "16th April",
-    attendance: "25",
-    comments: "10",
-    text: [
-      `To celebrate the Orthodox Easter we organized an Easter Lunch including a chicken soup, sarmi, snow white salad and kozunak - traditional Bulgarian dishes. Part of the event was also the Eastern tradition of painting eggs.`,
-    ],
-    images: [
-      { id: "1", image: "easter/1", text: "" },
-      { id: "2", image: "easter/2", text: "" },
-      { id: "3", image: "easter/3", text: "" },
-    ],
-  },
 
 ];
