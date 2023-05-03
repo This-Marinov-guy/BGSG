@@ -12,8 +12,8 @@ export const OPEN_SOCIETY_EVENTS = [
     entry: 5,
     memberEntry: 4,
     including: 'including snacks and a drink',
-    price_id: "price_1MwA1eIOw5UGbAo12l33bqnE",
-    memberPrice_id: "price_1N0LPTIOw5UGbAo1UsHKyBQh",
+    price_id: "price_1N3cxqIOw5UGbAo13X2dDxcz",
+    memberPrice_id: "price_1N3cx2IOw5UGbAo1TChIppD6",
     text: [
       `Are you tired of constantly getting checkmated? This is your chance to pull an UNO Reverse Card and win the game! On 12.05 from 18:00 at Xior, Oosterhamikkade we are organizing a “Board Games Night”, where you will have the chance to show off your skills in Chess, Belot, Jenga, Uno and more. You can also bring your favorite game and prove to us that you're the best at it.`,
       `Disclaimer: If you are not ready to fight with all your friends over the game, do you even want to win!?`],
