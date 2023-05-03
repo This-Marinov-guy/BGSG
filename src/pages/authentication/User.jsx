@@ -680,7 +680,7 @@ const User = () => {
                   <ul>
                     <li>
                       An art project called “It depends on us”, where abandoned
-                      and places get renovated with paintings with the faces of
+                      places get renovated with paintings with the faces of
                       important and influential Bulgarians from the past
                     </li>
                     <li>

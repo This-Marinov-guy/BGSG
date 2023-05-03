@@ -58,42 +58,6 @@ function registerValidSW(swUrl, config) {
         window.location.reload();
       }
     });
-    registration.addEventListener("activate", () => {
-      // get the current version of package.json
-      fetch("/package.json")
-        .then((response) => response.json())
-        .then((data) => {
-          const newestVersion = data.version;
-          const CACHE_NAME = `bgsg-static-v${newestVersion}`;
-          // console.log("Service worker activated!");
-          // clear the old cache
-          caches.keys().then(function (cacheNames) {
-            return Promise.all(
-              cacheNames.map(function (cacheName) {
-                if (cacheName !== CACHE_NAME) {
-                  return caches.delete(cacheName);
-                }
-              })
-            );
-          });
-          // add the new cache
-          caches.open(CACHE_NAME).then(function (cache) {
-            return cache.addAll([
-              "/",
-              "/index.html",
-              "/manifest.json",
-              "/static/js/bundle.[hash].js",
-              "/static/css/main.[hash].css",
-            ]);
-          });
-          registration.active.skipWaiting();
-        })
-        .catch((error) => {
-          console.error("Error fetching package.json:", error);
-        });
-    });
-
-    // console.log("Service worker registered!");
   })
     .catch((error) => {
       console.error("Error registering service worker:", error);

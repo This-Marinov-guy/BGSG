@@ -11,7 +11,7 @@ class BrandTwo extends Component {
                             <ul className="brand-style-2">
 
                                 <li>
-                                    <a href='https://www.unifyfcu.com/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
+                                    <a href='https://en.unify.bg/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
                                 </li>
                                 <li>
                                     <a href='https://www.stripe.com/' target='_blank'> <img src="/assets/images/brand/brand-03.png" alt="Logo Images" /></a>
