@@ -57,7 +57,7 @@ const NonMemberPurchase = () => {
                   ? target.correctedTime + " Updated!"
                   : target.time}
               </p>
-              <p>Address:{" "}{target.where}</p>
+              <p style={{ margin: "auto" }}>Address:{" "}{target.where}</p>
               <p>Price:{" "}{target.entry} euro</p>
               <div className="team_member_border-3 center_section mt--80">
                 <p className="information center_text">
