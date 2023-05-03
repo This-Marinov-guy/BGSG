@@ -41,7 +41,7 @@ const NonMemberPurchase = () => {
         </div>
         <div className="row">
           <div className="col-lg-4 col-md-12 col-12">
-            <div className="event_details">
+            <div>
               <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`} alt="Event" className="title_img" />
               <h2 className="mt--40">Event Details</h2>
               <p>Name:{" "}{target.title}</p>
@@ -57,7 +57,7 @@ const NonMemberPurchase = () => {
                   ? target.correctedTime + " Updated!"
                   : target.time}
               </p>
-              <p style={{ margin: "auto" }}>Address:{" "}{target.where}</p>
+              <p>Address:{" "}{target.where}</p>
               <p>Price:{" "}{target.entry} euro</p>
               <div className="team_member_border-3 center_section mt--80">
                 <p className="information center_text">
