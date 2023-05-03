@@ -65,6 +65,12 @@ const NonMemberPurchase = () => {
                   and the information will be prefilled for ticket purchasing
                 </p>
                 <a
+                  className="rn-button-style--2 rn-btn-reverse-green center_text mb--10"
+                  href="/login"
+                >
+                  <span className="">Log in</span>
+                </a>
+                <a
                   className="rn-button-style--2 btn-solid center_text"
                   href="/signup"
                 >

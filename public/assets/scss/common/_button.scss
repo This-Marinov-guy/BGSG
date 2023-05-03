@@ -105,8 +105,8 @@ a {
       color: #fff;
       &:hover {
         border: 2px solid $body-color;
-        background: $body-color;
-        color: #fff;
+        background: #fff;
+        color: $body-color;
       }
     }
 
