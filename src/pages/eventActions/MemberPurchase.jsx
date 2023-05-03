@@ -144,7 +144,7 @@ const MemberPurchase = () => {
             </button>
             <p className="information mt--20">
               The information for purchasing this ticket will be taken from your
-              account. Be sure it is accurate as it can be use as a proof of
+              account. Be sure it is accurate as it can be used as a proof of
               your identity on the entry!
             </p>
           </div>

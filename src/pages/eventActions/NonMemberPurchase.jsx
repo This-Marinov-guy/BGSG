@@ -199,6 +199,9 @@ const NonMemberPurchase = () => {
                             placeholder="Email"
                             name="email"
                           />
+                          <p className="information">
+                            Please enter an email you have access to as the ticket will be send through it
+                          </p>
                           <ErrorMessage
                             className="error"
                             name="email"
