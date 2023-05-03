@@ -11,15 +11,25 @@
   @media #{$laptop-device} {
     min-height: 350px;
   }
-  @media #{$lg-layout} {
-    min-height: 350px;
-  }
-  @media #{$md-layout} {
+  @media only screen and (min-width: 1200px) and (max-width: 1999px) {
     min-height: 300px;
   }
-  @media #{$sm-layout} {
-    min-height: 230px;
+  @media only screen and (min-width: 777px) and (max-width: 1199px) {
+    min-height: 280px;
   }
+  @media only screen and (min-width: 576px) and (max-width: 776px) {
+    min-height: 260px;
+  }
+  @media only screen and (max-width: 575px) {
+    min-height: 300px;
+  }
+
+  &.portfolio-slider {
+    @media only screen and (min-width: 481px) and (max-width: 575px) {
+      min-height: 150px !important;
+    }
+  }
+
   .thumbnail-inner,
   .thumbnail-inner-2 {
     padding-top: 100%;
