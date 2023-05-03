@@ -7,6 +7,7 @@ import Header from "../../component/header/Header";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
+import ImageFb from "../../elements/ui/ImageFb";
 import Loader from "../../elements/ui/Loader";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
@@ -41,7 +42,7 @@ const NonMemberPurchase = () => {
         <div className="row">
           <div className="col-lg-4 col-md-12 col-12">
             <div className="event_details">
-              <img src={target.images[0]} alt="Event" className="title_img" />
+              <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`} alt="Event" className="title_img" />
               <h2 className="mt--40">Event Details</h2>
               <p>Name: {target.title}</p>
               <p>
@@ -82,6 +83,7 @@ const NonMemberPurchase = () => {
                 onSubmit={async (values) => {
                   try {
                     // Create a canvas element, add the image and text, covert to blob
+                    //for 1500x485 images
                     var canvas = document.createElement("canvas");
                     var layout = canvas.getContext("2d");
                     let ticket = new Image();
@@ -99,21 +101,21 @@ const NonMemberPurchase = () => {
                     // text
                     let textName = values.name;
                     layout.rotate(4.71);
-                    layout.font = "70px Archive";
+                    layout.font = "52px Archive";
                     layout.fillStyle = "#faf9f6";
                     layout.textAlign = "center";
-                    layout.strokeText(textName, -340, 1520);
-                    layout.fillText(textName, -340, 1520);
+                    layout.strokeText(textName, -255, 1170);
+                    layout.fillText(textName, -255, 1170);
 
-                    layout.font = "70px Archive";
+                    layout.font = "52px Archive";
                     layout.fillStyle = "#faf9f6";
                     let textSurname = values.surname;
                     layout.textAlign = "center";
-                    layout.strokeText(textSurname, -340, 1600);
-                    layout.fillText(textSurname, -340, 1600);
+                    layout.strokeText(textSurname, -255, 1230);
+                    layout.fillText(textSurname, -255, 1230);
                     // blob
                     const dataBlob = await new Promise((resolve) =>
-                      canvas.toBlob((blob) => resolve(blob), "image/jpg")
+                      canvas.toBlob((blob) => resolve(blob), "image/webp")
                     );
                     // formData
                     const formData = new FormData();
@@ -121,10 +123,10 @@ const NonMemberPurchase = () => {
                       "image",
                       dataBlob,
                       target.title +
-                        "_" +
-                        values.name +
-                        values.surname +
-                        "_GUEST"
+                      "_" +
+                      values.name +
+                      values.surname +
+                      "_GUEST"
                     );
                     formData.append("itemId", target.price_id);
                     formData.append("origin_url", window.location.origin);
@@ -145,7 +147,7 @@ const NonMemberPurchase = () => {
                     if (responseData.url) {
                       window.location.assign(responseData.url);
                     }
-                  } catch (err) {}
+                  } catch (err) { }
                 }}
                 initialValues={{
                   name: "",

@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/user";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
+import ImageFb from "../../elements/ui/ImageFb";
 
 const EventDetails = () => {
   const user = useSelector(selectUser);
@@ -50,8 +51,10 @@ const EventDetails = () => {
               <div className="portfolio-details">
                 <div className="inner">
                   <h2>About</h2>
-                  <p className="subtitle">{target.text[0]}</p>
-                  <p>{target.text[1]}</p>
+                  <p className="subtitle">{target.title}</p>
+                  {target.text.map((value, index) => {
+                    return <p key={index}>{value}</p>
+                  })}
 
                   <div className="portfolio-view-list d-flex flex-wrap">
                     <div className="port-view">
@@ -78,8 +81,8 @@ const EventDetails = () => {
                       <span>Entry fee</span>
                       <h4>
                         {user.token
-                          ? target.memberEntry + " euro (discounted)"
-                          : target.entry + " euro"}
+                          ? target.memberEntry + " euro (discounted ${target.included})"
+                          : target.entry + ` euro (${target.including})`}
                       </h4>
                     </div>
                   </div>
@@ -115,8 +118,9 @@ const EventDetails = () => {
                 {/* End Contact Map  */}
                 <br />
                 <div className="portfolio-thumb-inner">
-                  <div className="thumb position-relative mb--30">
-                    <img src={target.images[0]} alt="Portfolio Images" />
+                  <div className="thumb center_div mb--30">
+                    <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`}
+                      alt="Portfolio Images" />
                   </div>
                 </div>
               </div>

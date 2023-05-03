@@ -1,26 +1,26 @@
 export const OPEN_SOCIETY_EVENTS = [
-  // {
-  //   title: "Freedom Fest",
-  //   description: "National day of Bulgaria",
-  //   bgImage: "1",
-  //   date: "3.3.2023",
-  //   time: "20:00",
-  //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-  //   correctedDate: "",
-  //   correctedTime: "",
-  //   where: "Business Hall",
-  //   entry: 8,
-  //   memberEntry: 5,
-  //   price_id: "price_1MwA1eIOw5UGbAo12l33bqnE",
-  //   memberPrice_id: "price_1N0LPTIOw5UGbAo1UsHKyBQh",
-  //   text: [
-  //     "Wild party",
-  //     "We will provide drinks and snacks for our socity. Music and great spirit will crowd the dance floor as we promisethis will be an unforgetable experience that will be talked about for weeks after! Do not waste time and bookyour spot",
-  //   ],
-  //   images: ["/assets/images/portfolio/portfolio-big-01"],
-  //   thumbnail: "/assets/images/portfolio/portfolio-big-01",
-  //   ticket_img: "/assets/images/tickets/ticket.jpg",
-  // },
+  {
+    title: "Board Game Night",
+    description: "",
+    bgImage: "3",
+    date: "12.5.2023",
+    time: "18:00",
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: "Xior, Oosterhamikkade",
+    entry: 5,
+    memberEntry: 4,
+    including: 'including snacks and a drink',
+    price_id: "price_1MwA1eIOw5UGbAo12l33bqnE",
+    memberPrice_id: "price_1N0LPTIOw5UGbAo1UsHKyBQh",
+    text: [
+      `Are you tired of constantly getting checkmated? This is your chance to pull an UNO Reverse Card and win the game! On 12.05 from 18:00 at Xior, Oosterhamikkade we are organizing a “Board Games Night”, where you will have the chance to show off your skills in Chess, Belot, Jenga, Uno and more. You can also bring your favorite game and prove to us that you're the best at it.`,
+      `Disclaimer: If you are not ready to fight with all your friends over the game, do you even want to win!?`],
+    images: ["/assets/images/portfolio/portfolio-8"],
+    thumbnail: "/assets/images/portfolio/portfolio-8",
+    ticket_img: "/assets/images/tickets/ticket-2.jpg",
+  },
 ];
 
 export const OPEN_NON_SOCIETY_EVENTS = [

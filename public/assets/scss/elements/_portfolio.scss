@@ -18,7 +18,7 @@
     min-height: 300px;
   }
   @media #{$sm-layout} {
-    min-height: 200px;
+    min-height: 230px;
   }
   .thumbnail-inner,
   .thumbnail-inner-2 {
@@ -793,7 +793,15 @@ Portfolio Style Three
     margin-bottom: 50px;
     margin-top: 50px;
   }
-  @media #{$sm-layout} {
+  @media only screen and (min-width: 600px) and (max-width: 767px) {
+    margin-bottom: 150px;
+    margin-top: 150px;
+  }
+  @media screen and (min-width: 500px) and (max-width: 599px) {
+    margin-bottom: 120px;
+    margin-top: 120px;
+  }
+  @media screen and (min-width: 399px) and (max-width: 499px) {
     margin-bottom: 90px;
     margin-top: 90px;
   }

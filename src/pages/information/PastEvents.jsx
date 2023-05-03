@@ -56,7 +56,7 @@ class PastEventsContent extends Component {
             </div>
             <div className="row">
               <div className="col-lg-12">
-                <div className="slick-space-gutter--15 slickdot--20">
+                <div className="slick-space-gutter--15 slickdot--40">
                   <Slider {...slickDot}>
                     {list.map((value, index) => (
                       <div className="portfolio" key={index}>

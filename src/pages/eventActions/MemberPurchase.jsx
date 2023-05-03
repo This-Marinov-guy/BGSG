@@ -8,6 +8,7 @@ import Locked from "../../elements/ui/Locked";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
+import ImageFb from "../../elements/ui/ImageFb";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import PageLoading from "../../elements/ui/PageLoading";
@@ -35,6 +36,7 @@ const MemberPurchase = () => {
   const submitHandler = async () => {
     try {
       // Create a canvas element, add the image and text, covert to blob
+      //for 1500x485 images
       var canvas = document.createElement("canvas");
       var layout = canvas.getContext("2d");
       let ticket = new Image();
@@ -42,25 +44,31 @@ const MemberPurchase = () => {
       //image
       canvas.width = ticket.naturalWidth;
       canvas.height = ticket.naturalHeight;
-      layout.drawImage(ticket, 0, 0, ticket.naturalWidth, ticket.naturalHeight);
+      layout.drawImage(
+        ticket,
+        0,
+        0,
+        ticket.naturalWidth,
+        ticket.naturalHeight
+      );
       // text
       let textName = currentUser.name;
       layout.rotate(4.71);
-      layout.font = "70px Archive";
+      layout.font = "52px Archive";
       layout.fillStyle = "#faf9f6";
       layout.textAlign = "center";
-      layout.strokeText(textName, -340, 1520);
-      layout.fillText(textName, -340, 1520);
+      layout.strokeText(textName, -255, 1170);
+      layout.fillText(textName, -255, 1170);
 
-      layout.font = "70px Archive";
+      layout.font = "52px Archive";
       layout.fillStyle = "#faf9f6";
       let textSurname = currentUser.surname;
       layout.textAlign = "center";
-      layout.strokeText(textSurname, -340, 1600);
-      layout.fillText(textSurname, -340, 1600);
+      layout.strokeText(textSurname, -255, 1230);
+      layout.fillText(textSurname, -255, 1230);
       // blob
       const dataBlob = await new Promise((resolve) =>
-        canvas.toBlob((blob) => resolve(blob), "image/jpg")
+        canvas.toBlob((blob) => resolve(blob), "image/webp")
       );
       // formData
       const formData = new FormData();
@@ -100,7 +108,7 @@ const MemberPurchase = () => {
         <h2 className="center_text mb--80">Purchase a Ticket</h2>
 
         <div className="row slide-down center_div">
-          <img src={target.images[0]} alt="Event" className="title_img" />
+          <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`} alt="Event" className="title_img" />
         </div>
         <div
           style={{ width: "80%", margin: "auto" }}
