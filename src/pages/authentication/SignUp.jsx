@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
   surname: yup.string().required("Surname is required"),
   birth: yup.string().required("Date of birth is required"),
-  phone: yup.string().min(8).required("Phone is required"),
+  phone: yup.string().min(8, 'Phone number is not full').required("Phone is required"),
   email: yup.string().email("Please enter a valid email").required(),
   university: yup.string().required("Your university is required"),
   otherUniversityName: yup.string().when("university", {
@@ -43,7 +43,7 @@ const schema = yup.object().shape({
   }),
   password: yup
     .string()
-    .min(5)
+    .min(8, "Password must be at least 8 characters long")
     .matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/,
       "Please create a stronger password with capital and small letters, number and a special symbol"
@@ -272,7 +272,7 @@ const SignUp = (props) => {
                 if (responseData.url) {
                   window.location.assign(responseData.url);
                 }
-              } catch (err) {}
+              } catch (err) { }
             }}
             initialValues={{
               image: "",
