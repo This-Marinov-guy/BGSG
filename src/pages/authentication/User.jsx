@@ -487,9 +487,7 @@ const User = () => {
                     alt="Article Images"
                   />
                   <p className="mb--40">
-                    On Saturday, 22nd of April, our second lecture of the
-                    Entrepreneurship Series was held by Toni Enchev, a
-                    21-year-old entrepreneur from Ruse, Bulgaria. He
+                    On Saturday, 22nd of April, our second lecture of the Entrepreneurship Series for Bulgarian Society Groningen was held by Toni Enchev. He
                     successfully converted his abandoned family villa into a
                     place for unforgettable parties, doing it from scratch with
                     the help of family and friends …not only once but TWICE!
