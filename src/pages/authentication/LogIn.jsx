@@ -20,7 +20,7 @@ const schema = yup.object().shape({
   token: yup.string().required("Please provide the token send to you by email"),
   password: yup
     .string()
-    .min(5)
+    .min(8, 'Password should be at least 8 characters')
     .matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/,
       "Please create a stronger password with capital and small letters, number and a special symbol"
@@ -29,7 +29,7 @@ const schema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), null])
-    .required("passwords do not match"),
+    .required("Passwords do not match"),
 });
 
 const Login = (props) => {
@@ -144,7 +144,7 @@ const Login = (props) => {
             >
               <div className="hor_section">
                 <h3>
-                  You are about to start proceedure for changing password!
+                  You are about to start procedure for changing password!
                   Please enter your account email!
                 </h3>
                 <FiX className="x_icon" onClick={closeHandler} />
