@@ -77,7 +77,7 @@ const Login = (props) => {
       );
       setUserEmail(responseData.email);
       setConfirmChanging(true);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   const loginHandler = async (event) => {
@@ -124,7 +124,7 @@ const Login = (props) => {
       );
       history.push("/");
       setTimeout(() => closeHandler(), 5000);
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
@@ -194,7 +194,7 @@ const Login = (props) => {
                   dispatch(removeModal());
                   history.push("/login");
                   setTimeout(() => closeHandler(), 5000);
-                } catch (err) {}
+                } catch (err) { }
               }}
               initialValues={{
                 token: "",
@@ -318,7 +318,7 @@ const Login = (props) => {
                 Forgot my pasword
               </button>
               <a className="rn-button-style--1" href="/signup">
-                Not a member
+                Not a member? Register now!
               </a>
             </div>
           </div>
