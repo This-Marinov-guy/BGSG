@@ -21,7 +21,7 @@ const Committees = React.memo(() => {
       {/* End Breadcrump Area */}
 
       {/* Start Team Area  */}
-      <div className="rn-team-area ptb--120 bg_color--5">
+      <div className="container rn-team-area ptb--120 bg_color--5">
         <WindowShift
           main="Personal development and Sports"
           secondary="Social and Culture"

@@ -4,7 +4,7 @@ const WindowShift = (props) => {
   const [window, setWindow] = useState(props.main);
 
   return (
-    <div className={`container ${props.className}`}>
+    <div className={`${props.className}`}>
       <div className="options-btns-div">
         <button
           className={

@@ -7,4 +7,53 @@
   object-fit: cover;
 }
 
+.greeting_card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 
+  @media #{$md-layout}, #{$sm-layout} {
+    flex-direction: column;
+  }
+}
+
+.card_img {
+  @media only screen and (min-width: 1000px) {
+    width: 50%;
+  }
+}
+
+.card_text {
+  width: 40%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media #{$md-layout} {
+    width: 90%;
+    margin-top: 30px;
+    text-align: left;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+
+  }
+  @media #{$sm-layout} {
+    width: 80%;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  
+  .en{
+    @media #{$md-layout} {
+      margin-right: 20px;
+    }
+  }
+}
+
+.article {
+  overflow-wrap: break-word;
+  width: 100% !important;
+}

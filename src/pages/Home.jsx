@@ -13,6 +13,7 @@ import {
   FutureOtherEventsContent,
 } from "./information/FutureEvents";
 import ImageFb from "../elements/ui/ImageFb";
+import Greeting from "../elements/Greeting";
 
 const Home = () => {
   const user = useSelector(selectUser);
@@ -91,17 +92,16 @@ const Home = () => {
 
       {/* Start News Area */}
       <div className="container mt--80 mb--80">
-        <div className="row">
-          <div className="col-lg-6">
-            <h2 className="title">News</h2>
-            <ul>
-              {user.token ? <Fragment><p>Check the exclusive article from The Entrepreneurship Series II about Toni and his business story: </p><a style={{ fontSize: '20px' }} href={`/user/${user.userId}`}>Click here and scroll to News</a></Fragment> : <p>Stay tuned for more information</p>}
-            </ul>
-          </div>
-        </div>
+
+        <h2 className="title">News</h2>
+        <ul>
+          <Greeting />
+          {user.token ? <Fragment><p>Check the exclusive article from The Entrepreneurship Series II about Toni and his business story: </p><a style={{ fontSize: '20px' }} href={`/user/${user.userId}`}>Click here and scroll to News</a></Fragment> : <p>Stay tuned for more information</p>}
+        </ul>
+
       </div>
       {/* End News Area */}
-
+      
       {/* Start Upcoming Events Area */}
       <FutureEventsContent />
       <FutureOtherEventsContent />

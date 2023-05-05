@@ -20,6 +20,7 @@ import PageLoading from '../../elements/ui/PageLoading'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import WindowShift from "../../elements/ui/WindowShift";
 import ImageFb from "../../elements/ui/ImageFb";
+import Greeting from "../../elements/Greeting";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -48,7 +49,6 @@ const schema = yup.object().shape({
 
 const User = () => {
   const [currentUser, setCurrentUser] = useState();
-  const [window, setWindow] = useState("News");
   const [expand, setExpand] = useState(false);
 
   const { loading, sendRequest } = useHttpClient();
@@ -429,46 +429,49 @@ const User = () => {
         secondary="Ticket Collection"
         mainContent={
           <Fragment>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="mb--30 mb_sm--0">
-                  <h2 className="title">News</h2>
-                  <ul>
-                    <li >
-                      <p>
-                        Our first website event! <a href='/event-details/Board%20Game%20Night'>Check it out and enjoy the special member price!</a>
-                      </p>
-                    </li>
-                    <li className="mt--40">
-                      <p>
-                        Open submissions for Active members will be notified
-                        here! Check you profile or expect news from us!
-                      </p>
-                      {/* <button
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="mb--30 mb_sm--0">
+                    <h2 className="title">News</h2>
+                    <ul>
+                      <Greeting />
+
+                      <li >
+                        <p>
+                          Our first website event! <a href='/event-details/Board%20Game%20Night'>Check it out and enjoy the special member price!</a>
+                        </p>
+                      </li>
+                      <li className="mt--40">
+                        <p>
+                          Open submissions for Active members will be notified
+                          here! Check you profile or expect news from us!
+                        </p>
+                        {/* <button
                     className="rn-button-style--2 btn-solid mt--20"
                     disabled
                   >
                     Become an Active Member
                   </button> */}
-                    </li>
-                    <li className="mt--40">
-                      <p>
-                        We will soon post information for our 2nd member event.
-                        Stay tuned!
-                      </p>
-                    </li>
-                    <li className="mt--40">
-                      <p>Exclusive Articles</p>
-                    </li>
-                  </ul>
+                      </li>
+                      <li className="mt--40">
+                        <p>
+                          We will soon post information for our 2nd member event.
+                          Stay tuned!
+                        </p>
+                      </li>
+                      <li className="mt--40">
+                        <p>Exclusive Articles</p>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Start Article  Details */}
             <div
-              style={{ overflowWrap: "break-word" }}
-              className="rn-blog-details pt--110 pb--70 pr--10 pl--10 bg_color--1"
+              className="rn-blog-details article pt--110 pb--70 pr--10 pl--10 bg_color--1"
             >
               <div className="inner-wrapper">
                 <div className="inner">
@@ -751,37 +754,39 @@ const User = () => {
           </Fragment>
         }
         secondaryContent={
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="mb--30 mb_sm--0">
-                <h2 className="title mb--40">Ticket Collection</h2>
-                {currentUser.tickets.length > 0 ? (
-                  <div className="row">
-                    {currentUser.tickets.map((ticket, i) => (
-                      <div className="col-lg-4 col-md-6 col-12" key={i}>
-                        <OverlayTrigger
-                          overlay={
-                            <Tooltip id="tooltip-disabled">
-                              {expand ? "Click to Shrink" : "Click to Expand"}
-                            </Tooltip>
-                          }
-                        >
-                          <img
-                            id={`ticket${i}`}
-                            className="mb--40"
-                            src={ticket.image}
-                            alt="ticket"
-                            onClick={(event) => {
-                              expandHandler(event.target.id);
-                            }}
-                          />
-                        </OverlayTrigger>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p>No tickets purchased</p>
-                )}
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="mb--30 mb_sm--0">
+                  <h2 className="title mb--40">Ticket Collection</h2>
+                  {currentUser.tickets.length > 0 ? (
+                    <div className="row">
+                      {currentUser.tickets.map((ticket, i) => (
+                        <div className="col-lg-4 col-md-6 col-12" key={i}>
+                          <OverlayTrigger
+                            overlay={
+                              <Tooltip id="tooltip-disabled">
+                                {expand ? "Click to Shrink" : "Click to Expand"}
+                              </Tooltip>
+                            }
+                          >
+                            <img
+                              id={`ticket${i}`}
+                              className="mb--40"
+                              src={ticket.image}
+                              alt="ticket"
+                              onClick={(event) => {
+                                expandHandler(event.target.id);
+                              }}
+                            />
+                          </OverlayTrigger>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p>No tickets purchased</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
