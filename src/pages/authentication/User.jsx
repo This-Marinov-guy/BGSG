@@ -19,7 +19,6 @@ import Locked from "../../elements/ui/Locked";
 import PageLoading from '../../elements/ui/PageLoading'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import WindowShift from "../../elements/ui/WindowShift";
-import ImageFb from "../../elements/ui/ImageFb";
 import Greeting from "../../elements/Greeting";
 
 const schema = yup.object().shape({
@@ -435,8 +434,7 @@ const User = () => {
                   <div className="mb--30 mb_sm--0">
                     <h2 className="title">News</h2>
                     <ul>
-                      {/* <Greeting /> */}
-
+                      <Greeting />
                       <li >
                         <p>
                           Our first website event! <a href='/event-details/Board%20Game%20Night'>Check it out and enjoy the special member price!</a>

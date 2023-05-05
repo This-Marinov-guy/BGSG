@@ -95,6 +95,7 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
+          <Greeting />
           <p>
             Check out our first article from The Entrepreneurship Series II <a href='/articles'>(Click here)</a>
           </p>
