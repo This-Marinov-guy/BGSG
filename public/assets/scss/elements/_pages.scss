@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: center;
   @media #{$md-layout} {
-    width: 90%;
+    width: 110%;
     margin-top: 30px;
     text-align: left;
     flex-direction: row;
@@ -41,12 +41,12 @@
 
   }
   @media #{$sm-layout} {
-    width: 80%;
+    width: 150%;
     margin-top: 20px;
     flex-direction: column;
   }
   
-  .en{
+  .en{ 
     @media #{$md-layout} {
       margin-right: 20px;
     }
