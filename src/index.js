@@ -17,6 +17,7 @@ import "./index.scss";
 
 import PageScrollTop from "./component/PageScrollTop";
 import PageLoading from "./elements/ui/PageLoading";
+import Articles from "./pages/information/Articles";
 
 // Pages
 const Home = lazy(() => import("./pages/Home"));
@@ -114,6 +115,7 @@ const Root = () => {
             <Route exact path={`/board`} component={Board} />
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
+            <Route exact path={`/articles`} component={Articles} />
 
             <Route exact path={`/future-events`} component={FutureEvents} />
 

@@ -95,13 +95,14 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
-          <Greeting />
-          {user.token ? <Fragment><p>Check the exclusive article from The Entrepreneurship Series II about Toni and his business story: </p><a style={{ fontSize: '20px' }} href={`/user/${user.userId}`}>Click here and scroll to News</a></Fragment> : <p>Stay tuned for more information</p>}
+          <p>
+            Check out our first article from The Entrepreneurship Series II <a href='/articles'>(Click here)</a>
+          </p>
         </ul>
 
       </div>
       {/* End News Area */}
-      
+
       {/* Start Upcoming Events Area */}
       <FutureEventsContent />
       <FutureOtherEventsContent />
