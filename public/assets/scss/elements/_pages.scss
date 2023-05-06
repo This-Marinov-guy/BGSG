@@ -32,21 +32,24 @@
   align-items: center;
   justify-content: center;
   @media #{$md-layout} {
+    font-size: 22px !important;
+
     width: 110%;
     margin-top: 30px;
     text-align: left;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
-
   }
   @media #{$sm-layout} {
+    font-size: 22px !important;
+
     width: 150%;
     margin-top: 20px;
     flex-direction: column;
   }
-  
-  .en{ 
+
+  .en {
     @media #{$md-layout} {
       margin-right: 20px;
     }
