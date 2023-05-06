@@ -13,7 +13,6 @@ import {
   FutureOtherEventsContent,
 } from "./information/FutureEvents";
 import ImageFb from "../elements/ui/ImageFb";
-import Greeting from "../elements/Greeting";
 
 const Home = () => {
   const user = useSelector(selectUser);
@@ -95,9 +94,11 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
-          <Greeting />
-          <p>
+          <p className="mt--20">
             Check out our first article from The Entrepreneurship Series II <a href='/articles'>(Click here)</a>
+          </p>
+          <p className="mt--20">
+            We are announcing our two new committees!<a href='/committees'>(Go check them)</a>
           </p>
         </ul>
 
