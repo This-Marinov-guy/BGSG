@@ -45,7 +45,7 @@ const TeamTwo = () => {
             </div>
             <div className='container committee_container'>
                 {COMMITTEES.PERSONAL_DEV.map((value) => {
-                    return (<div key={value.id} className={`mt--60 ${value.id % 2 === 0 ? 'committee_member_left' : 'committee_member_right'}`}>
+                    return (<div key={value.id} className={`${value.id % 2 === 0 ? 'committee_member_left' : 'committee_member_right'}`}>
                         <ImageFb src={`/assets/images/team/com-${value.id}.webp`} fallback={`/assets/images/team/com-${value.id}.jpg`} alt='Committee Member' />
                         <div className='text'>
                             <div className='name'>

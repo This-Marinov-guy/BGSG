@@ -351,10 +351,15 @@ ul {
 .committee_container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media only screen and (min-width: 1199px) {
+    width: 70%;
+  }
 }
-
 .committee_member_left,
 .committee_member_right {
+  margin-top: 30px;
   display: flex;
   align-items: center;
 
@@ -366,12 +371,11 @@ ul {
 
   img {
     border-radius: 50%;
-    width: 200px;
-      height: 200px;
-    @media #{$sm-layout} {
-      width: 150px;
-      height: 150px;
-    }
+    width: 160px;
+    height: 160px;
+  }
+  @media #{$sm-layout} {
+    margin-top: 60px;
   }
 }
 
@@ -381,20 +385,21 @@ ul {
   flex-direction: row;
   .text {
     margin-left: 20px;
-    @media #{$large-mobile} {
+    @media #{$sm-layout} {
       margin-left: 0;
       margin-top: 10px;
     }
   }
   .name {
     justify-content: flex-start;
-    @media #{$large-mobile} {
+    @media #{$sm-layout} {
       justify-content: center;
     }
   }
-  @media #{$large-mobile} {
+  @media #{$sm-layout} {
     text-align: center;
     flex-direction: column;
+    align-self: center;
   }
 }
 
@@ -404,19 +409,20 @@ ul {
   flex-direction: row-reverse;
   .text {
     margin-right: 20px;
-    @media #{$large-mobile} {
+    @media #{$sm-layout} {
       margin-right: 0;
       margin-top: 10px;
     }
   }
   .name {
     justify-content: flex-end;
-    @media #{$large-mobile} {
+    @media #{$sm-layout} {
       justify-content: center;
     }
   }
-  @media #{$large-mobile} {
+  @media #{$sm-layout} {
     text-align: center;
     flex-direction: column;
+    align-self: center;
   }
 }
