@@ -8,6 +8,42 @@ import Footer from "../../component/footer/Footer";
 import WindowShift from "../../elements/ui/WindowShift";
 import TeamTwo from "../../elements/TeamTwo";
 
+const COMMITTEES = {
+  PERSONAL_DEV: [
+    {
+      id: 1,
+      name: "Milena |",
+      title: " Chair",
+      description: '19 | BSc International Business',
+      interests: 'Extreme sports, Reading, Marketing, Painting'
+    },
+    {
+      id: 2,
+      name: "Jordanka |",
+      title: " PR Manager",
+      description: '21 | BSc Psychology',
+      interests: 'Gym, Dancing, Personal Development'
+    },
+    {
+      id: 3,
+      name: "Emil |",
+      title: " Treasurer",
+      description: '20 | BSc International Business',
+      interests: 'Finance, Personal Development, Reading, Music, Sports'
+    },
+    {
+      id: 4,
+      name: "Gergana |",
+      title: " Secretary",
+      description: '19 | BSc International Business',
+      interests: 'Synchronized swimming, Photography, Mathematics, Reading'
+    }
+  ],
+  SPORT: [
+
+  ]
+}
+
 const Committees = React.memo(() => {
   return (
     <React.Fragment>
@@ -32,14 +68,15 @@ const Committees = React.memo(() => {
                 Personal Development and Sports
               </h2>
               <br />
-              <TeamTwo />
+              <TeamTwo folder='development' target={COMMITTEES.PERSONAL_DEV} />
             </div>
           }
           secondaryContent={
             <div>
               <h2 className="center_text mb--20">Social and Culture</h2>
               <br />
-              <h2 className="center_text">Expect soon...</h2>
+              <TeamTwo folder='sport' target={COMMITTEES.SPORT} />
+
             </div>
           }
         />
