@@ -34,7 +34,7 @@ const Articles = () => {
         >
             <div className="inner-wrapper">
                 <div className="inner">
-                    <h2 style={{ textAlign: "start" }}>
+                    <h2 style={{ textAlign: "start", fontSize: '40px' }}>
                         The entrepreneurship series II: Toni Enchev Small steps
                         towards big goals
                     </h2>
