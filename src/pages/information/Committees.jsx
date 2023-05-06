@@ -6,6 +6,7 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import WindowShift from "../../elements/ui/WindowShift";
+import TeamTwo from "../../elements/TeamTwo";
 
 const Committees = React.memo(() => {
   return (
@@ -21,7 +22,7 @@ const Committees = React.memo(() => {
       {/* End Breadcrump Area */}
 
       {/* Start Team Area  */}
-      <div className="container rn-team-area ptb--120 bg_color--5">
+      <div className="rn-team-area ptb--120 bg_color--5">
         <WindowShift
           main="Personal development and Sports"
           secondary="Social and Culture"
@@ -31,7 +32,7 @@ const Committees = React.memo(() => {
                 Personal development and Sports
               </h2>
               <br />
-              <h2 className="center_text">Expect soon...</h2>
+              <TeamTwo />
             </div>
           }
           secondaryContent={

@@ -343,3 +343,86 @@ ul {
     }
   }
 }
+
+/*----------------------
+    Committee  
+------------------------*/
+
+.committee_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.committee_member_left,
+.committee_member_right {
+  display: flex;
+  align-items: center;
+
+  .name {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  img {
+    border-radius: 50%;
+    @media #{$sm-layout} {
+      width: 40%;
+      height: 40%;
+    }
+  }
+
+  p {
+    @media #{$large-mobile} {
+      font-size: 20px;
+    }
+  }
+
+  h3 {
+    @media #{$large-mobile} {
+      font-size: 22px;
+    }
+  }
+
+  h4 {
+    @media #{$large-mobile} {
+      font-size: 18px;
+    }
+  }
+}
+
+.committee_member_left {
+  text-align: left;
+  align-self: flex-start;
+  flex-direction: row;
+  .text {
+    margin-left: 20px;
+  }
+  .name {
+    justify-content: flex-start;
+    @media #{$large-mobile} {
+      justify-content: center;
+    }
+  }
+  @media #{$large-mobile} {
+    text-align: center;
+  }
+}
+
+.committee_member_right {
+  text-align: right;
+  align-self: flex-end;
+  flex-direction: row-reverse;
+  .text {
+    margin-right: 20px;
+  }
+  .name {
+    justify-content: flex-end;
+    @media #{$large-mobile} {
+      justify-content: center;
+    }
+  }
+  @media #{$large-mobile} {
+    text-align: center;
+  }
+}
