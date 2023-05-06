@@ -371,24 +371,6 @@ ul {
       height: 40%;
     }
   }
-
-  p {
-    @media #{$large-mobile} {
-      font-size: 20px;
-    }
-  }
-
-  h3 {
-    @media #{$large-mobile} {
-      font-size: 22px;
-    }
-  }
-
-  h4 {
-    @media #{$large-mobile} {
-      font-size: 18px;
-    }
-  }
 }
 
 .committee_member_left {
@@ -397,6 +379,10 @@ ul {
   flex-direction: row;
   .text {
     margin-left: 20px;
+    @media #{$large-mobile} {
+      margin-left: 0;
+      margin-top: 10px;
+    }
   }
   .name {
     justify-content: flex-start;
@@ -406,6 +392,7 @@ ul {
   }
   @media #{$large-mobile} {
     text-align: center;
+    flex-direction: column;
   }
 }
 
@@ -415,6 +402,10 @@ ul {
   flex-direction: row-reverse;
   .text {
     margin-right: 20px;
+    @media #{$large-mobile} {
+      margin-right: 0;
+      margin-top: 10px;
+    }
   }
   .name {
     justify-content: flex-end;
@@ -424,5 +415,6 @@ ul {
   }
   @media #{$large-mobile} {
     text-align: center;
+    flex-direction: column;
   }
 }

@@ -39,11 +39,6 @@ const COMMITTEES = {
     ]
 }
 
-const CommitteeMember = () => {
-    return <div></div>
-}
-
-
 const TeamTwo = () => {
     return (
         <div className='container committee_container'>
