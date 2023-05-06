@@ -45,7 +45,7 @@ const TeamTwo = () => {
             <ImageFb className='team_member_border-2 mb--80' src='/assets/images/team/com-full-1.webp' fallback='/assets/images/team/com-full-1.jpg' alt='Committee' />
             {COMMITTEES.PERSONAL_DEV.map((value) => {
                 return (<div key={value.id} className={`mt--60 ${value.id % 2 === 0 ? 'committee_member_left' : 'committee_member_right'}`}>
-                    <LazyLoadImage src={`/assets/images/team/com-${value.id}.jpg`} />
+                    <ImageFb src={`/assets/images/team/com-${value.id}.webp`} fallback={`/assets/images/team/com-${value.id}.jpg`} alt='Committee Member' />
                     <div className='text'>
                         <div className='name'>
                             <h3>{value.name}</h3>
