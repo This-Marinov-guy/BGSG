@@ -9,7 +9,7 @@ import WindowShift from "../../elements/ui/WindowShift";
 import TeamTwo from "../../elements/TeamTwo";
 
 const COMMITTEES = {
-  PERSONAL_DEV: [
+  SPORT: [
     {
       id: 1,
       name: "Milena |",
@@ -39,7 +39,7 @@ const COMMITTEES = {
       interests: 'Synchronized swimming, Photography, Mathematics, Reading'
     }
   ],
-  SPORT: [
+  CULTURE: [
 
   ]
 }
@@ -68,14 +68,14 @@ const Committees = React.memo(() => {
                 Personal Development and Sports
               </h2>
               <br />
-              <TeamTwo folder='development' target={COMMITTEES.PERSONAL_DEV} />
+              <TeamTwo folder='sport' target={COMMITTEES.SPORT} />
             </div>
           }
           secondaryContent={
             <div>
               <h2 className="center_text mb--20">Social and Culture</h2>
               <br />
-              <TeamTwo folder='sport' target={COMMITTEES.SPORT} />
+              <TeamTwo folder='culture' target={COMMITTEES.CULTURE} />
 
             </div>
           }
