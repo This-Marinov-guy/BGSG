@@ -22,12 +22,12 @@ const Greeting = () => {
             <div className="card_text">
                 <div className="en">
                     <h3>{GREETING.title.en}</h3>
-                    <p>{GREETING.description.en}</p>
+                    <p style={{ fontSize: '22px' }}>{GREETING.description.en}</p>
                     <p>...</p>
                 </div>
                 <div>
                     <h3>{GREETING.title.bg}</h3>
-                    <p>{GREETING.description.bg}</p>
+                    <p style={{ fontSize: '22px' }}>{GREETING.description.bg}</p>
                 </div>
             </div>
         </div>)

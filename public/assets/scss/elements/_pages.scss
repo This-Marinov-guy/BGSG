@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   @media #{$md-layout} {
-    font-size: 22px !important;
+    
 
     width: 110%;
     margin-top: 30px;
@@ -43,7 +43,7 @@
     justify-content: space-around;
   }
   @media #{$sm-layout} {
-    font-size: 22px !important;
+    
 
     width: 150%;
     margin-top: 20px;
