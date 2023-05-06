@@ -22,14 +22,14 @@ const Committees = React.memo(() => {
       {/* End Breadcrump Area */}
 
       {/* Start Team Area  */}
-      <div className="rn-team-area ptb--120 bg_color--5">
+      <div className=" ptb--120 bg_color--5">
         <WindowShift
           main="Personal development and Sports"
           secondary="Social and Culture"
           mainContent={
             <div>
               <h2 className="center_text mb--20">
-                Personal development and Sports
+                Personal Development and Sports
               </h2>
               <br />
               <TeamTwo />
