@@ -75,8 +75,8 @@ const Committees = React.memo(() => {
             <div>
               <h2 className="center_text mb--20">Social and Culture</h2>
               <br />
-              <TeamTwo folder='culture' target={COMMITTEES.CULTURE} />
-
+              <h2 className='center_text'>Expect soon...</h2>
+              {/* <TeamTwo folder='culture' target={COMMITTEES.CULTURE} /> */}
             </div>
           }
         />
