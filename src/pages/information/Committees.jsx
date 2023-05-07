@@ -44,7 +44,7 @@ const COMMITTEES = {
       id: 1,
       name: "Tsvetina |",
       title: "Chair",
-      description: '26 | Master International Communication',
+      description: '27 | Master International Communication',
       interests: 'Traveling, Festivals, Cooking, Cultural Activities'
     },
     {
