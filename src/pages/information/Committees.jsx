@@ -40,7 +40,34 @@ const COMMITTEES = {
     }
   ],
   CULTURE: [
-
+    {
+      id: 1,
+      name: "Tsvetina |",
+      title: "Chair",
+      description: '26 | Master International Communication',
+      interests: 'Traveling, festivals, cooking, cultural activities'
+    },
+    {
+      id: 2,
+      name: "Margarita |",
+      title: "Treasurer",
+      description: '20 | BSc Biomedical engineering',
+      interests: 'Dancing, traveling, baking'
+    },
+    {
+      id: 3,
+      name: "Elena |",
+      title: "PR Manager",
+      description: '20 | BSc Marketing Management',
+      interests: 'Finance, Personal Development, Reading, Music, Sports'
+    },
+    {
+      id: 4,
+      name: "Maria-Kristi |",
+      title: "Secretary",
+      description: '19 | BA International and European Law',
+      interests: 'Reading, music, cooking'
+    }
   ]
 }
 
@@ -75,8 +102,7 @@ const Committees = React.memo(() => {
             <div>
               <h2 className="center_text mb--20">Social and Culture</h2>
               <br />
-              <h2 className='center_text'>Expect soon...</h2>
-              {/* <TeamTwo folder='culture' target={COMMITTEES.CULTURE} /> */}
+              <TeamTwo folder='culture' target={COMMITTEES.CULTURE} />
             </div>
           }
         />
