@@ -438,7 +438,7 @@ const User = () => {
                           We are announcing our two new committees!<a href='/committees'>(Go check them)</a>
                         </p>
                       </li>
-                      <li >
+                      <li className="mt--40">
                         <p>
                           Our first website event! <a href='/event-details/Board%20Game%20Night'>Check it out and enjoy the special member price!</a>
                         </p>

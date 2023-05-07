@@ -94,12 +94,16 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
-          <p className="mt--20">
-            Check out our first article from The Entrepreneurship Series II <a href='/articles'>(Click here)</a>
-          </p>
-          <p className="mt--20">
-            We are announcing our two new committees!<a href='/committees'>(Go check them)</a>
-          </p>
+          <li className="mt--40">
+            <p >
+              We are announcing our two new committees!<a href='/committees'>(Go check them)</a>
+            </p>
+          </li>
+          <li className="mt--40">
+            <p>
+             Check out our first article from The Entrepreneurship Series II! <a href='/articles'>(Click here!)</a>
+            </p>
+          </li>
         </ul>
 
       </div>
