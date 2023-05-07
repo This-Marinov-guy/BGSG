@@ -15,7 +15,7 @@ const COMMITTEES = {
       name: "Milena |",
       title: " Chair",
       description: '19 | BSc International Business',
-      interests: 'Extreme sports, Reading, Marketing, Painting'
+      interests: 'Extreme Sports, Reading, Marketing, Painting'
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ const COMMITTEES = {
       name: "Gergana |",
       title: " Secretary",
       description: '19 | BSc International Business',
-      interests: 'Synchronized swimming, Photography, Mathematics, Reading'
+      interests: 'Synchronized Swimming, Photography, Mathematics, Reading'
     }
   ],
   CULTURE: [
@@ -45,14 +45,14 @@ const COMMITTEES = {
       name: "Tsvetina |",
       title: "Chair",
       description: '26 | Master International Communication',
-      interests: 'Traveling, festivals, cooking, cultural activities'
+      interests: 'Traveling, Festivals, Cooking, Cultural Activities'
     },
     {
       id: 2,
       name: "Margarita |",
       title: "Treasurer",
       description: '20 | BSc Biomedical engineering',
-      interests: 'Dancing, traveling, baking'
+      interests: 'Dancing, Traveling, Baking'
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ const COMMITTEES = {
       name: "Maria-Kristi |",
       title: "Secretary",
       description: '19 | BA International and European Law',
-      interests: 'Reading, music, cooking'
+      interests: 'Reading, Music, Cooking'
     }
   ]
 }
