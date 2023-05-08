@@ -77,7 +77,7 @@ const MemberPurchase = () => {
         dataBlob,
         target.title + "_" + currentUser.name + currentUser.surname + "_MEMBER"
       );
-      if (target.activeMemberPrice_id && (currentUser.expireDate === "Board Member" || currentUser.expireDate === "Committee Member" || currentUser.expireDate === "VIP")) {
+      if (target.activeMemberPrice_id && (currentUser.expireDate === "Board Member" || currentUser.expireDate === "Committee Member" || currentUser.expireDate === "VIP" || currentUser.expireDate === "VIP member")) {
         formData.append("itemId", target.activeMemberPrice_id);
       } else {
         formData.append("itemId", target.memberPrice_id);
