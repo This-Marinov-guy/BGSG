@@ -151,6 +151,7 @@ const MemberPurchase = () => {
               account. Be sure it is accurate as it can be used as a proof of
               your identity on the entry!
             </p>
+            <p className="information mt--10">*Special discounted price for board and committee members may apply</p>
           </div>
         </div>
       </div>
