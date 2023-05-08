@@ -26,7 +26,10 @@
 
   &.portfolio-slider {
     @media only screen and (min-width: 1200px) {
-      min-height: 370px;
+      min-height: 370px !important;
+    }
+    @media only screen and (min-width: 890px) and (max-width: 990px) {
+      min-height: 320px !important;
     }
     @media only screen and (min-width: 481px) and (max-width: 575px) {
       min-height: 150px !important;
