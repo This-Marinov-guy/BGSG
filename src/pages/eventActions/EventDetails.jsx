@@ -86,16 +86,22 @@ const EventDetails = () => {
                       </h4>
                     </div>
                   </div>
-                  <a
-                    href={
-                      user.token
-                        ? `/purchase-ticket/${target.title}/${user.userId}`
-                        : `/purchase-ticket/${target.title}`
-                    }
+                  {target.ticket_link ? <div><a
+                    href={target.ticket_link}
                     className="rn-button-style--2 btn-solid"
                   >
                     Buy Ticket
                   </a>
+                    <p className="information">*Tickets are purchased from an outside platform! Click the button to be redirected</p></div> : <a
+                      href={
+                        user.token
+                          ? `/purchase-ticket/${target.title}/${user.userId}`
+                          : `/purchase-ticket/${target.title}`
+                      }
+                      className="rn-button-style--2 btn-solid"
+                    >
+                    Buy Ticket
+                  </a>}
                 </div>
                 <br />
                 {/* Start Contact Map  */}
