@@ -585,10 +585,8 @@ const SignUp = (props) => {
                         name="memberKey"
                       ></Field>
                       <p className="information">
-                        This is a access key field for users that are already
-                        members. Please ignore it if you do not have an access
-                        key. If you use key that does not belong to you, your
-                        account will be suspended!
+                        This is an access key field for users, provided with a key for their email from the board. Please ignore it if you do not have an access
+                        key. If you use key that does not belong to you, your account will be suspended!
                       </p>
                     </div>
                   </div>
