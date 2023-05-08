@@ -77,7 +77,11 @@ const MemberPurchase = () => {
         dataBlob,
         target.title + "_" + currentUser.name + currentUser.surname + "_MEMBER"
       );
-      formData.append("itemId", target.memberPrice_id);
+      if (target.activeMemberPrice_id && (currentUser.expireDate === "Board Member" || currentUser.expireDate === "Committee Member" || currentUser.expireDate === "VIP")) {
+        formData.append("itemId", target.activeMemberPrice_id);
+      } else {
+        formData.append("itemId", target.memberPrice_id);
+      }
       formData.append("origin_url", window.location.origin);
       formData.append("method", "buy_member_ticket");
       formData.append("eventName", target.title);
