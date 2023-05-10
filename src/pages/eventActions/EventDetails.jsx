@@ -79,20 +79,20 @@ const EventDetails = () => {
 
                     <div className="port-view">
                       <span>Entry fee</span>
-                      <h4>
+                      {target.entry || target.memberEntry ? <h4>
                         {user.token
                           ? target.memberEntry + ` euro (discounted ${target.including})`
                           : target.entry + ` euro (${target.including})`}
-                      </h4>
+                      </h4> : <h4 >Check ticket portal</h4>}
                     </div>
                   </div>
                   {target.ticket_link ? <div><a
                     href={target.ticket_link}
-                    className="rn-button-style--2 btn-solid"
+                    className="rn-button-style--2 btn-solid mt--40"
                   >
                     Buy Ticket
                   </a>
-                    <p className="information">*Tickets are purchased from an outside platform! Click the button to be redirected</p></div> : <a
+                    <p className="information mt--20">*Tickets are purchased from an outside platform! Click the button to be redirected</p></div> : <a
                       href={
                         user.token
                           ? `/purchase-ticket/${target.title}/${user.userId}`
@@ -124,10 +124,14 @@ const EventDetails = () => {
                 {/* End Contact Map  */}
                 <br />
                 <div className="portfolio-thumb-inner">
-                  <div className="thumb center_div mb--30">
-                    <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`}
-                      alt="Portfolio Images" />
-                  </div>
+
+                  {target.images.map((value, index) => {
+                    return <div key={index} className="thumb center_div mb--30">
+                      <ImageFb src={`${value}.webp`} fallback={`${value}.jpg`}
+                        alt="Portfolio Images" />
+                    </div>
+
+                  })}
                 </div>
               </div>
             </div>

@@ -27,6 +27,27 @@ export const OPEN_SOCIETY_EVENTS = [
     thumbnail: "/assets/images/portfolio/portfolio-8",
     ticket_img: "/assets/images/tickets/ticket-2.jpg",
   },
+  {
+    title: "TRAP WAVE",
+    description: "",
+    bgImage: "5",
+    date: "FRIDAY June 2nd",
+    time: "TBD",
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: "Papengang 1, PEPR club",
+    ticket_link: 'https://shop.eventix.io/20b148da-00b4-4e5a-a774-7082fb01dee1/tickets?shop_code=7qttqys2',
+    text: [
+      `Get ready, Groningen! 🔥 Prepare yourselves for an experience like no other! Bulgarian Society Groningen and club PEPR proudly present the wildest Trap party in town - it's going to be one for the books! 🚨`,
+      `DRESS CODE : BLACK`,
+      'DJ SETS: DJ Zander',
+      `!!!But wait, there's more! We're giving away some amazing prizes to make the night even more unforgettable!`,
+      `Enter our Instagram giveaway now for a chance to win 5x3 shots, 3x2 cocktails and 1 bottle + a VIP spot in the club for you and your friends! 🍹`,
+      `Mark your calendars and get ready to turn up with us on June 2nd! 🔥`,],
+    images: ["/assets/images/events/trap-wave/1", "/assets/images/events/trap-wave/2"],
+    thumbnail: "/assets/images/portfolio/portfolio-9",
+  },
 ];
 
 export const OPEN_NON_SOCIETY_EVENTS = [

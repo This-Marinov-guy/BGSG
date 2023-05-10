@@ -5,6 +5,8 @@ import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
+import ImageFb from "../../elements/ui/ImageFb";
+import { Link } from "react-router-dom";
 import PortfolioList from "../../elements/portfolio/PortfolioList";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import { OPEN_NON_SOCIETY_EVENTS } from "../../util/EVENTS";
@@ -25,25 +27,25 @@ const FutureEventsContent = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="slick-space-gutter--15 slickdot--20">
-                {OPEN_SOCIETY_EVENTS.length > 0 ? (
-                  <PortfolioList
-                    style="society"
-                    target={OPEN_SOCIETY_EVENTS}
-                    styevariation="text-center mt--40"
-                    column="col-lg-4 col-md-6 col-sm-6 col-12"
-                  />
-                ) : (
-                  <p className="col-lg-6 mt--20 mb--20">
-                  Currently there are no upcoming events. Follow us for updates!
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
         </div>
+        <div style={{marginLeft: '8%'}} className="grid">
+          {OPEN_SOCIETY_EVENTS.map((value, index) => (
+            <div className="portfolio portfolio-slider grid_item" key={index}>
+              <Link
+                to={`/event-details/${value.title}`}
+                className="thumbnail-inner-2"
+              >
+                <ImageFb
+                  className="thumbnail"
+                  src={`${value.thumbnail}.webp`}
+                  fallback={`${value.thumbnail}.jpg`}
+                  alt="Event Images"
+                />
+              </Link>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );
@@ -76,7 +78,7 @@ const FutureOtherEventsContent = () => {
                   />
                 ) : (
                   <p className="col-lg-6 mt--20 mb--20">
-                  Currently there are no upcoming other events. Follow us for updates!
+                    Currently there are no upcoming other events. Follow us for updates!
                   </p>
                 )}
               </div>
