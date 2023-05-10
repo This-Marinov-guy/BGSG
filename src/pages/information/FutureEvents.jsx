@@ -3,6 +3,8 @@ import PageHelmet from "../../component/common/Helmet";
 import Breadcrumb from "../../elements/common/Breadcrumb";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
+import Slider from "react-slick";
+import { slickDot } from "../../page-demo/script";
 import Header from "../../component/header/Header";
 import Footer from "../../component/footer/Footer";
 import ImageFb from "../../elements/ui/ImageFb";
@@ -26,25 +28,30 @@ const FutureEventsContent = () => {
                 </p>
               </div>
             </div>
+            <div className="col-lg-12">
+              <div className="slick-space-gutter--15 slickdot--80">
+                <Slider {...slickDot}>
+                  {OPEN_SOCIETY_EVENTS.map((value, index) => (
+                    <div className="portfolio portfolio-slider" key={index}>
+                      <Link
+                        to={`/event-details/${value.title}`}
+                        className="thumbnail-inner-2"
+                      >
+                        <ImageFb
+                          className="thumbnail"
+                          src={`${value.thumbnail}.webp`}
+                          fallback={`${value.thumbnail}.jpg`}
+                          alt="Event Images"
+                        />
+                      </Link>
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+            </div>
           </div>
         </div>
-        <div style={{marginLeft: '8%'}} className="grid">
-          {OPEN_SOCIETY_EVENTS.map((value, index) => (
-            <div className="portfolio portfolio-slider grid_item" key={index}>
-              <Link
-                to={`/event-details/${value.title}`}
-                className="thumbnail-inner-2"
-              >
-                <ImageFb
-                  className="thumbnail"
-                  src={`${value.thumbnail}.webp`}
-                  fallback={`${value.thumbnail}.jpg`}
-                  alt="Event Images"
-                />
-              </Link>
-            </div>
-          ))}
-        </div>
+
 
       </div>
     </div>
