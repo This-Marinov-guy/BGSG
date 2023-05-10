@@ -96,12 +96,17 @@ const Home = () => {
         <ul>
           <li className="mt--40">
             <p >
+              Massive event upcoming!<a href='/event-details/TRAP%20WAVE'>(Go check it for the chance to win prizes)</a>
+            </p>
+          </li>
+          <li className="mt--40">
+            <p >
               We are announcing our two new committees!<a href='/committees'>(Go check them)</a>
             </p>
           </li>
           <li className="mt--40">
             <p>
-             Check out our first article from The Entrepreneurship Series II! <a href='/articles'>(Click here!)</a>
+              Check out our first article from The Entrepreneurship Series II! <a href='/articles'>(Click here!)</a>
             </p>
           </li>
         </ul>

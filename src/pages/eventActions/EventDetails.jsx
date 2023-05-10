@@ -88,6 +88,7 @@ const EventDetails = () => {
                   </div>
                   {target.ticket_link ? <div><a
                     href={target.ticket_link}
+                    target="_blank"
                     className="rn-button-style--2 btn-solid mt--40"
                   >
                     Buy Ticket
