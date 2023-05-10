@@ -95,19 +95,19 @@ const Home = () => {
         <h2 className="title">News</h2>
         <ul>
           <li className="mt--40">
-            <a href='/event-details/TRAP%20WAVE'>
-              Massive event upcoming! Click to check it for the chance to win prizes.
-            </a>
+            <p>Massive event upcoming! Check it for the chance to win prizes.<a href='/event-details/TRAP%20WAVE'>
+              (Click here)</a></p>
           </li>
           <li className="mt--40">
-            <a href='/committees'>
-              We are announcing our two new committees! Click to check them.
-            </a>
+            <p>We are announcing our two new committees!<a href='/committees'>
+              (Click here)
+            </a></p>
           </li>
           <li className="mt--40">
-            <a href='/articles'>
-              Check out our first article from The Entrepreneurship Series II! Click to check it.
+            <p> Check out our first article from The Entrepreneurship Series II!<a href='/articles'>
+              (Click here)
             </a>
+            </p>
           </li>
         </ul>
 

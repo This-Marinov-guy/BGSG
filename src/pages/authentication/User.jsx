@@ -434,36 +434,30 @@ const User = () => {
                     <h2 className="title">News</h2>
                     <ul>
                       <li className="mt--40">
-                        <a href='/event-details/TRAP%20WAVE'>
-                          Massive event upcoming! Click to check it for the chance to win prizes.
-                        </a>
+                        <p>Massive event upcoming! Check it for the chance to win prizes.<a href='/event-details/TRAP%20WAVE'>
+                          (Click here)</a></p>
                       </li>
                       <li className="mt--40">
-                        <a href='/committees'>
-                          We are announcing our two new committees! Click to check them.
-                        </a>
+                        <p>We are announcing our two new committees!<a href='/committees'>
+                          (Click here)
+                        </a></p>
                       </li>
                       <li className="mt--40">
-                        <a href='/event-details/Board%20Game%20Night'>
-                          Our first website event! Check it out and enjoy the special member price!
+                        <p> Check out our first article from The Entrepreneurship Series II!<a href='/articles'>
+                          (Click here)
                         </a>
+                        </p>
                       </li>
                       <li className="mt--40">
-                        <a href='/articles'>
-                          Check out our first article from The Entrepreneurship Series II! Click and go.
-                        </a>
+                        <p> Our first website event! Check it out and enjoy the special member price! <a href='/event-details/Board%20Game%20Night'>
+                          (Click here)
+                        </a></p>
                       </li>
                       <li className="mt--40">
                         <p>
                           Open submissions for Active members will be notified
                           here! Check you profile or expect news from us!
                         </p>
-                        {/* <button
-                    className="rn-button-style--2 btn-solid mt--20"
-                    disabled
-                  >
-                    Become an Active Member
-                  </button> */}
                       </li>
                       <li className="mt--40">
                         <p>
