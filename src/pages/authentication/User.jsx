@@ -434,19 +434,24 @@ const User = () => {
                     <h2 className="title">News</h2>
                     <ul>
                       <li className="mt--40">
-                        <p >
-                          Massive event upcoming!<a href='/event-details/TRAP%20WAVE'>(Go check it for the chance to win prizes)</a>
-                        </p>
+                        <a href='/event-details/TRAP%20WAVE'>
+                          Massive event upcoming! Click to check it for the chance to win prizes.
+                        </a>
                       </li>
                       <li className="mt--40">
-                        <p >
-                          We are announcing our two new committees!<a href='/committees'>(Go check them)</a>
-                        </p>
+                        <a href='/committees'>
+                          We are announcing our two new committees! Click to check them.
+                        </a>
                       </li>
                       <li className="mt--40">
-                        <p>
-                          Our first website event! <a href='/event-details/Board%20Game%20Night'>Check it out and enjoy the special member price!</a>
-                        </p>
+                        <a href='/event-details/Board%20Game%20Night'>
+                          Our first website event! Check it out and enjoy the special member price!
+                        </a>
+                      </li>
+                      <li className="mt--40">
+                        <a href='/articles'>
+                          Check out our first article from The Entrepreneurship Series II! Click and go.
+                        </a>
                       </li>
                       <li className="mt--40">
                         <p>
@@ -466,13 +471,6 @@ const User = () => {
                           Stay tuned!
                         </p>
                       </li>
-                      <li className="mt--40">
-                        <p>
-                          Check out our first article from The Entrepreneurship Series II <a href='/articles'>(Click here)</a>
-                        </p>
-
-                      </li>
-
                     </ul>
                   </div>
                 </div>

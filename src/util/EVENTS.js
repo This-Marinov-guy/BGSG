@@ -32,7 +32,7 @@ export const OPEN_SOCIETY_EVENTS = [
     description: "",
     bgImage: "5",
     date: "FRIDAY June 2nd",
-    time: "TBD",
+    time: "23:00",
     //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
     correctedDate: "",
     correctedTime: "",
