@@ -4,9 +4,8 @@
 .portfolio {
   position: relative;
   @extend %transition;
-  min-height: 400px;
+  min-height: 600px;
   width: 100%;
-  padding-top: 35%;
 
   @media #{$laptop-device} {
     min-height: 350px;

@@ -18,7 +18,7 @@ const FutureEventsContent = () => {
     <div className="portfolio-area pt--120 pb--120 bg_color--5">
       <div className="rn-slick-dot">
         <div className="container">
-          <div className="row">
+          <div className="row mb--40">
             <div className="col-lg-6">
               <div className="section-title service-style--3 text-left mb--15 mb_sm--0">
                 <h2 className="title">Future Events</h2>
@@ -68,7 +68,7 @@ const FutureOtherEventsContent = () => {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mb--80">
             <div className="col-lg-12">
               <div className="slick-space-gutter--15 slickdot--20">
                 {OPEN_NON_SOCIETY_EVENTS.length > 0 ? (
