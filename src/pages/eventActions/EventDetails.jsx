@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import PageHelmet from "../../component/common/Helmet";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
@@ -9,8 +9,11 @@ import { selectUser } from "../../redux/user";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import ImageFb from "../../elements/ui/ImageFb";
+import Countdown from "../../elements/ui/Countdown";
 
 const EventDetails = () => {
+  const [eventClosed, setEventClosed] = useState(false)
+
   const user = useSelector(selectUser);
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
@@ -87,13 +90,15 @@ const EventDetails = () => {
                     </div>
                   </div>
                   {target.ticket_link ? <div><a
+                    style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
                     href={target.ticket_link}
                     target="_blank"
                     className="rn-button-style--2 btn-solid mt--40"
                   >
-                    Buy Ticket
+                    {eventClosed ? "Sold out" : 'Buy Ticket'}
                   </a>
                     <p className="information mt--20">*Tickets are purchased from an outside platform! Click the button to be redirected</p></div> : <a
+                      style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
                       href={
                         user.token
                           ? `/purchase-ticket/${target.title}/${user.userId}`
@@ -101,8 +106,10 @@ const EventDetails = () => {
                       }
                       className="rn-button-style--2 btn-solid"
                     >
-                    Buy Ticket
+                    {eventClosed ? "Sold out" : 'Buy Ticket'}
                   </a>}
+                  {target.ticketTimer && <Countdown targetTime={target.ticketTimer} setEventClosed={setEventClosed} />}
+                  {target.ticketPool && <h3>Tickets remaining: {target.ticketPool}</h3>}
                 </div>
                 <br />
                 {/* Start Contact Map  */}
