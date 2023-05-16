@@ -275,19 +275,6 @@ const SignUp = (props) => {
               } catch (err) { }
             }}
             initialValues={{
-              image: "",
-              name: "",
-              surname: "",
-              birth: "",
-              phone: "",
-              email: "",
-              university: "",
-              otherUniversityName: "",
-              course: "",
-              studentNumber: "",
-              password: "",
-              confirmPassword: "",
-              memberKey: "",
               policyTerms: false,
               dataTerms: false,
               notificationTerms: false,
