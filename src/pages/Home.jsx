@@ -99,7 +99,7 @@ const Home = () => {
               (Click here)</a></p>
           </li>
           <li className="mt--40">
-            <p>We are announcing our two new committees!<a href='/committees'>
+            <p> Our first website event! Check out the amazing board game night and stay tuned for more events! <a href='/event-reflection/Board%20Game%20Night'>
               (Click here)
             </a></p>
           </li>
