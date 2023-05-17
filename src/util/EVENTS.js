@@ -138,7 +138,7 @@ export const EVENT_REFLECTION_DETAILS = [
     attendance: "25",
     comments: "10",
     text: [
-      `Our first website event fully organized by one of our committee - the Board game night. There were snacks, many games, drinks and of course - lots of fun. Big thanks again to our Personal Development and Sports committee and big thanks to all of you who came. If you were unfortunate to have missed it, check our website and our social media regularly for more events!`,
+      `Our first website event fully organized by one of our committees - the Board Game Night. There were snacks, many games, drinks and of course - lots of fun. Big thanks again to our Personal Development and Sports committee and big thanks to all of you who came. If you were unfortunate to have missed it, check our website and our social media regularly for more events!`,
     ],
     images: [
       { id: "1", image: "board-game/1", text: "" },
