@@ -15,10 +15,10 @@ function ContactForm({ props }) {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_qe2hxvz",
-        "template_vqqttji",
+        process.env.REACT_APP_SERVICE,
+        process.env.REACT_APP_TEMPLATE,
         e.target,
-        "lRbVp83O-XLTy-jKk"
+        process.env.REACT_APP_PUBLIC_KEY
       )
       .then(
         (result) => {
