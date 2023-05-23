@@ -19,6 +19,7 @@ import Locked from "../../elements/ui/Locked";
 import PageLoading from '../../elements/ui/PageLoading'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import WindowShift from "../../elements/ui/WindowShift";
+import Greeting from "../../elements/Greeting";
 
 const schema = yup.object().shape({
   image: yup.string(),
@@ -420,6 +421,7 @@ const User = () => {
         </div>
       </div>
       {/* End Info Area */}
+      <Greeting />
       {/* Start User Collection */}
       <WindowShift
         className="mt--80 mb--80"

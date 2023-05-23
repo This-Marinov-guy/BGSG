@@ -2,21 +2,21 @@ import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const GREETING = {
-    img: '/assets/images/news/george.jpg',
+    img: '/assets/images/news/k&m.jpg',
     title: {
-        en: 'Happy Day of St George',
-        bg: 'Честит Гергьовден',
+        en: 'Happy 24th of May',
+        bg: 'Честит 24ти Май',
     },
     description: {
-        en: 'Bulgarian Society Groningen wishes you a happy holiday full of joy, great moments with your family and friends and a warm welcoming of the summer! We wish all people named after the Saint to be healthy and cheerful all year аround and to carry their name proudly!',
-        bg: 'Ние от Bulgarian Society Groningen ви пожелаваме весело прекарване на празника, много позитивни емоции със семейството и близките ви и най-вече топло посрещане на лятото! А на всички именници - пожелаваме здраве, щастие, късмет и да си носят името със здраве!'
+        en: `Happy day of the slavic literacy and culture! Learn, study, aim to always find your answers and remember - 'Knowledge is a powerful weapon'!`,
+        bg: `Честит ден на славянската писменост и култура! Учете, интересувайте се и помнете - 'Знанието е сила'!`
     }
 }
 
 const Greeting = () => {
     return (
         <div
-            className="team_member_border-3 greeting_card mt--40 mb--80"
+            className="container team_member_border-3 greeting_card mt--100 mb--100"
         >
             <LazyLoadImage className="card_img" src={GREETING.img} alt='News' />
             <div className="card_text">

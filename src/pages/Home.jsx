@@ -13,6 +13,7 @@ import {
   FutureOtherEventsContent,
 } from "./information/FutureEvents";
 import ImageFb from "../elements/ui/ImageFb";
+import Greeting from "../elements/Greeting";
 
 const Home = () => {
   const user = useSelector(selectUser);
@@ -88,7 +89,7 @@ const Home = () => {
       {/* Start About Area  */}
       <AboutUs />
       {/* End About Area  */}
-
+      <Greeting />
       {/* Start News Area */}
       <div className="container mt--80 mb--80">
 
