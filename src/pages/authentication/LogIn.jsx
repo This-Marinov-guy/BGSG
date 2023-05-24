@@ -156,7 +156,7 @@ const Login = (props) => {
                 onChange={(event) => changeFormInputHandler(event)}
               />
               {!confirmChanging && (
-                <button
+                loading ? <Loader /> : <button
                   type="submit"
                   className="rn-button-style--2 btn-solid mt--80"
                 >
@@ -168,6 +168,8 @@ const Login = (props) => {
             <Formik
               className="inner"
               validationSchema={schema}
+              validateOnChange={false}
+              validateOnBlur={false}
               onSubmit={async (values) => {
                 try {
                   const responseData = await sendRequest(
@@ -260,7 +262,7 @@ const Login = (props) => {
                     type="submit"
                     className="rn-button-style--2 btn-solid mt--80"
                   >
-                    {loading ? <Loader /> : <span>Proceed to paying</span>}
+                    {loading ? <Loader /> : <span>Change Password</span>}
                   </button>
                 </Form>
               )}
