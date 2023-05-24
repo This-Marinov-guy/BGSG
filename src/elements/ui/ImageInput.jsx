@@ -44,7 +44,7 @@ const ImageInput = (props) => {
 
   return (
     <div className="rnform-group center_section">
-      <div className="image_input_window">
+      <div className="image_input_window" onClick={imageClickHandler}>
         <input
           className="image_input_field"
           onInput={inputHandler}
@@ -56,7 +56,7 @@ const ImageInput = (props) => {
           name="image"
           accept=".png,.jpg,.jpeg"
         />
-        {!previewUrl ? <FiImage /> : <img src={previewUrl} alt="Preview" onClick={imageClickHandler} />}
+        {!previewUrl ? <FiImage /> : <img src={previewUrl} alt="Preview" />}
       </div>
       <div>
         {props.errorRequired}
