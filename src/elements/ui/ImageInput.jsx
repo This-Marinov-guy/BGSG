@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FiImage } from "react-icons/fi";
 
 const ImageInput = (props) => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState(props.initialImage);
   const [isValid, setIsValid] = useState(true);
+
+  const fileInputRef = useRef(null);
+
+  const imageClickHandler = () => {
+    fileInputRef.current.click();
+  };
 
   useEffect(() => {
     if (!file) {
@@ -44,12 +50,13 @@ const ImageInput = (props) => {
           onInput={inputHandler}
           onChange={props.onChange}
           value={props.value}
+          ref={fileInputRef}
           type="file"
           placeholder="Image"
           name="image"
           accept=".png,.jpg,.jpeg"
         />
-        {!previewUrl ? <FiImage /> : <img src={previewUrl} alt="Preview" />}
+        {!previewUrl ? <FiImage /> : <img src={previewUrl} alt="Preview" onClick={handleImageClick} />}
       </div>
       <div>
         {props.errorRequired}
