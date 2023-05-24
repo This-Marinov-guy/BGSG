@@ -56,7 +56,7 @@ const ImageInput = (props) => {
           name="image"
           accept=".png,.jpg,.jpeg"
         />
-        {!previewUrl ? <FiImage /> : <img src={previewUrl} alt="Preview" onClick={handleImageClick} />}
+        {!previewUrl ? <FiImage /> : <img src={previewUrl} alt="Preview" onClick={imageClickHandler} />}
       </div>
       <div>
         {props.errorRequired}
