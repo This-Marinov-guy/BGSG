@@ -8,7 +8,7 @@ const GREETING = {
         bg: 'Честит 24ти Май',
     },
     description: {
-        en: `Happy day of the slavic literacy and culture! Learn, study, aim to always find your answers and remember - 'Knowledge is a powerful weapon'!`,
+        en: `Happy day of the Slavic literacy and culture! Learn, study, aim to always find your answers and remember - 'Knowledge is power'!`,
         bg: `Честит ден на славянската писменост и култура! Учете, интересувайте се и помнете - 'Знанието е сила'!`
     }
 }
