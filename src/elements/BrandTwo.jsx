@@ -7,7 +7,7 @@ class BrandTwo extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Partners</h3>
+                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Powered by</h3>
                             <ul className="brand-style-2">
                                 <li>
                                     <a href='https://en.unify.bg/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
@@ -18,10 +18,10 @@ class BrandTwo extends Component {
                                 <li>
                                     <a href='https://www.stripe.com/' target='_blank'> <img src="/assets/images/brand/brand-03.png" alt="Logo Images" /></a>
                                 </li>
-                                <li>
-                                    <a href='https://www.stelstuff.com/' target='_blank'><img src="/assets/images/brand/brand-01.png" alt="Logo Images" /></a>
+                                <li >
+                                    <a href='https://www.stelstuff.com/' target='_blank'><img className="extra_brand" src="/assets/images/brand/brand-01.png" alt="Logo Images" /></a>
                                 </li>
-                                
+
                             </ul>
                         </div>
                     </div>
