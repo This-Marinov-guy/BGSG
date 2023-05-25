@@ -89,7 +89,7 @@ const Home = () => {
       {/* Start About Area  */}
       <AboutUs />
       {/* End About Area  */}
-      <Greeting />
+      {/* <Greeting /> */}
       {/* Start News Area */}
       <div className="container mt--80 mb--80">
 

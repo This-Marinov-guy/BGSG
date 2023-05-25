@@ -421,7 +421,7 @@ const User = () => {
         </div>
       </div>
       {/* End Info Area */}
-      <Greeting />
+      {/* <Greeting /> */}
       {/* Start User Collection */}
       <WindowShift
         className="mt--80 mb--80"
