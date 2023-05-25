@@ -90,15 +90,8 @@ ul {
       max-height: 180px;
       max-width: 180px;
       cursor: pointer;
-      @media #{$sm-layout} {
-        max-height: 150px;
-        max-width: 150px;
-      }
       @media #{$lg-layout} {
-        max-width: 150px;
-      }
-      @media #{$large-mobile} {
-        max-width: 150%;
+        max-width: 160px;
       }
       &:hover {
         transform: scale(1.1);
@@ -106,13 +99,7 @@ ul {
       }
     }
     .extra_brand {
-      width: 80px !important;
-      @media  #{$large-mobile} {
-        width: 60px !important;
-      }
-      @media #{$sm-layout} {
-        width: 50px !important;
-      }
+      width: 70px !important;
     }
   }
 }

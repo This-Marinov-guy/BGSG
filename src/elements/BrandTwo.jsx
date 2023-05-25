@@ -6,8 +6,8 @@ class BrandTwo extends Component {
             <div className="rn-brand-area brand-separation bg_color--5 ptb--40">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-12">
-                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Powered by</h3>
+                        <div className="col-sm-12 col-md-12 col-lg-6 mt--20">
+                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Partners</h3>
                             <ul className="brand-style-2">
                                 <li>
                                     <a href='https://en.unify.bg/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
@@ -15,6 +15,11 @@ class BrandTwo extends Component {
                                 <li>
                                     <a href='https://studybuddy.bg/' target='_blank'><img src="/assets/images/brand/brand-04.png" alt="Logo Images" /></a>
                                 </li>
+                            </ul>
+                        </div>
+                        <div className="col-sm-12 col-md-12 col-lg-6 mt--20">
+                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Powered by</h3>
+                            <ul className="brand-style-2">
                                 <li>
                                     <a href='https://www.stripe.com/' target='_blank'> <img src="/assets/images/brand/brand-03.png" alt="Logo Images" /></a>
                                 </li>
