@@ -1,5 +1,4 @@
 import React from "react";
-import { format } from "date-fns";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FiX } from "react-icons/fi";
@@ -12,8 +11,6 @@ import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { login } from "../../redux/user";
 
 const schema = yup.object().shape({
     prSC: yup.boolean(),
@@ -21,32 +18,36 @@ const schema = yup.object().shape({
     copywriter: yup.boolean(),
     treasurer: yup.boolean(),
     prIC: yup.boolean(),
+
     option1: yup.boolean(),
     option2: yup.boolean(),
     option3: yup.boolean(),
     option4: yup.boolean(),
-}).test('at-least-one-true', null, (obj) => {
-    const { chair, copywriter, treasurer, prIC, option1, option2, option3, option4 } = obj;
 
-    const positionFields = [chair, copywriter, treasurer, prIC];
-    const dateFields = [option1, option2, option3, option4];
-
-    const atLeastOnePosition = positionFields.some((field) => field === true);
-    const atLeastOneDate = dateFields.some((field) => field === true);
-
-    if (!atLeastOnePosition || !atLeastOneDate) {
-        return new yup.ValidationError('At least one option must be selected', null, '');
-    }
-
-    return true;
-});
+    cv: yup.mixed().required("Липсва файл").test(
+        "fileType",
+        "Моля въведете само .docx или .pdf",
+        (value) => {
+            if (!value) return true; // Allow empty values (no file selected)
+            const allowedFileTypes = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/pdf"]; // Array of allowed file types
+            return allowedFileTypes.includes(value.type);
+        }
+    ),
+    letter: yup.mixed().required("Липсва файл").test(
+        "fileType",
+        "Моля въведете само .docx или .pdf",
+        (value) => {
+            if (!value) return true; // Allow empty values (no file selected)
+            const allowedFileTypes = ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/pdf"]; // Array of allowed file types
+            return allowedFileTypes.includes(value.type);
+        }
+    ),
+})
 
 const ActiveMember = (props) => {
     const { loading, sendRequest } = useHttpClient();
 
     const history = useHistory();
-
-    const dispatch = useDispatch();
 
     const closeHandler = () => {
         props.setNotification(null);
@@ -54,7 +55,7 @@ const ActiveMember = (props) => {
 
     return (
         <React.Fragment>
-            <PageHelmet pageTitle="Join" />
+            <PageHelmet pageTitle="Active Member" />
             <HeaderTwo
                 headertransparent="header--transparent"
                 colorblack="color--black"
@@ -89,24 +90,26 @@ const ActiveMember = (props) => {
                             const positions = []
                             const date = []
 
-                            values.prSC && positions.append('PR of Social and Culture Committee')
-                            values.chair && positions.append('Chair of Integration Committee')
-                            values.copywriter && positions.append('Copywriter of Integration Committee')
-                            values.treasurer && positions.append('Treasurer of Integration Committee')
-                            values.prIC && positions.append('PR of Integration Committee')
-                            formData.append("positions", positions);
+                            values.prSC && positions.push('PR of Social and Culture Committee')
+                            values.chair && positions.push('Chair of Integration Committee')
+                            values.copywriter && positions.push('Copywriter of Integration Committee')
+                            values.treasurer && positions.push('Treasurer of Integration Committee')
+                            values.prIC && positions.push('PR of Integration Committee')
+                            positions.forEach((value, index) => {
+                                formData.append(`positions[${index}]`, value);
+                            });
                             if (!values.option4) {
-                                values.option1 && date.append('16th');
-                                values.option2 && date.append('17th')
-                                values.option3 && date.append('18th')
+                                values.option1 && date.push('16th');
+                                values.option2 && date.push('17th')
+                                values.option3 && date.push('18th')
                             } else {
-                                date.append('None')
+                                date.push('None')
                             }
-                            formData.append('date', date)
+                            date.forEach((value, index) => {
+                                formData.append(`date[${index}]`, value);
+                            });
                             formData.append("cv", values.cv);
-                            formData.append(
-                                "letter",
-                                values.letter
+                            formData.append("letter", values.letter
                             );
                             try {
                                 const responseData = await sendRequest(
@@ -114,6 +117,19 @@ const ActiveMember = (props) => {
                                     "POST",
                                     formData
                                 );
+                                props.setNotification(
+                                    <Alert className="error_panel" variant="success">
+                                        <div className="action_btns">
+                                            <h3>Благодарим за интереса!</h3>
+                                            <FiX className="x_icon" onClick={closeHandler} />
+                                        </div>
+                                        <p>
+                                            Вашата заявка беше успешно изпълнента и нямаме търпение да се свържем с вас. Очаквайте ни!
+                                        </p>
+                                    </Alert>
+                                );
+                                history.push("/");
+                                setTimeout(() => closeHandler(), 5000);
                             } catch (err) {
                             }
 
@@ -132,14 +148,14 @@ const ActiveMember = (props) => {
                             letter: null,
                         }}
                     >
-                        {({ values, setFieldValue }) => (
+                        {({ setFieldValue }) => (
                             <Form
                                 encType="multipart/form-data"
                                 id="form"
-                                style={{ padding: "50px" }}
+                                className="pt--40"
                             >
-                                <h2>Отворени позиции: </h2>
-                                <h3 style={{ textDecoration: "underline" }}>Social and Culture Committee</h3>
+                                <h2 >Отворени позиции: </h2>
+                                <h3 className="mt--80" style={{ textDecoration: "underline" }}>Social and Culture Committee</h3>
                                 <div className="hor_section_nospace mt--20">
                                     <Field
                                         style={{ maxWidth: "30px", margin: "10px" }}
@@ -187,14 +203,16 @@ const ActiveMember = (props) => {
                                     <h3 className="mt--20">PR Integration Committee
                                     </h3>
                                 </div>
+
                                 <p>Ако често прекарваш време в социалните мрежи или обичаш да създаваш визуално съдържание, тази позиция е за теб! Като PR в Integration Committee ще отговаряш за присъствието ни в социалните мрежи, свързано с дейността на комитета. Това включва създаване на съдържание като постове, reels, strories и правене на снимки по време на събитията. Опит със социални мрежи, Canva, Photoshop или с камера е бонус, но не е задължителен. </p>
-                                <h3 className="mt--100">В кой от дните си свободен/а за интервю? </h3>
+                                <ErrorMessage name="positions" component="div" className="error" />
+                                <h3 className="mt--100">В кой/кои от дните си свободен/а за интервю? </h3>
                                 <div>
                                     <div className="hor_section_nospace">
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="option1"
+                                            name="date.option1"
                                         ></Field>
                                         <p>
                                             16ти юни
@@ -204,7 +222,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="option2"
+                                            name="date.option2"
                                         ></Field>
                                         <p>
                                             17ти юни
@@ -214,7 +232,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="option3"
+                                            name="date.option3"
                                         ></Field>
                                         <p>
                                             18ти юни
@@ -224,7 +242,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="option4"
+                                            name="date.option4"
                                         ></Field>
                                         <p>
                                             Нито един от посочените
@@ -232,7 +250,7 @@ const ActiveMember = (props) => {
                                     </div>
                                     <ErrorMessage
                                         className="error"
-                                        name="interviewDate"
+                                        name="date"
                                         component="div"
                                     />
                                 </div>
@@ -245,9 +263,8 @@ const ActiveMember = (props) => {
                                                     <input
                                                         type="file"
                                                         accept=".pdf,.docx"
-                                                        {...field}
                                                         onChange={(event) => {
-                                                            field.onChange(event);
+                                                            setFieldValue("cv", event.target.files[0]);
                                                         }}
                                                     />
                                                 </div>
@@ -267,9 +284,8 @@ const ActiveMember = (props) => {
                                                     <input
                                                         type="file"
                                                         accept=".pdf,.docx"
-                                                        {...field}
                                                         onChange={(event) => {
-                                                            field.onChange(event);
+                                                            setFieldValue("letter", event.target.files[0]);
                                                         }}
                                                     />
                                                 </div>
