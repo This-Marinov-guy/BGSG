@@ -452,9 +452,9 @@ const User = () => {
                       </li>
                       <li className="mt--40">
                         <p>
-                          Open submissions for Active members will be notified
-                          here! Check you profile or expect news from us!
+                          Open submissions for Active members!
                         </p>
+                        <a className="rn-button-style--2 btn-solid"  href='active-member-submission'>Click here</a>
                       </li>
                       <li className="mt--40">
                         <p>

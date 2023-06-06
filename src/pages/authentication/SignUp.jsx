@@ -66,6 +66,7 @@ const options = [
     price: 5,
   },
 ];
+
 const SignUp = (props) => {
   const { loading, sendRequest } = useHttpClient();
 

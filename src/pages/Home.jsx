@@ -95,6 +95,12 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
+         <li className="mt--40">
+            <p>
+              Open submissions for Active members!
+            </p>
+            <a className="rn-button-style--2 btn-solid" href='active-member-submission'>Click here</a>
+          </li>
           <li className="mt--40">
             <p>Massive event upcoming! Check it for the chance to win prizes.<a href='/event-details/TRAP%20WAVE'>
               (Click here)</a></p>
