@@ -149,15 +149,14 @@ const NonMemberPurchase = () => {
                       values.name + " " + values.surname
                     );
                     formData.append("guestPhone", values.phone);
-                    console.log(formData.get('preferences'));
-                    // const responseData = await sendRequest(
-                    //   "payment/checkout/guest",
-                    //   "POST",
-                    //   formData
-                    // );
-                    // if (responseData.url) {
-                    //   window.location.assign(responseData.url);
-                    // }
+                    const responseData = await sendRequest(
+                      "payment/checkout/guest",
+                      "POST",
+                      formData
+                    );
+                    if (responseData.url) {
+                      window.location.assign(responseData.url);
+                    }
                   } catch (err) { }
                 }}
                 initialValues={{
