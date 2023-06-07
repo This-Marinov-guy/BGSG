@@ -109,7 +109,7 @@ const ActiveMember = (props) => {
                                 date.push('None of the given')
                             }
                             date.forEach((value, index) => {
-                                formData.append(`date[${index}]`, value);
+                                formData.append(`date[${index}]`, values.date);
                             });
                             formData.append("email", values.email);
                             formData.append("phone", values.phone)
