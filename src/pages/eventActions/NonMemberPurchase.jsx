@@ -171,7 +171,8 @@ const NonMemberPurchase = () => {
                 }}
               >
                 {() => (
-                  <Form id="form" className="mb--120">
+                  <Form id="form" encType="multipart/form-data"
+                    className="mb--120">
                     <h3>Fill your details and buy a ticket</h3>
                     <div className="row">
                       <div className="col-lg-12 col-md-12 col-12">

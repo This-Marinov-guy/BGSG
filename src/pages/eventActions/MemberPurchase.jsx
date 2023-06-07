@@ -133,7 +133,8 @@ const MemberPurchase = () => {
               drink: '',
             }}>
             {() => (
-              <Fragment>
+              <Form id='form' encType="multipart/form-data"
+              >
                 <div className="col-lg-6 col-md-12 col-12">
                   <div className="event_details">
                     <h2 className="mt--40">Event Details</h2>
@@ -170,7 +171,7 @@ const MemberPurchase = () => {
                   </p>
                   <p className="information mt--10">*Special discounted price for board and committee members may apply</p>
                 </div>
-              </Fragment>
+              </Form>
             )}
           </Formik>
         </div>
