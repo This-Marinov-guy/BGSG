@@ -259,7 +259,7 @@ const ActiveMember = (props) => {
                                 <h3 className="mt--80">Контакти</h3>
                                 <div className="row ">
                                     <div className="col-lg-6 col-md-12 col-12">
-                                        <Field type="email" placeholder="Email" name="name" />
+                                        <Field type="email" placeholder="Email" name="email" />
                                         <ErrorMessage
                                             className="error"
                                             name="email"
