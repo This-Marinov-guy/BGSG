@@ -101,15 +101,15 @@ const ActiveMember = (props) => {
                             positions.forEach((value, index) => {
                                 formData.append(`positions[${index}]`, value);
                             });
-                            if (!values.option4) {
+                            if (values.option4) {
+                                date.push('None of the given')
+                            } else {
                                 values.option1 && date.push('16th June');
                                 values.option2 && date.push('17th June')
                                 values.option3 && date.push('18th June')
-                            } else {
-                                date.push('None of the given')
                             }
                             date.forEach((value, index) => {
-                                formData.append(`date[${index}]`, values.date);
+                                formData.append(`date[${index}]`, value);
                             });
                             formData.append("email", values.email);
                             formData.append("phone", values.phone)
@@ -218,7 +218,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="date.option1"
+                                            name="option1"
                                         ></Field>
                                         <p>
                                             16ти юни
@@ -228,7 +228,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="date.option2"
+                                            name="option2"
                                         ></Field>
                                         <p>
                                             17ти юни
@@ -238,7 +238,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="date.option3"
+                                            name="option3"
                                         ></Field>
                                         <p>
                                             18ти юни
@@ -248,7 +248,7 @@ const ActiveMember = (props) => {
                                         <Field
                                             style={{ maxWidth: "30px", margin: "10px" }}
                                             type="checkbox"
-                                            name="date.option4"
+                                            name="option4"
                                         ></Field>
                                         <p>
                                             Нито един от посочените
