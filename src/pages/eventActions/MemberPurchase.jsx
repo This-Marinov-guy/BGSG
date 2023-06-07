@@ -117,7 +117,7 @@ const MemberPurchase = () => {
                 formData.append("eventName", target.title);
                 formData.append("eventDate", target.date);
                 formData.append("userId", userId);
-                formData.append('preferences', { menuType: values.menuType, drink: values.drink })
+                formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
                 const responseData = await sendRequest(
                   "payment/checkout/member",
                   "POST",

@@ -143,20 +143,21 @@ const NonMemberPurchase = () => {
                     formData.append("eventName", target.title);
                     formData.append("eventDate", target.date);
                     formData.append("guestEmail", values.email);
-                    formData.append('preferences', { menuType: values.menuType, drink: values.drink })
+                    formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
                     formData.append(
                       "guestName",
                       values.name + " " + values.surname
                     );
                     formData.append("guestPhone", values.phone);
-                    const responseData = await sendRequest(
-                      "payment/checkout/guest",
-                      "POST",
-                      formData
-                    );
-                    if (responseData.url) {
-                      window.location.assign(responseData.url);
-                    }
+                    console.log(formData.get('preferences'));
+                    // const responseData = await sendRequest(
+                    //   "payment/checkout/guest",
+                    //   "POST",
+                    //   formData
+                    // );
+                    // if (responseData.url) {
+                    //   window.location.assign(responseData.url);
+                    // }
                   } catch (err) { }
                 }}
                 initialValues={{
