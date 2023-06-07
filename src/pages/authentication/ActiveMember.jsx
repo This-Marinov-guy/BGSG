@@ -24,6 +24,9 @@ const schema = yup.object().shape({
     option3: yup.boolean(),
     option4: yup.boolean(),
 
+    phone: yup.string().min(8, 'Непълен телефон').required("Полето е задължително"),
+    email: yup.string().email("Невалиден имейл").required('Полето е задължително'),
+
     cv: yup.mixed().required("Липсва файл").test(
         "fileType",
         "Моля въведете само .docx или .pdf",
@@ -99,15 +102,17 @@ const ActiveMember = (props) => {
                                 formData.append(`positions[${index}]`, value);
                             });
                             if (!values.option4) {
-                                values.option1 && date.push('16th');
-                                values.option2 && date.push('17th')
-                                values.option3 && date.push('18th')
+                                values.option1 && date.push('16th June');
+                                values.option2 && date.push('17th June')
+                                values.option3 && date.push('18th June')
                             } else {
-                                date.push('None')
+                                date.push('None of the given')
                             }
                             date.forEach((value, index) => {
                                 formData.append(`date[${index}]`, value);
                             });
+                            formData.append("email", values.email);
+                            formData.append("phone", values.phone)
                             formData.append("cv", values.cv);
                             formData.append("letter", values.letter
                             );
@@ -144,6 +149,8 @@ const ActiveMember = (props) => {
                             option2: false,
                             option3: false,
                             option4: false,
+                            phone: '',
+                            email: '',
                             cv: null,
                             letter: null,
                         }}
@@ -205,7 +212,6 @@ const ActiveMember = (props) => {
                                 </div>
 
                                 <p>Ако често прекарваш време в социалните мрежи или обичаш да създаваш визуално съдържание, тази позиция е за теб! Като PR в Integration Committee ще отговаряш за присъствието ни в социалните мрежи, свързано с дейността на комитета. Това включва създаване на съдържание като постове, reels, strories и правене на снимки по време на събитията. Опит със социални мрежи, Canva, Photoshop или с камера е бонус, но не е задължителен. </p>
-                                <ErrorMessage name="positions" component="div" className="error" />
                                 <h3 className="mt--100">В кой/кои от дните си свободен/а за интервю? </h3>
                                 <div>
                                     <div className="hor_section_nospace">
@@ -248,11 +254,30 @@ const ActiveMember = (props) => {
                                             Нито един от посочените
                                         </p>
                                     </div>
-                                    <ErrorMessage
-                                        className="error"
-                                        name="date"
-                                        component="div"
-                                    />
+
+                                </div>
+                                <h3 className="mt--80">Контакти</h3>
+                                <div className="row ">
+                                    <div className="col-lg-6 col-md-12 col-12">
+                                        <Field type="email" placeholder="Email" name="name" />
+                                        <ErrorMessage
+                                            className="error"
+                                            name="email"
+                                            component="div"
+                                        />
+                                    </div>
+                                    <div className="col-lg-6 col-md-12 col-12">
+                                        <Field
+                                            type="text"
+                                            placeholder="Phone"
+                                            name="phone"
+                                        ></Field>
+                                        <ErrorMessage
+                                            className="error"
+                                            name="phone"
+                                            component="div"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="row mt--100">
                                     <div className="col-lg-6 col-md-12 col-12 mt--20 file-input">
