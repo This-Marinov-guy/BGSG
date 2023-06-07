@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import * as yup from "yup";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/Header";
 import { useParams } from "react-router-dom";
@@ -156,21 +156,19 @@ const MemberPurchase = () => {
                   </div>
                 </div>
                 <FormExtras />
-                <div className="col-lg-6 col-md-12 col-12">
-                  <button
-                    disabled={loading}
-                    type="submit"
-                    className="rn-button-style--2 btn-solid mt--80"
-                  >
-                    {loading ? <Loader /> : <span>Proceed to paying</span>}
-                  </button>
-                  <p className="information mt--20">
-                    The information for purchasing this ticket will be taken from your
-                    account. Be sure it is accurate as it can be used as a proof of
-                    your identity on the entry!
-                  </p>
-                  <p className="information mt--10">*Special discounted price for board and committee members may apply</p>
-                </div>
+                <button
+                  disabled={loading}
+                  type="submit"
+                  className="rn-button-style--2 btn-solid mt--80"
+                >
+                  {loading ? <Loader /> : <span>Proceed to paying</span>}
+                </button>
+                <p className="information mt--20">
+                  The information for purchasing this ticket will be taken from your
+                  account. Be sure it is accurate as it can be used as a proof of
+                  your identity on the entry!
+                </p>
+                <p className="information mt--10">*Special discounted price for board and committee members may apply</p>
               </Form>
             )}
           </Formik>
