@@ -93,7 +93,7 @@ const EventDetails = () => {
                     style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
                     href={target.ticket_link}
                     target="_blank"
-                    className="rn-button-style--2 btn-solid mt--40"
+                    className="rn-button-style--2 btn-solid mt--80"
                   >
                     {eventClosed ? "Sold out" : 'Buy Ticket'}
                   </a>
@@ -109,7 +109,7 @@ const EventDetails = () => {
                     {eventClosed ? "Sold out" : 'Buy Ticket'}
                   </a>}
                   {target.ticketTimer && <Countdown targetTime={target.ticketTimer} setEventClosed={setEventClosed} />}
-                  {target.ticketPool && <h3>Tickets remaining: {target.ticketPool}</h3>}
+                  {/* {target.ticketPool && <h3>Tickets remaining: {target.ticketPool}</h3>} */}
                 </div>
                 <br />
                 {/* Start Contact Map  */}

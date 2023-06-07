@@ -1,27 +1,36 @@
 // add ticket_link : '*link for the tickets' for outside ticket purchase
-import React from 'react'
-
 export const OPEN_SOCIETY_EVENTS = [
-    // {
-    //   title: "TRAP WAVE",
-    //   description: "",
-    //   bgImage: "5",
-    //   date: "FRIDAY June 2nd",
-    //   time: "23:00",
-    //   ticketTimer: '2023-06-16T10:00:00',
-    //   // ticketPool: 100,
-    //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-    //   correctedDate: "",
-    //   correctedTime: "",
-    //   where: "Papengang 1, PEPR club",
-    //   ticket_link: 'https://shop.eventix.io/20b148da-00b4-4e5a-a774-7082fb01dee1/tickets?shop_code=7qttqys2',
-    //   text: [
-    //     `Get ready, Groningen! 🔥 Prepare yourselves for an experience like no other! Bulgarian Society Groningen and club PEPR proudly present the wildest Trap party in town - it's going to be one for the books! 🚨`,
-    //     'DJ SETS: DJ Zander',
-    //     `Mark your calendars and get ready to turn up with us on June 2nd! 🔥`,],
-    //   images: ["/assets/images/portfolio/portfolio-9", "/assets/images/events/trap-wave/2", "/assets/images/events/trap-wave/3"],
-    //   thumbnail: "/assets/images/portfolio/portfolio-9",
-    // },
+     {
+      title: "Picnic",
+      description: "Let's welcome the summer together",
+      bgImage: "11",
+      date: "SATURDAY June 17th",
+      time: "18:00",
+      ticketTimer: '2023-06-16T23:59:00',
+      ticketPool: 50,
+      //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+      correctedDate: "",
+      correctedTime: "",
+      where: `Stadspark, 53°12'11.9"N 6°32'21.6"E`,
+      entry: 6,
+      memberEntry: 5,
+      including: 'food and drinks',
+      price_id: 'price_1NGRi6IOw5UGbAo16vGdrc26',
+      memberPrice_id: 'price_1NGReLIOw5UGbAo1wBtZJuDs',
+      activeMemberPrice_id: 'price_1N3cx2IOw5UGbAo1TChIppD6',
+      text: [
+        `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
+        `Don't forget your favourite picnic blanket and feel free to bring any games or activities that will add to the day!`,
+        '...',
+        `Призоваваме всички любители на слънцето и барбекюто! 🌞 Да посрещнем лятото заедно!`,
+        `📣Заповядайте на българска скара, приготвена на открито! `,
+        `Поканете своите приятели , а ние ще ви очакваме ви с усмивки и готовност за забавление.`,
+        `Не забравяйте любимото си одеяло за пикник и не се колебайте да носите всякакви игри или дейности, които ще допринесат за настроението!`,    
+      ],
+      ticket_img: '/assets/images/tickets/ticket-3.jpg',
+      images: ["/assets/images/events/picnik/picnic-3",  "/assets/images/events/picnik/picnik-5",  "/assets/images/events/picnik/picnic-6"],
+      thumbnail: "/assets/images/portfolio/portfolio-10",
+    },
 ];
 
 export const OPEN_NON_SOCIETY_EVENTS = [

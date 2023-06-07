@@ -11,12 +11,15 @@ import ImageFb from "../../elements/ui/ImageFb";
 import Loader from "../../elements/ui/Loader";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
+import FormExtras from "../../elements/ui/FormExtras";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
   surname: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
+  menuType: yup.string().required(),
+  drink: yup.string().required(),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
@@ -140,6 +143,7 @@ const NonMemberPurchase = () => {
                     formData.append("eventName", target.title);
                     formData.append("eventDate", target.date);
                     formData.append("guestEmail", values.email);
+                    formData.append('preferences', { menuType: values.menuType, drink: values.drink })
                     formData.append(
                       "guestName",
                       values.name + " " + values.surname
@@ -160,6 +164,8 @@ const NonMemberPurchase = () => {
                   surname: "",
                   email: "",
                   phone: "",
+                  menuType: '',
+                  drink: '',
                   policyTerms: false,
                   payTerms: false,
                 }}
@@ -223,6 +229,7 @@ const NonMemberPurchase = () => {
                           />
                         </div>
                       </div>
+                      <FormExtras />
                       <div className="col-lg-12 col-md-12 col-12">
                         <div className="hor_section_nospace mt--40">
                           <Field
