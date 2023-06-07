@@ -18,8 +18,8 @@ const schema = yup.object().shape({
   surname: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
-  menuType: yup.string().required(),
-  drink: yup.string().required(),
+  menuType: yup.string().required("Please select a menu"),
+  drink: yup.string().required('Please select your drink'),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });

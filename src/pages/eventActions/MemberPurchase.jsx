@@ -17,8 +17,8 @@ import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
 const schema = yup.object().shape({
-  menuType: yup.string().required(),
-  drink: yup.string().required(),
+  menuType: yup.string().required("Please select a menu"),
+  drink: yup.string().required('Please select your drink'),
 });
 
 const MemberPurchase = () => {
