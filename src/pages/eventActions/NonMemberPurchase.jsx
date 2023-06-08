@@ -12,6 +12,7 @@ import Loader from "../../elements/ui/Loader";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import FormExtras from "../../elements/ui/FormExtras";
+import { useHistory } from "react-router-dom";
 
 const schema = yup.object().shape({
   name: yup.string().required(),
@@ -29,6 +30,8 @@ const NonMemberPurchase = () => {
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
 
+  const history = useHistory()
+  
   return (
     <Fragment>
       <PageHelmet pageTitle="Buy Ticket" />
