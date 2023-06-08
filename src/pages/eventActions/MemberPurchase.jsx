@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { Formik, Form } from "formik";
 import PageHelmet from "../../component/common/Helmet";
 import Header from "../../component/header/Header";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useHttpClient } from "../../hooks/http-hook";
 import Loader from "../../elements/ui/Loader";
 import Locked from "../../elements/ui/Locked";
@@ -26,6 +26,8 @@ const MemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
 
   const userId = useParams().userId;
+
+  const history = useHistory()
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
 
@@ -118,13 +120,24 @@ const MemberPurchase = () => {
                 formData.append("eventDate", target.date);
                 formData.append("userId", userId);
                 formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
-                const responseData = await sendRequest(
-                  "payment/checkout/member",
-                  "POST",
-                  formData
-                );
-                if (responseData.url) {
-                  window.location.assign(responseData.url);
+                //free pass checklist
+                if (target.freePass.includes(currentUser.name + ' ' + currentUser.surname)) {
+                  const responseData = await sendRequest(
+                    "event/purchase-ticket/member",
+                    "POST",
+                    formData
+                  );
+                  history.push('/success');
+                }
+                else {
+                  const responseData = await sendRequest(
+                    "payment/checkout/member",
+                    "POST",
+                    formData
+                  );
+                  if (responseData.url) {
+                    window.location.assign(responseData.url);
+                  }
                 }
               } catch (err) { }
             }}
