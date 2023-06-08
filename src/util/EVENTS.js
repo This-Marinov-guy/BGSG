@@ -11,14 +11,14 @@ export const OPEN_SOCIETY_EVENTS = [
     //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
     correctedDate: "",
     correctedTime: "",
-    where: `Stadspark, 53°12'11.9"N 6°32'21.6"E`,
+    where: `Stadspark`,
     entry: 6,
     memberEntry: 5,
     including: 'food and drinks',
     price_id: 'price_1NGRi6IOw5UGbAo16vGdrc26',
     memberPrice_id: 'price_1NGReLIOw5UGbAo1wBtZJuDs',
     activeMemberPrice_id: 'price_1N3cx2IOw5UGbAo1TChIppD6',
-    freePass: ['Elena Mateva', 'Margarita Nanova', 'Tsvetina Arabadzhieva', 'Maria-Kristi'],
+    freePass: ["elenamateva@abv.bg", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
       `Don't forget your favourite picnic blanket and feel free to bring any games or activities that will add to the day!`,

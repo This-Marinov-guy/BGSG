@@ -11,7 +11,7 @@ const FormExtras = (props) => {
                         <option value="" disabled>
                             Select your menu
                         </option>
-                        <option value="Non-vegetarian">classic</option>
+                        <option value="Classic">classic</option>
                         <option value="Vegetarian">vegetarian</option>
 
                     </Field>

@@ -149,13 +149,22 @@ const NonMemberPurchase = () => {
                       values.name + " " + values.surname
                     );
                     formData.append("guestPhone", values.phone);
-                    const responseData = await sendRequest(
-                      "payment/checkout/guest",
-                      "POST",
-                      formData
-                    );
-                    if (responseData.url) {
-                      window.location.assign(responseData.url);
+                    if (target.freePass.includes(values.email)) {
+                      const responseData = await sendRequest(
+                        "event/purchase-ticket/guest",
+                        "POST",
+                        formData
+                      );
+                      history.push('/success');
+                    } else {
+                      const responseData = await sendRequest(
+                        "payment/checkout/guest",
+                        "POST",
+                        formData
+                      );
+                      if (responseData.url) {
+                        window.location.assign(responseData.url);
+                      }
                     }
                   } catch (err) { }
                 }}

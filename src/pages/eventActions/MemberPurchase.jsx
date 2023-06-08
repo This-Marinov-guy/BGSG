@@ -121,7 +121,7 @@ const MemberPurchase = () => {
                 formData.append("userId", userId);
                 formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
                 //free pass checklist
-                if (target.freePass.includes(currentUser.name + ' ' + currentUser.surname)) {
+                if (target.freePass.includes(currentUser.email)) {
                   const responseData = await sendRequest(
                     "event/purchase-ticket/member",
                     "POST",
