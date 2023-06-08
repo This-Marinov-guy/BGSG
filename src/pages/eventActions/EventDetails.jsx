@@ -131,10 +131,10 @@ const EventDetails = () => {
                 </div>
                 {/* End Contact Map  */}
                 <br />
-                <div className="portfolio-thumb-inner">
+                <div className="portfolio-thumb-inner row">
 
                   {target.images.map((value, index) => {
-                    return <div key={index} className="thumb center_div mb--30">
+                    return <div key={index} className="col-lg-6 col-md-12 col-12 thumb center_div mb--30">
                       <ImageFb src={`${value}.webp`} fallback={`${value}.jpg`}
                         alt="Portfolio Images" />
                     </div>

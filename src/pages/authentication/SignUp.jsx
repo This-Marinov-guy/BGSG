@@ -291,7 +291,7 @@ const SignUp = (props) => {
               >
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">
-                  <div className="col-lg-12 col-md-12 col-12">
+                  <div className="col-lg-12 col-md-6 col-12">
                     <h3 className="center_text label">Profile picture</h3>
                     <ImageInput
                       onChange={(event) => {
