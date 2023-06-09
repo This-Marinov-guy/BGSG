@@ -13,6 +13,9 @@ class BrandTwo extends Component {
                                     <a href='https://en.unify.bg/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
                                 </li>
                                 <li>
+                                    <a href='https://www.integral.bg/' target='_blank'><img src="/assets/images/brand/brand-05.png" alt="Logo Images" /></a>
+                                </li>
+                                <li>
                                     <a href='https://studybuddy.bg/' target='_blank'><img src="/assets/images/brand/brand-04.png" alt="Logo Images" /></a>
                                 </li>
                             </ul>
