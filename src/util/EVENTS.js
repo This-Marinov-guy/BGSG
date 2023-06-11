@@ -17,7 +17,7 @@ export const OPEN_SOCIETY_EVENTS = [
     including: 'food and drinks',
     price_id: 'price_1NGRi6IOw5UGbAo16vGdrc26',
     memberPrice_id: 'price_1NGReLIOw5UGbAo1wBtZJuDs',
-    activeMemberPrice_id: 'price_1N3cx2IOw5UGbAo1TChIppD6',
+    activeMemberPrice_id: 'price_1NHoe8IOw5UGbAo15hizwFzC',
     freePass: ["elenamateva@abv.bg", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
