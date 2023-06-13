@@ -19,7 +19,6 @@ import { useDispatch } from "react-redux";
 import { login } from "../../redux/user";
 
 const schema = yup.object().shape({
-  image: yup.string(),
   name: yup.string().required("Name is required"),
   surname: yup.string().required("Surname is required"),
   birth: yup.string().required("Date of birth is required"),
@@ -53,6 +52,8 @@ const schema = yup.object().shape({
     .string()
     .oneOf([yup.ref("password"), null], "Passwords do not match")
     .required("Passwords do not match"),
+  notificationTypeTerms: yup.string(),
+  notificationTerms: yup.bool(),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   dataTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
@@ -276,6 +277,17 @@ const SignUp = (props) => {
               } catch (err) { }
             }}
             initialValues={{
+              name: '',
+              surname: '',
+              phone: '',
+              birth: '',
+              email: '',
+              university: '',
+              otherUniversityName: '',
+              course: '',
+              studentNumber: '',
+              password: '',
+              confirmPassword: '',
               policyTerms: false,
               dataTerms: false,
               notificationTerms: false,
@@ -566,12 +578,12 @@ const SignUp = (props) => {
                       <h3 className="center_text">
                         For users with already paid membership
                       </h3>
-                      <Field
+                      <input
                         autoComplete="off"
                         type="password"
                         placeholder="Access Key"
                         name="memberKey"
-                      ></Field>
+                      ></input>
                       <p className="information">
                         This is an access key field for users, provided with a key for their email from the board. Please ignore it if you do not have an access
                         key. If you use key that does not belong to you, your account will be suspended!
