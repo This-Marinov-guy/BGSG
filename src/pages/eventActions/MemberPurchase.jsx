@@ -168,7 +168,7 @@ const MemberPurchase = () => {
                     <p>Price: {target.memberEntry} euro (discounted)</p>
                   </div>
                 </div>
-                {target.extraInputs && <FormExtras />}
+                <FormExtras extraInputs={target.extraInputs}/>
                 <button
                   disabled={loading}
                   type="submit"

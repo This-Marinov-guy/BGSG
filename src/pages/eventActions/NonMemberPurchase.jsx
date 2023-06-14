@@ -243,7 +243,7 @@ const NonMemberPurchase = () => {
                           />
                         </div>
                       </div>
-                      {target.extraInputs && <FormExtras />}
+                      <FormExtras extraInputs={target.extraInputs}/>
                       <div className="col-lg-12 col-md-12 col-12">
                         <div className="hor_section_nospace mt--40">
                           <Field
