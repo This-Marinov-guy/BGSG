@@ -25,13 +25,13 @@ const schema = yup.object().shape({
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
 
-const history = useHistory()
 
 const NonMemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
-
+  
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
-
+  
+  const history = useHistory()
 
   return (
     <Fragment>
