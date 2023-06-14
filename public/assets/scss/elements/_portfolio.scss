@@ -1,6 +1,7 @@
 /*==================
     Portfolio Area 
 ==================*/
+
 .portfolio {
   position: relative;
   @extend %transition;
@@ -33,10 +34,8 @@
     @media only screen and (min-width: 481px) and (max-width: 575px) {
       min-height: 150px !important;
     }
-    @media only screen and (min-width: 481px) and (max-width: 575px) {
-      min-height: 150px !important;
-    }
   }
+
 
   .thumbnail-inner,
   .thumbnail-inner-2 {

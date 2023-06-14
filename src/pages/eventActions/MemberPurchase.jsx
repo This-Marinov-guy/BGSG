@@ -16,10 +16,6 @@ import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
-const schema = yup.object().shape({
-  menuType: yup.string().required("Please select a menu"),
-  drink: yup.string().required('Please select your drink'),
-});
 
 const MemberPurchase = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -30,6 +26,11 @@ const MemberPurchase = () => {
   const history = useHistory()
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
+
+  const schema = yup.object().shape({
+    menuType: target.extraInputs ? yup.string().required("Please select a menu") : yup.string(),
+    drink: target.extraInputs ? yup.string().required('Please select your drink') : yup.string(),
+  });
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -119,7 +120,7 @@ const MemberPurchase = () => {
                 formData.append("eventName", target.title);
                 formData.append("eventDate", target.date);
                 formData.append("userId", userId);
-                formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
+                target.extraInputs && formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
                 //free pass checklist
                 if (target.freePass.includes(currentUser.email)) {
                   const responseData = await sendRequest(
@@ -168,7 +169,7 @@ const MemberPurchase = () => {
                     <p>Price: {target.memberEntry} euro (discounted)</p>
                   </div>
                 </div>
-                <FormExtras />
+                {target.extraInputs && <FormExtras />}
                 <button
                   disabled={loading}
                   type="submit"

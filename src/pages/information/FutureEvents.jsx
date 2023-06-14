@@ -29,13 +29,13 @@ const FutureEventsContent = () => {
               </div>
             </div>
             <div className="col-lg-12">
-            <div className="slick-space-gutter--15 slickdot--20">
+            <div className="row slick-space-gutter--15 slickdot--20">
                 {OPEN_SOCIETY_EVENTS.length > 0 ? (
                   <PortfolioList
                     style="society"
                     target={OPEN_SOCIETY_EVENTS}
                     styevariation="text-center mt--40"
-                    column="col-lg-4 col-md-6 col-sm-6 col-12"
+                    column="col-lg-4 col-md-5 col-sm-6"
                   />
                 ) : (
                   <p className="col-lg-6 mt--20 mb--20">

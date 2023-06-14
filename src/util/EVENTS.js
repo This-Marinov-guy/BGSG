@@ -19,6 +19,7 @@ export const OPEN_SOCIETY_EVENTS = [
     memberPrice_id: 'price_1NGReLIOw5UGbAo1wBtZJuDs',
     activeMemberPrice_id: 'price_1NHoe8IOw5UGbAo15hizwFzC',
     freePass: ["elenamateva@abv.bg", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
+    extraInputs: true,
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
       `Don't forget your favourite picnic blanket and feel free to bring any games or activities that will add to the day!`,
@@ -31,6 +32,48 @@ export const OPEN_SOCIETY_EVENTS = [
     ticket_img: '/assets/images/tickets/ticket-3.jpg',
     images: ["/assets/images/events/picnik/picnic-3", "/assets/images/events/picnik/picnik-5", "/assets/images/events/picnik/picnic-6"],
     thumbnail: "/assets/images/portfolio/portfolio-10",
+  },
+  {
+    title: "Dodgeball",
+    description: "Show your skills",
+    bgImage: "6",
+    date: "FRIDAY June 23rd",
+    time: "13:00",
+    ticketTimer: '2023-06-22T23:59:00',
+    ticketPool: 50,
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: `ACLO sports center`,
+    entry: 5,
+    memberEntry: 4,
+    price_id: 'price_1NIuqkIOw5UGbAo1q7e650Xi',
+    memberPrice_id: 'price_1NIupxIOw5UGbAo11X4eZmOe',
+    activeMemberPrice_id: 'price_1NIupxIOw5UGbAo1KWfIQd0w',
+    text: [
+      `When was the last time you played Dodgeball? Maybe around 7th grade…in Gym class… at the end of the school year…
+      `,
+      `
+      What better way to unwind after this academic year than with a final Gym class playing Dodgeball?
+      `,
+      `The tournament will take place on June 23rd at 13:00 o’clock at the ACLO sports center, where we will have fun and kick off the summer season!
+      `,
+      `The teams will be formed on-site, and players from the winning team will receive individual prizes. Don't miss this unique opportunity to have a good laugh, just like in the good old days, with a game of Dodgeball. Sign up now!☝️☝️☝️
+      `,
+      '...',
+      `Кога последно сте играли на Народна топка? Някъде там в миналото… около седми клас… в час по физизческо… в края на учебната година…
+      `,
+      `Какъв по добър начин да разпуснеш след тази академчна година от един последен час по физическо с Народна топка? 
+      `,
+      `Турнирът ще се проведе на 23 юни от 13:00 часа в спортния център на Акло, където ще можем да се позабавляваме и да открием летния сезон! 
+
+      `,
+      `Отборите ще бъдат сформирани на място, а играчите от печелившия отбор ще получат индивидуални награди. Не пропускайте тази уникална възможност да се посмеете, както в доброто старо време, с игра на народна топка, и се запишете още сега! ☝️☝️☝️
+      `,
+    ],
+    ticket_img: '/assets/images/tickets/ticket-4.jpg',
+    images: ["/assets/images/events/dodgeball/dodgeball-1", "/assets/images/events/dodgeball/dodgeball-2"],
+    thumbnail: "/assets/images/portfolio/portfolio-11",
   },
 ];
 
