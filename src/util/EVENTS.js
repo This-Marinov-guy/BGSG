@@ -50,6 +50,8 @@ export const OPEN_SOCIETY_EVENTS = [
     price_id: 'price_1NIuqkIOw5UGbAo1q7e650Xi',
     memberPrice_id: 'price_1NIupxIOw5UGbAo11X4eZmOe',
     activeMemberPrice_id: 'price_1NIupxIOw5UGbAo1KWfIQd0w',
+    freePass: ["ddaskalova123@gmail.com", "gergana.savova.popova@gmail.com", 'milenaradoytsevami@gmail.com'],
+    extraInputs: false,
     text: [
       `When was the last time you played Dodgeball? Maybe around 7th grade…in Gym class… at the end of the school year…
       `,
