@@ -57,6 +57,7 @@ const schema = yup.object().shape({
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   dataTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+  memberKey: yup.string(),
 });
 
 const options = [
@@ -294,6 +295,7 @@ const SignUp = (props) => {
               notificationTerms: false,
               notificationTypeTerms: "",
               payTerms: false,
+              memberKey: '',
             }}
           >
             {({ values, setFieldValue }) => (
