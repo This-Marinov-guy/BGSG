@@ -264,17 +264,18 @@ const SignUp = (props) => {
                 } catch (err) {
                   return;
                 }
+              } else {
+                try {
+                  const responseData = await sendRequest(
+                    "payment/checkout/signup",
+                    "POST",
+                    formData
+                  );
+                  if (responseData.url) {
+                    window.location.assign(responseData.url);
+                  }
+                } catch (err) { }
               }
-              try {
-                const responseData = await sendRequest(
-                  "payment/checkout/signup",
-                  "POST",
-                  formData
-                );
-                if (responseData.url) {
-                  window.location.assign(responseData.url);
-                }
-              } catch (err) { }
             }}
             initialValues={{
               name: '',
@@ -578,12 +579,12 @@ const SignUp = (props) => {
                       <h3 className="center_text">
                         For users with already paid membership
                       </h3>
-                      <input
+                      <Field
                         autoComplete="off"
                         type="password"
                         placeholder="Access Key"
                         name="memberKey"
-                      ></input>
+                      ></Field>
                       <p className="information">
                         This is an access key field for users, provided with a key for their email from the board. Please ignore it if you do not have an access
                         key. If you use key that does not belong to you, your account will be suspended!
