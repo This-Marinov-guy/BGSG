@@ -19,8 +19,8 @@ const schema = yup.object().shape({
   surname: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
-  menuType: yup.string().required("Please select a menu"),
-  drink: yup.string().required('Please select your drink'),
+  menuType: yup.string(),
+  drink: yup.string(),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
@@ -243,7 +243,7 @@ const NonMemberPurchase = () => {
                           />
                         </div>
                       </div>
-                      <FormExtras extraInputs={target.extraInputs}/>
+                      {target.extraInputs && <FormExtras />}
                       <div className="col-lg-12 col-md-12 col-12">
                         <div className="hor_section_nospace mt--40">
                           <Field

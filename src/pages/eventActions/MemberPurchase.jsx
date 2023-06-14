@@ -17,8 +17,8 @@ import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
 const schema = yup.object().shape({
-  menuType: yup.string().required("Please select a menu") ,
-  drink: yup.string().required('Please select your drink'),
+  menuType: yup.string() ,
+  drink: yup.string(),
 });
 
 const MemberPurchase = () => {
@@ -168,7 +168,7 @@ const MemberPurchase = () => {
                     <p>Price: {target.memberEntry} euro (discounted)</p>
                   </div>
                 </div>
-                <FormExtras extraInputs={target.extraInputs}/>
+                {target.extraInputs && <FormExtras />}
                 <button
                   disabled={loading}
                   type="submit"
