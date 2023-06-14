@@ -14,24 +14,24 @@ import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import FormExtras from "../../elements/ui/FormExtras";
 import { useHistory } from "react-router-dom";
 
+const schema = yup.object().shape({
+  name: yup.string().required(),
+  surname: yup.string().required(),
+  phone: yup.string().required(),
+  email: yup.string().email("Please enter a valid email").required(),
+  menuType: yup.string().required("Please select a menu"),
+  drink: yup.string().required('Please select your drink'),
+  policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+  payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+});
+
+const history = useHistory()
 
 const NonMemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
 
-  const schema = yup.object().shape({
-    name: yup.string().required(),
-    surname: yup.string().required(),
-    phone: yup.string().required(),
-    email: yup.string().email("Please enter a valid email").required(),
-    menuType: target.extraInputs ? yup.string().required("Please select a menu") : yup.string(),
-    drink: target.extraInputs ? yup.string().required('Please select your drink') : yup.string(),
-    policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
-    payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
-  });
-
-  const history = useHistory()
 
   return (
     <Fragment>

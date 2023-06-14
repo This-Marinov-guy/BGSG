@@ -16,6 +16,10 @@ import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
+const schema = yup.object().shape({
+  menuType: yup.string().required("Please select a menu") ,
+  drink: yup.string().required('Please select your drink'),
+});
 
 const MemberPurchase = () => {
   const [currentUser, setCurrentUser] = useState();
@@ -26,11 +30,6 @@ const MemberPurchase = () => {
   const history = useHistory()
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
-
-  const schema = yup.object().shape({
-    menuType: target.extraInputs ? yup.string().required("Please select a menu") : yup.string(),
-    drink: target.extraInputs ? yup.string().required('Please select your drink') : yup.string(),
-  });
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -143,8 +142,8 @@ const MemberPurchase = () => {
               } catch (err) { }
             }}
             initialValues={{
-              menuType: '',
-              drink: '',
+              menuType: target.extraInputs ? "" : 'none',
+              drink: target.extraInputs ? "" : 'none',
             }}>
             {() => (
               <Form id='form' encType="multipart/form-data"
