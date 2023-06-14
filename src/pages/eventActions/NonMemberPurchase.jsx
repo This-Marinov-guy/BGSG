@@ -19,20 +19,20 @@ const NonMemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
-  
+
   const schema = yup.object().shape({
     name: yup.string().required(),
     surname: yup.string().required(),
     phone: yup.string().required(),
     email: yup.string().email("Please enter a valid email").required(),
     menuType: target.extraInputs ? yup.string().required("Please select a menu") : yup.string(),
-      drink: target.extraInputs ? yup.string().required('Please select your drink') : yup.string(),
+    drink: target.extraInputs ? yup.string().required('Please select your drink') : yup.string(),
     policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
     payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   });
 
   const history = useHistory()
-  
+
   return (
     <Fragment>
       <PageHelmet pageTitle="Buy Ticket" />
@@ -177,8 +177,8 @@ const NonMemberPurchase = () => {
                   surname: "",
                   email: "",
                   phone: "",
-                  menuType: '',
-                  drink: '',
+                  menuType: target.extraInputs ? "" : 'none',
+                  drink: target.extraInputs ? "" : 'none',
                   policyTerms: false,
                   payTerms: false,
                 }}
