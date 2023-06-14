@@ -84,8 +84,8 @@ const EventDetails = () => {
                       <span>Entry fee</span>
                       {target.entry || target.memberEntry ? <h4>
                         {user.token
-                          ? target.memberEntry + ` euro (discounted ${target.including})`
-                          : target.entry + ` euro (${target.including})`}
+                          ? target.memberEntry + ' euro ' + (target.including ? target.including[0] : '')
+                          : target.entry + ' euro ' + (target.including ? target.including[1] : '') }
                       </h4> : <h4 >Check ticket portal</h4>}
                     </div>
                   </div>

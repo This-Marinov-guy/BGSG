@@ -17,8 +17,8 @@ import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
 const schema = yup.object().shape({
-  menuType: yup.string() ,
-  drink: yup.string(),
+  menuType: yup.string().required("Please select a menu"),
+  drink: yup.string().required('Please select your drink'),
 });
 
 const MemberPurchase = () => {
@@ -119,8 +119,9 @@ const MemberPurchase = () => {
                 formData.append("eventName", target.title);
                 formData.append("eventDate", target.date);
                 formData.append("userId", userId);
-                target.extraInputs && formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
-                //free pass checklist
+                if (target.extraInputs) {
+                  formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
+                }
                 if (target.freePass.includes(currentUser.email)) {
                   const responseData = await sendRequest(
                     "event/purchase-ticket/member",

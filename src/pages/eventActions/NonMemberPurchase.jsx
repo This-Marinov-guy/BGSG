@@ -19,8 +19,8 @@ const schema = yup.object().shape({
   surname: yup.string().required(),
   phone: yup.string().required(),
   email: yup.string().email("Please enter a valid email").required(),
-  menuType: yup.string(),
-  drink: yup.string(),
+  menuType: yup.string().required("Please select a menu"),
+  drink: yup.string().required('Please select your drink'),
   policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
   payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
 });
@@ -28,10 +28,10 @@ const schema = yup.object().shape({
 
 const NonMemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
-  
+
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
-  
   const history = useHistory()
+
 
   return (
     <Fragment>
@@ -147,7 +147,9 @@ const NonMemberPurchase = () => {
                     formData.append("eventName", target.title);
                     formData.append("eventDate", target.date);
                     formData.append("guestEmail", values.email);
-                    target.extraInputs && formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
+                    if (target.extraInputs) {
+                      formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
+                    }
                     formData.append(
                       "guestName",
                       values.name + " " + values.surname

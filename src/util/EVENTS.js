@@ -14,7 +14,7 @@ export const OPEN_SOCIETY_EVENTS = [
     where: `Stadspark`,
     entry: 6,
     memberEntry: 5,
-    including: 'food and drinks',
+    including: ['(discounted including food and drinks)', '(including food and drinks)'],
     price_id: 'price_1NGRi6IOw5UGbAo16vGdrc26',
     memberPrice_id: 'price_1NGReLIOw5UGbAo1wBtZJuDs',
     activeMemberPrice_id: 'price_1NHoe8IOw5UGbAo15hizwFzC',
