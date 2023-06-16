@@ -101,15 +101,7 @@ const Home = () => {
             </p>
             <a className="rn-button-style--2 btn-solid" href='active-member-submission'>Click here</a>
           </li>
-          <li className="mt--40">
-            <p>Massive event upcoming! Check it for the chance to win prizes.<a href='/event-details/TRAP%20WAVE'>
-              (Click here)</a></p>
-          </li>
-          <li className="mt--40">
-            <p> Our first website event! Check out the amazing board game night and stay tuned for more events! <a href='/event-reflection/Board%20Game%20Night'>
-              (Click here)
-            </a></p>
-          </li>
+        
           <li className="mt--40">
             <p> Check out our first article from The Entrepreneurship Series II!<a href='/articles'>
               (Click here)

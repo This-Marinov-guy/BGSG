@@ -104,9 +104,9 @@ const ActiveMember = (props) => {
                             if (values.option4) {
                                 date.push('None of the given')
                             } else {
-                                values.option1 && date.push('16th June');
-                                values.option2 && date.push('17th June')
-                                values.option3 && date.push('18th June')
+                                values.option1 && date.push('23rd June');
+                                values.option2 && date.push('24th June')
+                                values.option3 && date.push('25th June')
                             }
                             date.forEach((value, index) => {
                                 formData.append(`date[${index}]`, value);
@@ -221,7 +221,7 @@ const ActiveMember = (props) => {
                                             name="option1"
                                         ></Field>
                                         <p>
-                                            16ти юни
+                                            23ти юни
                                         </p>
                                     </div>
                                     <div className="hor_section_nospace">
@@ -231,7 +231,7 @@ const ActiveMember = (props) => {
                                             name="option2"
                                         ></Field>
                                         <p>
-                                            17ти юни
+                                            24ти юни
                                         </p>
                                     </div>
                                     <div className="hor_section_nospace">
@@ -241,7 +241,7 @@ const ActiveMember = (props) => {
                                             name="option3"
                                         ></Field>
                                         <p>
-                                            18ти юни
+                                            25ти юни
                                         </p>
                                     </div>
                                     <div className="hor_section_nospace">
