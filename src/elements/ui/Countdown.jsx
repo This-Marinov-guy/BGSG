@@ -39,7 +39,7 @@ const Countdown = (props) => {
 
     if (remainingTime <= 0) {
         props.setEventClosed && props.setEventClosed(true);
-        return <h2 style={{ color: 'red' }}>We are sorry! Tickets are all sold</h2>
+        return <h3 style={{ color: 'red', marginTop:'10px' }}>We are sorry! Tickets are all sold</h3>
     } else if (remainingTime <= 24 * 60 * 60 * 1000) {
         return <h3>Ticket selling closes in: {formatTime(remainingTime)}</h3>
     } else {
