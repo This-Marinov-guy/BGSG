@@ -34,8 +34,10 @@
   left: 2%;
   transform: scale(0.6);
   transition: transform 0.6s ease;
+  @media #{$sm-layout} {
+    transform: scale(0.9);
+  }
 }
-
 
 .line {
   background-image: url(/assets/images/line.png);
