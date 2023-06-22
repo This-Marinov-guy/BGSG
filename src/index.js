@@ -30,7 +30,6 @@ const Committees = lazy(() => import("./pages/information/Committees"));
 const LogIn = lazy(() => import("./pages/authentication/LogIn"));
 const SignUp = lazy(() => import("./pages/authentication/SignUp"));
 const User = lazy(() => import("./pages/authentication/User"));
-const ActiveMember = lazy(() => import("./pages/authentication/ActiveMember"));
 const Events = lazy(() => import("./pages/information/Events"));
 const FutureEvents = lazy(() =>
   import("./pages/information/FutureEvents").then((module) => ({
@@ -130,9 +129,6 @@ const Root = () => {
               path={`/event-reflection/:eventId`}
               component={EventReflection}
             />
-            <Route exact path={`/active-member-submission`} >
-              <ActiveMember setNotification={setNotification} />
-            </Route>
 
             {/* Redirect pages */}
 

@@ -436,12 +436,6 @@ const User = () => {
                     <h2 className="title">News</h2>
                     <ul>
                       <li className="mt--40">
-                        <p>
-                          Open submissions for Active members!
-                        </p>
-                        <a className="rn-button-style--2 btn-solid"  href='active-member-submission'>Click here</a>
-                      </li>
-                      <li className="mt--40">
                         <p> Check out our first article from The Entrepreneurship Series II!<a href='/articles'>
                           (Click here)
                         </a>
