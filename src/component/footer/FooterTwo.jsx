@@ -2,6 +2,9 @@ import React from "react";
 import { FaInstagram, FaFlickr, FaFacebookF } from "react-icons/fa";
 import ImageFb from "../../elements/ui/ImageFb";
 import packageJson from "../../../package.json";
+import Donation from "../../elements/Donation";
+import { useDispatch, useSelector } from "react-redux";
+import { selectDonation, showDonation } from "../../redux/donation";
 
 const SocialShare = [
   {
@@ -19,22 +22,30 @@ const SocialShare = [
 ];
 
 const FooterTwo = () => {
+
+  const donation = useSelector(selectDonation)
+  const dispatch = useDispatch();
+
   return (
     <div className="footer-style-2 ptb--30 bg_image" data-black-overlay="6">
+      {donation && <Donation />}
       <div className="wrapper plr--50 plr_sm--20">
         <div className="row align-items-center justify-content-between">
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
-            <div className="inner">
-              <div className="logo text-center text-sm-left mb_sm--20">
-                <a href="/">
-                  <ImageFb
-                    style={{ borderRadius: "50%" }}
-                    src="/assets/images/logo/logo.webp"
-                    fallback="/assets/images/logo/logo.png"
-                    alt="Logo images"
-                  />
-                </a>
+            <div className="footer-btns">
+              <div className="inner">
+                <div className="logo text-center text-sm-left mb_sm--20">
+                  <a href="/">
+                    <ImageFb
+                      style={{ borderRadius: "50%" }}
+                      src="/assets/images/logo/logo.webp"
+                      fallback="/assets/images/logo/logo.png"
+                      alt="Logo images"
+                    />
+                  </a>
+                </div>
               </div>
+              <button className="rn-button-style--2 btn-bul" onClick={() => dispatch(showDonation())}>Support us</button>
             </div>
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">

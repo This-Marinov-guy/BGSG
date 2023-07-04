@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FaInstagram, FaFlickr, FaFacebookF } from "react-icons/fa";
 import packageJson from "../../../package.json";
+import Donation from "../../elements/Donation";
 
 const SocialShare = [
   {
@@ -20,6 +21,7 @@ class Footer extends Component {
   render() {
     return (
       <React.Fragment>
+        <Donation />
         <footer className="footer-area">
           <div className="footer-wrapper">
             <div className="row align-items-end row--0">

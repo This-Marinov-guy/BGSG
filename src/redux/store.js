@@ -3,7 +3,7 @@ import errorReducer from "./error";
 import loadingReducer from './loading'
 import modalReducer from "./modal";
 import userReducer from "./user";
-
+import donationReducer from "./donation";
 
 export const store = configureStore({
   reducer: {
@@ -11,5 +11,6 @@ export const store = configureStore({
     loading: loadingReducer,
     modal: modalReducer,
     user: userReducer,
+    donation: donationReducer,
   },
 });

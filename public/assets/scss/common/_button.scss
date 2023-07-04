@@ -266,3 +266,40 @@ button {
     height: 250px;
   }
 }
+
+.btn-bul {
+  max-width: 150px;
+  max-height: 100px;
+  background: linear-gradient(to bottom, #faf9f6 0%, #017363 50%, #f92820 100%);
+  transition: background 0.3s ease;
+}
+
+@keyframes bgTransition {
+  0% {
+    background-color: #faf9f6;
+  }
+  33.3% {
+    background-color: #017363;
+  }
+  66.6% {
+    background-color: #f92820;
+  }
+  100% {
+    background-color: #faf9f6;
+  }
+}
+
+.btn-bul {
+  animation: none;
+}
+
+.btn-bul:hover {
+  animation: bgTransition 2s linear infinite;
+}
+
+.footer-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 350px;
+}
