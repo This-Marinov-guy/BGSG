@@ -433,8 +433,15 @@ const User = () => {
               <div className="row">
                 <div className="col-lg-12">
                   <div className="mb--30 mb_sm--0">
+
                     <h2 className="title">News</h2>
                     <ul>
+                      <li className="mt--40">
+                        <p> Make a short promo video for BGSG and win a prize!<a href='/contest/promo-video'>
+                          (Click here)
+                        </a>
+                        </p>
+                      </li>
                       <li className="mt--40">
                         <p> Check out our first article from The Entrepreneurship Series II!<a href='/articles'>
                           (Click here)

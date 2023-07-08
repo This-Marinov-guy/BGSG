@@ -26,6 +26,7 @@ const Contact = lazy(() => import("./pages/information/Contact"));
 const Policy = lazy(() => import("./pages/information/Policy"));
 const Error404 = lazy(() => import("./pages/Error404"));
 const Board = lazy(() => import("./pages/information/Board"));
+const Contest = lazy(() => import("./pages/information/Contest"));
 const Committees = lazy(() => import("./pages/information/Committees"));
 const LogIn = lazy(() => import("./pages/authentication/LogIn"));
 const SignUp = lazy(() => import("./pages/authentication/SignUp"));
@@ -113,6 +114,7 @@ const Root = () => {
             <Route exact path={`/about`} component={About} />
             <Route exact path={`/rules-and-regulations`} component={Policy} />
             <Route exact path={`/board`} component={Board} />
+            <Route exact path={`/contest/promo-video`} component={Contest} />
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
             <Route exact path={`/articles`} component={Articles} />
