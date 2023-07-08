@@ -21,7 +21,7 @@ class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <Donation />
+      {/* {donation && <Donation />} */}
         <footer className="footer-area">
           <div className="footer-wrapper">
             <div className="row align-items-end row--0">

@@ -28,7 +28,7 @@ const FooterTwo = () => {
 
   return (
     <div className="footer-style-2 ptb--30 bg_image" data-black-overlay="6">
-      {donation && <Donation />}
+      {/* {donation && <Donation />} */}
       <div className="wrapper plr--50 plr_sm--20">
         <div className="row align-items-center justify-content-between">
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -45,7 +45,7 @@ const FooterTwo = () => {
                   </a>
                 </div>
               </div>
-              <button className="rn-button-style--2 btn-bul" onClick={() => dispatch(showDonation())}>Support us</button>
+              {/* <button className="rn-button-style--2 btn-bul" onClick={() => dispatch(showDonation())}>Support us</button> */}
             </div>
           </div>
           <div className="col-lg-4 col-md-6 col-sm-6 col-12">
