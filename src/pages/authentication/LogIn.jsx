@@ -277,7 +277,7 @@ const Login = (props) => {
         <div className="container">
           <div className="inner">
             <form
-              style={{ padding: "50px" }}
+              style={{ padding: "2%" }}
               className="center_section"
               onSubmit={(event) => loginHandler(event)}
             >

@@ -185,7 +185,7 @@ const NonSocietyEvent = (props) => {
                 encType="multipart/form-data"
                 className="center_section"
                 id="form"
-                style={{ padding: "50px" }}
+                style={{ padding: "2%" }}
               >
                 <h3>Fill your details and register</h3>
                 <FiX className="x_icon" onClick={closeHandler} />

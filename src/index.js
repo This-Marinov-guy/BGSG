@@ -50,6 +50,9 @@ const EventReflection = lazy(() => import("./elements/EventReflection"));
 const MemberPurchase = lazy(() =>
   import("./pages/eventActions/MemberPurchase")
 );
+const ContestRegister = lazy(() =>
+  import("./pages/eventActions/ContestRegister")
+);
 const NonMemberPurchase = lazy(() =>
   import("./pages/eventActions/NonMemberPurchase")
 );
@@ -115,6 +118,9 @@ const Root = () => {
             <Route exact path={`/rules-and-regulations`} component={Policy} />
             <Route exact path={`/board`} component={Board} />
             <Route exact path={`/contest/promo-video`} component={Contest} />
+            <Route exact path={`/contest/register`}>
+              <ContestRegister setNotification={setNotification} />
+            </Route>
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
             <Route exact path={`/articles`} component={Articles} />

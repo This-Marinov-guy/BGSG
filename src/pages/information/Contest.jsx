@@ -19,7 +19,7 @@ const Policy = React.memo(() => {
                     Terms and conditions:
                 </h2>
                 <h2 className="center_text">
-                    Short promo video contest organised by Bulgarian Society Groningen.        </h2>
+                    Short promo video contest organised by Bulgarian Society Groningen      </h2>
             </div>
             <div className="container mt--80 mb--80">
                 <h3>1. Who can enter?
@@ -73,7 +73,7 @@ const Policy = React.memo(() => {
 
                 </h3>
                 <p style={{ color: 'red' }} className="mt--10 mb--50">
-                    Deadline: 8 August 2023,23:59
+                    Deadline: 10th August 2023,23:59
 
                 </p>
                 <h3>6. When will I know the result?

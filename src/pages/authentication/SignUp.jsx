@@ -302,7 +302,7 @@ const SignUp = (props) => {
               <Form
                 encType="multipart/form-data"
                 id="form"
-                style={{ padding: "50px" }}
+                style={{ padding: "2%" }}
               >
                 <h3>Fill your details and register</h3>
                 <div className="row mb--40 mt--40">

@@ -101,9 +101,18 @@ const Header = (props) => {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <Link to="/articles">Articles</Link>
+                <li className="has-droupdown">
+                  <Link to="/contest/register">Society</Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link to="/contest/register">Contests</Link>
+                    </li>
+                    <li>
+                      <Link to="/articles">Articles</Link>
+                    </li>
+                  </ul>
                 </li>
+
                 <li>
                   <Link to="/contact">Contact</Link>
                 </li>

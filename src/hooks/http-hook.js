@@ -19,7 +19,7 @@ export const useHttpClient = () => {
       try {
         //for production --> process.env.REACT_APP_SERVER_URL
         //for testing -----> process.env.REACT_APP_TEST_SERVER_URL
-        const response = await fetch(process.env.REACT_APP_TEST_SERVER_URL + url, {
+        const response = await fetch(process.env.REACT_APP_SERVER_URL + url, {
           method,
           body,
           headers,

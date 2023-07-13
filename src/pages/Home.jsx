@@ -96,7 +96,7 @@ const Home = () => {
         <h2 className="title">News</h2>
         <ul>
           <li className="mt--40">
-            <p> Make a short promo video for BGSG and win a prize!<a href='/contest/promo-video'>
+            <p> Make a short promo video for BGSG and win a prize!<a href='/contest/register'>
               (Click here)
             </a>
             </p>

@@ -174,7 +174,7 @@ const User = () => {
               <Form
                 encType="multipart/form-data"
                 id="form"
-                style={{ padding: "50px" }}
+                style={{ padding: "2%" }}
               >
                 <div className="hor_section">
                   <h3>Fill your details and register</h3>
@@ -437,7 +437,7 @@ const User = () => {
                     <h2 className="title">News</h2>
                     <ul>
                       <li className="mt--40">
-                        <p> Make a short promo video for BGSG and win a prize!<a href='/contest/promo-video'>
+                        <p> Make a short promo video for BGSG and win a prize!<a href='/contest/register'>
                           (Click here)
                         </a>
                         </p>
