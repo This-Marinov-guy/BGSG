@@ -14,7 +14,7 @@ class CounterOne extends Component {
   render() {
     let Data = [
       {
-        countNum: 5,
+        countNum: 12,
         countTitle: "Events that we have hosted by today",
       },
       {
