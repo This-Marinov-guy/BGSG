@@ -25,7 +25,7 @@ const Policy = React.memo(() => {
                 <h3>1. Who can enter?
                 </h3>
                 <p className="mt--10 mb--50">
-                    Anyone can enter the contest,apart from the people who are part of the jury panel.
+                    Anyone can enter the contest, apart from the people who are part of the jury panel.
                 </p>
                 <h3>                2. What are the conditions?
 
@@ -38,7 +38,7 @@ const Policy = React.memo(() => {
                 <ul style={{ fontSize: '24px' }}>
                     <li>0:30-1:00 min long
                     </li>
-                    <li>Hasa background music
+                    <li>Has a background music
                     </li>
                     <li>Format 9:16 (instagram reel)
                     </li>
