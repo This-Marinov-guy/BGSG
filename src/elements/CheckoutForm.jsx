@@ -3,7 +3,7 @@ import { useState } from "react";
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 
-export default function Checkout() {
+const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
@@ -39,9 +39,10 @@ export default function Checkout() {
     };
 
     return (
-        <form id="payment-form" onSubmit={handleSubmit}>
+        <form className="payment_form" id="payment-form" onSubmit={handleSubmit}>
             <PaymentElement id="payment-element" />
-            <button disabled={isProcessing || !stripe || !elements} id="submit">
+            <button disabled={isProcessing || !stripe || !elements} id="submit" className="rn-button-style--2 btn-solid mt--40"
+            >
                 <span id="button-text">
                     {isProcessing ? "Processing ... " : "Pay now"}
                 </span>
@@ -51,3 +52,5 @@ export default function Checkout() {
         </form>
     );
 }
+
+export default CheckoutForm

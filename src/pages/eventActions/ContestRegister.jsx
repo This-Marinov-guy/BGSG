@@ -179,6 +179,7 @@ const ContestRegister = (props) => {
                                     <div className="col-lg-12 col-md-12 col-12">
                                         <div className="rnform-group">
                                             <Field
+                                                style={{ padding: '1% 0 0 3%' }}
                                                 as='textarea'
                                                 placeholder="Comments/questions"
                                                 name="comments"
