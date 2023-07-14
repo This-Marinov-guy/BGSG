@@ -70,6 +70,10 @@ const ContestRegister = (props) => {
                                     <br />
                                     <p>You can submit a maximum of 2 short videos via email using Google Drive or WeTransfer. Read carefully the Terms & Conditions for more information.
                                     </p><br />
+                                    <p>Deadline: 15th August, 23:59
+                                    </p>
+                                    <p>Announcing the winner: 20th August, 13:00
+                                    </p>
                                     <span className="ma"><a href='/contest/promo-video'>Terms and Conditions</a></span>
                                 </div>
                             </div>

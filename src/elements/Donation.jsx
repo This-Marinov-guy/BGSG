@@ -33,7 +33,7 @@ const Donation = () => {
             centered
         >
             <div className="payment bg_color--1">
-                <h2>Your contribution helps us develop!</h2>
+                <h2>Your contribution helps us improve our activities!</h2>
                 <h3 style={{ marginTop: "-15px" }}>Thank you</h3>
                 {(clientSecret && stripePromise ? <Elements stripe={stripePromise} options={{ clientSecret }} >
                     <CheckoutForm />
