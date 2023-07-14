@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
+import Spinner from "react-bootstrap/Spinner";
 
 const CheckoutForm = () => {
     const stripe = useStripe();
@@ -16,7 +17,15 @@ const CheckoutForm = () => {
         if (!stripe || !elements) {
             // Stripe.js has not yet loaded.
             // Make sure to disable form submission until Stripe.js has loaded.
-            return;
+            return <Spinner
+                className="center_div"
+                variant="danger"
+                as="span"
+                animation="border"
+                size="m"
+                role="status"
+                aria-hidden="true"
+            />;
         }
 
         setIsProcessing(true);
