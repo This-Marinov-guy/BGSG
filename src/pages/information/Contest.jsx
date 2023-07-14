@@ -73,7 +73,7 @@ const Policy = React.memo(() => {
 
                 </h3>
                 <p style={{ color: 'red' }} className="mt--10 mb--50">
-                    Deadline: 10th August 2023,23:59
+                    Deadline: 15th August 2023,23:59
 
                 </p>
                 <h3>6. When will I know the result?

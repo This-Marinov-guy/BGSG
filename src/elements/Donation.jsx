@@ -5,7 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import Modal from "react-bootstrap/Modal";
 import Loader from "../elements/ui/Loader";
 import CheckoutForm from "./CheckoutForm";
-import { FiX } from "react-icons/fi";
 import { loadStripe } from "@stripe/stripe-js";
 import { useDispatch, useSelector } from "react-redux";
 import { removeDonation, selectDonation } from "../redux/donation";
@@ -13,7 +12,8 @@ import { useHttpClient } from "../hooks/http-hook";
 
 const schema = yup.object().shape({
     name: yup.string(),
-    amount: yup.string().required("Please insert an amount"),
+    amount: yup.number().positive("Please insert a positive amount").min(2, 'Minimum Amount is 2 euro')
+        .required("Please insert an amount"),
     comments: yup.string()
 });
 
@@ -21,28 +21,9 @@ const Donation = () => {
     const donation = useSelector(selectDonation)
     const dispatch = useDispatch()
 
-    const { sendRequest, loading } = useHttpClient();
-
-    const [showPaymentForm, setShowPAymentForm] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [stripePromise, setStripePromise] = useState(null);
     const [clientSecret, setClientSecret] = useState("");
-
-    useEffect(() => {
-        fetch(process.env.REACT_APP_TEST_SERVER_URL + "payment/donation/config").then(async (r) => {
-            const { publishableKey } = await r.json();
-            setStripePromise(loadStripe(publishableKey));
-        });
-    }, []);
-
-    useEffect(() => {
-        fetch(process.env.REACT_APP_TEST_SERVER_URL + "payment/donation/create-payment-intent", {
-            method: "POST",
-            body: JSON.stringify({}),
-        }).then(async (result) => {
-            var { clientSecret } = await result.json();
-            setClientSecret(clientSecret);
-        });
-    }, []);
 
     return (
         <Modal
@@ -53,11 +34,9 @@ const Donation = () => {
             centered
         >
             <div className="payment bg_color--1">
-                <div className="hor_section">
-                    <h2>Donation</h2>
-                    <FiX className="x_icon" onClick={() => dispatch(removeDonation())} />
-                </div>
-                {(clientSecret && stripePromise && !showPaymentForm ? <Elements stripe={stripePromise} options={{ clientSecret }} >
+                <h2>Your contribution helps us develop!</h2>
+                <h3 style={{ marginTop: "-15px" }}>Thank you</h3>
+                {(clientSecret && stripePromise ? <Elements stripe={stripePromise} options={{ clientSecret }} >
                     <CheckoutForm />
                 </Elements> : <Formik
                     className="inner"
@@ -69,19 +48,22 @@ const Donation = () => {
                                 const { publishableKey } = await r.json();
                                 setStripePromise(loadStripe(publishableKey));
                             });
-                        } catch (err) {
-                        }
-                        try {
                             fetch(process.env.REACT_APP_TEST_SERVER_URL + "payment/donation/create-payment-intent", {
                                 method: "POST",
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
                                 body: JSON.stringify({
-                                    amount: values.amount
+                                    name: values.name,
+                                    amount: values.amount,
+                                    comments: values.comments
                                 }),
+
                             }).then(async (result) => {
                                 var { clientSecret } = await result.json();
                                 setClientSecret(clientSecret);
                             });
-                            setShowPAymentForm(false)
+                            setLoading(true)
                         } catch (err) {
                         }
                     }}
@@ -94,6 +76,7 @@ const Donation = () => {
                     {() => (
                         <Form
                             id="form"
+                            className="payment"
                             style={{ padding: "2%" }}
                         >
                             <div className="row">
@@ -101,7 +84,7 @@ const Donation = () => {
                                     <div className="rnform-group">
                                         <Field
                                             type="text"
-                                            placeholder="Name"
+                                            placeholder="Name (optional)"
                                             name="name"
                                         ></Field>
                                         <ErrorMessage
@@ -113,11 +96,16 @@ const Donation = () => {
                                 </div>
                                 <div className="col-lg-6 col-md-12 col-12">
                                     <div className="rnform-group">
-                                        <Field
-                                            type="number"
-                                            placeholder="Amount in EUR"
-                                            name="amount"
-                                        ></Field>
+                                        <div className="input-container">
+                                            <Field
+                                                type="number"
+                                                step="0.5"
+                                                placeholder="Amount in EUR"
+                                                name="amount"
+                                                inputMode="numeric"
+                                                min="2"
+                                            ></Field>
+                                        </div>
                                         <ErrorMessage
                                             className="error"
                                             name="amount"
@@ -125,14 +113,12 @@ const Donation = () => {
                                         />
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row mt--40">
-                                <div className="col-lg-12 col-md-12 col-12">
+                                <div className="col-lg-12 col-md-12 col-12 mt--40">
                                     <div className="rnform-group">
                                         <Field
                                             style={{ padding: '1% 0 0 3%' }}
                                             as='textarea'
-                                            placeholder="Message to be sent to us"
+                                            placeholder="Message to be sent to us (optional)"
                                             name="comments"
                                         ></Field>
                                         <ErrorMessage
@@ -144,10 +130,7 @@ const Donation = () => {
                                 </div>
 
                             </div>
-
-
                             <button
-                                style={{ margin: 'auto' }}
                                 disabled={loading}
                                 type="submit"
                                 className="rn-button-style--2 btn-solid mt--40"
