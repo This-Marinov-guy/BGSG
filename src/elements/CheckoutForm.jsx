@@ -34,7 +34,7 @@ const CheckoutForm = () => {
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: `${window.location.origin}/completion`,
+                return_url: `${window.location.origin}/donation/success`,
             },
         });
 

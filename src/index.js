@@ -58,6 +58,7 @@ const NonMemberPurchase = lazy(() =>
 );
 const Error = lazy(() => import("./elements/ui/Error"));
 const Success = lazy(() => import("./pages/redirects/Success"));
+const SuccessDonation = lazy(() => import("./pages/redirects/SuccessDonation"));
 const Fail = lazy(() => import("./pages/redirects/Fail"));
 
 const Root = () => {
@@ -141,6 +142,7 @@ const Root = () => {
             {/* Redirect pages */}
 
             <Route exact path={`/success`} component={Success} />
+            <Route exact path={`/donation/success`} component={SuccessDonation} />
             <Route exact path={`/fail`} component={Fail} />
 
             {/* Auth pages */}
