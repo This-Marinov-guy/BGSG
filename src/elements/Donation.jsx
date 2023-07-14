@@ -61,6 +61,7 @@ const Donation = () => {
                     <CheckoutForm />
                 </Elements> : <Formik
                     className="inner"
+                    style={{ display: 'flex' }}
                     validationSchema={schema}
                     onSubmit={async (values) => {
                         try {
@@ -146,9 +147,10 @@ const Donation = () => {
 
 
                             <button
+                                style={{ margin: 'auto' }}
                                 disabled={loading}
                                 type="submit"
-                                className="rn-button-style--2 btn-solid mt--80"
+                                className="rn-button-style--2 btn-solid mt--40"
                             >
                                 {loading ? <Loader /> : <span>Continue the payment</span>}
                             </button>
