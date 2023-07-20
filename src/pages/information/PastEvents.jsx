@@ -12,6 +12,10 @@ import { Link } from "react-router-dom";
 
 const list = [
   {
+    url: "Dodgeball",
+    image: "11",
+  },
+  {
     url: "Board Game Night",
     image: "8",
   },

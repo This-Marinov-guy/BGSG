@@ -200,5 +200,20 @@ export const EVENT_REFLECTION_DETAILS = [
       { id: "3", image: "board-game/3", text: "" },
     ],
   },
+  {
+    title: "Dodgeball",
+    bgImage: "6",
+    date: "23rd June",
+    attendance: "25",
+    comments: "10",
+    text: [
+      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committie, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
+    ],
+    images: [
+      { id: "1", image: "dodgeball/1", text: "" },
+      { id: "2", image: "dodgeball/2", text: "" },
+      { id: "3", image: "dodgeball/3", text: "" },
+    ],
+  },
 
 ];
