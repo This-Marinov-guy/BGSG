@@ -173,7 +173,7 @@ const SignUp = (props) => {
               } else {
                 formData.append("image", null);
               }
-              formData.append("itemId", "price_1N0LPvIOw5UGbAo12uU6bUpm");
+              formData.append("itemId", "price_1NWLoYIOw5UGbAo1ICuS4KH8");
               formData.append("origin_url", window.location.origin);
               formData.append("method", "signup");
               formData.append("name", values.name);
