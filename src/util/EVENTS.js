@@ -80,23 +80,23 @@ export const OPEN_SOCIETY_EVENTS = [
 ];
 
 export const OPEN_NON_SOCIETY_EVENTS = [
-  {
-    title: "Barista Course",
-    description: "Master the profession of a barista",
-    bgImage: "2",
-    when: "TBD",
-    //Use the corrected when for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-    correctedWhen: "",
-    where: "TBD",
-    entry: 30,
-    memberEntry: 5,
-    text: [
-      "Join our Barista Course led by Henry Daniels, owner of Revista Coffee and become a pro barista in no time!",
-      "As a member of the Bulgarian Society Groningen, you'll get a special discount. The original price of 30 euros is now only 20 euros for members. You will be contacted by Henry to find a suitable date for the course. The course is usually held Tuesday and Wednesday mornings from 10-12. After finishing the course you will be able to receive a reference letter for a future employer. You will pay for the course in person!",
-    ],
-    images: ["/assets/images/portfolio/portfolio-7"],
-    thumbnail: "/assets/images/portfolio/portfolio-7",
-  },
+  // {
+  //   title: "Barista Course",
+  //   description: "Master the profession of a barista",
+  //   bgImage: "2",
+  //   when: "TBD",
+  //   //Use the corrected when for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+  //   correctedWhen: "",
+  //   where: "TBD",
+  //   entry: 30,
+  //   memberEntry: 5,
+  //   text: [
+  //     "Join our Barista Course led by Henry Daniels, owner of Revista Coffee and become a pro barista in no time!",
+  //     "As a member of the Bulgarian Society Groningen, you'll get a special discount. The original price of 30 euros is now only 20 euros for members. You will be contacted by Henry to find a suitable date for the course. The course is usually held Tuesday and Wednesday mornings from 10-12. After finishing the course you will be able to receive a reference letter for a future employer. You will pay for the course in person!",
+  //   ],
+  //   images: ["/assets/images/portfolio/portfolio-7"],
+  //   thumbnail: "/assets/images/portfolio/portfolio-7",
+  // },
 ];
 
 export const EVENT_REFLECTION_DETAILS = [
