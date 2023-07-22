@@ -336,6 +336,8 @@ const User = () => {
                       </div>
                     </Fragment>
                   )}
+                </div>
+                <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="hor_section_nospace mt--40">
                       <Field
