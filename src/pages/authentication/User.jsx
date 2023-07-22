@@ -274,8 +274,8 @@ const User = () => {
                       component="div"
                     />
                   </div>
-                  <div className="col-lg-6 col-md-12 col-12">
-                    {values.university === "other" && (
+                  {values.university === "other" && (
+                    <div className="col-lg-6 col-md-12 col-12">
                       <div className="rnform-group">
                         <Field
                           type="text"
@@ -288,8 +288,8 @@ const User = () => {
                           component="div"
                         />
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   {values.university !== "working" && (
                     <Fragment>
                       <div className="col-lg-6 col-md-12 col-12">
