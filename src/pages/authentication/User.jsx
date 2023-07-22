@@ -184,7 +184,7 @@ const User = () => {
                 style={{ padding: "2%" }}
               >
                 <div className="hor_section">
-                  <h3>Fill your details and register</h3>
+                  <h3>Update your details</h3>
                   <FiX className="x_icon" onClick={closeHandler} />
                 </div>
                 <div className="row mb--40 mt--40">
@@ -229,8 +229,7 @@ const User = () => {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
+
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field
@@ -248,8 +247,7 @@ const User = () => {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
+
                   <div className="col-lg-6 col-md-12 col-12">
                     <div className="rnform-group">
                       <Field type="email" placeholder="Email" name="email" />
@@ -260,8 +258,6 @@ const User = () => {
                       />
                     </div>
                   </div>
-                </div>
-                <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
                     <Field as="select" name="university">
                       <option value="" disabled>
@@ -294,73 +290,73 @@ const User = () => {
                       </div>
                     )}
                   </div>
-                </div>
-                {values.university !== "working" && (
-                  <Fragment>
-                    <div className="col-lg-6 col-md-12 col-12">
+                  {values.university !== "working" && (
+                    <Fragment>
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <Field
+                          type="number"
+                          min="2020"
+                          max="2050"
+                          placeholder="Graduation Year"
+                          name="graduationDate"
+                        ></Field>
+                        <ErrorMessage
+                          className="error"
+                          name="graduationDate"
+                          component="div"
+                        />
+                      </div>
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <div className="rnform-group">
+                          <Field
+                            type="text"
+                            placeholder="Study Program"
+                            name="course"
+                          ></Field>
+                          <ErrorMessage
+                            className="error"
+                            name="course"
+                            component="div"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <div className="rnform-group">
+                          <Field
+                            type="text"
+                            placeholder="Student Number"
+                            name="studentNumber"
+                          ></Field>
+                          <ErrorMessage
+                            className="error"
+                            name="studentNumber"
+                            component="div"
+                          />
+                        </div>
+                      </div>
+                    </Fragment>
+                  )}
+                  <div className="col-lg-6 col-md-12 col-12">
+                    <div className="hor_section_nospace mt--40">
                       <Field
-                        type="number"
-                        min="2020"
-                        max="2050"
-                        placeholder="Graduation Year"
-                        name="graduationDate"
+                        style={{ maxWidth: "30px", margin: "10px" }}
+                        type="checkbox"
+                        name="notificationTerms"
                       ></Field>
-                      <ErrorMessage
-                        className="error"
-                        name="graduationDate"
-                        component="div"
-                      />
+                      <p className="information">
+                        I consent to being notified by BGSG about events and
+                        discounts from us and our sponsors
+                      </p>
                     </div>
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Study Program"
-                          name="course"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="course"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Student Number"
-                          name="studentNumber"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="studentNumber"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                  </Fragment>
-                )}
-                <div className="col-lg-6 col-md-12 col-12">
-                  <div className="hor_section_nospace mt--40">
-                    <Field
-                      style={{ maxWidth: "30px", margin: "10px" }}
-                      type="checkbox"
-                      name="notificationTerms"
-                    ></Field>
-                    <p className="information">
-                      I consent to being notified by BGSG about events and
-                      discounts from us and our sponsors
-                    </p>
+                    <Field as="select" name="notificationTypeTerms">
+                      <option value="" disabled>
+                        Contact By
+                      </option>
+                      <option value="Email">Email</option>
+                      <option value="WhatsApp">WhatsApp</option>
+                      <option value="Email & WhatsApp">Both</option>
+                    </Field>
                   </div>
-                  <Field as="select" name="notificationTypeTerms">
-                    <option value="" disabled>
-                      Contact By
-                    </option>
-                    <option value="Email">Email</option>
-                    <option value="WhatsApp">WhatsApp</option>
-                    <option value="Email & WhatsApp">Both</option>
-                  </Field>
                 </div>
                 <button
                   disabled={loading}
