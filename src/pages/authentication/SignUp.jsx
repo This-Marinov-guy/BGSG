@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { format } from "date-fns";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -29,6 +29,11 @@ const schema = yup.object().shape({
     is: "other",
     then: () => yup.string().required("Please state which university"),
     otherwise: () => yup.string(),
+  }),
+  graduationDate: yup.number().when("university", {
+    is: true,
+    then: () => yup.number().required("Graduation year is required"),
+    otherwise: () => yup.number(),
   }),
   course: yup.string().when("university", {
     is: true,
@@ -186,6 +191,7 @@ const SignUp = (props) => {
                 "otherUniversityName",
                 values.otherUniversityName
               );
+              formData.append('graduationDate', values.graduationDate)
               formData.append("course", values.course);
               formData.append("studentNumber", values.studentNumber);
               formData.append("password", values.password);
@@ -286,6 +292,7 @@ const SignUp = (props) => {
               email: '',
               university: '',
               otherUniversityName: '',
+              graduationDate: '',
               course: '',
               studentNumber: '',
               password: '',
@@ -382,7 +389,7 @@ const SignUp = (props) => {
                     </div>
                   </div>
                 </div>
-                <div className="row">
+                <div className="row mt--40">
                   <div className="col-lg-6 col-md-12 col-12">
                     <Field as="select" name="university">
                       <option value="" disabled>
@@ -399,8 +406,8 @@ const SignUp = (props) => {
                       component="div"
                     />
                   </div>
-                  <div className="col-lg-6 col-md-12 col-12">
-                    {values.university === "other" && (
+                  {values.university === "other" && (
+                    <div className="col-lg-6 col-md-12 col-12">
                       <div className="rnform-group">
                         <Field
                           type="text"
@@ -413,41 +420,55 @@ const SignUp = (props) => {
                           component="div"
                         />
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
+                  {values.university !== "working" && (
+                    <Fragment>
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <Field
+                          type="number"
+                          min="2020"
+                          max="2050"
+                          placeholder="Graduation Year"
+                          name="graduationDate"
+                        ></Field>
+                        <ErrorMessage
+                          className="error"
+                          name="graduationDate"
+                          component="div"
+                        />
+                      </div>
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <div className="rnform-group">
+                          <Field
+                            type="text"
+                            placeholder="Study Program"
+                            name="course"
+                          ></Field>
+                          <ErrorMessage
+                            className="error"
+                            name="course"
+                            component="div"
+                          />
+                        </div>
+                      </div>
+                      <div className="col-lg-6 col-md-12 col-12">
+                        <div className="rnform-group">
+                          <Field
+                            type="text"
+                            placeholder="Student Number"
+                            name="studentNumber"
+                          ></Field>
+                          <ErrorMessage
+                            className="error"
+                            name="studentNumber"
+                            component="div"
+                          />
+                        </div>
+                      </div>
+                    </Fragment>
+                  )}
                 </div>
-                {values.university !== "working" && (
-                  <div className="row">
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Study Program"
-                          name="course"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="course"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                    <div className="col-lg-6 col-md-12 col-12">
-                      <div className="rnform-group">
-                        <Field
-                          type="text"
-                          placeholder="Student Number"
-                          name="studentNumber"
-                        ></Field>
-                        <ErrorMessage
-                          className="error"
-                          name="studentNumber"
-                          component="div"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
                 <h3 className="mt--30 label">Login details</h3>
                 <div className="row">
                   <div className="col-lg-6 col-md-12 col-12">
@@ -625,7 +646,7 @@ const SignUp = (props) => {
         </ScrollToTop>
       </div>
       {/* End Back To Top */}
-    </React.Fragment>
+    </React.Fragment >
   );
 };
 

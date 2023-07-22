@@ -33,6 +33,11 @@ const schema = yup.object().shape({
     then: () => yup.string().required("Please state which university"),
     otherwise: () => yup.string(),
   }),
+  graduationDate: yup.number().when("university", {
+    is: true,
+    then: () => yup.number().required("Graduation year is required"),
+    otherwise: () => yup.number(),
+  }),
   course: yup.string().when("university", {
     is: true,
     then: () => yup.string().required("Your course is a required filed"),
@@ -122,6 +127,7 @@ const User = () => {
                 "otherUniversityName",
                 values.otherUniversityName
               );
+              formData.append('graduationDate', values.graduationDate)
               formData.append("course", values.course);
               formData.append("studentNumber", values.studentNumber);
               formData.append(
@@ -161,6 +167,7 @@ const User = () => {
               email: currentUser.email,
               university: currentUser.university,
               otherUniversityName: currentUser.otherUniversityName,
+              graduationDate: currentUser.otherUniversityName || '',
               course: currentUser.course,
               studentNumber: currentUser.studentNumber,
               policyTerms: false,
@@ -289,7 +296,21 @@ const User = () => {
                   </div>
                 </div>
                 {values.university !== "working" && (
-                  <div className="row">
+                  <Fragment>
+                    <div className="col-lg-6 col-md-12 col-12">
+                      <Field
+                        type="number"
+                        min="2020"
+                        max="2050"
+                        placeholder="Graduation Year"
+                        name="graduationDate"
+                      ></Field>
+                      <ErrorMessage
+                        className="error"
+                        name="graduationDate"
+                        component="div"
+                      />
+                    </div>
                     <div className="col-lg-6 col-md-12 col-12">
                       <div className="rnform-group">
                         <Field
@@ -318,7 +339,7 @@ const User = () => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </Fragment>
                 )}
                 <div className="col-lg-6 col-md-12 col-12">
                   <div className="hor_section_nospace mt--40">
