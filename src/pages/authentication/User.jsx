@@ -19,6 +19,7 @@ import Locked from "../../elements/ui/Locked";
 import PageLoading from '../../elements/ui/PageLoading'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import WindowShift from "../../elements/ui/WindowShift";
+import ImageFb from "../../elements/ui/ImageFb";
 import Greeting from "../../elements/Greeting";
 
 const schema = yup.object().shape({
@@ -455,14 +456,12 @@ const User = () => {
 
                     <h2 className="title">News</h2>
                     <ul>
+                      <ImageFb
+                        src="/assets/images/news/ad.webp"
+                        fallback="/assets/images/news/ad.jpg"
+                      />
                       <li className="mt--40">
                         <p> Make a short promo video for BGSG and win a prize!<a href='/contest/register'>
-                          (Click here)
-                        </a>
-                        </p>
-                      </li>
-                      <li className="mt--40">
-                        <p> Check out our first article from The Entrepreneurship Series II!<a href='/articles'>
                           (Click here)
                         </a>
                         </p>
