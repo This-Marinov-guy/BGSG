@@ -36,7 +36,7 @@ const Policy = React.memo(() => {
 
                 </p>
                 <ul style={{ fontSize: '24px' }}>
-                    <li>0:30-1:00 min long
+                    <li>0:20 - 0:40 min long
                     </li>
                     <li>Has a background music
                     </li>
@@ -73,13 +73,13 @@ const Policy = React.memo(() => {
 
                 </h3>
                 <p style={{ color: 'red' }} className="mt--10 mb--50">
-                    Deadline: 15th August 2023,23:59
+                    Deadline: 5th September 2023,23:59
 
                 </p>
                 <h3>6. When will I know the result?
                 </h3>
                 <p className="mt--10 mb--50">
-                    Results released on our Instagram channel on the <span style={{ color: 'green' }}>15th of August,2023at 13:00 (The winner will also be contacted via email.)</span>
+                    Results released on our Instagram channel on the <span style={{ color: 'green' }}>5th of September, 2023 at 13:00 (The winner will also be contacted via email.)</span>
                 </p>
                 <h3>7. What is the prize?
 
@@ -98,7 +98,7 @@ const Policy = React.memo(() => {
 
                 </h3>
                 <p className="mt--10 mb--50">
-                    Please contact us via email (bulgariansociety.gro@gmail.com) or through instagram (@bulgariansociety.gro)
+                    Please contact us via email (bulgariansociety.gro@gmail.com) or through instagram (bulgariansociety.gro)
 
                 </p>
 

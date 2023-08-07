@@ -63,16 +63,16 @@ const ContestRegister = (props) => {
                             <div className="portfolio-details">
                                 <div className="inner">
                                     <h2>About</h2>
-                                    <p>Do you love editing videos, making reels or spending time on social media? Create a short promo video (0:30-1:00min long) in a reel format (16:9) using the materials provided and enter for a chance to win 50€!
+                                    <p>Do you love editing videos, making reels or spending time on social media? Create a short promo video (0:20 - 0:40 min long) in a reel format (16:9) using the materials provided and enter for a chance to win 50€!
                                     </p>
                                     <p>After signing up you will receive a folder with photos and videos from previous events as well as some statistics. You can select which of these to use to best represent BGSG.
                                     </p>
 
                                     <p>You can submit a maximum of 2 short videos via email using Google Drive or WeTransfer. Read carefully the Terms & Conditions for more information.
                                     </p><br />
-                                    <p>Deadline: 15th August, 23:59
+                                    <p>Deadline: 5th September, 23:59
                                     </p>
-                                    <p>Announcing the winner: 20th August, 13:00
+                                    <p>Announcing the winner: 20th September, 13:00
                                     </p>
                                     <span className="ma"><a href='/contest/promo-video'>Terms and Conditions</a></span>
                                 </div>
