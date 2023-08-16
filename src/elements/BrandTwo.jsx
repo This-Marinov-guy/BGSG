@@ -18,6 +18,9 @@ class BrandTwo extends Component {
                                 <li>
                                     <a href='https://studybuddy.bg/' target='_blank'><img src="/assets/images/brand/brand-04.png" alt="Logo Images" /></a>
                                 </li>
+                                <li  className="splash-li" >
+                                    <a href='https://www.cooltravel.bg/' target='_blank'><img src="/assets/images/brand/brand-06.png" style={{backgroundColor: '#77a02e', borderRadius: '44%', padding: '20px'}} alt="Logo Images" /></a>
+                                </li>
                             </ul>
                         </div>
                         <div className="col-sm-12 col-md-12 col-lg-6 mt--20">
