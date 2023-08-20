@@ -147,7 +147,7 @@ const SignUp = (props) => {
                         </li>
                       </ul>
                     </div>
-                    <small>*The expire date of your membership is the upcoming 31st of August no matter when it is bought</small>
+                    <p style={{ fontSize: '14px' }}>*The expire date of your membership is the upcoming 31st of August no matter when it is bought</p>
                   </div>
                 </button>
               </div>
