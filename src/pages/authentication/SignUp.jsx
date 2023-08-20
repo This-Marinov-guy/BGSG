@@ -70,7 +70,7 @@ const options = [
     icon: <FiUserPlus />,
     title: "Member",
     description: "Be part of the society. With this membership you get:  ",
-    price: 5,
+    price: 10,
   },
 ];
 
@@ -122,7 +122,7 @@ const SignUp = (props) => {
                 >
                   <div className="hor_section">
                     <div className="icon">{val.icon}</div>
-                    <h3 style={{ width: "40%" }}>{val.price} euro/term</h3>
+                    <h3 style={{ width: "40%" }}>{val.price} euro/year*</h3>
                   </div>
                   <div className="content">
                     <h3>{val.title}</h3>
@@ -147,6 +147,7 @@ const SignUp = (props) => {
                         </li>
                       </ul>
                     </div>
+                    <small>*The expire date of your membership is the upcoming 31st of August no matter when it is bought</small>
                   </div>
                 </button>
               </div>
