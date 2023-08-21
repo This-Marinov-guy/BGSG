@@ -95,7 +95,7 @@ const ActiveMember = (props) => {
                             // positions.forEach((value, index) => {
                             //     formData.append(`positions[${index}]`, value);
                             // });
-                            formData.append(positions, positions);
+                            formData.append('positions', positions);
 
                             if (values.option4) {
                                 date.push('None of the given')
