@@ -30,6 +30,7 @@ const Contest = lazy(() => import("./pages/information/Contest"));
 const Committees = lazy(() => import("./pages/information/Committees"));
 const LogIn = lazy(() => import("./pages/authentication/LogIn"));
 const SignUp = lazy(() => import("./pages/authentication/SignUp"));
+const ActiveMember = lazy(() => import("./pages/authentication/ActiveMember"));
 const User = lazy(() => import("./pages/authentication/User"));
 const Events = lazy(() => import("./pages/information/Events"));
 const FutureEvents = lazy(() =>
@@ -53,6 +54,7 @@ const MemberPurchase = lazy(() =>
 const ContestRegister = lazy(() =>
   import("./pages/eventActions/ContestRegister")
 );
+
 const NonMemberPurchase = lazy(() =>
   import("./pages/eventActions/NonMemberPurchase")
 );
@@ -125,6 +127,7 @@ const Root = () => {
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
             <Route exact path={`/articles`} component={Articles} />
+            <Route exact path={`/active-member`} component={ActiveMember} />
 
             <Route exact path={`/future-events`} component={FutureEvents} />
 
