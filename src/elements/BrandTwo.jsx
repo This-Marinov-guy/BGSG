@@ -4,40 +4,27 @@ class BrandTwo extends Component {
     render() {
         return (
             <div className="rn-brand-area brand-separation bg_color--5 ptb--40">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm-12 col-md-12 col-lg-6 mt--20">
-                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Partners</h3>
-                            <ul className="brand-style-2">
-                                <li>
-                                    <a href='https://en.unify.bg/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
-                                </li>
-                                <li>
-                                    <a href='https://www.integral.bg/' target='_blank'><img src="/assets/images/brand/brand-05.png" alt="Logo Images" /></a>
-                                </li>
-                                <li>
-                                    <a href='https://studybuddy.bg/' target='_blank'><img src="/assets/images/brand/brand-04.png" alt="Logo Images" /></a>
-                                </li>
-                                <li  className="splash-li" >
-                                    <a href='https://www.cooltravel.bg/' target='_blank'><img src="/assets/images/brand/brand-06.png" style={{backgroundColor: '#77a02e', borderRadius: '44%', padding: '20px'}} alt="Logo Images" /></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="col-sm-12 col-md-12 col-lg-6 mt--20">
-                            <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Powered by</h3>
-                            <ul className="brand-style-2">
-                                <li>
-                                    <a href='https://www.stripe.com/' target='_blank'> <img src="/assets/images/brand/brand-03.png" alt="Logo Images" /></a>
-                                </li>
-                                <li >
-                                    <a href='https://www.stelstuff.com/' target='_blank'><img className="extra_brand" src="/assets/images/brand/brand-01.png" alt="Logo Images" /></a>
-                                </li>
+                <h3 style={{ textAlign: 'center', fontFamily: 'Archive' }}>Partners</h3>
+                <ul className="brand-style-2">
+                    <li>
+                        <a href='https://www.cooltravel.bg/' target='_blank'><img className="splash-li"  src="/assets/images/brand/brand-06.png" alt="Logo Images" /></a>
+                    </li>
+                    <li>
+                        <a href='https://domakin.nl/' target='_blank'><img src="/assets/images/brand/brand-07.png" alt="Logo Images" style={{borderRadius: '5%'}} /></a>
+                    </li>
+                    <li>
+                        <a href='https://studybuddy.bg/' target='_blank'><img src="/assets/images/brand/brand-04.png" alt="Logo Images" /></a>
+                    </li>
+                    <li>
+                        <a href='https://www.integral.bg/' target='_blank'><img src="/assets/images/brand/brand-05.png" alt="Logo Images" /></a>
+                    </li>
+                    <li>
+                        <a href='https://en.unify.bg/' target='_blank'><img src="/assets/images/brand/brand-02.png" alt="Logo Images" /></a>
+                    </li>
 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                </ul>
             </div>
+
         )
     }
 }
