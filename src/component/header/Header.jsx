@@ -108,6 +108,9 @@ const Header = (props) => {
                       <Link to="/contest/register">Contests</Link>
                     </li>
                     <li>
+                      <Link to="/active-member">Enroll for Active Member </Link>
+                    </li>
+                    <li>
                       <Link to="/articles">Articles</Link>
                     </li>
                   </ul>

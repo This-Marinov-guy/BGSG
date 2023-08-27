@@ -95,10 +95,21 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
-            <ImageFb
-              src="/assets/images/news/ad.webp"
-              fallback="/assets/images/news/ad.jpg"
-            />
+          <li className="mt--40">
+            <p>Introduction week 15-19th September. Save the dates, more info coming soon!
+            </p>
+          </li>
+          <li className="mt--40">
+            <p> Membership 2023-2024 open. <a href='/signup'>
+              Sign up!
+            </a>
+            </p>
+          </li>
+          <ImageFb
+            className='mt--40'
+            src="/assets/images/news/ad.webp"
+            fallback="/assets/images/news/ad.jpg"
+          />
           <li className="mt--40">
             <p> Make a short promo video for BGSG and win a prize!<a href='/contest/register'>
               (Click here)
