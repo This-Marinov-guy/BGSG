@@ -456,6 +456,11 @@ const User = () => {
 
                     <h2 className="title">News</h2>
                     <ul>
+                      <ImageFb
+                        className='mt--40'
+                        src="/assets/images/news/intro-week.webp"
+                        fallback="/assets/images/news/intro-week.jpg"
+                      />
                       <li className="mt--40">
                         <p>Introduction week 15-19th September. Save the dates, more info coming soon!
                         </p>

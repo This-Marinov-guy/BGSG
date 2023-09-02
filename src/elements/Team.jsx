@@ -11,7 +11,7 @@ let TeamContent = [
     designation: [
       "Study: MSc Artificial Intelligence",
       "Age: 26",
-      "Interests: MMA, Literature, Personal Development",
+      "Interests: Entrepreneurship, MMA, Literature",
     ],
     socialNetwork: [
       {
@@ -26,13 +26,13 @@ let TeamContent = [
   },
   {
     id: 2,
-    images: "05",
+    images: "02",
     name: "Radost",
     title: "| Creative Manager",
     designation: [
       "Study: MA Euroculture",
       "Age: 23",
-      "Interests: Customizing clothes, Embroidery, Dancing, Sustainability",
+      "Interests: Customizing clothes, Travel, Dancing, Sustainability",
     ],
     socialNetwork: [
       {
@@ -47,45 +47,45 @@ let TeamContent = [
   },
   {
     id: 3,
-    images: "06",
-    name: "Tsveta",
+    images: "03",
+    name: "Elena",
     title: "| PR Manager",
     designation: [
-      "Study: BA European languages and Cultures",
-      "Age: 21",
-      "Interests: Reading, Travelling, Cinema, Pilates",
+      "Study: BA Marketing Management",
+      "Age: 20",
+      "Interests: Film, Traveling, Theatre",
     ],
     socialNetwork: [
       {
         icon: <FaInstagram />,
-        url: "https://www.instagram.com/tsveta_xx/?hl=en",
+        url: "https://www.instagram.com/e.matevva/",
       },
     ],
   },
   {
     id: 4,
-    images: "07",
-    name: "Pavella",
+    images: "04",
+    name: "Maria-Kristi",
     title: "| Secretary",
     designation: [
-      "Study: MSc Medicine",
-      "Age: 21",
-      "Interests: Tennis, Music, Painting",
+      "Study: BA International & European Law",
+      "Age: 20",
+      "Interests: Reading, Music, Cooking",
     ],
     socialNetwork: [
       {
         icon: <FaInstagram />,
-        url: "https://instagram.com/_pavella_g?igshid=YmMyMTA2M2Y=",
+        url: "https://www.instagram.com/maria.kristi.r/",
       },
     ],
   },
   {
     id: 5,
-    images: "02",
+    images: "05",
     name: "Sava",
     title: "| Internal Relations",
     designation: [
-      "Study: BA Game Design",
+      "Study: BA CMGT",
       "Age: 20",
       "Interests: Gym, Kickboxing, Gaming",
     ],
@@ -98,9 +98,9 @@ let TeamContent = [
   },
   {
     id: 6,
-    images: "04",
+    images: "06",
     name: "Dimitar",
-    title: "| Treasurer",
+    title: "| External Relations",
     designation: [
       "Study: BA International Business",
       "Age: 22",
@@ -115,13 +115,13 @@ let TeamContent = [
   },
   {
     id: 7,
-    images: "03",
+    images: "07",
     name: "Konstantin",
-    title: "| External Relations",
+    title: "| Treasurer",
     designation: [
       "Study: BA CMGT",
       "Age: 21",
-      "Interests: Concerts, Movies, Entreprenuership, Sports",
+      "Interests: Concerts, Movies, Entrepreneurship, Sports",
     ],
     socialNetwork: [
       {
