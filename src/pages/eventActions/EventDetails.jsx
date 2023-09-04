@@ -154,7 +154,6 @@ const EventDetails = () => {
                         {eventClosed ? "Sold out" : 'Buy Ticket'}
                       </a>}
                       {target.ticketTimer && <Countdown targetTime={target.ticketTimer} setEventClosed={setEventClosed} />}
-                      {target.ticketLimit && <h3>Tickets remaining: {remainingTickets > 0 ? remainingTickets : 'All sold!'}</h3>}
                     </div>}
                 </div>
                 <br />
