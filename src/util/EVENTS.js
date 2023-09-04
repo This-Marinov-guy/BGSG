@@ -33,7 +33,7 @@ export const OPEN_SOCIETY_EVENTS = [
       `Ние сме въодушевени да обявим нашия пакет за Въведителната седмица, включващ четири събития, простиращи се през три невероятни дни! Да започнем заедно новата учебна година!`,
     ],
     ticket_img: '/assets/images/tickets/ticket-5.jpg',
-    images: ["/assets/images/events/intro-week/2"],
+    images: ["/assets/images/events/intro-week/2", "/assets/images/events/intro-week/3"],
     thumbnail: "/assets/images/portfolio/portfolio-12",
   },
   {
