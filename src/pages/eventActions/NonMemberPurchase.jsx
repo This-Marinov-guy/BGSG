@@ -162,7 +162,6 @@ const NonMemberPurchase = () => {
                         formData
                       );
                       history.push('/success');
-                      return;
                     } else {
                       const responseData = await sendRequest(
                         "payment/checkout/guest",

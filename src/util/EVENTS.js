@@ -23,7 +23,7 @@ export const OPEN_SOCIETY_EVENTS = [
     price_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
     memberPrice_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
     activeMemberPrice_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
-    freePass: ["elenamateva@abv.bg", "vlady1002@abv.bg", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
+    freePass: ["elenamateva@abv.bg", "vladislavmarinov3142@gmail.com", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     extraInputs: false,
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
@@ -57,7 +57,7 @@ export const OPEN_SOCIETY_EVENTS = [
     price_id: 'price_1Nmc1rIOw5UGbAo15v1W2Lt8',
     memberPrice_id: 'price_1Nmc00IOw5UGbAo1ZfaT6m4X',
     activeMemberPrice_id: 'price_1Nmc00IOw5UGbAo1AqDIkHKa',
-    freePass: ["elenamateva@abv.bg", "vlady1002@abv.bg", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
+    freePass: ["elenamateva@abv.bg", "vladislavmarinov3142@gmail.com", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     extraInputs: false,
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
