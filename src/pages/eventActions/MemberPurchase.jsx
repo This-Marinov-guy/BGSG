@@ -129,6 +129,7 @@ const MemberPurchase = () => {
                     formData
                   );
                   history.push('/success');
+                  return;
                 }
                 else {
                   const responseData = await sendRequest(

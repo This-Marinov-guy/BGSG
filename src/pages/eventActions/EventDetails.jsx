@@ -10,13 +10,39 @@ import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import ImageFb from "../../elements/ui/ImageFb";
 import Countdown from "../../elements/ui/Countdown";
+import { useHttpClient } from "../../hooks/http-hook";
+import Loader from "../../elements/ui/Loader";
 
 const EventDetails = () => {
   const [eventClosed, setEventClosed] = useState(false)
-
+  const [remainingTickets, setRemainingTickets] = useState()
   const user = useSelector(selectUser);
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
+
+  const { loading, sendRequest } = useHttpClient();
+
+  useEffect(() => {
+    if (target.ticketLimit) {
+      const checkRemainingTicketQuantity = async () => {
+        try {
+          const responseData = await sendRequest(`event/sold-ticket-count`, "POST", JSON.stringify({
+            eventName: target.title,
+          }),
+            {
+              "Content-Type": "application/json",
+            });
+          setRemainingTickets(target.ticketLimit - responseData.ticketsSold);
+          if (remainingTickets <= 0) {
+            setEventClosed(true)
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      checkRemainingTicketQuantity();
+    }
+  }, [])
 
   return (
     <React.Fragment>
@@ -85,31 +111,37 @@ const EventDetails = () => {
                       {target.entry || target.memberEntry ? <h4>
                         {user.token
                           ? target.memberEntry + ' euro ' + (target.including ? target.including[0] : '')
-                          : target.entry + ' euro ' + (target.including ? target.including[1] : '') }
+                          : target.entry + ' euro ' + (target.including ? target.including[1] : '')}
                       </h4> : <h4 >Check ticket portal</h4>}
                     </div>
                   </div>
-                  {target.ticket_link ? <div><a
-                    style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
-                    href={target.ticket_link}
-                    target="_blank"
-                    className="rn-button-style--2 btn-solid mt--80"
-                  >
-                    {eventClosed ? "Sold out" : 'Buy Ticket'}
-                  </a>
-                    <p className="information mt--20">*Tickets are purchased from an outside platform! Click the button to be redirected</p></div> : <a
-                      style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
-                      href={
-                        user.token
-                          ? `/purchase-ticket/${target.title}/${user.userId}`
-                          : `/purchase-ticket/${target.title}`
-                      }
-                      className="rn-button-style--2 btn-solid"
-                    >
-                    {eventClosed ? "Sold out" : 'Buy Ticket'}
-                  </a>}
-                  {target.ticketTimer && <Countdown targetTime={target.ticketTimer} setEventClosed={setEventClosed} />}
-                  {/* {target.ticketPool && <h3>Tickets remaining: {target.ticketPool}</h3>} */}
+                  {loading ? <div>
+                    <h5>Checking Ticket Availability - please be patient!</h5>
+                    <Loader />
+                  </div> :
+                    <div className="purchase-btn">
+                      {target.ticket_link ? <div><a
+                        style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
+                        href={target.ticket_link}
+                        target="_blank"
+                        className="rn-button-style--2 btn-solid mt--80"
+                      >
+                        {eventClosed ? "Sold out" : 'Buy Ticket'}
+                      </a>
+                        <p className="information mt--20">*Tickets are purchased from an outside platform! Click the button to be redirected</p></div> : <a
+                          style={eventClosed ? { pointerEvents: 'none', backgroundColor: '#ccc' } : {}}
+                          href={
+                            user.token
+                              ? `/purchase-ticket/${target.title}/${user.userId}`
+                              : `/purchase-ticket/${target.title}`
+                          }
+                          className="rn-button-style--2 btn-solid"
+                        >
+                        {eventClosed ? "Sold out" : 'Buy Ticket'}
+                      </a>}
+                      {target.ticketTimer && <Countdown targetTime={target.ticketTimer} setEventClosed={setEventClosed} />}
+                      {target.ticketLimit && <h3>Tickets remaining: {remainingTickets > 0 ? remainingTickets : 'All sold!'}</h3>}
+                    </div>}
                 </div>
                 <br />
                 {/* Start Contact Map  */}

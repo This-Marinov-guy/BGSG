@@ -7,7 +7,7 @@ export const OPEN_SOCIETY_EVENTS = [
   //   date: "SATURDAY June 17th",
   //   time: "18:00",
   //   ticketTimer: '2023-06-16T23:59:00',
-  //   ticketPool: 50,
+  //   ticketLimit: 50,
   //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
   //   correctedDate: "",
   //   correctedTime: "",
@@ -40,7 +40,7 @@ export const OPEN_SOCIETY_EVENTS = [
   //   date: "FRIDAY June 23rd",
   //   time: "13:00",
   //   ticketTimer: '2023-06-23T11:00:00',
-  //   ticketPool: 100,
+  //   ticketLimit: 100,
   //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
   //   correctedDate: "",
   //   correctedTime: "",
