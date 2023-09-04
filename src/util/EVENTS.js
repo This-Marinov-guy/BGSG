@@ -16,10 +16,13 @@ export const OPEN_SOCIETY_EVENTS = [
     //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
     correctedDate: "",
     correctedTime: "",
-    where: `Check Program`,
+    where: `Introduction Lecture - Lust |
+    City walk - Starting point in front of Lust |
+    Dinner - Wijkrestaurant De Duindoorn, Duindoornstraat 91, 9741 NP |
+    Party - Club Sunny Beach`,
     entry: 15,
     // memberEntry: 5,
-    including: ['(same GUEST and MEMBER price)', '(same GUEST and MEMBER price)'],
+    including: ['', ''],
     price_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
     memberPrice_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
     activeMemberPrice_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
