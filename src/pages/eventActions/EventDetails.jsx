@@ -109,7 +109,7 @@ const EventDetails = () => {
                     <div className="port-view">
                       <span>Entry fee</span>
                       {target.entry || target.memberEntry ? <h4>
-                        {user.token
+                        {(user.token && target.memberEntry)
                           ? target.memberEntry + ' euro ' + (target.including ? target.including[0] : '')
                           : target.entry + ' euro ' + (target.including ? target.including[1] : '')}
                       </h4> : <h4 >Check ticket portal</h4>}
