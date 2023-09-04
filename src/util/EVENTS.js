@@ -30,7 +30,7 @@ export const OPEN_SOCIETY_EVENTS = [
       `Не забравяйте любимото си одеяло за пикник и не се колебайте да носите всякакви игри или дейности, които ще допринесат за настроението!`,
     ],
     ticket_img: '/assets/images/tickets/ticket-3.jpg',
-    images: ["/assets/images/events/intro-week/1", "/assets/images/events/intro-week/2"],
+    images: ["/assets/images/events/intro-week/2"],
     thumbnail: "/assets/images/portfolio/portfolio-12",
   },
   {
