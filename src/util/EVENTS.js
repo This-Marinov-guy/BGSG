@@ -1,12 +1,17 @@
 // add ticket_link : '*link for the tickets' for outside ticket purchase
 export const OPEN_SOCIETY_EVENTS = [
   {
+    visible: true,
+    subEvent: {
+      description: 'You can purchase ONLY the dinner from this event separately - just click below!',
+      link: '/event-details/Introduction%20Week%20(DINNER%20ONLY)'
+    },
     title: "Introduction Week (FULL PASS)",
     description: "Welcome to the new term",
     bgImage: "21",
     date: "15th-19th September",
     time: "Check Program",
-    ticketTimer: '2023-09-14T23:59:00',
+    ticketTimer: '2023-09-15T00:59:00',
     ticketLimit: 60,
     //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
     correctedDate: "",
@@ -18,7 +23,7 @@ export const OPEN_SOCIETY_EVENTS = [
     price_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
     memberPrice_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
     activeMemberPrice_id: 'price_1NmbxbIOw5UGbAo1SSvjARlW',
-    // freePass: ["elenamateva@abv.bg", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
+    freePass: ["elenamateva@abv.bg", "vlady1002@abv.bg", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     extraInputs: false,
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
@@ -29,17 +34,18 @@ export const OPEN_SOCIETY_EVENTS = [
       `Поканете своите приятели , а ние ще ви очакваме ви с усмивки и готовност за забавление.`,
       `Не забравяйте любимото си одеяло за пикник и не се колебайте да носите всякакви игри или дейности, които ще допринесат за настроението!`,
     ],
-    ticket_img: '/assets/images/tickets/ticket-3.jpg',
+    ticket_img: '/assets/images/tickets/ticket-5.png',
     images: ["/assets/images/events/intro-week/2"],
     thumbnail: "/assets/images/portfolio/portfolio-12",
   },
   {
+    visible: false,
     title: "Introduction Week (DINNER ONLY)",
     description: "Welcome to the new term",
-    bgImage: "21",
+    bgImage: "22",
     date: "16th September",
     time: "19:00",
-    ticketTimer: '2023-09-15T23:59:00',
+    ticketTimer: '2023-09-16T00:59:00',
     ticketLimit: 70,
     //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
     correctedDate: "",
@@ -51,7 +57,7 @@ export const OPEN_SOCIETY_EVENTS = [
     price_id: 'price_1Nmc1rIOw5UGbAo15v1W2Lt8',
     memberPrice_id: 'price_1Nmc00IOw5UGbAo1ZfaT6m4X',
     activeMemberPrice_id: 'price_1Nmc00IOw5UGbAo1AqDIkHKa',
-    freePass: ["z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
+    freePass: ["elenamateva@abv.bg", "vlady1002@abv.bg", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     extraInputs: false,
     text: [
       `📣 We are thrilled to announce our sizzling summer barbecue picnic! It's time to gather your friends, soak up the good vibes, and celebrate the arrival of warm days in the most delicious way possible.`,
@@ -62,7 +68,7 @@ export const OPEN_SOCIETY_EVENTS = [
       `Поканете своите приятели , а ние ще ви очакваме ви с усмивки и готовност за забавление.`,
       `Не забравяйте любимото си одеяло за пикник и не се колебайте да носите всякакви игри или дейности, които ще допринесат за настроението!`,
     ],
-    ticket_img: '/assets/images/tickets/ticket-3.jpg',
+    ticket_img: '/assets/images/tickets/ticket-6.png',
     images: ["/assets/images/events/intro-week/3"],
     thumbnail: "/assets/images/portfolio/portfolio-13",
   },

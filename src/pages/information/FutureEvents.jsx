@@ -14,6 +14,7 @@ import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import { OPEN_NON_SOCIETY_EVENTS } from "../../util/EVENTS";
 
 const FutureEventsContent = () => {
+  
   return (
     <div className="portfolio-area pt--120 pb--120 bg_color--5">
       <div className="rn-slick-dot">
@@ -29,11 +30,11 @@ const FutureEventsContent = () => {
               </div>
             </div>
             <div className="col-lg-12">
-            <div className="row slick-space-gutter--15 slickdot--20">
-                {OPEN_SOCIETY_EVENTS.length > 0 ? (
+              <div className="row slick-space-gutter--15 slickdot--20">
+                {OPEN_SOCIETY_EVENTS.filter(event => event.visible === true).length > 0 ? (
                   <PortfolioList
                     style="society"
-                    target={OPEN_SOCIETY_EVENTS}
+                    target={OPEN_SOCIETY_EVENTS.filter(event => event.visible === true)}
                     styevariation="text-center mt--40"
                     column="col-lg-4 col-md-5 col-sm-6"
                   />
