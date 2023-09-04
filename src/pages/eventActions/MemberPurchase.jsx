@@ -167,7 +167,7 @@ const MemberPurchase = () => {
                         : target.time}
                     </p>
                     <p>Address: {target.where}</p>
-                    <p>Price: {target.memberEntry} euro (discounted)</p>
+                    <p>Price: {target.memberEntry ? `${target.memberEntry} euro (discounted)` : `${target.entry} (no MEMBER discount)`}</p>
                   </div>
                 </div>
                 {target.extraInputs && <FormExtras />}

@@ -47,7 +47,7 @@ export const OPEN_SOCIETY_EVENTS = [
     where: `Wijkrestaurant De Duindoorn | Duindoornstraat 91, 9741 NP`,
     entry: 12,
     memberEntry: 10,
-    // including: ['(discounted including food and drinks)', '(including food and drinks)'],
+    including: ['(discounted including menu)', '(including menu)'],
     price_id: 'price_1Nmc1rIOw5UGbAo15v1W2Lt8',
     memberPrice_id: 'price_1Nmc00IOw5UGbAo1ZfaT6m4X',
     activeMemberPrice_id: 'price_1Nmc00IOw5UGbAo1AqDIkHKa',
