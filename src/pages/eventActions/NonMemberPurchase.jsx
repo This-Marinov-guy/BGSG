@@ -172,7 +172,9 @@ const NonMemberPurchase = () => {
                         window.location.assign(responseData.url);
                       }
                     }
-                  } catch (err) { }
+                  } catch (err) { 
+                    // console.log(err)
+                   }
                 }}
                 initialValues={{
                   name: "",

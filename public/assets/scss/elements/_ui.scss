@@ -9,9 +9,9 @@ h3 {
 }
 
 .error_panel {
-  top: 50px;
-  left: 25%;
-  max-width: 50%;
+  top: 5%;
+  transform: translateX(-50%);
+  max-width: 60%;
   position: fixed;
   z-index: 10000;
   animation: slide-down 300ms ease-out forwards;
@@ -26,6 +26,15 @@ h3 {
 
   @media #{$small-mobile} {
     padding: 0 40px 40px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    max-width: 90%;
+    margin-left: 5%;
+  }
+
+  @media only screen and (min-width: 801px) {
+    left: 30%;
   }
 }
 
@@ -55,4 +64,3 @@ h3 {
     transform: translateY(0);
   }
 }
-
