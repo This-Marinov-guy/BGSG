@@ -121,15 +121,15 @@ const Root = () => {
             <Route exact path={`/rules-and-regulations`} component={Policy} />
             <Route exact path={`/board`} component={Board} />
             <Route exact path={`/contest/promo-video`} component={Contest} />
-            <Route exact path={`/contest/register`}>
+            {/* <Route exact path={`/contest/register`}>
               <ContestRegister setNotification={setNotification} />
-            </Route>
+            </Route> */}
             <Route exact path={`/committees`} component={Committees} />
             <Route exact path={`/events`} component={Events} />
             <Route exact path={`/articles`} component={Articles} />
-            <Route exact path={`/active-member`} >
+            {/* <Route exact path={`/active-member`} >
               <ActiveMember setNotification={setNotification} />
-            </Route>
+            </Route> */}
 
             <Route exact path={`/future-events`} component={FutureEvents} />
 

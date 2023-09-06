@@ -105,17 +105,6 @@ const Home = () => {
             </a>
             </p>
           </li>
-          <ImageFb
-            className='mt--40'
-            src="/assets/images/news/ad.webp"
-            fallback="/assets/images/news/ad.jpg"
-          />
-          <li className="mt--40">
-            <p> Make a short promo video for BGSG and win a prize!<a href='/contest/register'>
-              (Click here)
-            </a>
-            </p>
-          </li>
         </ul>
 
       </div>
