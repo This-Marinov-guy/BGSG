@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useHttpClient } from "../../hooks/http-hook";
@@ -9,9 +9,11 @@ import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
 import ImageFb from "../../elements/ui/ImageFb";
 import Loader from "../../elements/ui/Loader";
+import { FiX } from "react-icons/fi";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import FormExtras from "../../elements/ui/FormExtras";
+import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
 
 const schema = yup.object().shape({
@@ -27,6 +29,8 @@ const schema = yup.object().shape({
 
 
 const NonMemberPurchase = () => {
+  const [show, setShow] = useState(true);
+
   const { loading, sendRequest } = useHttpClient();
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
@@ -45,29 +49,29 @@ const NonMemberPurchase = () => {
       <div className="container">
         <div className="mt--200">
           <h2 className="center_text mb--80">Purchase a Ticket</h2>
+          <div className="team_member_border-3 center_section" style={{maxWidth: '500px', margin:'60px auto'}} >
+            <p className="information center_text">
+              By becoming a member the cost of the ticket will be reduced
+              and the information will be prefilled for ticket purchasing
+            </p>
+            <a
+              className="rn-button-style--2 rn-btn-reverse-green center_text mb--10"
+              href="/login"
+            >
+              <span className="">Log in</span>
+            </a>
+            <a
+              className="rn-button-style--2 btn-solid center_text"
+              href="/signup"
+            >
+              <span className="">Become a Member</span>
+            </a>
+          </div>
         </div>
         <div className="row">
           <div className="col-lg-4 col-md-12 col-12">
             <div className="mb--20">
               <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`} alt="Event" className="title_img" />
-              <div className="team_member_border-3 center_section mt--40">
-                <p className="information center_text">
-                  By becoming a member the cost of the ticket will be reduced
-                  and the information will be prefilled for ticket purchasing
-                </p>
-                <a
-                  className="rn-button-style--2 rn-btn-reverse-green center_text mb--10"
-                  href="/login"
-                >
-                  <span className="">Log in</span>
-                </a>
-                <a
-                  className="rn-button-style--2 btn-solid center_text"
-                  href="/signup"
-                >
-                  <span className="">Become a Member</span>
-                </a>
-              </div>
               <h2 className="mt--40">Event Details</h2>
               <p>Name:{" "}{target.title}</p>
               <p>
