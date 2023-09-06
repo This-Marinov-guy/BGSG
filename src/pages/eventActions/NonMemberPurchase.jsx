@@ -9,11 +9,9 @@ import { FiChevronUp } from "react-icons/fi";
 import Footer from "../../component/footer/Footer";
 import ImageFb from "../../elements/ui/ImageFb";
 import Loader from "../../elements/ui/Loader";
-import { FiX } from "react-icons/fi";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
 import FormExtras from "../../elements/ui/FormExtras";
-import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router-dom";
 
 const schema = yup.object().shape({
