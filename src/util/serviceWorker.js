@@ -96,6 +96,12 @@ export function unregister() {
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.ready.then((registration) => {
       registration.unregister();
+      window.location.reload();
     });
+  }
+
+  if (registration.active) {
+    registration.waiting.postMessage({ type: "SKIP_WAITING" });
+    window.location.reload();
   }
 }
