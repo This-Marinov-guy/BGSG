@@ -48,25 +48,9 @@ const NonMemberPurchase = () => {
         </div>
         <div className="row">
           <div className="col-lg-4 col-md-12 col-12">
-            <div>
+            <div className="mb--20">
               <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`} alt="Event" className="title_img" />
-              <h2 className="mt--40">Event Details</h2>
-              <p>Name:{" "}{target.title}</p>
-              <p>
-                Date:{" "}
-                {target.correctedDate
-                  ? target.correctedDate + " Updated!"
-                  : target.date}
-              </p>
-              <p>
-                Time:{" "}
-                {target.correctedTime
-                  ? target.correctedTime + " Updated!"
-                  : target.time}
-              </p>
-              <p>Address:{" "}{target.where}</p>
-              <p>Price:{" "}{target.entry} euro</p>
-              <div className="team_member_border-3 center_section mt--80">
+              <div className="team_member_border-3 center_section mt--40">
                 <p className="information center_text">
                   By becoming a member the cost of the ticket will be reduced
                   and the information will be prefilled for ticket purchasing
@@ -84,6 +68,23 @@ const NonMemberPurchase = () => {
                   <span className="">Become a Member</span>
                 </a>
               </div>
+              <h2 className="mt--40">Event Details</h2>
+              <p>Name:{" "}{target.title}</p>
+              <p>
+                Date:{" "}
+                {target.correctedDate
+                  ? target.correctedDate + " Updated!"
+                  : target.date}
+              </p>
+              <p>
+                Time:{" "}
+                {target.correctedTime
+                  ? target.correctedTime + " Updated!"
+                  : target.time}
+              </p>
+              <p>Address:{" "}{target.where}</p>
+              <p>Price:{" "}{target.entry} euro</p>
+
             </div>
           </div>
           <div style={{ width: "20%" }} className="col-lg-4 col-md-12 col-12">
@@ -172,9 +173,9 @@ const NonMemberPurchase = () => {
                         window.location.assign(responseData.url);
                       }
                     }
-                  } catch (err) { 
+                  } catch (err) {
                     // console.log(err)
-                   }
+                  }
                 }}
                 initialValues={{
                   name: "",
