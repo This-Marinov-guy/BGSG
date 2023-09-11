@@ -61,17 +61,13 @@ export const OPEN_SOCIETY_EVENTS = [
     freePass: ["elenamateva@abv.bg", "vladislavmarinov3142@gmail.com", "z.tsenovska@gmail.com", "mnanova6@gmail.com", "tsvetina.arabadzhieva@gmail.com", 'mariakristi.radeva@gmail.com'],
     extraInputs: false,
     text: [
-      `Calling all the veterans!`
-
-        `At the dinner, you will have the opportunity to meet the new additions to the town and catch up with the old ones after the summer!`
-
-        `In addition, you can enjoy our delicious Bulgarian cuisine!`,
+      `Calling all the veterans!`,
+      `At the dinner, you will have the opportunity to meet the new additions to the town and catch up with the old ones after the summer!`,
+      `In addition, you can enjoy our delicious Bulgarian cuisine!`,
       '...',
       `До всички ветерани!`,
-
-      `На вечерята ще можете да се запознаете с новите попълнения в града и да наваксате след лятото със старите!`
-
-        `Освен това, може да се насладите на вкусната ни българска кухня!`,
+      `На вечерята ще можете да се запознаете с новите попълнения в града и да наваксате след лятото със старите!`,
+      `Освен това, може да се насладите на вкусната ни българска кухня!`,
     ],
     ticket_img: '/assets/images/tickets/ticket-6.jpg',
     images: ["/assets/images/events/intro-week/3"],
