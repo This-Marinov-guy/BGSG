@@ -462,6 +462,10 @@ const User = () => {
                         </p>
                       </li>
                       <li className="mt--40">
+                        <p>For freshmen and seniors - Introduction week Dinner 16th of September. <a href='/event-details/Introduction%20Week%20(DINNER%20ONLY)'>Check it now</a>
+                        </p>
+                      </li>
+                      <li className="mt--40">
                         <p> Membership 2023-2024 open. <a href='/signup'>
                           Sign up!
                         </a>
