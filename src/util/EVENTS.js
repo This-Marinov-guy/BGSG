@@ -42,6 +42,7 @@ export const OPEN_SOCIETY_EVENTS = [
   {
     visible: false,
     title: "Introduction Week (DINNER ONLY)",
+    newTitle: 'Dinner',
     description: "Welcome to the new term",
     bgImage: "22",
     date: "16th September",

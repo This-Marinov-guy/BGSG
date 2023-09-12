@@ -63,7 +63,7 @@ const EventDetails = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="rn-page-title text-center pt--100">
-                <h2 className="title theme-gradient">{target.title}</h2>
+                <h2 className="title theme-gradient">{target.newTitle || target.title}</h2>
                 <p>{target.description}</p>
               </div>
             </div>
