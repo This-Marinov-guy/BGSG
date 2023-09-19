@@ -457,7 +457,7 @@ const User = () => {
                     <h2 className="title">News</h2>
                     <ul>
 
-                     
+                
                       <li className="mt--40">
                         <p> Membership 2023-2024 open. <a href='/signup'>
                           Sign up!

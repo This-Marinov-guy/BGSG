@@ -93,15 +93,13 @@ function checkValidServiceWorker(swUrl, config) {
 }
 
 export function unregister() {
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.ready.then((registration) => {
-      registration.unregister();
-      window.location.reload();
-
-      if (registration.active) {
-        registration.waiting.postMessage({ type: "SKIP_WAITING" });
-        window.location.reload();
-      }
-    });
+  if (window.navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.getRegistrations()
+      .then(function (registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+      console.log('Service worker unregistered');
   }
 }
