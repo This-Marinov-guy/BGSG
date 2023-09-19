@@ -15,7 +15,7 @@ import { removeModal, selectModal, showModal } from "../../redux/modal";
 import FooterTwo from "../../component/footer/FooterTwo";
 import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
-import * as serviceWorker from "./util/serviceWorker";
+import * as serviceWorker from "../../util/serviceWorker";
 
 const schema = yup.object().shape({
   token: yup.string().required("Please provide the token send to you by email"),
