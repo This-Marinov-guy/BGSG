@@ -204,7 +204,7 @@ export const EVENT_REFLECTION_DETAILS = [
     attendance: "25",
     comments: "10",
     text: [
-      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committie, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
+      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committee, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
     ],
     images: [
       { id: "1", image: "dodgeball/1", text: "" },
@@ -216,15 +216,15 @@ export const EVENT_REFLECTION_DETAILS = [
     title: "Introduction Dinner 2023",
     bgImage: "22",
     date: "16th September",
-    attendance: "30",
+    attendance: "30", 
     comments: "10",
     text: [
-      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committie, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
+      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committee, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
     ],
     images: [
-      { id: "1", image: "dodgeball/1", text: "" },
-      { id: "2", image: "dodgeball/2", text: "" },
-      { id: "3", image: "dodgeball/3", text: "" },
+      { id: "1", image: "intro-week/4", text: "" },
+      { id: "2", image: "intro-week/5", text: "" },
+      { id: "3", image: "intro-week/6", text: "" },
     ],
   },
 
