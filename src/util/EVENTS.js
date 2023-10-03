@@ -204,7 +204,7 @@ export const EVENT_REFLECTION_DETAILS = [
     attendance: "25",
     comments: "10",
     text: [
-      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committee, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
+      `A night of sweat, sportsmanship, awards and tons of fun. This event, hosted again by one of our beloved committee, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
     ],
     images: [
       { id: "1", image: "dodgeball/1", text: "" },
@@ -219,7 +219,7 @@ export const EVENT_REFLECTION_DETAILS = [
     attendance: "30", 
     comments: "10",
     text: [
-      `A night of sweat, sportsmenship, awards and tons of fun. This event ,hosted again by one of our beloved committee, gathered players that enjoyed a quick tournament of dodgeball. Of course, there was an MVP award and motivation for the others to prepare better for the next one! `,
+      `Bulgarian Society Groningen starts the new term with a 3-day event for newcomers and seniors. We welcomed everyone for a traditional Bulgarian dinner (our now tradition as we our first event that started everything) and we were pleased to introduce new active members, new board members and meet the juniors with people to build their network with. We believe everyone had good time and you can definitely expect more for the upcoming year!`,
     ],
     images: [
       { id: "1", image: "intro-week/4", text: "" },
