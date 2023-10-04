@@ -102,7 +102,7 @@
     "start": "node scripts/start.js",
     "build": "npm version patch && node scripts/build.js",
     "test": "node scripts/test.js",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && netlify deploy --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
