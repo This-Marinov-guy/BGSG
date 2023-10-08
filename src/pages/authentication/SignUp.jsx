@@ -139,7 +139,7 @@ const SignUp = (props) => {
                           <FiCheck />Discounts for events
                         </li>
                         <li>
-                          <FiCheck />Premium Oss collection of event tickets
+                          <FiCheck />Premium collection of event tickets
                         </li>
                         <li>
                           <FiCheck />Discounts from sponsors
