@@ -133,17 +133,16 @@ const SignUp = (props) => {
                         className="list-style--1"
                       >
                         <li>
-                          <FiCheck /> Exclusive member events
+                          <FiCheck />Exclusive member events
                         </li>
                         <li>
-                          <FiCheck />
-                          Discounts for events
+                          <FiCheck />Discounts for events
                         </li>
                         <li>
-                          <FiCheck /> Premium Oss collection of event tickets
+                          <FiCheck />Premium Oss collection of event tickets
                         </li>
                         <li>
-                          <FiCheck /> Discounts from sponsors
+                          <FiCheck />Discounts from sponsors
                         </li>
                       </ul>
                     </div>
