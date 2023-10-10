@@ -34,6 +34,9 @@ const MemberPurchase = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
+        if (!userId) {
+          history.push('/404');
+        }
         const responseData = await sendRequest(`user/${userId}`);
         setCurrentUser(responseData.user);
       } catch (err) {
