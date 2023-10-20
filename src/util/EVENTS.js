@@ -47,8 +47,8 @@ export const OPEN_SOCIETY_EVENTS = [
     bgImage: "16",
     date: "21st October",
     time: "13:00",
-    ticketTimer: '2023-10-21T00:59:00',
-    // ticketLimit: 100,
+    ticketTimer: '2023-10-21T10:00:00',
+    ticketLimit: 42,
     //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
     correctedDate: "",
     correctedTime: "",
