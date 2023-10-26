@@ -72,7 +72,7 @@ export const OPEN_SOCIETY_EVENTS = [
   // },
   {
     visible: true,
-    title: "Social Drinks & Belot",
+    title: "Social Drinks and Belot",
     // newTitle: 'Bulgarian Dinner',
     description: "Let's see who is a player",
     bgImage: "23",
