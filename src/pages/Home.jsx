@@ -95,9 +95,7 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
-          <li className="mt--40">
-            <p>Rules of the International Volleyball Tournament: <a href='/assets/documents/Rules Volley.pdf' target="_blank">See here</a></p>
-          </li>
+        
 
           <li className="mt--40">
             <p> Membership 2023-2024 open. <a href='/signup'>

@@ -84,9 +84,6 @@ const EventDetails = () => {
                   {target.text.map((value, index) => {
                     return <p key={index}>{value}</p>
                   })}
-                  <div>
-                    <h3>Rules of the event: <a href='/assets/documents/Rules Volley.pdf' target="_blank">See here</a></h3>
-                  </div>
                   <div className="portfolio-view-list d-flex flex-wrap">
                     <div className="port-view">
                       <span>When</span>
