@@ -156,8 +156,8 @@ class Team extends Component {
                 <div
                   className={
                     value.id % 2 !== 0
-                      ? "team_member_border-1"
-                      : "team_member_border-2"
+                      ? "team_member_border-3"
+                      : "team_member_border-4"
                   }
                 >
                   <h2 className="title">{value.name}</h2>
