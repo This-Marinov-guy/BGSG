@@ -66,6 +66,7 @@ const Fail = lazy(() => import("./pages/redirects/Fail"));
 
 const Root = () => {
   const maintenanceBreak = true;
+  
   const [notification, setNotification] = useState();
 
   const dispatch = useDispatch();
