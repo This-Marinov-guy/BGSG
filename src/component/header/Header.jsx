@@ -102,7 +102,7 @@ const Header = (props) => {
                   </ul>
                 </li>
                 <li className="has-droupdown">
-                  <Link to="/contest/register">Society</Link>
+                  <Link to="/articles">Society</Link>
                   <ul className="submenu">
                     <li>
                       <Link to="/articles">Articles</Link>

@@ -25,6 +25,7 @@ const About = lazy(() => import("./pages/information/About"));
 const Contact = lazy(() => import("./pages/information/Contact"));
 const Policy = lazy(() => import("./pages/information/Policy"));
 const Error404 = lazy(() => import("./pages/Error404"));
+const Maintenance = lazy(() => import("./pages/Maintenance"));
 const Board = lazy(() => import("./pages/information/Board"));
 const Contest = lazy(() => import("./pages/information/Contest"));
 const Committees = lazy(() => import("./pages/information/Committees"));
@@ -64,6 +65,7 @@ const SuccessDonation = lazy(() => import("./pages/redirects/SuccessDonation"));
 const Fail = lazy(() => import("./pages/redirects/Fail"));
 
 const Root = () => {
+  const maintenanceBreak = true;
   const [notification, setNotification] = useState();
 
   const dispatch = useDispatch();
@@ -106,85 +108,89 @@ const Root = () => {
     }
   }, [dispatch]);
 
-  return (
-    <BrowserRouter basename={"/"}>
-      <PageScrollTop>
-        <Suspense fallback={<PageLoading />}>
-          {notification}
-          {error && <Error errorMessage={errorMessage} />}
-          <Switch>
-            <Route exact path="/" component={Home} />
+  if (maintenanceBreak) {
+    return <Maintenance />
+  }
+  else {
+    return (
+      <BrowserRouter basename={"/"}>
+        <PageScrollTop>
+          <Suspense fallback={<PageLoading />}>
+            {notification}
+            {error && <Error errorMessage={errorMessage} />}
+            <Switch>
+              <Route exact path="/" component={Home} />
 
-            {/* Element Layout */}
-            <Route exact path={`/contact`} component={Contact} />
-            <Route exact path={`/about`} component={About} />
-            <Route exact path={`/rules-and-regulations`} component={Policy} />
-            <Route exact path={`/board`} component={Board} />
-            <Route exact path={`/contest/promo-video`} component={Contest} />
-            {/* <Route exact path={`/contest/register`}>
+              {/* Element Layout */}
+              <Route exact path={`/contact`} component={Contact} />
+              <Route exact path={`/about`} component={About} />
+              <Route exact path={`/rules-and-regulations`} component={Policy} />
+              <Route exact path={`/board`} component={Board} />
+              <Route exact path={`/contest/promo-video`} component={Contest} />
+              {/* <Route exact path={`/contest/register`}>
               <ContestRegister setNotification={setNotification} />
             </Route> */}
-            <Route exact path={`/committees`} component={Committees} />
-            <Route exact path={`/events`} component={Events} />
-            <Route exact path={`/articles`} component={Articles} />
-            <Route exact path={`/active-member`} >
-              <ActiveMember setNotification={setNotification} />
-            </Route>
+              <Route exact path={`/committees`} component={Committees} />
+              <Route exact path={`/events`} component={Events} />
+              <Route exact path={`/articles`} component={Articles} />
+              <Route exact path={`/active-member`} >
+                <ActiveMember setNotification={setNotification} />
+              </Route>
 
-            <Route exact path={`/future-events`} component={FutureEvents} />
+              <Route exact path={`/future-events`} component={FutureEvents} />
 
-            <Route exact path={`/past-events`} component={PastEvents} />
-            <Route path={`/event-details/:eventId`} component={EventDetails} />
+              <Route exact path={`/past-events`} component={PastEvents} />
+              <Route path={`/event-details/:eventId`} component={EventDetails} />
 
-            <Route exact path={"/other-event-details/:eventId"}>
-              <NonSocietyEvent setNotification={setNotification} />
-            </Route>
-            <Route
-              path={`/event-reflection/:eventId`}
-              component={EventReflection}
-            />
+              <Route exact path={"/other-event-details/:eventId"}>
+                <NonSocietyEvent setNotification={setNotification} />
+              </Route>
+              <Route
+                path={`/event-reflection/:eventId`}
+                component={EventReflection}
+              />
 
-            {/* Redirect pages */}
+              {/* Redirect pages */}
 
-            <Route exact path={`/success`} component={Success} />
-            <Route exact path={`/donation/success`} component={SuccessDonation} />
-            <Route exact path={`/fail`} component={Fail} />
+              <Route exact path={`/success`} component={Success} />
+              <Route exact path={`/donation/success`} component={SuccessDonation} />
+              <Route exact path={`/fail`} component={Fail} />
 
-            {/* Auth pages */}
-            {user.token ? (
-              <Switch>
-                <Route exact path={`/user/:userId`} component={User} />
-                <Route
-                  exact
-                  path={"/purchase-ticket/:eventId/:userId"}
-                  component={MemberPurchase}
-                />
-                <Route path="*" component={Error404} />
-              </Switch>
-            ) : (
-              <Switch>
-                <Route exact path={`/login`}>
-                  <LogIn setNotification={setNotification} />
-                </Route>
+              {/* Auth pages */}
+              {user.token ? (
+                <Switch>
+                  <Route exact path={`/user/:userId`} component={User} />
+                  <Route
+                    exact
+                    path={"/purchase-ticket/:eventId/:userId"}
+                    component={MemberPurchase}
+                  />
+                  <Route path="*" component={Error404} />
+                </Switch>
+              ) : (
+                <Switch>
+                  <Route exact path={`/login`}>
+                    <LogIn setNotification={setNotification} />
+                  </Route>
 
-                <Route exact path={`/signup`}>
-                  <SignUp setNotification={setNotification} />
-                </Route>
-                <Route
-                  exact
-                  path={"/purchase-ticket/:eventId"}
-                  component={NonMemberPurchase}
-                />
-                <Route path="*" component={Error404} />
-              </Switch>
-            )}
-          </Switch>
-        </Suspense>
-      </PageScrollTop>
-    </BrowserRouter>
-  );
-};
-
+                  <Route exact path={`/signup`}>
+                    <SignUp setNotification={setNotification} />
+                  </Route>
+                  <Route
+                    exact
+                    path={"/purchase-ticket/:eventId"}
+                    component={NonMemberPurchase}
+                  />
+                  <Route path="*" component={Error404} />
+                </Switch>
+              )}
+            </Switch>
+          </Suspense>
+        </PageScrollTop>
+      </BrowserRouter>
+    );
+  };
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
