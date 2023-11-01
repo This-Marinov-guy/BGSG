@@ -65,7 +65,7 @@ const SuccessDonation = lazy(() => import("./pages/redirects/SuccessDonation"));
 const Fail = lazy(() => import("./pages/redirects/Fail"));
 
 const Root = () => {
-  const maintenanceBreak = true;
+  const maintenanceBreak = false;
   
   const [notification, setNotification] = useState();
 
