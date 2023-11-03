@@ -136,7 +136,7 @@ class Team extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="container team_info">
+        <div className="container bg_color--1">
           <div className="column">
             {TeamContent.map((value) => (
               <div
@@ -156,8 +156,8 @@ class Team extends Component {
                 <div
                   className={
                     value.id % 2 !== 0
-                      ? "team_member_border-3"
-                      : "team_member_border-4"
+                      ? "team_member_border-1"
+                      : "team_member_border-2"
                   }
                 >
                   <h2 className="title">{value.name}</h2>
