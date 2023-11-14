@@ -4,7 +4,7 @@ export const OPEN_SOCIETY_EVENTS = [
     visible: true,
     title: "Bulgarian Student Party",
     // newTitle: 'Bulgarian Dinner',
-    description: "celebrate like a Balkan",
+    description: " balkan tunes for the student holiday",
     bgImage: "24",
     date: "7th December",
     time: "22:00",
