@@ -35,7 +35,7 @@ export const OPEN_SOCIETY_EVENTS = [
       `Tickets are limited so secure your spot NOW: €5 for members of BGSG & €6 for non-members. `,
       `See you in your best uni outfits on December 7th!`
     ],
-    ticket_img: '/assets/images/tickets/ticket-9.jpg',
+    ticket_img: '/assets/images/tickets/ticket-9.png',
     images: ["/assets/images/portfolio/portfolio-16"],
     thumbnail: "/assets/images/portfolio/portfolio-16",
   },
