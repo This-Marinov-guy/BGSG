@@ -13,6 +13,9 @@ class BrandTwo extends Component {
                         <a href='https://bulgariansocietylwd.nl' target='_blank'><img src="/assets/images/brand/brand-09.jpg" style={{borderRadius: '50%'}} alt="Logo Images" /></a>
                     </li>
                     <li>
+                        <a href='https://sunnybeach-groningen.nl' target='_blank'><img src="/assets/images/brand/brand-10.png" alt="Logo Images" /></a>
+                    </li>
+                    <li>
                         <a href='https://www.cooltravel.bg/' target='_blank'><img className="splash-li" src="/assets/images/brand/brand-06.png" alt="Logo Images" /></a>
                     </li>
                     <li>
