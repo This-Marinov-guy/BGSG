@@ -245,7 +245,7 @@ export const EVENT_REFLECTION_DETAILS = [
     title: "Introduction Dinner 2023",
     bgImage: "22",
     date: "16th September",
-    attendance: "30", 
+    attendance: "30",
     comments: "10",
     text: [
       `Bulgarian Society Groningen starts the new term with a 3-day event for newcomers and seniors. We welcomed everyone for a traditional Bulgarian dinner (our now tradition as we our first event that started everything) and we were pleased to introduce new active members, new board members and meet the juniors with people to build their network with. We believe everyone had good time and you can definitely expect more for the upcoming year!`,
@@ -254,6 +254,36 @@ export const EVENT_REFLECTION_DETAILS = [
       { id: "1", image: "intro-week/4", text: "" },
       { id: "2", image: "intro-week/5", text: "" },
       { id: "3", image: "intro-week/6", text: "" },
+    ],
+  },
+  {
+    title: "International Volleyball Tournament",
+    bgImage: "16",
+    date: "21st October",
+    attendance: "70",
+    comments: "70",
+    text: [
+      `Our Committees keep surprising us! The volleyball tournament they hosted gathered multiple nationalities to show which team is the best. There were lots of emotions, fun and fantastic atmosphere - even though we could not fit more than the scheduled teams, we promise to host more such sports competitions to meet the demand!`,
+    ],
+    images: [
+      { id: "1", image: "volleyball/1", text: "" },
+      { id: "2", image: "volleyball/2", text: "" },
+      { id: "3", image: "volleyball/3", text: "" },
+    ],
+  },
+  {
+    title: "Social Drinks and Belot",
+    bgImage: "23",
+    date: "3rd November",
+    attendance: "60",
+    comments: "50",
+    text: [
+      `Fancy a chill night out! Our social events in small venues are the perfect ones to enjoy a peaceful night with friends or meet some cool people. Such was the belot social event, where we gathered to play cards and chat - what more could you want from a weekday-night-out!`,
+    ],
+    images: [
+      { id: "1", image: "belot/1", text: "" },
+      { id: "2", image: "belot/2", text: "" },
+      { id: "3", image: "belot/3", text: "" },
     ],
   },
 
