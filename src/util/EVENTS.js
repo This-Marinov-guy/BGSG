@@ -1,5 +1,44 @@
 // add ticket_link : '*link for the tickets' for outside ticket purchase
 export const OPEN_SOCIETY_EVENTS = [
+  {
+    visible: true,
+    title: "Bulgarian Student Party",
+    // newTitle: 'Bulgarian Dinner',
+    description: "celebrate like a Balkan",
+    bgImage: "24",
+    date: "7th December",
+    time: "22:00",
+    ticketTimer: '2023-12-07T19:00:00',
+    ticketLimit: 100,
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: `Sunny Beach`,
+    entry: 6,
+    memberEntry: 5,
+    // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
+    price_id: 'price_1OCPOgIOw5UGbAo1HaG36vVy',
+    memberPrice_id: 'price_1OCPPbIOw5UGbAo1ev6UZRHl',
+    activeMemberPrice_id: 'price_1OCPPbIOw5UGbAo1cckNspxQ',
+    freePass: ['vlady1002@abv.bg'],
+    extraInputs: false,
+    text: [
+      `Come celebrate Bulgaria’s national student holiday with us on December 7th at Sunny Beach!`,
+      `The event will start at 22:00 and we’ll party through the night until 05:00! `,
+      `In theme with the student holiday, the dress code is: Dress as your major. `,
+      `Dress up and get creative with the outfits! 
+      Future lawyers, come dressed for court. For the scientists- lab coats. For the business students- suits.  And girls, this is your chance to put on that cute uni outfit you never get to wear! 
+      But most importantly, wear what you feel comfortable in. 
+      `,
+      `To set the atmosphere the amazing DJ from Sunny Beach will be playing your favorite Balkan rhythms. Expect thematic decorations and the best vibes for the Bulgarian Student Party!
+      `,
+      `Tickets are limited so secure your spot NOW: €5 for members of BGSG & €6 for non-members. `,
+      `See you in your best uni outfits on December 7th!`
+    ],
+    ticket_img: '/assets/images/tickets/ticket-9.jpg',
+    images: ["/assets/images/portfolio/portfolio-16"],
+    thumbnail: "/assets/images/portfolio/portfolio-16",
+  },
   // {
   //   visible: true,
   //   subEvent: {
@@ -38,37 +77,6 @@ export const OPEN_SOCIETY_EVENTS = [
   //   ticket_img: '/assets/images/tickets/ticket-5.jpg',
   //   images: ["/assets/images/events/intro-week/2", "/assets/images/events/intro-week/3"],
   //   thumbnail: "/assets/images/portfolio/portfolio-12",
-  // },
-  // {
-  //   visible: true,
-  //   title: "International Volleyball Tournament",
-  //   // newTitle: 'Bulgarian Dinner',
-  //   description: " Calling all volleyball enthusiasts!",
-  //   bgImage: "16",
-  //   date: "21st October",
-  //   time: "13:00",
-  //   ticketTimer: '2023-10-21T12:00:00',
-  //   ticketLimit: 48,
-  //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-  //   correctedDate: "",
-  //   correctedTime: "",
-  //   where: `Sportcentum ACLO`,
-  //   entry: 6,
-  //   memberEntry: 5,
-  //   // including: ['(discounted including menu)', '(including menu)'],
-  //   price_id: 'price_1NzZMgIOw5UGbAo1mTC5uNbC',
-  //   memberPrice_id: 'price_1NzZNSIOw5UGbAo1yvxN3ZhC',
-  //   activeMemberPrice_id: 'price_1NzZO3IOw5UGbAo1SOwKE8SK',
-  //   freePass: ['vlady1002@abv.bg'],
-  //   extraInputs: false,
-  //   text: [
-  //     `We're thrilled to announce our upcoming International Volleyball Tournament! `,
-  //     `Whether you're a pro or just looking for some fun, this is the event you won't want to miss. You will have the chance to have a lot of fun and compete with your team for a prize fund of 90 euros! The prize will be divided between the members of the winning team.`,
-  //     `You can assemble your own team of six and come together or be assigned to a team upon your arrival. The rules of the game will be presented right before the game and will be printed out and available to revisit throughout the whole gameplay. Please make sure you arrive 10 minutes before the starting hour!`,
-  //   ],
-  //   ticket_img: '/assets/images/tickets/ticket-7.jpg',
-  //   images: ["/assets/images/portfolio/portfolio-14"],
-  //   thumbnail: "/assets/images/portfolio/portfolio-14",
   // },
   // {
   //   visible: true,
@@ -286,5 +294,4 @@ export const EVENT_REFLECTION_DETAILS = [
       { id: "3", image: "belot/3", text: "" },
     ],
   },
-
 ];
