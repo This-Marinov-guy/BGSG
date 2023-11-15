@@ -24,16 +24,16 @@ export const OPEN_SOCIETY_EVENTS = [
     extraInputs: false,
     text: [
       `Come celebrate Bulgaria’s national student holiday with us on December 7th at Sunny Beach!`,
-      `The event will start at 22:00 and we’ll party through the night until 05:00! `,
       `In theme with the student holiday, the dress code is: Dress as your major. `,
-      `Dress up and get creative with the outfits! 
-      Future lawyers, come dressed for court. For the scientists- lab coats. For the business students- suits.  And girls, this is your chance to put on that cute uni outfit you never get to wear! 
-      But most importantly, wear what you feel comfortable in. 
+      `Future lawyers, come dressed for court. For the scientists- lab coats. For the business students- suits. This is your chance to put on that cute uni outfit you never get to wear!
+       `,
+      `To set the atmosphere, the amazing DJs: @djzander & @saahkoang @balkanifywill be playing your favorite Balkan rhythms. 
       `,
-      `To set the atmosphere the amazing DJ from Sunny Beach will be playing your favorite Balkan rhythms. Expect thematic decorations and the best vibes for the Bulgarian Student Party!
+      `Expect thematic decorations and the best vibes! The event will start at 22:00 and we'll party through the night until 05:00! 
       `,
-      `Tickets are limited so secure your spot NOW: €5 for members of BGSG & €6 for non-members. `,
-      `See you in your best uni outfits on December 7th!`
+      `Dress up and get creative with the outfits!`,
+      `Tickets are limited so make sure you secure your spot NOW: €5 for members of BGSG & €6 for non-members.
+      `
     ],
     ticket_img: '/assets/images/tickets/ticket-9.png',
     images: ["/assets/images/portfolio/portfolio-16"],
