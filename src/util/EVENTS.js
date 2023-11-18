@@ -20,7 +20,7 @@ export const OPEN_SOCIETY_EVENTS = [
     price_id: 'price_1OCPOgIOw5UGbAo1HaG36vVy',
     memberPrice_id: 'price_1OCPPbIOw5UGbAo1ev6UZRHl',
     activeMemberPrice_id: 'price_1OCPPbIOw5UGbAo1cckNspxQ',
-    freePass: ['vlady1002@abv.bg'],
+    freePass: ['vlady1002@abv.bg', 'Marios Lazarou', 'Constantinos Hadjicostis', 'Aggeliki Sideri', 'Kyriakos Panaou', 'Andreas Chitos', 'Sarantos Mourkakos', 'Anna Themistokleous'],
     extraInputs: false,
     text: [
       `Come celebrate Bulgaria’s national student holiday with us on December 7th at Sunny Beach!`,
