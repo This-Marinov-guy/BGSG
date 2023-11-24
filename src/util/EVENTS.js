@@ -71,7 +71,7 @@ export const OPEN_SOCIETY_EVENTS = [
        `,
     ],
     ticket_img: '/assets/images/tickets/ticket-10.jpg',
-    images: ["/assets/images/events/bgsr/1", "/assets/images/events/bgsr/1"],
+    images: ["/assets/images/events/bgsr/2", "/assets/images/events/bgsr/1"],
     thumbnail: "/assets/images/portfolio/portfolio-25",
   },
   // {

@@ -466,8 +466,7 @@ const User = () => {
                       </li>
                       <li className="mt--40">
                         <p>
-                          We will soon post information for our 2nd member event.
-                          Stay tuned!
+                          2nd Members event open now - <a href='https://www.bulgariansocietygro.nl/event-details/Rotterdam%20Trip'>Click to join</a>
                         </p>
                       </li>
                     </ul>
