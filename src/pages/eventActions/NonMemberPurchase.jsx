@@ -27,8 +27,6 @@ const schema = yup.object().shape({
 
 
 const NonMemberPurchase = () => {
-  const [show, setShow] = useState(true);
-
   const { loading, sendRequest } = useHttpClient();
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
@@ -46,8 +44,10 @@ const NonMemberPurchase = () => {
       />
       <div className="container">
         <div className="mt--200">
-          <h2 className="center_text mb--80">Purchase a Ticket</h2>
-          <div className="team_member_border-3 center_section" style={{maxWidth: '500px', margin:'60px auto'}} >
+          {target.membersOnly ? <h3 className="center_text mb--80">Opps... it seems that this is an event exclusive to members! You still have a chance to enter!</h3> :
+            <h2 className="center_text mb--80">Purchase a Ticket</h2>}
+
+          <div className="team_member_border-3 center_section" style={{ maxWidth: '500px', margin: '60px auto' }} >
             <p className="information center_text">
               By becoming a member the cost of the ticket will be reduced
               and the information will be prefilled for ticket purchasing
@@ -66,7 +66,7 @@ const NonMemberPurchase = () => {
             </a>
           </div>
         </div>
-        <div className="row">
+        {!target.membersOnly && <div className="row">
           <div className="col-lg-4 col-md-12 col-12">
             <div className="mb--20">
               <ImageFb src={`${target.images[0]}.webp`} fallback={`${target.images[0]}.jpg`} alt="Event" className="title_img" />
@@ -307,7 +307,7 @@ const NonMemberPurchase = () => {
               </Formik>
             </div>
           </div>
-        </div>
+        </div>}
       </div>
       {/* Start Back To Top */}
       <div className="backto-top">

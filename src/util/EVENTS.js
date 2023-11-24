@@ -39,6 +39,41 @@ export const OPEN_SOCIETY_EVENTS = [
     images: ["/assets/images/portfolio/portfolio-16"],
     thumbnail: "/assets/images/portfolio/portfolio-16",
   },
+  {
+    membersOnly: true,
+    visible: true,
+    title: "Rotterdam Trip",
+    // newTitle: 'Bulgarian Dinner',
+    description: "Meet and Greet with BGSR",
+    bgImage: "25",
+    date: "2nd December",
+    time: "TBD",
+    ticketTimer: '2023-12-02T00:01:00',
+    ticketLimit: 24,
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: `Rotterdam`,
+    entry: 25,
+    memberEntry: 25,
+    // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
+    price_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
+    memberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
+    activeMemberPrice_id: 'price_1OFsWAIOw5UGbAo1fUpcMUWj',
+    freePass: ['vlady1002@abv.bg'],
+    extraInputs: false,
+    text: [
+      `Join us for an exclusive members-only experience in Rotterdam, where we will meet our amazing partners from Bulgarian Society Rotterdam!
+      `,
+      `Don't miss out on this unique opportunity to connect with more interesting people, explore the vibrant city of Rotterdam, and create some lasting memories! Make sure you save a spot fast, since we offer only a limited number of places!!!
+      `,
+      `More details regarding the start time, the trip organization, and the activities throughout the day will be shared with you in a private WhatsApp group, in which you will be added after purchasing your ticket.
+       `,
+    ],
+    ticket_img: '/assets/images/tickets/ticket-10.jpg',
+    images: ["/assets/images/events/bgsr/1", "/assets/images/events/bgsr/1"],
+    thumbnail: "/assets/images/portfolio/portfolio-25",
+  },
   // {
   //   visible: true,
   //   subEvent: {
