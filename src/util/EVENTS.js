@@ -59,7 +59,7 @@ export const OPEN_SOCIETY_EVENTS = [
     // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
     price_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
     memberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
-    activeMemberPrice_id: 'price_1OFsWAIOw5UGbAo1fUpcMUWj',
+    activeMemberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
     freePass: ['vlady1002@abv.bg'],
     extraInputs: false,
     text: [
