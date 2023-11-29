@@ -11,9 +11,9 @@ $white: #faf9f6;
     Font Family 
 =================================*/
 @font-face {
-  font-family: Mozer;
-  src: url(/assets/fonts/MozerRegular.woff2) format("woff2"),
-    url(/assets/fonts/MozerRegular.otf) format("opentype");
+  font-family: Roboto;
+  src: url(/assets/fonts/Roboto.woff2) format("woff2"),
+    url(/assets/fonts/Roboto.otf) format("opentype");
 }
 
 @font-face {
@@ -21,11 +21,11 @@ $white: #faf9f6;
   src: url(/assets/fonts/Archive-Regular.ttf) format("truetype");
 }
 
-$body-font: "Mozer";
-$heading-font: "Mozer";
+$body-font: "Roboto";
+$heading-font: "Roboto";
 
 // Heading Font List
-$font-1: "Mozer";
+$font-1: "Roboto";
 $fontList: $font-1;
 $title-font: "Archive";
 
