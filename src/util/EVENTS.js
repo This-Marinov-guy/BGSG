@@ -1,6 +1,7 @@
 // add ticket_link : '*link for the tickets' for outside ticket purchase
 export const OPEN_SOCIETY_EVENTS = [
   {
+    membersOnly: false,
     visible: true,
     title: "Bulgarian Student Party",
     // newTitle: 'Bulgarian Dinner',
