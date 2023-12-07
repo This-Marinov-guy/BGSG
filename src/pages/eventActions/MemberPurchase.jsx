@@ -89,12 +89,23 @@ const MemberPurchase = () => {
     setLoadingPage(false)
   }, [target])
 
-  if (loadingPage && !currentUser) {
+  if (loadingPage || !currentUser) {
     return <PageLoading />
   } else if (eventClosed) {
     return (
-      <div className="container">
-        <h3 className="center_text mb--80">Opps ... it is all SOLD OUT! Please check the event description for tickets on-the-door or contact us through our email! Hope we see you soon!</h3>
+      <div className="container center_text mt--100">
+        <ImageFb
+          className="logo mb--40"
+          src="/assets/images/logo/logo.webp"
+          fallback="/assets/images/logo/logo.jpg"
+          alt="Logo"
+        />
+        <h3 className="">Opps ... it is all SOLD OUT! Please check the event description for tickets on-the-door or contact us through our email! Hope we see you soon!</h3>
+        <a href='/'
+          className="rn-button-style--2 btn-solid mt--20"
+        >
+          Home
+        </a>
       </div>)
   } else {
     return (
