@@ -90,7 +90,7 @@ const User = () => {
       }
     };
     fetchCurrentUser();
-  }, [sendRequest, userId]);
+  }, [userId]);
 
   return currentUser ? (
     <React.Fragment>
