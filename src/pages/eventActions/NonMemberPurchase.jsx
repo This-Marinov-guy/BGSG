@@ -11,6 +11,7 @@ import ImageFb from "../../elements/ui/ImageFb";
 import Loader from "../../elements/ui/Loader";
 import { useObjectGrabUrl } from "../../hooks/object-hook";
 import { OPEN_SOCIETY_EVENTS } from "../../util/EVENTS";
+import {createCustomerTicket} from "../../util/ticket-creator"
 import FormExtras from "../../elements/ui/FormExtras";
 import { useHistory } from "react-router-dom";
 
@@ -98,46 +99,12 @@ const NonMemberPurchase = () => {
                 validationSchema={schema}
                 onSubmit={async (values) => {
                   try {
-                    // Create a canvas element, add the image and text, covert to blob
-                    //for 1500 x 485 images
-                    var canvas = document.createElement("canvas");
-                    var layout = canvas.getContext("2d");
-                    let ticket = new Image();
-                    ticket.src = target.ticket_img;
-                    //image
-                    canvas.width = ticket.naturalWidth;
-                    canvas.height = ticket.naturalHeight;
-                    layout.drawImage(
-                      ticket,
-                      0,
-                      0,
-                      ticket.naturalWidth,
-                      ticket.naturalHeight
-                    );
-                    // text
-                    let textName = values.name;
-                    layout.rotate(4.71);
-                    layout.font = "52px Archive";
-                    layout.fillStyle = "#faf9f6";
-                    layout.textAlign = "center";
-                    layout.strokeText(textName, -255, 1170);
-                    layout.fillText(textName, -255, 1170);
-
-                    layout.font = "52px Archive";
-                    layout.fillStyle = "#faf9f6";
-                    let textSurname = values.surname;
-                    layout.textAlign = "center";
-                    layout.strokeText(textSurname, -255, 1230);
-                    layout.fillText(textSurname, -255, 1230);
-                    // blob
-                    const dataBlob = await new Promise((resolve) =>
-                      canvas.toBlob((blob) => resolve(blob), "image/webp")
-                    );
+                    const ticket = await createCustomerTicket(target.ticket_img, values.name, values.surname);
                     // formData
                     const formData = new FormData();
                     formData.append(
                       "image",
-                      dataBlob,
+                      ticket,
                       target.title +
                       "_" +
                       values.name +
