@@ -14,28 +14,28 @@ const COMMITTEES = {
       id: 1,
       name: "Milena |",
       title: " Chair",
-      description: '19 | BSc International Business',
+      description: '20 | BSc International Business',
       interests: 'Extreme Sports, Reading, Marketing, Painting'
     },
     {
       id: 2,
       name: "Jordanka |",
       title: " PR Manager",
-      description: '21 | BSc Psychology',
+      description: '22 | BSc Psychology',
       interests: 'Gym, Dancing, Personal Development'
     },
     {
       id: 3,
       name: "Emil |",
       title: " Treasurer",
-      description: '20 | BSc International Business',
+      description: '21 | BSc International Business',
       interests: 'Finance, Personal Development, Reading, Music, Sports'
     },
     {
       id: 4,
       name: "Gergana |",
       title: " Secretary",
-      description: '19 | BSc International Business',
+      description: '20 | BSc International Business',
       interests: 'Synchronized Swimming, Photography, Mathematics, Reading'
     }
   ],
@@ -44,28 +44,28 @@ const COMMITTEES = {
       id: 1,
       name: "Tsvetina |",
       title: "Chair",
-      description: '27 | Master International Communication',
+      description: '28 | International Recruitment',
       interests: 'Traveling, Festivals, Cooking, Cultural Activities'
     },
     {
       id: 2,
       name: "Margarita |",
       title: "Treasurer",
-      description: '20 | BSc Biomedical engineering',
+      description: '21 | BSc Biomedical engineering',
       interests: 'Dancing, Traveling, Baking'
     },
     {
       id: 3,
-      name: "Elena |",
+      name: "Zornitsa |",
       title: "PR Manager",
-      description: '20 | BSc Marketing Management',
-      interests: 'Finance, Personal Development, Reading, Music, Sports'
+      description: '21 | BSc International Business',
+      interests: 'Dancing, Traveling, Fashion'
     },
     {
       id: 4,
       name: "Maria-Kristi |",
       title: "Secretary",
-      description: '19 | BA International and European Law',
+      description: '20 | BA International and European Law',
       interests: 'Reading, Music, Cooking'
     }
   ]

@@ -1,45 +1,45 @@
 // add ticket_link : '*link for the tickets' for outside ticket purchase
 export const OPEN_SOCIETY_EVENTS = [
-  {
-    membersOnly: false,
-    visible: true,
-    title: "Bulgarian Student Party",
-    // newTitle: 'Bulgarian Dinner',
-    description: "Balkan tunes for the student holiday",
-    bgImage: "24",
-    date: "7th December",
-    time: "22:00",
-    ticketTimer: '2023-12-07T10:00:00',
-    ticketLimit: 115,
-    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-    correctedDate: "",
-    correctedTime: "",
-    where: `Sunny Beach`,
-    entry: 6,
-    memberEntry: 5,
-    // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
-    price_id: 'price_1OCPOgIOw5UGbAo1HaG36vVy',
-    memberPrice_id: 'price_1OCPPbIOw5UGbAo1ev6UZRHl',
-    activeMemberPrice_id: 'price_1OCPPbIOw5UGbAo1cckNspxQ',
-    freePass: ['vlady1002@abv.bg', 'Marios Lazarou', 'Constantinos Hadjicostis', 'Aggeliki Sideri', 'Kyriakos Panaou', 'Andreas Chitos', 'Sarantos Mourkakos', 'Anna Themistokleous'],
-    extraInputs: false,
-    text: [
-      `Come celebrate Bulgaria’s national student holiday with us on December 7th at Sunny Beach!`,
-      `In theme with the student holiday, the dress code is: Dress as your major. `,
-      `Future lawyers, come dressed for court. For the scientists- lab coats. For the business students- suits. This is your chance to put on that cute uni outfit you never get to wear!
-       `,
-      `To set the atmosphere, the amazing DJs: @djzander & @saahkoang @balkanifywill be playing your favorite Balkan rhythms. 
-      `,
-      `Expect thematic decorations and the best vibes! The event will start at 22:00 and we'll party through the night until 05:00! 
-      `,
-      `Dress up and get creative with the outfits!`,
-      `Tickets are limited so make sure you secure your spot NOW: €5 for members of BGSG & €6 for non-members.
-      `
-    ],
-    ticket_img: '/assets/images/tickets/ticket-9.png',
-    images: ["/assets/images/portfolio/portfolio-16"],
-    thumbnail: "/assets/images/portfolio/portfolio-16",
-  },
+  // {
+  //   membersOnly: false,
+  //   visible: true,
+  //   title: "Bulgarian Student Party",
+  //   // newTitle: 'Bulgarian Dinner',
+  //   description: "Balkan tunes for the student holiday",
+  //   bgImage: "24",
+  //   date: "7th December",
+  //   time: "22:00",
+  //   ticketTimer: '2023-12-07T10:00:00',
+  //   ticketLimit: 115,
+  //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+  //   correctedDate: "",
+  //   correctedTime: "",
+  //   where: `Sunny Beach`,
+  //   entry: 6,
+  //   memberEntry: 5,
+  //   // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
+  //   price_id: 'price_1OCPOgIOw5UGbAo1HaG36vVy',
+  //   memberPrice_id: 'price_1OCPPbIOw5UGbAo1ev6UZRHl',
+  //   activeMemberPrice_id: 'price_1OCPPbIOw5UGbAo1cckNspxQ',
+  //   freePass: ['vlady1002@abv.bg', 'Marios Lazarou', 'Constantinos Hadjicostis', 'Aggeliki Sideri', 'Kyriakos Panaou', 'Andreas Chitos', 'Sarantos Mourkakos', 'Anna Themistokleous'],
+  //   extraInputs: false,
+  //   text: [
+  //     `Come celebrate Bulgaria’s national student holiday with us on December 7th at Sunny Beach!`,
+  //     `In theme with the student holiday, the dress code is: Dress as your major. `,
+  //     `Future lawyers, come dressed for court. For the scientists- lab coats. For the business students- suits. This is your chance to put on that cute uni outfit you never get to wear!
+  //      `,
+  //     `To set the atmosphere, the amazing DJs: @djzander & @saahkoang @balkanifywill be playing your favorite Balkan rhythms. 
+  //     `,
+  //     `Expect thematic decorations and the best vibes! The event will start at 22:00 and we'll party through the night until 05:00! 
+  //     `,
+  //     `Dress up and get creative with the outfits!`,
+  //     `Tickets are limited so make sure you secure your spot NOW: €5 for members of BGSG & €6 for non-members.
+  //     `
+  //   ],
+  //   ticket_img: '/assets/images/tickets/ticket-9.png',
+  //   images: ["/assets/images/portfolio/portfolio-16"],
+  //   thumbnail: "/assets/images/portfolio/portfolio-16",
+  // },
   // {
   //   membersOnly: true,
   //   visible: true,
