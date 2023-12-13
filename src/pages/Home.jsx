@@ -13,7 +13,6 @@ import {
   FutureOtherEventsContent,
 } from "./information/FutureEvents";
 import ImageFb from "../elements/ui/ImageFb";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Home = () => {
   const user = useSelector(selectUser);
@@ -108,8 +107,8 @@ const Home = () => {
             </p>
           </li>
           <div className={`portfolio mt--20`} style={{width: '300px', marginLeft: '-40px'}}>
-          <Link
-            to='https://docs.google.com/forms/d/1poBOEjyKD-F5JMo02qtdeabubIVYTvrj0YMb58w3z9c/viewform?edit_requested=true'
+          <a
+            href='https://docs.google.com/forms/d/1poBOEjyKD-F5JMo02qtdeabubIVYTvrj0YMb58w3z9c/viewform?edit_requested=true'
             target='_blank'
             className="thumbnail-inner"
           >
@@ -119,7 +118,7 @@ const Home = () => {
               fallback='assets/images/news/it.jpg'
               alt="IT"
             />
-          </Link>
+          </a>
           </div>
           
         </ul>
