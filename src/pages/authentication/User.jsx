@@ -457,7 +457,7 @@ const User = () => {
                     <h2 className="title">News</h2>
                     <ul>
 
-                    
+
                       <li className="mt--40">
                         <p> Membership 2023-2024 open. <a href='/signup'>
                           Sign up!
@@ -465,10 +465,23 @@ const User = () => {
                         </p>
                       </li>
                       <li className="mt--40">
-                        <p>
-                          2nd Members event open now - <a href='https://www.bulgariansocietygro.nl/event-details/Rotterdam%20Trip'>Click to join</a>
+                        <p> Bulgarian Society Netherlands is looking for ITs - learn more by clicking below!
                         </p>
                       </li>
+                      <div className={`portfolio mt--20`} style={{ width: '300px', marginLeft: '-40px' }}>
+                        <Link
+                          to='https://docs.google.com/forms/d/1poBOEjyKD-F5JMo02qtdeabubIVYTvrj0YMb58w3z9c/viewform?edit_requested=true'
+                          target='_blank'
+                          className="thumbnail-inner"
+                        >
+                          <ImageFb
+                            className="thumbnail portfolio-img"
+                            src='assets/images/news/it.webp'
+                            fallback='assets/images/news/it.jpg'
+                            alt="IT"
+                          />
+                        </Link>
+                      </div>
                     </ul>
                   </div>
                 </div>

@@ -13,7 +13,7 @@ import {
   FutureOtherEventsContent,
 } from "./information/FutureEvents";
 import ImageFb from "../elements/ui/ImageFb";
-import Greeting from "../elements/Greeting";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Home = () => {
   const user = useSelector(selectUser);
@@ -95,7 +95,7 @@ const Home = () => {
 
         <h2 className="title">News</h2>
         <ul>
-        
+
 
           <li className="mt--40">
             <p> Membership 2023-2024 open. <a href='/signup'>
@@ -103,6 +103,25 @@ const Home = () => {
             </a>
             </p>
           </li>
+          <li className="mt--40">
+            <p> Bulgarian Society Netherlands is looking for ITs - learn more by clicking below!
+            </p>
+          </li>
+          <div className={`portfolio mt--20`} style={{width: '300px', marginLeft: '-40px'}}>
+          <Link
+            to='https://docs.google.com/forms/d/1poBOEjyKD-F5JMo02qtdeabubIVYTvrj0YMb58w3z9c/viewform?edit_requested=true'
+            target='_blank'
+            className="thumbnail-inner"
+          >
+            <ImageFb
+              className="thumbnail portfolio-img"
+              src='assets/images/news/it.webp'
+              fallback='assets/images/news/it.jpg'
+              alt="IT"
+            />
+          </Link>
+          </div>
+          
         </ul>
 
       </div>
