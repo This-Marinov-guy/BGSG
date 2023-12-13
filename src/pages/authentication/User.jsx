@@ -476,8 +476,8 @@ const User = () => {
                         >
                           <ImageFb
                             className="thumbnail portfolio-img"
-                            src='assets/images/news/it.webp'
-                            fallback='assets/images/news/it.jpg'
+                            src='/assets/images/news/it.webp'
+                            fallback='/assets/images/news/it.jpg'
                             alt="IT"
                           />
                         </a>
