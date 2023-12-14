@@ -94,7 +94,7 @@ const Christmas = (props) => {
                     {success ? <div style={{ padding: '10px' }}>
                         <FiX className="x_icon" onClick={() => { setShowForm(false) }} />
                         <img src='https://i.pinimg.com/originals/ff/6e/bd/ff6ebd0dfb50a44c04c842f365df4446.gif'></img>
-                        <p className="mt--20">Hope you had fun - we expect to see you next year as well! Kind regards, BGSN!</p>
+                        <p className="mt--20">Hope you had fun - we expect to see you next year as well! Kind regards, BGS-Netherlands!</p>
                     </div> : <Form
                         id="form"
                         style={{ padding: "5%" }}
