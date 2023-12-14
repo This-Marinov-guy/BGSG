@@ -7,7 +7,7 @@ const GifSearch = (props) => {
     const [renderedGifs, setRenderedGifs] = useState(null)
     const [selectedGifUrl, setSelectedGifsUrl] = useState('');
     const [loading, setLoading] = useState(false)
-    
+
     const apiKey = process.env.REACT_APP_GIPHY;
     const searchEndPoint = "https://api.giphy.com/v1/gifs/search?";
     const limit = 10;
@@ -42,7 +42,7 @@ const GifSearch = (props) => {
         <div className="col-lg-12 col-md-12 col-12">
             <div className="rnform-group">
                 <input type="text" value={keyword}
-                    placeholder={selectedGifUrl || "Search GIFs to add"} onChange={(event) => { searchGif(event.target.value), setKeyword(event.target.value) }} />
+                    placeholder={selectedGifUrl || "Search GIFs to add"} onChange={(event) => { searchGif(event.target.value); setKeyword(event.target.value) }} />
                 {(keyword && !loading && renderedGifs) && <div className='gif-container'>
                     {
                         renderedGifs.map((gif, index) => (
