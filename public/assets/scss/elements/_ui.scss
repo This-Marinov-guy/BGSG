@@ -2,6 +2,70 @@
   animation: slide-down 300ms ease-out forwards;
 }
 
+.holiday-special {
+  position: fixed;
+  text-align: center;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $body-color;
+  z-index: 1000;
+  padding: 10px !important;
+  border-radius: 5px;
+}
+
+.holiday-special-btns {
+  display: flex;
+  gap: 5px;
+
+  button {
+    max-width: 200px;
+    transform: scale(0.7);
+  }
+}
+.special-icon {
+  position: absolute;
+  scale: 0.3;
+  top: -90%;
+  margin-right: 30px;
+  transform: rotate(20deg);
+
+  @media only screen and (min-width: 680px) and (max-width: 800px) {
+    top: -70%;
+  }
+
+  @media only screen and (max-width: 600px) {
+    top: -50%;
+  }
+}
+.gif-container {
+  position: absolute;
+  border-radius: 5%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.gif-image {
+  width: 120%;
+  margin-bottom: 2px;
+  margin-left: -8%;
+  margin-right: -8%;
+  break-inside: avoid;
+}
+
+.gif-image img {
+  max-width: 100%;
+}
+
 h3 {
   &.label {
     color: $body-color;
@@ -49,9 +113,37 @@ h3 {
 
 .x_icon {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
+  scale: 0.8;
   cursor: pointer;
+
+  @media only screen and (max-width: 800px) {
+    scale: 0.6;
+  }
+}
+
+.card_panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: auto;
+  padding: 1% 5%;
+  border-radius: 5px;
+  border: solid 3px $body-color;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.card_text{
+  max-width: 50%;
+
+  @media only screen and (max-width: 800px) {
+    max-width: 90%;
+  }
 }
 
 @keyframes slide-down {
