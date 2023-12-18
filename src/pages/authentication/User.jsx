@@ -470,7 +470,7 @@ const User = () => {
                         >
                           <img
                             className="thumbnail portfolio-img"
-                            src='assets/images/news/am.jpg'
+                            src='/assets/images/news/am.jpg'
                             alt="IT"
                           />
                         </a>
