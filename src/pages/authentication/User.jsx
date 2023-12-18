@@ -101,7 +101,7 @@ const User = () => {
         colorblack="color--black"
         logoname="logo.png"
       />
-      <Christmas currentUser={currentUser}/>
+      <Christmas currentUser={currentUser} />
       {currentUser.status !== "active" && (
         <Locked case="locked" show={currentUser.status} />
       )}
@@ -458,14 +458,23 @@ const User = () => {
 
                     <h2 className="title">News</h2>
                     <ul>
-
-
                       <li className="mt--40">
-                        <p> Membership 2023-2024 open. <a href='/signup'>
-                          Sign up!
-                        </a>
+                        <p> Positions for active members are open - check them by clicking the link below!
                         </p>
                       </li>
+                      <div className={`portfolio mt--20`} style={{ width: '300px', marginLeft: '-40px' }}>
+                        <a
+                          href='https://docs.google.com/forms/d/e/1FAIpQLSdB-wgvtaJkDEtbgJIMFYcnzjrRw9Q_cikeWgivNL6-sWcagA/viewform'
+                          target='_blank'
+                          className="thumbnail-inner"
+                        >
+                          <img
+                            className="thumbnail portfolio-img"
+                            src='assets/images/news/am.jpg'
+                            alt="IT"
+                          />
+                        </a>
+                      </div>
                       <li className="mt--40">
                         <p> Bulgarian Society Netherlands is looking for ITs - learn more by clicking below!
                         </p>
