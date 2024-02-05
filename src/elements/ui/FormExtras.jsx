@@ -1,47 +1,51 @@
 import React from "react";
-import {Field, ErrorMessage } from "formik";
+import { Field, ErrorMessage } from "formik";
 
 const FormExtras = () => {
     return (
         <div className="row container mt--40">
             <div className="col-lg-12 col-md-12 col-12">
-            <h3>Preferences</h3>
                 <div className="rnform-group">
-                    <Field as="select" name="menuType">
+                    <Field as="select" name="inputOne">
                         <option value="" disabled>
-                            Select your menu
+                            How are you coming
                         </option>
-                        <option value="Classic">classic</option>
-                        <option value="Vegetarian">vegetarian</option>
-
+                        <option value="single">Single
+                        </option>
+                        <option value="team">As a team
+                        </option>
+                        
                     </Field>
                     <ErrorMessage
                         className="error"
-                        name="menuType"
+                        name="inputOne"
                         component="div"
                     />
                 </div>
             </div>
             <div className="col-lg-12 col-md-12 col-12">
                 <div className="rnform-group">
-                    <Field as="select" name="drink">
-                        <option value="" disabled>
-                            Select your drink
-                        </option>
-                        <option value="soft drink">soft drink</option>
-                        <option value="beer">beer</option>
-                        <option value="white wine">white wine</option>
-                        <option value="red wine">red wine</option>
-                    </Field>
-                    <ErrorMessage
+                <Field type='text' placeholder='Team Name' name="inputTwo">
+                </Field>
+                <small>*Only for teams</small>
+                </div>
+                <ErrorMessage
                         className="error"
-                        name="drink"
+                        name="inputTwo"
                         component="div"
                     />
-                </div>
             </div>
+            {/* <div className="col-lg-12 col-md-12 col-12">
+                <div className="rnform-group">
+                    <Field type='text' name="allergies" placeholder="Any allergies"
+                    >
+
+                    </Field>
+
+                </div>
+            </div> */}
         </div>
     )
 }
 
-export default FormExtras
+export default FormExtras 

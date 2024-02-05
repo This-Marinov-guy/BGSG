@@ -1,80 +1,77 @@
 // add ticket_link : '*link for the tickets' for outside ticket purchase
 export const OPEN_SOCIETY_EVENTS = [
-  // {
-  //   membersOnly: false,
-  //   visible: true,
-  //   title: "Bulgarian Student Party",
-  //   // newTitle: 'Bulgarian Dinner',
-  //   description: "Balkan tunes for the student holiday",
-  //   bgImage: "24",
-  //   date: "7th December",
-  //   time: "22:00",
-  //   ticketTimer: '2023-12-07T10:00:00',
-  //   ticketLimit: 115,
-  //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-  //   correctedDate: "",
-  //   correctedTime: "",
-  //   where: `Sunny Beach`,
-  //   entry: 6,
-  //   memberEntry: 5,
-  //   // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
-  //   price_id: 'price_1OCPOgIOw5UGbAo1HaG36vVy',
-  //   memberPrice_id: 'price_1OCPPbIOw5UGbAo1ev6UZRHl',
-  //   activeMemberPrice_id: 'price_1OCPPbIOw5UGbAo1cckNspxQ',
-  //   freePass: ['vlady1002@abv.bg', 'Marios Lazarou', 'Constantinos Hadjicostis', 'Aggeliki Sideri', 'Kyriakos Panaou', 'Andreas Chitos', 'Sarantos Mourkakos', 'Anna Themistokleous'],
-  //   extraInputs: false,
-  //   text: [
-  //     `Come celebrate Bulgaria’s national student holiday with us on December 7th at Sunny Beach!`,
-  //     `In theme with the student holiday, the dress code is: Dress as your major. `,
-  //     `Future lawyers, come dressed for court. For the scientists- lab coats. For the business students- suits. This is your chance to put on that cute uni outfit you never get to wear!
-  //      `,
-  //     `To set the atmosphere, the amazing DJs: @djzander & @saahkoang @balkanifywill be playing your favorite Balkan rhythms. 
-  //     `,
-  //     `Expect thematic decorations and the best vibes! The event will start at 22:00 and we'll party through the night until 05:00! 
-  //     `,
-  //     `Dress up and get creative with the outfits!`,
-  //     `Tickets are limited so make sure you secure your spot NOW: €5 for members of BGSG & €6 for non-members.
-  //     `
-  //   ],
-  //   ticket_img: '/assets/images/tickets/ticket-9.png',
-  //   images: ["/assets/images/portfolio/portfolio-16"],
-  //   thumbnail: "/assets/images/portfolio/portfolio-16",
-  // },
-  // {
-  //   membersOnly: true,
-  //   visible: true,
-  //   title: "Rotterdam Trip",
-  //   // newTitle: 'Bulgarian Dinner',
-  //   description: "Meet and Greet with BGSR",
-  //   bgImage: "25",
-  //   date: "2nd December",
-  //   time: "TBD",
-  //   ticketTimer: '2023-11-30T19:15:00',
-  //   ticketLimit: 20,
-  //   //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
-  //   correctedDate: "",
-  //   correctedTime: "",
-  //   where: `Rotterdam`,
-  //   entry: 25,
-  //   memberEntry: 25,
-  //   // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
-  //   price_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
-  //   memberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
-  //   activeMemberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
-  //   freePass: ['vlady1002@abv.bg'],
-  //   extraInputs: false,
-  //   text: [
-  //     `Join us for an exclusive members-only experience in Rotterdam, where we will meet our amazing partners from Bulgarian Society Rotterdam!
-  //     `,
-  //     `Don't miss out on this unique opportunity to connect with more interesting people, explore the vibrant city of Rotterdam, and create some lasting memories! Make sure you save a spot fast, since we offer only a limited number of places!!!
-  //     `,
-  //     `More details regarding the start time, the trip organization, and the activities throughout the day will be shared with you in a private WhatsApp group, in which you will be added after purchasing your ticket.
-  //      `,
-  //   ],
-  //   ticket_img: '/assets/images/tickets/ticket-10.jpg',
-  //   images: ["/assets/images/events/bgsr/2", "/assets/images/events/bgsr/1"],
-  //   thumbnail: "/assets/images/portfolio/portfolio-25",
-  // },
+  {
+    membersOnly: false,
+    visible: true,
+    title: "Quiz Night: Love & Wines",
+    // newTitle: 'Bulgarian Dinner',
+    description: "Love is smart",
+    bgImage: "26",
+    date: "14th February",
+    time: "19:00",
+    ticketTimer: '2024-02-14T18:00:00',
+    ticketLimit: 35,
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: `Cafe the Crown`,
+    entry: 7,
+    memberEntry: 6,
+    // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
+    price_id: 'price_1OgKdXIOw5UGbAo1xu2ic0ja',
+    memberPrice_id: 'price_1OgKe3IOw5UGbAo1aQhiMrxG',
+    activeMemberPrice_id: 'price_1OgKrIIOw5UGbAo1FlbrNHYZ',
+    freePass: ['vlady1002@abv.bg'],
+    extraInputs: true,
+    text: [
+      `Join our Love & Wine quiz night on February 14 at Café the Crown starting 19:00.`,
+      `We will host a thematic quiz for Trifon Zarezan, Valentine’s Day, and more fun rounds! The winners will get a prize!`,
+      `The participants will be in teams of 3-4 people. When buying your tickets you can either sign up as a team or join on your own and you will be assigned to a team! 
+       `,
+      `Tickets are limited so make sure you secure your spot now! €6 for members and €7 for non-members. 
+      `,
+      `See you all February 14th! 
+      `,
+    ],
+    ticket_img: '/assets/images/tickets/ticket-11.png',
+    images: ["/assets/images/portfolio/portfolio-24"],
+    thumbnail: "/assets/images/portfolio/portfolio-24",
+  },
+  {
+    membersOnly: true,
+    visible: true,
+    title: "Rotterdam Trip",
+    // newTitle: 'Bulgarian Dinner',
+    description: "Meet and Greet with BGSR",
+    bgImage: "25",
+    date: "2nd December",
+    time: "TBD",
+    ticketTimer: '2023-11-30T19:15:00',
+    ticketLimit: 20,
+    //Use the corrected date and time for changes in the date or time. Do not change the initial ones as it will make a new event in the DB
+    correctedDate: "",
+    correctedTime: "",
+    where: `Rotterdam`,
+    entry: 25,
+    memberEntry: 25,
+    // including: ['(includes a beer or non-alcoholic drink)', '(includes a beer or non-alcoholic drink)'],
+    price_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
+    memberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
+    activeMemberPrice_id: 'price_1OFsWAIOw5UGbAo1QbwfPhll',
+    freePass: ['vlady1002@abv.bg'],
+    extraInputs: false,
+    text: [
+      `Join us for an exclusive members-only experience in Rotterdam, where we will meet our amazing partners from Bulgarian Society Rotterdam!
+      `,
+      `Don't miss out on this unique opportunity to connect with more interesting people, explore the vibrant city of Rotterdam, and create some lasting memories! Make sure you save a spot fast, since we offer only a limited number of places!!!
+      `,
+      `More details regarding the start time, the trip organization, and the activities throughout the day will be shared with you in a private WhatsApp group, in which you will be added after purchasing your ticket.
+       `,
+    ],
+    ticket_img: '/assets/images/tickets/ticket-10.jpg',
+    images: ["/assets/images/events/bgsr/2", "/assets/images/events/bgsr/1"],
+    thumbnail: "/assets/images/portfolio/portfolio-25",
+  },
   // {
   //   visible: true,
   //   subEvent: {

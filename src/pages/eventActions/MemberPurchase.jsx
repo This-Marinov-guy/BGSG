@@ -17,10 +17,7 @@ import { createCustomerTicket } from "../../util/ticket-creator";
 import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
-const schema = yup.object().shape({
-  menuType: yup.string().required("Please select a menu"),
-  drink: yup.string().required('Please select your drink'),
-});
+
 
 const MemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
@@ -35,6 +32,11 @@ const MemberPurchase = () => {
   const history = useHistory()
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
+
+  const schema = yup.object().shape({
+    inputOne: target.extraInputs ? yup.string().required("Are you playing single or with teammates") : yup.string(),
+    inputTwo: target.extraInputs ? yup.string() : yup.string(),
+  });
 
   function calculateTimeRemaining(timer) {
     const now = new Date().getTime();
@@ -52,7 +54,6 @@ const MemberPurchase = () => {
         const responseData = await sendRequest(`user/${userId}`);
         setCurrentUser(responseData.user);
       } catch (err) {
-        console.log(err);
       }
     };
     fetchCurrentUser();
@@ -152,7 +153,7 @@ const MemberPurchase = () => {
                   formData.append("eventDate", target.date);
                   formData.append("userId", userId);
                   if (target.extraInputs) {
-                    formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
+                    formData.append('preferences', JSON.stringify({ type: values.inputOne, teamName: values.inputTwo }))
                   }
                   if (target.freePass.includes(currentUser.email) || target.freePass.includes(currentUser.name + ' ' + currentUser.surname)) {
                     const responseData = await sendRequest(
@@ -175,8 +176,8 @@ const MemberPurchase = () => {
                 } catch (err) { }
               }}
               initialValues={{
-                menuType: target.extraInputs ? "" : 'none',
-                drink: target.extraInputs ? "" : 'none',
+                inputOne: '',
+                inputTwo: '',
               }}>
               {() => (
                 <Form id='form' encType="multipart/form-data"

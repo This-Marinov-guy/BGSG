@@ -16,17 +16,6 @@ import { createCustomerTicket } from "../../util/ticket-creator"
 import FormExtras from "../../elements/ui/FormExtras";
 import { useHistory } from "react-router-dom";
 
-const schema = yup.object().shape({
-  name: yup.string().required(),
-  surname: yup.string().required(),
-  phone: yup.string().required(),
-  email: yup.string().email("Please enter a valid email").required(),
-  menuType: yup.string().required("Please select a menu"),
-  drink: yup.string().required('Please select your drink'),
-  policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
-  payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
-});
-
 
 const NonMemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
@@ -37,6 +26,17 @@ const NonMemberPurchase = () => {
 
   const target = useObjectGrabUrl(OPEN_SOCIETY_EVENTS);
   const history = useHistory()
+
+  const schema = yup.object().shape({
+    name: yup.string().required(),
+    surname: yup.string().required(),
+    phone: yup.string().required(),
+    email: yup.string().email("Please enter a valid email").required(),
+    inputOne: target.extraInputs ? yup.string().required("Are you playing single or with teammates") : yup.string(),
+    inputTwo: target.extraInputs ? yup.string() : yup.string(),
+    policyTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+    payTerms: yup.bool().required().oneOf([true], "Terms must be accepted"),
+  });
 
   function calculateTimeRemaining(timer) {
     const now = new Date().getTime();
@@ -61,7 +61,6 @@ const NonMemberPurchase = () => {
             setEventClosed(true)
           }
         } catch (err) {
-          console.log(err);
         }
       };
       checkRemainingTicketQuantity();
@@ -80,19 +79,19 @@ const NonMemberPurchase = () => {
   } else if (eventClosed) {
     return (
       <div className="container center_text mt--100">
-      <ImageFb
-        className="logo mb--40"
-        src="/assets/images/logo/logo.webp"
-        fallback="/assets/images/logo/logo.jpg"
-        alt="Logo"
-      />
-      <h3 className="">Opps ... it is all SOLD OUT! Please check the event description for tickets on-the-door or contact us through our email! Hope we see you soon!</h3>
-      <a href='/'
-        className="rn-button-style--2 btn-solid mt--20"
-      >
-        Home
-      </a>
-    </div>)
+        <ImageFb
+          className="logo mb--40"
+          src="/assets/images/logo/logo.webp"
+          fallback="/assets/images/logo/logo.jpg"
+          alt="Logo"
+        />
+        <h3 className="">Opps ... it is all SOLD OUT! Please check the event description for tickets on-the-door or contact us through our email! Hope we see you soon!</h3>
+        <a href='/'
+          className="rn-button-style--2 btn-solid mt--20"
+        >
+          Home
+        </a>
+      </div>)
   } else {
     return (
       <Fragment>
@@ -179,7 +178,7 @@ const NonMemberPurchase = () => {
                       formData.append("eventDate", target.date);
                       formData.append("guestEmail", values.email);
                       if (target.extraInputs) {
-                        formData.append('preferences', JSON.stringify({ menuType: values.menuType, drink: values.drink }))
+                        formData.append('preferences', JSON.stringify({ type: values.inputOne, teamName: values.inputTwo }))
                       }
                       formData.append(
                         "guestName",
@@ -212,8 +211,8 @@ const NonMemberPurchase = () => {
                     surname: "",
                     email: "",
                     phone: "",
-                    menuType: target.extraInputs ? "" : 'none',
-                    drink: target.extraInputs ? "" : 'none',
+                    inputOne: '',
+                    inputTwo: '',
                     policyTerms: false,
                     payTerms: false,
                   }}
