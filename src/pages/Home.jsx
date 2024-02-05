@@ -102,41 +102,6 @@ const Home = () => {
             </a>
             </p>
           </li>
-          <li className="mt--40">
-            <p> Positions for active members are open - check them by clicking the link below!
-            </p>
-          </li>
-          <div className={`portfolio mt--20`} style={{ width: '300px', marginLeft: '-40px' }}>
-            <a
-              href='https://docs.google.com/forms/d/e/1FAIpQLSdB-wgvtaJkDEtbgJIMFYcnzjrRw9Q_cikeWgivNL6-sWcagA/viewform'
-              target='_blank'
-              className="thumbnail-inner"
-            >
-              <img
-                className="thumbnail portfolio-img"
-                src='assets/images/news/am.jpg'
-                alt="IT"
-              />
-            </a>
-          </div>
-          <li className="mt--40">
-            <p> Bulgarian Society Netherlands is looking for ITs - learn more by clicking below!
-            </p>
-          </li>
-          <div className={`portfolio mt--20`} style={{ width: '300px', marginLeft: '-40px' }}>
-            <a
-              href='https://docs.google.com/forms/d/1poBOEjyKD-F5JMo02qtdeabubIVYTvrj0YMb58w3z9c/viewform?edit_requested=true'
-              target='_blank'
-              className="thumbnail-inner"
-            >
-              <ImageFb
-                className="thumbnail portfolio-img"
-                src='assets/images/news/it.webp'
-                fallback='assets/images/news/it.jpg'
-                alt="IT"
-              />
-            </a>
-          </div>
 
         </ul>
 

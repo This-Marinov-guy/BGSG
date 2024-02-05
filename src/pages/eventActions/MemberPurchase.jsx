@@ -18,7 +18,6 @@ import PageLoading from "../../elements/ui/PageLoading";
 import FormExtras from "../../elements/ui/FormExtras";
 
 
-
 const MemberPurchase = () => {
   const { loading, sendRequest } = useHttpClient();
 
